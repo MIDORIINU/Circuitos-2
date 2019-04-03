@@ -1,0 +1,145 @@
+
+\input{config}
+
+
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+%-------------------------------------------------
+%--------------- BEGIN DOCUMENT ------------------
+%-------------------------------------------------
+\begin{document}
+
+
+
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+%Incluyo la caratula
+%Caratula
+\input{caratula}
+\thispagestyle{empty}
+\cleardoublepage
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+	
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+%Reinicio la cuenta y seteo el estilo de headers y footers.
+\pagestyle{indexstyle}
+\pagenumbering{Roman}
+\setcounter{page}{1}
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\begin{small}
+\tableofcontents 
+\addcontentsline{toc}{section}{Índice}
+%\phantomsection\pdfbookmark[0]{\indexname}{bookmarkForTheIndex}
+
+\clearpage
+
+\listoffigures
+
+\clearpage
+
+\listoftables
+
+\end{small}
+
+\cleardoublepage
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+%Reinicio la cuenta y seteo el stilo de headers y footers.
+\pagestyle{allpages}
+\setcounter{page}{1}
+\pagenumbering{arabic}
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\section{Enunciado}
+\resetallcounters
+\input{enunciado}
+\cleardoublepage
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\section{Punto de reposo}
+\resetallcounters
+\input{qpoint}
+\cleardoublepage
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\section{Análisis a frecuencias medias}
+\resetallcounters
+\input{smallsignal}
+\cleardoublepage
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\section{Respuesta en frecuencia}
+\resetallcounters
+\input{freqresponse}
+\cleardoublepage
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\section{Simulaciones}
+\resetallcounters
+\input{simulations}
+\cleardoublepage
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\section{Observaciones y conclusiones}
+\resetallcounters
+\input{conclusiones}
+\cleardoublepage
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+%Reinicio la cuenta y seteo el estilo de headers y footers.
+\pagestyle{bibliostyle}
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\section{Bibliografía}
+\resetallcounters
+\input{bibliografia}
+\cleardoublepage
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+\appendix
+
+\appendixpage
+\addappheadtotoc
+
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+%Seteo el stilo de headers y footers.
+\pagestyle{codestyle}
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+%Seteo el stilo de headers y footers.
+\pagestyle{codestyle}
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+%\section{Salidas de las simulaciones en \spice}
+%\resetallcounters
+%\input{simul_outs}
+%\cleardoublepage
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+%Seteo el stilo de headers y footers.
+\pagestyle{allpages}
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\section{Hojas de datos}
+\resetallcounters
+\input{datasheets}
+\cleardoublepage
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+\end{document}
