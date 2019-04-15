@@ -4,7 +4,7 @@ function power_supply_sc_P7()
 size_percent = 80;
 
 %Cargo los datos
-TableData=importdata("../LTSPICE/power_supply_sc_P7.txt");
+TableData=importdata("../LTSPICE/power_supply_sc_P07.txt");
 
 X1=TableData.data(:,1);
 
