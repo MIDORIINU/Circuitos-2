@@ -1,4 +1,4 @@
-function power_supply_sc_P7()
+function power_supply_sc_P07()
 
 %Tamaño de la figura.
 size_percent = 80;
