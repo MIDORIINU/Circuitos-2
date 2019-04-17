@@ -1,4 +1,4 @@
-.model BC548B   NPN(
+.model BC548B NPN
 +Is=7.049f
 +Rb=150
 +Xti=3
@@ -26,6 +26,6 @@
 +Tf=410.2p
 +Itf=1.491
 +Xtf=40.06
-+Vtf=10)
++Vtf=10
 *		PHILIPS		pid=bc546b	case=TO92
 *		91-07-31 dsq
