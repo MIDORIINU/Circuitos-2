@@ -1,13 +1,10 @@
-function power_supply_P07()
-
-%Cierro las figuras existentes.
-close all;
+function power_supply_P19()
 
 %Tamaño de la figura.
 size_percent = 80;
 
 %Cargo los datos
-TableData=importdata("../LTSPICE/power_supply_P07.txt");
+TableData = importdata("../LTSPICE/power_supply_P19.txt");
 
 X1 = TableData.data(:,1);
 
@@ -27,30 +24,31 @@ axes1 = axes('Parent',figure1);
 hold(axes1,'on');
 
 % Create plot
-plot1 = plot(X1,Y1);
+plot1=plot(X1,Y1);
 
 % Create ylabel
-ylabel('Corriente de salida máxima de la fuente de alimentación (I_{out}) [A]');
+ylabel('Corriente de salida de la fuente de alimentación (I_{out}) [A]');
 
 % Create xlabel
-xlabel('Resistencia de ajuste de corriente máxima (R_{18}) [\Omega]');
+xlabel('Tensión de entrada de la fuente de alimentación (V_{in}) [V]');
 
 % Create title
-title('Corriente de salida de la fuente en función de R_{18} (salida en cortocircuito)');
+title('Corriente de salida de la fuente en función de la tensión de entrada (salida en cortocircuito)');
 
 box(axes1,'on');
 % Set the remaining axes properties
 set(axes1,'XGrid','on','XMinorTick','on','XTick',...
-    [0 1000 2000 3000 4000 5000 6000 7000 8000 9000 10000 11000 12000 13000 14000 15000 16000 17000 18000],...
+    [0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30],...
     'YGrid','on','YMinorTick','on','YTick',...
-    [0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1 1.1 1.2 1.3 1.4 1.5 1.6 1.7 1.8 1.9 2 2.1 2.2 2.3 2.4 2.5]);
+    [-2 -1.5 -1 -0.5 0 0.5 1 1.5 2 2.5 3 3.5 4 4.5 5 5.5 6 6.5 7 7.5 8 8.5 9 9.5 10 10.5 11 11.5 12],...
+    'YTickLabel',...
+    {'-2','-1.5','-1','-0.5','0','0.5','1','1.5','2','2.5','3','3.5','4','4.5','5','5.5','6','6.5','7','7.5','8','8.5','9','9.5','10','10.5','11','11.5','12'});
 
 xlim(axes1,'manual');
-xlim([0 1.8E4]);
+xlim([0 30]);
 
 ylim(axes1,'manual');
-ylim( [0 2.2]);
-
+ylim( [-0.5 3.5]);
 
 %Agrego datatips customizados.
 
@@ -59,25 +57,28 @@ dcm_obj = datacursormode(figure1);
 customtitles = {};
 customtitlesindexes = [];
 
+indexesX =  find(X1 >= 5);
 
-min_index = 1;
+indexesY = find(Y1 > (99/100)*2.048);
 
-hdtip(min_index) = dcm_obj.createDatatip(handle(plot1));
+knee_index = indexesY(find(indexesY >= indexesX(1), 1));
 
-set(hdtip(min_index), 'MarkerSize',5, 'MarkerFaceColor','none', ...
+hdtip(knee_index) = dcm_obj.createDatatip(handle(plot1));
+
+set(hdtip(knee_index), 'MarkerSize',5, 'MarkerFaceColor','none', ...
                   'MarkerEdgeColor','r', 'Marker','o', 'HitTest','off');
               
-YValue = [X1(min_index) , Y1(min_index) , 1];
+YValue = [X1(knee_index) , Y1(knee_index) , 1];
               
-set(hdtip(min_index), 'Position', YValue, 'Orientation','topright')
+set(hdtip(knee_index), 'Position', YValue, 'Orientation','topleft')
 
-customtitles{end + 1} = '*** Máxima corriente de salida ***';
+customtitles{end + 1} = '*** Comienzo de la regulación de corriente ***';
 
-customtitlesindexes = [customtitlesindexes, min_index];
+customtitlesindexes = [customtitlesindexes, knee_index];
                     
 
 
-[max_index, ~] = size(X1);
+[~,max_index] = max(Y1);
 
 hdtip(max_index) = dcm_obj.createDatatip(handle(plot1));
 
@@ -86,10 +87,10 @@ set(hdtip(max_index), 'MarkerSize',5, 'MarkerFaceColor','none', ...
               
 YValue = [X1(max_index) , Y1(max_index) , 1];
               
-set(hdtip(max_index), 'Position', YValue, 'Orientation','bottomleft')
+set(hdtip(max_index), 'Position', YValue, 'Orientation','topright')
 
 
-customtitles{end + 1} = '*** Mínima corriente de salida ***';
+customtitles{end + 1} = '*** Limitación de corriente por Q15 ***';
 
 customtitlesindexes = [customtitlesindexes, max_index];
 
@@ -109,11 +110,10 @@ function output_txt = customDatatipFunction(~,evt, customtitles, ...
     idx = get(evt,'DataIndex');
     
     idx_f = find(customtitlesindexes == idx, 1);
-        
-    output_txt = {sprintf('%s\nR18:    %.2f Ohms\nSalida: %.2f A', ...
+    
+    
+    output_txt = {sprintf('%s\nEntrada: %.2f V\nSalida: %.2f A', ...
         customtitles{idx_f}, pos(1), pos(2))};
-
-
 
 
 
