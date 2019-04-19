@@ -33,7 +33,7 @@ ylabel('Corriente de salida de la fuente de alimentación (I_{out}) [A]');
 xlabel('Tensión de entrada de la fuente de alimentación (V_{in}) [V]');
 
 % Create title
-title('Corriente de salida de la fuente en función de la tensión de entrada (salida en cortocircuito)');
+title('Corriente de salida de la fuente en función de la tensión de entrada (R_{9} = 90 K\Omega , R_{18} = 0 \Omega, R_{L} = 0 \Omega)');
 
 box(axes1,'on');
 % Set the remaining axes properties
@@ -54,8 +54,8 @@ ylim( [-0.5 3.5]);
 
 dcm_obj = datacursormode(figure1);
 
-customtitles = {};
-customtitlesindexes = [];
+customtitles = {''};
+customtitlesindexes = 1;
 
 indexesX =  find(X1 >= 5);
 
@@ -111,6 +111,9 @@ function output_txt = customDatatipFunction(~,evt, customtitles, ...
     
     idx_f = find(customtitlesindexes == idx, 1);
     
+    if (isempty(idx_f))
+        idx_f = 1;
+    end    
     
     output_txt = {sprintf('%s\nEntrada: %.2f V\nSalida: %.2f A', ...
         customtitles{idx_f}, pos(1), pos(2))};

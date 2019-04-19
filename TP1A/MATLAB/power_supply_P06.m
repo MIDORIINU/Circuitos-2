@@ -36,7 +36,7 @@ ylabel('Tensión de salida de la fuente de alimentación (V_{out}) [V]');
 xlabel('Resistencia de ajuste de tensión (R_{9}) [\Omega]');
 
 % Create title
-title('Tensión de salida de la fuente en función de R_{9} (sin carga)');
+title('Tensión de salida de la fuente de alimentación en función de R_{9} (R_{9} : 0 \Omega \rightarrow 90K\Omega, R_{18} = 0 \Omega, R_{L} = 1 M\Omega)');
 
 box(axes1,'on');
 % Set the remaining axes properties
@@ -56,8 +56,8 @@ ylim( [0 11]);
 
 dcm_obj = datacursormode(figure1);
 
-customtitles = {};
-customtitlesindexes = [];
+customtitles = {''};
+customtitlesindexes = 0;
 
 
 min_index = 1;
@@ -109,6 +109,10 @@ function output_txt = customDatatipFunction(~,evt, customtitles, ...
     idx = get(evt,'DataIndex');
     
     idx_f = find(customtitlesindexes == idx, 1);
+    
+    if (isempty(idx_f))
+        idx_f = 1;
+    end
         
     output_txt = {sprintf('%s\nR9:      %.2f Ohms\nSalida: %.2f V', ...
         customtitles{idx_f}, pos(1), pos(2))};

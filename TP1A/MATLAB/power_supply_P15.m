@@ -11,8 +11,6 @@ TableData=importdata("../LTSPICE/power_supply_P15.txt");
 
 X1 = TableData.data(:,3);
 
-X2 = TableData.data(:,1);
-
 Y1 = TableData.data(:,2);
 
 
@@ -30,7 +28,7 @@ axes1 = axes('Parent',figure1);
 hold(axes1,'on');
 
 % Create plot
-plot(X1,Y1);
+plot1 = plot(X1,Y1);
 
 % Create ylabel
 ylabel('Tensión de salida de la fuente de alimentación (V_{out}) [V]');
@@ -39,12 +37,8 @@ ylabel('Tensión de salida de la fuente de alimentación (V_{out}) [V]');
 xlabel('Corriente de salida de la fuente de alimentación (I_{out}) [A]');
 
 % Create title
-title('Tensión de salida de la fuente de alimentación en función de la corriente de salida (R_{9} = 10K\Omega, R_{18} = 0\Omega)');
+title('Tensión de salida de la fuente de alimentación en función de la corriente de salida (R_{9} = 10K\Omega, R_{18} = 0\Omega, R_{L} : 100 \Omega \rightarrow 0 \Omega)');
 
-% Uncomment the following line to preserve the X-limits of the axes
-% xlim(axes1,[0 2.1]);
-% Uncomment the following line to preserve the Y-limits of the axes
-% ylim(axes1,[0 2.1]);
 box(axes1,'on');
 % Set the remaining axes properties
 set(axes1,'XGrid','on','XMinorTick','on','XTick',...
@@ -57,5 +51,75 @@ xlim([0 2.1]);
 
 ylim(axes1,'manual');
 ylim( [0 2.1]);
+
+
+%Agrego datatips customizados.
+
+dcm_obj = datacursormode(figure1);
+
+customtitles = {''};
+customtitlesindexes = 1;
+
+voltage_index = find( Y1 >= 2.028, 1);
+
+hdtip(voltage_index) = dcm_obj.createDatatip(handle(plot1));
+
+set(hdtip(voltage_index), 'MarkerSize',5, 'MarkerFaceColor','none', ...
+                  'MarkerEdgeColor','r', 'Marker','o', 'HitTest','off');
+              
+YValue = [X1(voltage_index) , Y1(voltage_index) , 1];
+              
+set(hdtip(voltage_index), 'Position', YValue, 'Orientation','bottomright')
+
+customtitles{end + 1} = '*** En regulación de tensión ***';
+
+customtitlesindexes = [customtitlesindexes, voltage_index];
+
+
+current_indexes = find( X1 >= 2.045);
+
+voltage_indexes =  find(Y1 >= 1);
+
+current_index = current_indexes(...
+    find(current_indexes >= voltage_indexes(1), 1));
+
+hdtip(current_index) = dcm_obj.createDatatip(handle(plot1));
+
+set(hdtip(current_index), 'MarkerSize',5, 'MarkerFaceColor','none', ...
+                  'MarkerEdgeColor','r', 'Marker','o', 'HitTest','off');
+              
+YValue = [X1(current_index) , Y1(current_index) , 1];
+              
+set(hdtip(current_index), 'Position', YValue, 'Orientation','bottomleft')
+
+customtitles{end + 1} = '*** En regulación de corriente ***';
+
+customtitlesindexes = [customtitlesindexes, current_index];
+
+
+set(dcm_obj, 'UpdateFcn', {@customDatatipFunction, customtitles, ...
+    customtitlesindexes})
+
+updateDataCursors(dcm_obj);
+            
+           
+              
+
+function output_txt = customDatatipFunction(~,evt, customtitles, ...
+    customtitlesindexes)
+    pos = get(evt,'Position');
+    idx = get(evt,'DataIndex');
+    
+    idx_f = find(customtitlesindexes == idx, 1);
+    
+    if (isempty(idx_f))
+        idx_f = 1;
+    end
+    
+    output_txt = {sprintf('%s\nCorriente: %.2f A\nTensión:   %.2f V', ...
+        customtitles{idx_f}, pos(1), pos(2))};
+    
+    
+ 
 
 

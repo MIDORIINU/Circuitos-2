@@ -36,7 +36,7 @@ ylabel('Corriente de salida máxima de la fuente de alimentación (I_{out}) [A]');
 xlabel('Resistencia de ajuste de corriente máxima (R_{18}) [\Omega]');
 
 % Create title
-title('Corriente de salida de la fuente en función de R_{18} (salida en cortocircuito)');
+title('Corriente de salida de la fuente de alimentación en función de R_{18} (R_{9} = 10 K\Omega , R_{18} : 0 \Omega \rightarrow 18K\Omega, R_{L} = 0 \Omega)');
 
 box(axes1,'on');
 % Set the remaining axes properties
@@ -56,8 +56,8 @@ ylim( [0 2.2]);
 
 dcm_obj = datacursormode(figure1);
 
-customtitles = {};
-customtitlesindexes = [];
+customtitles = {''};
+customtitlesindexes = 0;
 
 
 min_index = 1;
@@ -109,6 +109,10 @@ function output_txt = customDatatipFunction(~,evt, customtitles, ...
     idx = get(evt,'DataIndex');
     
     idx_f = find(customtitlesindexes == idx, 1);
+    
+    if (isempty(idx_f))
+        idx_f = 1;
+    end
         
     output_txt = {sprintf('%s\nR18:    %.2f Ohms\nSalida: %.2f A', ...
         customtitles{idx_f}, pos(1), pos(2))};
