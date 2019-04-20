@@ -1,0 +1,147 @@
+﻿Circuit: * Circuitos-2\TP1A\LTSPICE\power_supply_P17b.asc
+
+Ignoring empty pin current: Ix(u2:11)
+Early termination of direct N-R iteration.
+Direct Newton iteration failed to find .op point.  (Use ".option noopiter" to skip.)
+Starting Gmin stepping
+Gmin = 10
+vernier = 0.5
+vernier = 0.25
+vernier = 0.125
+Gmin = 6.68666
+vernier = 0.0625
+vernier = 0.03125
+vernier = 0.015625
+vernier = 0.0078125
+Gmin = 6.72377
+vernier = 0.00390625
+vernier = 0.00195313
+vernier = 0.000976563
+vernier = 0.000488281
+Gmin = 6.72131
+Gmin = 0
+Gmin stepping failed
+
+Starting source stepping with srcstepmethod=0
+Source Step = 3.0303%
+Source Step = 33.3333%
+Source Step = 63.6364%
+Source Step = 93.9394%
+Source stepping succeeded in finding the operating point.
+
+Semiconductor Device Operating Points:
+                        --- Diodes ---
+Name:    d:u2:2      d:u2:1        d1        d:u3b:p    d:u3b:ln
+Model:  u2:dclamp   u2:dclamp    d1n4148     u3b:dx      u3b:dx
+Id:      7.77e-04   -1.35e-08    1.14e-03   -1.51e-11   -2.52e-11
+Vd:      4.51e-01   -8.31e+00    5.97e-01   -1.51e+01   -2.52e+01
+Req:     5.29e+01    1.00e+12    4.71e+01    1.00e+12    1.00e+12
+CAP:     1.01e-09    2.12e-11    2.37e-10    0.00e+00    0.00e+00
+
+Name:   d:u3b:lp     d:u3b:e     d:u3b:c     d:u3a:p    d:u3a:ln
+Model:   u3b:dx      u3b:dx      u3b:dx      u3a:dx      u3a:dx
+Id:     -2.48e-11   -3.30e-12   -7.37e-12   -1.51e-11   -2.49e-11
+Vd:     -2.48e+01   -3.30e+00   -7.37e+00   -1.51e+01   -2.49e+01
+Req:     1.00e+12    1.00e+12    1.00e+12    1.00e+12    1.00e+12
+CAP:     0.00e+00    0.00e+00    0.00e+00    0.00e+00    0.00e+00
+
+Name:   d:u3a:lp     d:u3a:e     d:u3a:c
+Model:   u3a:dx      u3a:dx      u3a:dx
+Id:     -2.52e-11   -3.30e-12   -7.37e-12
+Vd:     -2.51e+01   -3.30e+00   -7.37e+00
+Req:     1.00e+12    1.00e+12    1.00e+12
+CAP:     0.00e+00    0.00e+00    0.00e+00
+
+                        --- Bipolar Transistors ---
+Name:       q15         q14         q6          q3          q4
+Model:    qbd135      qbd135      qbd135      qbd135     qmje15032
+Ib:       1.52e-12    1.47e-04    1.34e-04    1.36e-04    1.52e-04
+Ic:       1.21e-10    1.85e-02    1.71e-02    1.71e-02    1.34e-02
+Vbe:      2.00e-01    6.86e-01    6.83e-01    6.83e-01    5.59e-01
+Vbc:     -1.24e+00   -7.39e+00   -1.08e+01   -8.39e+00   -8.63e+00
+Vce:      1.44e+00    8.08e+00    1.14e+01    9.08e+00    9.19e+00
+BetaDC:   7.97e+01    1.26e+02    1.28e+02    1.26e+02    8.83e+01
+Gm:       4.67e-09    7.14e-01    6.62e-01    6.63e-01    4.11e-01
+Rpi:      1.24e+10    1.74e+02    1.91e+02    1.89e+02    2.11e+02
+Rx:       5.00e-01    5.00e-01    5.00e-01    5.00e-01    9.51e+00
+Ro:       1.86e+12    1.23e+04    1.35e+04    1.33e+04    2.40e+03
+Cbe:      1.39e-10    7.81e-10    7.42e-10    7.43e-10    7.03e-09
+Cbc:      2.74e-12    1.43e-12    1.23e-12    1.36e-12    7.83e-11
+Cjs:      0.00e+00    0.00e+00    0.00e+00    0.00e+00    0.00e+00
+BetaAC:   5.79e+01    1.24e+02    1.26e+02    1.25e+02    8.68e+01
+Cbx:      1.55e-11    8.13e-12    6.97e-12    7.72e-12    1.96e-11
+Ft:       4.73e+00    1.44e+08    1.40e+08    1.40e+08    9.18e+06
+
+Name:       q5          q2          q1          q10         q11
+Model:   qmje2955t    bc558b      bc558b      bc558b      bc558b
+Ib:      -7.26e-03   -4.58e-06   -3.84e-06   -2.59e-06   -2.79e-06
+Ic:      -9.87e-01   -1.27e-03   -1.28e-03   -8.38e-04   -8.91e-04
+Vbe:     -6.15e-01   -6.45e-01   -6.40e-01   -6.29e-01   -6.31e-01
+Vbc:      9.19e+00    0.00e+00    7.28e+00    6.02e+00    5.50e+00
+Vce:     -9.81e+00   -6.45e-01   -7.92e+00   -6.65e+00   -6.13e+00
+BetaDC:   1.36e+02    2.77e+02    3.33e+02    3.23e+02    3.19e+02
+Gm:       2.79e+01    4.82e-02    4.87e-02    3.21e-02    3.41e-02
+Rpi:      3.82e+00    5.71e+03    6.81e+03    1.01e+04    9.38e+03
+Rx:       1.77e+01    5.20e+00    5.48e+00    6.11e+00    5.99e+00
+Ro:       2.70e+01    2.88e+04    3.43e+04    5.08e+04    4.72e+04
+Cbe:      6.52e-07    6.00e-11    5.96e-11    4.72e-11    4.88e-11
+Cbc:      1.09e-10    4.02e-12    1.20e-12    1.29e-12    1.34e-12
+Cjs:      0.00e+00    0.00e+00    0.00e+00    0.00e+00    0.00e+00
+BetaAC:   1.06e+02    2.75e+02    3.31e+02    3.24e+02    3.20e+02
+Cbx:      2.69e-11    2.38e-12    7.07e-13    7.64e-13    7.92e-13
+Ft:       6.80e+06    1.15e+08    1.26e+08    1.03e+08    1.06e+08
+
+Name:       q13         q12         q9          q7
+Model:    bc548b      bc548b      bc548b      bc548b
+Ib:       3.50e-06    3.48e-06    1.98e-06   -6.74e-12
+Ic:       1.28e-03    1.14e-03    6.02e-04    9.47e-12
+Vbe:      6.65e-01    6.65e-01    6.48e-01    1.28e-01
+Vbc:     -1.77e+01   -9.84e+00   -7.82e+00   -8.34e+00
+Vce:      1.84e+01    1.05e+01    8.47e+00    8.47e+00
+BetaDC:   3.64e+02    3.29e+02    3.03e+02   -1.41e+00
+Gm:       4.88e-02    4.36e-02    2.31e-02    4.29e-11
+Rpi:      8.07e+03    8.13e+03    1.45e+04    2.54e+10
+Rx:       1.50e+02    1.50e+02    1.50e+02    1.50e+02
+Ro:       6.31e+04    6.36e+04    1.17e+05    6.41e+13
+Cbe:      5.87e-11    5.66e-11    4.74e-11    1.40e-11
+Cbc:      1.76e-12    2.10e-12    2.25e-12    2.21e-12
+Cjs:      0.00e+00    0.00e+00    0.00e+00    0.00e+00
+BetaAC:   3.94e+02    3.55e+02    3.35e+02    1.09e+00
+Cbx:      0.00e+00    0.00e+00    0.00e+00    0.00e+00
+Ft:       1.28e+08    1.18e+08    7.41e+07    1.69e-01
+
+                        --- JFET Transistors ---
+Name:    j:u3b:2     j:u3b:1     j:u3a:2     j:u3a:1
+Model:   u3b:jx      u3b:jx      u3a:jx      u3a:jx
+Id:     -9.87e-05   -9.87e-05   -9.69e-05   -9.69e-05
+Vgs:     3.96e-01    3.96e-01    4.01e-01    4.01e-01
+Vds:    -4.76e+00   -4.76e+00   -8.50e+00   -8.50e+00
+Gm:      3.27e-04    3.27e-04    3.23e-04    3.24e-04
+Gds:     0.00e+00    0.00e+00    0.00e+00    0.00e+00
+Cgs:     0.00e+00    0.00e+00    0.00e+00    0.00e+00
+Cgd:     0.00e+00    0.00e+00    0.00e+00    0.00e+00
+
+
+
+pin: v(vin)*(-i(v1))=20.7935
+pout: v(vout)*(-i(rl))=9.98896
+eff: pout / pin=0.48039
+
+
+Date: Sat Apr 20 05:26:23 2019
+Total elapsed time: 0.680 seconds.
+
+tnom = 27
+temp = 27
+method = trap
+totiter = 1848
+traniter = 0
+tranpoints = 0
+accept = 0
+rejected = 0
+matrix size = 127
+fillins = 407
+solver = Normal
+Matrix Compiler1: 38.71 KB object code size
+Matrix Compiler2:    1309 opcodes  7.3/[5.3]/6.9
+

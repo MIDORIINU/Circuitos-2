@@ -7,8 +7,6 @@ close all;
 size_percent = 80;
 
 %Cargo los datos
-%%TableData = importdata("../LTSPICE/power_supply_P13.txt");
-
 fileID = fopen("../LTSPICE/power_supply_P14.txt");
 %%C_text = textscan(fileID, '%s', 1);
 TableData = textscan(fileID,'%f %f,%f', 'HeaderLines', 1);

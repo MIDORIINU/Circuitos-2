@@ -1,0 +1,189 @@
+﻿Circuit: * Circuitos-2\TP1A\LTSPICE\power_supply_P17a.asc
+
+Ignoring empty pin current: Ix(u2:11)
+Early termination of direct N-R iteration.
+Direct Newton iteration failed to find .op point.  (Use ".option noopiter" to skip.)
+Starting Gmin stepping
+Gmin = 10
+vernier = 0.5
+vernier = 0.25
+vernier = 0.125
+Gmin = 5.5165
+vernier = 0.0625
+vernier = 0.03125
+vernier = 0.015625
+vernier = 0.0078125
+Gmin = 5.49501
+vernier = 0.00390625
+vernier = 0.00195313
+vernier = 0.000976563
+vernier = 0.000488281
+Gmin = 5.50104
+Gmin = 0
+Gmin stepping failed
+
+Starting source stepping with srcstepmethod=0
+Source Step = 3.0303%
+Source Step = 11.9318%
+Source Step = 12.358%
+Source Step = 12.8314%
+Source Step = 13.3049%
+Source Step = 13.7784%
+Source Step = 14.2519%
+vernier = 0.0234375
+Source Step = 14.9148%
+Source Step = 15.625%
+Source Step = 16.3352%
+Source Step = 17.0455%
+Source Step = 17.7557%
+vernier = 0.0351563
+Source Step = 18.7145%
+Source Step = 19.7798%
+Source Step = 20.8452%
+Source Step = 21.9105%
+Source Step = 22.9759%
+vernier = 0.0527344
+Source Step = 24.3608%
+Source Step = 25.9588%
+Source Step = 27.5568%
+Source Step = 29.1548%
+Source Step = 30.7528%
+vernier = 0.0791016
+Source Step = 32.7504%
+Source Step = 35.1474%
+Source Step = 37.5444%
+Source Step = 39.9414%
+Source Step = 42.3384%
+vernier = 0.118652
+Source Step = 45.2148%
+Source Step = 48.8104%
+Source Step = 52.4059%
+Source Step = 56.0014%
+Source Step = 59.5969%
+vernier = 0.177979
+Source Step = 63.7318%
+Source Step = 69.1251%
+Source Step = 74.5184%
+Source Step = 79.9117%
+Source Step = 85.305%
+vernier = 0.266968
+Source Step = 91.2376%
+Source Step = 99.3275%
+Source stepping succeeded in finding the operating point.
+
+Semiconductor Device Operating Points:
+                        --- Diodes ---
+Name:    d:u2:2      d:u2:1        d1        d:u3b:p    d:u3b:ln
+Model:  u2:dclamp   u2:dclamp    d1n4148     u3b:dx      u3b:dx
+Id:      2.74e-04   -1.35e-08    1.14e-03   -1.51e-11   -2.52e-11
+Vd:      4.08e-01   -8.35e+00    5.97e-01   -1.51e+01   -2.52e+01
+Req:     1.50e+02    1.00e+12    4.74e+01    1.00e+12    1.00e+12
+CAP:     3.92e-10    2.12e-11    2.36e-10    0.00e+00    0.00e+00
+
+Name:   d:u3b:lp     d:u3b:e     d:u3b:c     d:u3a:p    d:u3a:ln
+Model:   u3b:dx      u3b:dx      u3b:dx      u3a:dx      u3a:dx
+Id:     -2.48e-11   -3.30e-12   -7.37e-12   -1.51e-11   -2.49e-11
+Vd:     -2.48e+01   -3.30e+00   -7.37e+00   -1.51e+01   -2.49e+01
+Req:     1.00e+12    1.00e+12    1.00e+12    1.00e+12    1.00e+12
+CAP:     0.00e+00    0.00e+00    0.00e+00    0.00e+00    0.00e+00
+
+Name:   d:u3a:lp     d:u3a:e     d:u3a:c
+Model:   u3a:dx      u3a:dx      u3a:dx
+Id:     -2.52e-11   -3.30e-12   -7.37e-12
+Vd:     -2.51e+01   -3.30e+00   -7.37e+00
+Req:     1.00e+12    1.00e+12    1.00e+12
+CAP:     0.00e+00    0.00e+00    0.00e+00
+
+                        --- Bipolar Transistors ---
+Name:       q15         q14         q6          q3          q4
+Model:    qbd135      qbd135      qbd135      qbd135     qmje15032
+Ib:       1.46e-12    1.50e-04    1.34e-04    1.39e-04    2.16e-04
+Ic:       1.19e-10    1.85e-02    1.71e-02    1.72e-02    1.60e-02
+Vbe:      2.00e-01    6.86e-01    6.83e-01    6.84e-01    5.71e-01
+Vbc:     -1.25e+00   -2.39e+00   -1.07e+01   -3.40e+00   -3.60e+00
+Vce:      1.45e+00    3.08e+00    1.14e+01    4.09e+00    4.17e+00
+BetaDC:   8.12e+01    1.23e+02    1.28e+02    1.24e+02    7.39e+01
+Gm:       4.59e-09    7.13e-01    6.62e-01    6.65e-01    4.89e-01
+Rpi:      1.26e+10    1.70e+02    1.91e+02    1.84e+02    1.48e+02
+Rx:       5.00e-01    5.00e-01    5.00e-01    5.00e-01    9.50e+00
+Ro:       1.90e+12    1.20e+04    1.35e+04    1.30e+04    1.68e+03
+Cbe:      1.39e-10    7.83e-10    7.42e-10    7.47e-10    7.47e-09
+Cbc:      2.73e-12    2.21e-12    1.23e-12    1.94e-12    1.08e-10
+Cjs:      0.00e+00    0.00e+00    0.00e+00    0.00e+00    0.00e+00
+BetaAC:   5.77e+01    1.22e+02    1.26e+02    1.22e+02    7.24e+01
+Cbx:      1.55e-11    1.25e-11    6.97e-12    1.10e-11    2.70e-11
+Ft:       4.65e+00    1.42e+08    1.40e+08    1.39e+08    1.02e+07
+
+Name:       q5          q2          q1          q10         q11
+Model:   qmje2955t    bc558b      bc558b      bc558b      bc558b
+Ib:      -9.44e-03   -4.59e-06   -4.33e-06   -2.59e-06   -2.79e-06
+Ic:      -9.82e-01   -1.27e-03   -1.28e-03   -8.38e-04   -8.91e-04
+Vbe:     -6.56e-01   -6.45e-01   -6.43e-01   -6.29e-01   -6.31e-01
+Vbc:      4.17e+00    0.00e+00    2.29e+00    6.02e+00    5.50e+00
+Vce:     -4.83e+00   -6.45e-01   -2.93e+00   -6.65e+00   -6.13e+00
+BetaDC:   1.04e+02    2.77e+02    2.95e+02    3.23e+02    3.19e+02
+Gm:       2.69e+01    4.83e-02    4.85e-02    3.21e-02    3.41e-02
+Rpi:      2.88e+00    5.69e+03    6.04e+03    1.01e+04    9.38e+03
+Rx:       1.71e+01    5.19e+00    5.29e+00    6.11e+00    5.99e+00
+Ro:       2.21e+01    2.87e+04    3.04e+04    5.08e+04    4.72e+04
+Cbe:      6.67e-07    6.01e-11    6.00e-11    4.72e-11    4.88e-11
+Cbc:      1.47e-10    4.02e-12    1.88e-12    1.29e-12    1.34e-12
+Cjs:      0.00e+00    0.00e+00    0.00e+00    0.00e+00    0.00e+00
+BetaAC:   7.76e+01    2.75e+02    2.93e+02    3.24e+02    3.20e+02
+Cbx:      3.65e-11    2.38e-12    1.11e-12    7.64e-13    7.92e-13
+Ft:       6.42e+06    1.16e+08    1.23e+08    1.03e+08    1.06e+08
+
+Name:       q13         q12         q9          q7
+Model:    bc548b      bc548b      bc548b      bc548b
+Ib:       3.73e-06    3.46e-06    1.98e-06   -6.70e-12
+Ic:       1.28e-03    1.14e-03    6.02e-04    9.52e-12
+Vbe:      6.67e-01    6.65e-01    6.48e-01    1.29e-01
+Vbc:     -1.27e+01   -9.83e+00   -7.82e+00   -8.34e+00
+Vce:      1.34e+01    1.05e+01    8.47e+00    8.47e+00
+BetaDC:   3.44e+02    3.28e+02    3.03e+02   -1.42e+00
+Gm:       4.89e-02    4.34e-02    2.31e-02    4.48e-11
+Rpi:      7.57e+03    8.17e+03    1.45e+04    2.48e+10
+Rx:       1.50e+02    1.50e+02    1.50e+02    1.50e+02
+Ro:       5.89e+04    6.39e+04    1.17e+05    6.13e+13
+Cbe:      5.89e-11    5.65e-11    4.74e-11    1.40e-11
+Cbc:      1.95e-12    2.10e-12    2.25e-12    2.21e-12
+Cjs:      0.00e+00    0.00e+00    0.00e+00    0.00e+00
+BetaAC:   3.70e+02    3.55e+02    3.35e+02    1.11e+00
+Cbx:      0.00e+00    0.00e+00    0.00e+00    0.00e+00
+Ft:       1.28e+08    1.18e+08    7.41e+07    1.90e-01
+
+                        --- JFET Transistors ---
+Name:    j:u3b:2     j:u3b:1     j:u3a:2     j:u3a:1
+Model:   u3b:jx      u3b:jx      u3a:jx      u3a:jx
+Id:     -9.87e-05   -9.87e-05   -9.69e-05   -9.69e-05
+Vgs:     3.96e-01    3.96e-01    4.01e-01    4.01e-01
+Vds:    -4.75e+00   -4.75e+00   -8.49e+00   -8.49e+00
+Gm:      3.27e-04    3.27e-04    3.23e-04    3.24e-04
+Gds:     0.00e+00    0.00e+00    0.00e+00    0.00e+00
+Cgs:     0.00e+00    0.00e+00    0.00e+00    0.00e+00
+Cgd:     0.00e+00    0.00e+00    0.00e+00    0.00e+00
+
+
+
+pin: v(vin)*(-i(v1))=15.5533
+pout: v(vout)*(-i(rl))=9.94347
+eff: pout / pin=0.639316
+
+
+Date: Sat Apr 20 05:27:02 2019
+Total elapsed time: 0.945 seconds.
+
+tnom = 27
+temp = 27
+method = trap
+totiter = 3249
+traniter = 0
+tranpoints = 0
+accept = 0
+rejected = 0
+matrix size = 127
+fillins = 398
+solver = Normal
+Matrix Compiler1: 37.25 KB object code size
+Matrix Compiler2: off  [5.4]/7.0/6.9
+
