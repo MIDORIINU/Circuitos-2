@@ -1,4 +1,4 @@
-﻿Circuit: * C:\Users\bakaneko\Facultad\Materias\Circuitos Electrónicos II\TPS\REPO-TPS\Circuitos-2\TP1A\LTSPICE\power_supply_P20b.asc
+﻿Circuit: * Circuitos-2\TP1A\LTSPICE\power_supply_P20b.asc
 
 Limiting rise time of source v2 to 2.08167e-018
 Early termination of direct N-R iteration.
@@ -48,8 +48,8 @@ vmin: MIN(v(vin))=20 FROM 0 TO 0.08
 vrmsin: RMS(v(vin)-vmin)=1.15368 FROM 0 TO 0.08
 
 
-Date: Sat Apr 20 03:36:52 2019
-Total elapsed time: 1.023 seconds.
+Date: Sat Apr 20 05:46:29 2019
+Total elapsed time: 1.431 seconds.
 
 tnom = 27
 temp = 27
@@ -62,6 +62,6 @@ rejected = 313
 matrix size = 129
 fillins = 471
 solver = Normal
-Matrix Compiler1: off  15.0/11.0/[3.9]
-Matrix Compiler2:    1383 opcodes  4.8/[5.0]/6.6
+Matrix Compiler1: off  14.0/10.2/[4.1]
+Matrix Compiler2:    1383 opcodes  5.2/[5.5]/6.8
 
