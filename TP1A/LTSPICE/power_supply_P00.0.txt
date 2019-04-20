@@ -1,137 +1,141 @@
 ﻿       --- Operating Point ---
 
-V(n021):	 0.000519867	 voltage
-V(n031):	 -5	 voltage
-V(n009):	 10.0735	 voltage
-V(n019):	 0.845028	 voltage
-V(n022):	 0.844959	 voltage
-V(vout):	 2.02786	 voltage
-V(n010):	 2.0279	 voltage
-V(n020):	 0.000611024	 voltage
-V(n018):	 0.000611024	 voltage
-V(n016):	 0.633796	 voltage
-V(n014):	 9.47075	 voltage
-V(n026):	 1.00781	 voltage
-V(n017):	 1.6563	 voltage
-V(n015):	 1.02688	 voltage
+V(n022):	 0.000519852	 voltage
+V(n033):	 -5	 voltage
+V(n014):	 10.0735	 voltage
+V(n020):	 0.845498	 voltage
+V(n023):	 0.84543	 voltage
+V(vout):	 2.02899	 voltage
+V(n010):	 2.02903	 voltage
+V(n021):	 0.000611007	 voltage
+V(n019):	 0.000611007	 voltage
+V(n017):	 0.633796	 voltage
+V(n015):	 9.4707	 voltage
+V(n028):	 1.00837	 voltage
+V(n018):	 1.65686	 voltage
+V(n016):	 1.02745	 voltage
 V(n004):	 19.9664	 voltage
 V(vin):	 20	 voltage
-V(n011):	 2.45773	 voltage
+V(n011):	 2.45888	 voltage
 V(n007):	 19.83	 voltage
-V(n008):	 3.13988	 voltage
-V(n029):	 -0.683972	 voltage
-V(n025):	 1.00052	 voltage
-V(n030):	 0.903813	 voltage
-V(n023):	 2.54212	 voltage
-V(n024):	 1.0039	 voltage
-V(n028):	 0.335823	 voltage
-V(n005):	 18.7231	 voltage
-V(n001):	 19.3586	 voltage
+V(n008):	 3.14102	 voltage
+V(n031):	 -0.683971	 voltage
+V(n027):	 1.00108	 voltage
+V(n032):	 0.904318	 voltage
+V(n024):	 2.54327	 voltage
+V(n025):	 1.00445	 voltage
+V(n030):	 0.336379	 voltage
+V(n005):	 18.723	 voltage
+V(n026):	 1.00108	 voltage
+V(n001):	 19.3585	 voltage
 V(n002):	 19.3675	 voltage
 V(n006):	 10.7591	 voltage
-V(n003):	 18.147	 voltage
+V(n003):	 18.1492	 voltage
+V(n009):	 10.0735	 voltage
 V(n013):	 2.49526	 voltage
-V(n027):	 2.02786	 voltage
-V(n012):	 3.13988e-019	 voltage
-V(n032):	 0.000611024	 voltage
+V(n029):	 2.02899	 voltage
+V(n012):	 3.14102e-019	 voltage
+V(n034):	 0.000611007	 voltage
 Ic(Q15):	 1.29526e-012	 device_current
 Ib(Q15):	 -1.24434e-012	 device_current
-Ie(Q15):	 -4.84461e-014	 device_current
-Ic(Q14):	 0.0185301	 device_current
-Ib(Q14):	 0.00014742	 device_current
-Ie(Q14):	 -0.0186775	 device_current
+Ie(Q15):	 -5.11375e-014	 device_current
+Ic(Q14):	 0.018508	 device_current
+Ib(Q14):	 0.000147241	 device_current
+Ie(Q14):	 -0.0186552	 device_current
 Ic(Q6):	 0.0171249	 device_current
-Ib(Q6):	 0.000139174	 device_current
+Ib(Q6):	 0.000139173	 device_current
 Ie(Q6):	 -0.0172641	 device_current
 Ic(Q3):	 0.016998	 device_current
-Ib(Q3):	 0.000129751	 device_current
+Ib(Q3):	 0.000129752	 device_current
 Ie(Q3):	 -0.0171278	 device_current
-Ic(Q4):	 0.000335837	 device_current
-Ib(Q4):	 2.85009e-006	 device_current
-Ie(Q4):	 -0.000338687	 device_current
-Ic(Q5):	 -1.56237e-008	 device_current
-Ib(Q5):	 -2.43101e-009	 device_current
-Ie(Q5):	 1.8056e-008	 device_current
-Ic(Q2):	 -0.0012604	 device_current
-Ib(Q2):	 -4.54789e-006	 device_current
-Ie(Q2):	 0.00126494	 device_current
-Ic(Q1):	 -0.00127955	 device_current
-Ib(Q1):	 -3.23255e-006	 device_current
-Ie(Q1):	 0.00128279	 device_current
-Ic(Q10):	 -0.000837138	 device_current
-Ib(Q10):	 -2.5906e-006	 device_current
-Ie(Q10):	 0.000839729	 device_current
+Ic(Q4):	 0.000336025	 device_current
+Ib(Q4):	 2.85178e-006	 device_current
+Ie(Q4):	 -0.000338877	 device_current
+Ic(Q5):	 -1.56268e-008	 device_current
+Ib(Q5):	 -2.44296e-009	 device_current
+Ie(Q5):	 1.80773e-008	 device_current
+Ic(Q2):	 -0.00126052	 device_current
+Ib(Q2):	 -4.54835e-006	 device_current
+Ie(Q2):	 0.00126507	 device_current
+Ic(Q1):	 -0.00127968	 device_current
+Ib(Q1):	 -3.23294e-006	 device_current
+Ie(Q1):	 0.00128291	 device_current
+Ic(Q10):	 -0.000837082	 device_current
+Ib(Q10):	 -2.59039e-006	 device_current
+Ie(Q10):	 0.000839672	 device_current
 Ic(Q11):	 -0.000940984	 device_current
 Ib(Q11):	 -2.983e-006	 device_current
 Ie(Q11):	 0.000943967	 device_current
-Ic(Q13):	 0.00126818	 device_current
-Ib(Q13):	 3.4811e-006	 device_current
-Ie(Q13):	 -0.00127166	 device_current
-Ic(Q12):	 0.0011498	 device_current
-Ib(Q12):	 3.91423e-006	 device_current
-Ie(Q12):	 -0.00115372	 device_current
-Ic(Q9):	 0.000602708	 device_current
-Ib(Q9):	 1.98739e-006	 device_current
-Ie(Q9):	 -0.000604695	 device_current
-Ic(Q7):	 8.85536e-012	 device_current
-Ib(Q7):	 -9.29843e-012	 device_current
-Ie(Q7):	 4.42025e-013	 device_current
+Ic(Q13):	 0.0012683	 device_current
+Ib(Q13):	 3.48144e-006	 device_current
+Ie(Q13):	 -0.00127179	 device_current
+Ic(Q12):	 0.00114993	 device_current
+Ib(Q12):	 3.91459e-006	 device_current
+Ie(Q12):	 -0.00115384	 device_current
+Ic(Q9):	 0.000602764	 device_current
+Ib(Q9):	 1.98757e-006	 device_current
+Ie(Q9):	 -0.000604751	 device_current
+Ic(Q7):	 8.85718e-012	 device_current
+Ib(Q7):	 -9.29893e-012	 device_current
+Ie(Q7):	 4.42584e-013	 device_current
 I(C15):	 3.05745e-037	 device_current
-I(C9):	 2.00195e-021	 device_current
-I(C1):	 3.13988e-020	 device_current
-I(C16):	 -8.44508e-022	 device_current
-I(C2):	 2.02786e-017	 device_current
-I(C12):	 -8.26388e-022	 device_current
+I(C9):	 2.00308e-021	 device_current
+I(C1):	 3.14102e-020	 device_current
+I(C16):	 -8.44978e-022	 device_current
+I(C2):	 2.02899e-017	 device_current
+I(C12):	 -8.26385e-022	 device_current
 I(C11):	 1.00735e-016	 device_current
 I(C13):	 2e-016	 device_current
-I(D1):	 0.0011498	 device_current
+I(D1):	 0.00114993	 device_current
+I(Rtest2):	 4.44089e-006	 device_current
+I(Rtest1):	 0.0177458	 device_current
 I(R81):	 0	 device_current
-I(R6):	 3.13988e-020	 device_current
+I(R6):	 3.14102e-020	 device_current
 I(R60):	 0	 device_current
-I(R9):	 0.000100098	 device_current
+I(R9):	 0.000100154	 device_current
 I(R18):	 3.05745e-007	 device_current
 I(R34):	 0.016998	 device_current
-I(R33):	 0.0185301	 device_current
-I(Rl):	 -2.02786e-006	 device_current
-I(R7):	 -3.91423e-006	 device_current
+I(R33):	 0.018508	 device_current
+I(Rl):	 -2.02899e-006	 device_current
+I(R7):	 -3.91459e-006	 device_current
 I(R32):	 0.000924171	 device_current
 I(R31):	 0.000924171	 device_current
-I(R30):	 0.000924085	 device_current
-I(R3):	 0.00126494	 device_current
-I(R2):	 0.00128279	 device_current
-I(R1):	 0.00242537	 device_current
-I(R5):	 0.000903813	 device_current
-I(R55):	 0.000903813	 device_current
-I(R4):	 0.000907294	 device_current
+I(R30):	 0.000924089	 device_current
+I(R3):	 0.00126507	 device_current
+I(R2):	 0.00128291	 device_current
+I(R1):	 0.00242563	 device_current
+I(R5):	 0.000904318	 device_current
+I(R55):	 0.000904318	 device_current
+I(R4):	 0.000907238	 device_current
 I(R8):	 0.0172641	 device_current
-I(R11):	 0.000335835	 device_current
-I(R10):	 0.000102688	 device_current
-I(R22):	 0.000841716	 device_current
-I(R23):	 0.000600781	 device_current
-I(R21):	 0.000602708	 device_current
+I(R11):	 0.000336022	 device_current
+I(R10):	 0.000102745	 device_current
+I(R22):	 0.00084166	 device_current
+I(R23):	 0.000600837	 device_current
+I(R21):	 0.000602764	 device_current
 I(R20):	 0.000943967	 device_current
-I(R12):	 0.000118294	 device_current
-I(R13):	 8.44959e-005	 device_current
-I(R14):	 3.37984e-005	 device_current
-I(R19):	 3.05512e-007	 device_current
-I(Rs):	 -0.000220409	 device_current
-I(R15):	 8.45028e-005	 device_current
-I(R16):	 0.000118283	 device_current
-I(R17):	 -3.37803e-005	 device_current
-I(V7):	 0.0365309	 device_current
-I(V1):	 -0.0393358	 device_current
-Ix(u3a:1):	 3.58926e-011	 subckt_current
-Ix(u3a:2):	 3.58928e-011	 subckt_current
+I(R12):	 0.00011836	 device_current
+I(R13):	 8.4543e-005	 device_current
+I(R14):	 3.38172e-005	 device_current
+I(R19):	 3.05504e-007	 device_current
+I(Rs):	 -0.000220532	 device_current
+I(R15):	 8.45498e-005	 device_current
+I(R16):	 0.000118349	 device_current
+I(R17):	 -3.37991e-005	 device_current
+I(V7):	 0.0365312	 device_current
+I(V1):	 -0.0393141	 device_current
+Ix(u3a:1):	 3.58931e-011	 subckt_current
+Ix(u3a:2):	 3.58933e-011	 subckt_current
 Ix(u3a:3):	 0.00722881	 subckt_current
 Ix(u3a:4):	 -0.00723085	 subckt_current
-Ix(u3a:5):	 3.37803e-005	 subckt_current
+Ix(u3a:5):	 3.37991e-005	 subckt_current
 Ix(u3b:1):	 3.50454e-011	 subckt_current
 Ix(u3b:2):	 3.50457e-011	 subckt_current
 Ix(u3b:3):	 0.00722881	 subckt_current
 Ix(u3b:4):	 -0.00723167	 subckt_current
-Ix(u3b:5):	 2.67716e-006	 subckt_current
-Ix(u2:7):	 0.000776666	 subckt_current
-Ix(u2:6):	 -0.000776666	 subckt_current
+Ix(u3b:5):	 2.67682e-006	 subckt_current
+Ix(u2:7):	 0.000776848	 subckt_current
+Ix(u2:6):	 -0.000776848	 subckt_current
 
 
 
@@ -145,17 +149,17 @@ Gmin = 10
 vernier = 0.5
 vernier = 0.25
 vernier = 0.125
-Gmin = 6.68666
+Gmin = 5.5165
 vernier = 0.0625
 vernier = 0.03125
 vernier = 0.015625
 vernier = 0.0078125
-Gmin = 6.72377
+Gmin = 5.49501
 vernier = 0.00390625
 vernier = 0.00195313
 vernier = 0.000976563
 vernier = 0.000488281
-Gmin = 6.72131
+Gmin = 5.50104
 Gmin = 0
 Gmin stepping failed
 
@@ -172,7 +176,7 @@ Name:    d:u2:2      d:u2:1        d1        d:u3b:p    d:u3b:ln
 Model:  u2:dclamp   u2:dclamp    d1n4148     u3b:dx      u3b:dx
 Id:      7.77e-04   -1.35e-08    1.15e-03   -1.51e-11   -2.50e-11
 Vd:      4.51e-01   -8.31e+00    5.98e-01   -1.51e+01   -2.50e+01
-Req:     5.30e+01    1.00e+12    4.68e+01    1.00e+12    1.00e+12
+Req:     5.29e+01    1.00e+12    4.68e+01    1.00e+12    1.00e+12
 CAP:     1.01e-09    2.12e-11    2.38e-10    0.00e+00    0.00e+00
 
 Name:   d:u3b:lp     d:u3b:e     d:u3b:c     d:u3a:p    d:u3a:ln
@@ -196,31 +200,31 @@ Ib:      -1.24e-12    1.47e-04    1.39e-04    1.30e-04    2.85e-06
 Ic:       1.30e-12    1.85e-02    1.71e-02    1.70e-02    3.36e-04
 Vbe:      4.41e-05    6.86e-01    6.84e-01    6.82e-01    4.30e-01
 Vbc:     -1.11e+00   -7.39e+00   -2.46e+00   -1.67e+01   -1.75e+01
-Vce:      1.11e+00    8.07e+00    3.14e+00    1.74e+01    1.79e+01
+Vce:      1.11e+00    8.08e+00    3.14e+00    1.74e+01    1.79e+01
 BetaDC:  -1.04e+00    1.26e+02    1.23e+02    1.31e+02    1.18e+02
-Gm:       1.89e-12    7.16e-01    6.62e-01    6.57e-01    1.04e-02
-Rpi:      7.40e+11    1.74e+02    1.84e+02    1.97e+02    1.13e+04
+Gm:       1.89e-12    7.15e-01    6.62e-01    6.57e-01    1.04e-02
+Rpi:      7.40e+11    1.74e+02    1.84e+02    1.97e+02    1.12e+04
 Rx:       5.00e-01    5.00e-01    5.00e-01    5.00e-01    9.54e+00
-Ro:       4.60e+15    1.23e+04    1.30e+04    1.39e+04    1.28e+05
+Ro:       4.60e+15    1.23e+04    1.30e+04    1.39e+04    1.27e+05
 Cbe:      1.24e-10    7.82e-10    7.45e-10    7.37e-10    4.45e-09
 Cbc:      2.83e-12    1.43e-12    2.19e-12    1.02e-12    5.94e-11
 Cjs:      0.00e+00    0.00e+00    0.00e+00    0.00e+00    0.00e+00
 BetaAC:   1.40e+00    1.24e+02    1.22e+02    1.30e+02    1.16e+02
 Cbx:      1.61e-11    8.13e-12    1.24e-11    5.79e-12    1.49e-11
-Ft:       1.47e-03    1.44e+08    1.39e+08    1.41e+08    3.64e+05
+Ft:       1.47e-03    1.44e+08    1.39e+08    1.41e+08    3.65e+05
 
 Name:       q5          q2          q1          q10         q11
 Model:   qmje2955t    bc558b      bc558b      bc558b      bc558b
-Ib:      -2.43e-09   -4.55e-06   -3.23e-06   -2.59e-06   -2.98e-06
+Ib:      -2.44e-09   -4.55e-06   -3.23e-06   -2.59e-06   -2.98e-06
 Ic:      -1.56e-08   -1.26e-03   -1.28e-03   -8.37e-04   -9.41e-04
 Vbe:     -3.36e-02   -6.44e-01   -6.36e-01   -6.29e-01   -6.33e-01
 Vbc:      1.79e+01    0.00e+00    1.56e+01    6.03e+00    5.00e+00
 Vce:     -1.80e+01   -6.44e-01   -1.62e+01   -6.66e+00   -5.63e+00
-BetaDC:   6.43e+00    2.77e+02    3.96e+02    3.23e+02    3.15e+02
+BetaDC:   6.40e+00    2.77e+02    3.96e+02    3.23e+02    3.15e+02
 Gm:       1.76e-07    4.79e-02    4.89e-02    3.20e-02    3.60e-02
-Rpi:      1.57e+06    5.75e+03    8.10e+03    1.01e+04    8.78e+03
+Rpi:      1.57e+06    5.75e+03    8.09e+03    1.01e+04    8.78e+03
 Rx:       2.02e+01    5.21e+00    5.75e+00    6.11e+00    5.88e+00
-Ro:       9.17e+09    2.90e+04    4.07e+04    5.09e+04    4.41e+04
+Ro:       9.16e+09    2.90e+04    4.07e+04    5.09e+04    4.41e+04
 Cbe:      1.05e-07    5.98e-11    5.90e-11    4.72e-11    5.03e-11
 Cbc:      8.37e-11    4.02e-12    8.70e-13    1.29e-12    1.39e-12
 Cjs:      0.00e+00    0.00e+00    0.00e+00    0.00e+00    0.00e+00
@@ -232,18 +236,18 @@ Name:       q13         q12         q9          q7
 Model:    bc548b      bc548b      bc548b      bc548b
 Ib:       3.48e-06    3.91e-06    1.99e-06   -9.30e-12
 Ic:       1.27e-03    1.15e-03    6.03e-04    8.86e-12
-Vbe:      6.65e-01    6.68e-01    6.48e-01   -3.74e-01
+Vbe:      6.65e-01    6.68e-01    6.48e-01   -3.75e-01
 Vbc:     -1.77e+01   -1.54e+00   -7.81e+00   -8.84e+00
 Vce:      1.84e+01    2.21e+00    8.46e+00    8.46e+00
 BetaDC:   3.64e+02    2.94e+02    3.03e+02   -9.52e-01
-Gm:       4.85e-02    4.39e-02    2.31e-02    1.63e-19
+Gm:       4.85e-02    4.39e-02    2.32e-02    1.60e-19
 Rpi:      8.12e+03    7.20e+03    1.45e+04    1.00e+12
 Rx:       1.50e+02    1.50e+02    1.50e+02    1.50e+02
-Ro:       6.35e+04    5.59e+04    1.17e+05    1.70e+22
+Ro:       6.35e+04    5.59e+04    1.17e+05    1.73e+22
 Cbe:      5.86e-11    5.69e-11    4.74e-11    7.90e-12
 Cbc:      1.76e-12    3.48e-12    2.25e-12    2.17e-12
 Cjs:      0.00e+00    0.00e+00    0.00e+00    0.00e+00
-BetaAC:   3.94e+02    3.16e+02    3.35e+02    1.63e-07
+BetaAC:   3.94e+02    3.16e+02    3.35e+02    1.60e-07
 Cbx:      0.00e+00    0.00e+00    0.00e+00    0.00e+00
 Ft:       1.28e+08    1.16e+08    7.42e+07    1.58e-02
 
@@ -260,20 +264,20 @@ Cgd:     0.00e+00    0.00e+00    0.00e+00    0.00e+00
 
 
 
-Date: Sat Apr 20 05:35:30 2019
-Total elapsed time: 1.468 seconds.
+Date: Sat Apr 20 19:04:28 2019
+Total elapsed time: 0.429 seconds.
 
 tnom = 27
 temp = 27
 method = trap
-totiter = 1711
+totiter = 1719
 traniter = 0
 tranpoints = 0
 accept = 0
 rejected = 0
-matrix size = 127
-fillins = 549
+matrix size = 129
+fillins = 440
 solver = Normal
-Matrix Compiler1: 49.82 KB object code size
-Matrix Compiler2:    1451 opcodes  5.2/[5.2]/8.9
+Matrix Compiler1: 41.38 KB object code size
+Matrix Compiler2:    1354 opcodes  5.2/[5.1]/7.5
 
