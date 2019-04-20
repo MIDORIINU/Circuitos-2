@@ -1,0 +1,65 @@
+﻿Circuit: * Circuitos-2\TP1A\LTSPICE\power_supply_P20b.asc
+
+Limiting rise time of source v2 to 2.08167e-018
+Early termination of direct N-R iteration.
+Direct Newton iteration failed to find .op point.  (Use ".option noopiter" to skip.)
+Starting Gmin stepping
+Gmin = 10
+vernier = 0.5
+vernier = 0.25
+vernier = 0.125
+Gmin = 5.5165
+vernier = 0.0625
+vernier = 0.03125
+vernier = 0.015625
+vernier = 0.0078125
+Gmin = 5.49501
+vernier = 0.00390625
+vernier = 0.00195313
+vernier = 0.000976563
+vernier = 0.000488281
+Gmin = 5.50104
+Gmin = 0
+Gmin stepping failed
+
+Starting source stepping with srcstepmethod=0
+Source Step = 3.0303%
+Source Step = 16.6667%
+Source Step = 24.2424%
+Source Step = 31.8182%
+Source Step = 39.3939%
+Source Step = 46.9697%
+vernier = 0.375
+Source Step = 56.4394%
+Source Step = 67.803%
+Source Step = 79.1667%
+Source Step = 90.5303%
+Source stepping succeeded in finding the operating point.
+
+Ignoring empty pin current: Ix(u2:11)
+Ignoring empty pin current: Ix(u2:11)
+Heightened Def Con from 1e-010 to 1.41e-008
+
+vm: MIN(v(vout))=2.02786 FROM 0 TO 0.02
+vrmout: RMS(v(vout)-vm)=0.000979462 FROM 0 TO 0.02
+vmin: MIN(v(vin))=20.002 FROM 0 TO 0.02
+vrmin: RMS(v(vin)-vmin)=1.15279 FROM 0 TO 0.02
+
+
+Date: Sat Apr 20 06:09:19 2019
+Total elapsed time: 1.683 seconds.
+
+tnom = 27
+temp = 27
+method = modified trap
+totiter = 12757
+traniter = 10520
+tranpoints = 4891
+accept = 4743
+rejected = 149
+matrix size = 129
+fillins = 478
+solver = Normal
+Matrix Compiler1: off  15.8/11.1/[4.0]
+Matrix Compiler2:    1390 opcodes  5.3/[5.4]/7.0
+
