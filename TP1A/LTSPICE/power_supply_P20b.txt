@@ -38,30 +38,28 @@ Source stepping succeeded in finding the operating point.
 
 Ignoring empty pin current: Ix(u2:11)
 Ignoring empty pin current: Ix(u2:11)
-Heightened Def Con from 9.76562e-010 to 1.39766e-008
-Heightened Def Con from 0.0200003 to 0.0200003
-Heightened Def Con from 0.0800002 to 0.0800002
+Heightened Def Con from 1e-010 to 1.41e-008
 
-vm: MIN(v(vout))=2.02781 FROM 0 TO 0.08
-vrmsout: RMS(v(vout)-vm)=0.00102762 FROM 0 TO 0.08
-vmin: MIN(v(vin))=20 FROM 0 TO 0.08
-vrmsin: RMS(v(vin)-vmin)=1.15368 FROM 0 TO 0.08
+vm: MIN(v(vout))=2.02786 FROM 0 TO 0.02
+vrmout: RMS(v(vout)-vm)=0.000979462 FROM 0 TO 0.02
+vmin: MIN(v(vin))=20.002 FROM 0 TO 0.02
+vrmin: RMS(v(vin)-vmin)=1.15279 FROM 0 TO 0.02
 
 
-Date: Sat Apr 20 05:46:29 2019
-Total elapsed time: 1.431 seconds.
+Date: Sat Apr 20 06:09:19 2019
+Total elapsed time: 1.683 seconds.
 
 tnom = 27
 temp = 27
 method = modified trap
-totiter = 8375
-traniter = 6138
-tranpoints = 2096
-accept = 1786
-rejected = 313
+totiter = 12757
+traniter = 10520
+tranpoints = 4891
+accept = 4743
+rejected = 149
 matrix size = 129
-fillins = 471
+fillins = 478
 solver = Normal
-Matrix Compiler1: off  14.0/10.2/[4.1]
-Matrix Compiler2:    1383 opcodes  5.2/[5.5]/6.8
+Matrix Compiler1: off  15.8/11.1/[4.0]
+Matrix Compiler2:    1390 opcodes  5.3/[5.4]/7.0
 
