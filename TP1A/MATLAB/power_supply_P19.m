@@ -1,5 +1,8 @@
 function power_supply_P19()
 
+%Cierro las figuras existentes.
+close all;
+
 %Tamaño de la figura.
 size_percent = 80;
 
@@ -59,7 +62,7 @@ customtitlesindexes = 1;
 
 indexesX =  find(X1 >= 5);
 
-indexesY = find(Y1 > (99/100)*2.048);
+indexesY = find(Y1 > (99/100)*2.05);
 
 knee_index = indexesY(find(indexesY >= indexesX(1), 1));
 

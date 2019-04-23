@@ -1,5 +1,8 @@
 function power_supply_P18()
 
+%Cierro las figuras existentes.
+close all;
+
 %Tamaño de la figura.
 size_percent = 80;
 
