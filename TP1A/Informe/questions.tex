@@ -1,0 +1,114 @@
+
+\subsection{Punto 1}
+
+Analizar que función cumple y como opera el subcircuito compuesto por $R_{12}$ a $R_{17}$, $C_{16}$ y $U_{3}A$. Luego incluir $R_{S}$. ¿Qué características tiene éste subcircuito, por ejemplo, su transferencia, su ancho de banda, su dependencia de las especificaciones del amplificador operacional $TL082$, de sus fuentes de alimentación, de la temperatura, de la tolerancia y tecnología de los resistores con los que se lo implemente, etc.
+
+
+\subsection{Punto 2}
+
+ Analizar qué función cumple y como opera el subcircuito compuesto por $R_{18}$ a $R_{19}$, $C_{15}$ y $U_{3}B$. ¿Qué características tiene éste subcircuito, por ejemplo, su transferencia, su ancho de banda, su dependencia de las especificaciones del amplificador operacional $TL082$, de sus fuentes de alimentación, de la temperatura, de la tolerancia y tecnología de los resistores con lo que se lo implemente, etc. ($R_{18}$ puede variarse desde $0 \Omega$ a $18 K\Omega$).
+
+
+\subsection{Punto 3}
+
+Analizar qué función cumple y cómo opera el subcircuito compuesto por $R_{20}$ a $R_{23}$ y $Q_{7}$-$Q_{9}$-$Q_{10}$-$Q_{11}$. ¿Qué características tiene éste subcircuito?
+
+
+\subsection{Punto 4}
+
+Analizar el subcircuito que proporciona la tensión de referencia. ¿Cómo funciona y qué características tiene? Por ejemplo: hallar por cálculo y por simulación el valor de la tensión de referencia y su dependencia de la variación de la tensión de entrada $V_{1}$, de la temperatura ambiente y de la corriente que pueda entregar éste subcircuito a otros subcircuitos que alimente. Consultar las hojas de datos de todos sus componentes, en especial el $TL431$.
+
+
+\subsection{Punto 5}
+
+Analizar el subcircuito compuesto por $Q_{4}$ y $Q_{5}$. Por ejemplo: con que nombre es conocida su topología, comprobar si es una topología que emplea realimentación, qué características funcionales tiene este subcircuito, que valores de impedancia presente a los otros circuitos que alimente, cual es la transferencia de este subcircuito (variable de salida / variable de entrada), cuál es su ancho de banda, etc.
+
+
+\subsection{Punto 6}
+
+¿Cuál es el rango de la tensión de salida de la fuente considerando que $R_{9}$ puede variar desde $0 \Omega$ a $90 K\Omega$? (Tomar $R_{L} = 1M\Omega$)
+
+
+\subsection{Punto 7}
+
+¿Cuál es el rango la corriente de salida de la fuente considerando que $R_{18}$ puede variar desde $0 \Omega$ a $18 K\Omega$? (Tomar $R_{L} = 0\Omega$)
+
+
+\subsection{Punto 8}
+
+¿Cuál es el valor de la resistencia de carga $R_{L}$ que impone el límite entre el modo fuente de tensión y fuente de corriente para $R_{9} = 90 K\Omega$ y $R_{18} = 0 \Omega$?
+
+
+\subsection{Punto 9}
+
+¿Qué hace (o para que está) cada componente, o sea, que función cumple en el circuito y justificar el valor de cada resistencia, diodo, transistor, etc?\\
+En particular, respecto de la pregunta anterior, explicar que función realiza $D_{1}$ y justificar la elección de su designación como $1N4148$.
+
+
+\subsection{Punto 10}
+
+¿Qué tecnología, tolerancia, capacidad de disipación de potencia, estabilidad con la temperatura, tensión y corriente de operación máxima y pulsante, características mecánicas, apartamiento de su valor nominal por envejecimiento, etc, debe tener cada componente considerando una implementación física de éste circuito?
+
+
+\subsection{Punto 11}
+
+Calcular la ganancia de lazo \quotemarks{af} para el lazo de tensión y para el lazo de corriente, comparando en ambos casos con respecto a 1, o sea, ¿resulta af mucho mayor que $1$? Considerar esto para frecuencias del orden de entre $0 Hz$ y $100 Hz$.
+
+
+\subsection{Punto 12}
+
+Calcular la impedancia de salida, o más propiamente la impedancia en el nodo de salida, para una carga de $100 \Omega$ y una frecuencia en el entorno a $50Hz$. Utilizar para el cálculo los mismo modelos utilizados en la pregunta anterior.
+
+
+\subsection{Punto 13}
+
+Hallar por simulación la impedancia del nodo de salida en función de la frecuencia para frecuencias desde $0,1 Hz$ hasta $100 KHz$ y con $R_{L} = 100 \Omega$. Considerar $R_{9} = 10 K\Omega$.
+
+
+\subsection{Punto 14}
+
+Hallar por simulación la impedancia de la malla de salida en función de la frecuencia para frecuencias desde $0,1 Hz$ hasta $100 KHz$ y con  $R_{L} = 0 \Omega$. Considerar  $R_{18} = 0 \Omega$.
+
+
+\subsection{Punto 15}
+
+Hallar por simulación la tensión del nodo de salida en función de la corriente de salida para  $R_{L}$ variando entre  $100 \Omega$ y $0 \Omega$. Considerar $R_{9} = 10 K\Omega$ y $R_{18} = 0 \Omega$
+
+
+\subsection{Punto 16}
+
+Hallar por simulación la variación de la tensión de salida en función del tiempo para un salto abrupto de la corriente de salida desde aproximadamente $0 A$ hasta $ 1A$ y posteriormente un salto abrupto de la corriente de salida desde aproximadamente $ 1A$ hasta $0 A$. Considerar $R_{9} = 10 K\Omega$ y $R_{18} = 0 \Omega$.
+
+
+\subsection{Punto 17}
+
+Calcular la eficiencia para $V_{1}$ igual a $15 V$, $20 V$ y $25 V$ 
+
+\begin{enumerate}
+\item[a)] con $R_{L} = 10 \Omega$, $R_{9} = 90 K\Omega$ y $R_{18} = 0 \Omega$
+\item[b)] con $R_{L} = 1 \Omega$, $R_{9} = 0 \Omega$ y $R_{18} = 0 \Omega$
+\end{enumerate}
+
+
+\subsection{Punto 18}
+
+¿Cómo influye en la tensión de salida la variación de la fuente de entrada $V_{1}$ (variando de $1 V$ a $30 V$ y con $R_{L} = 10 \Omega$, $R_{9} = 90 K\Omega$ y $R_{18} = 0 \Omega$)? Simular para graficar la tensión de salida en función de $V_{1}$
+
+
+\subsection{Punto 19}
+
+¿Cómo influye en la corriente de salida la variación de la fuente de entrada $V_{1}$ (variando de $1 V$ a $30 V$ y con $R_{L} = 0 \Omega$, $R_{9} = 90 K\Omega$ y $R_{18} = 0 \Omega$? Simular para graficar la corriente de salida en función de $V_{1}$
+
+
+\subsection{Punto 20}
+
+Determinar el rechazo de ruido, o sea, ¿Cuántos decibles de diferencia se miden comparando un ruido presente en la tensión de entrada V1 respecto del residuo de ese ruido en la tensión de salida. Debe intentarse no considerar el ruido propio de la fuente. \textbf{NOTA}: el ruido podría ser por ejemplo el rizado resultante de una rectificación y filtrado.
+
+
+\subsection{Punto 21}
+
+Modificar el circuito de la fuente reemplazando en parte o totalmente el amplificador por el regulador integrado $LM723$ y evaluar el comportamiento del nuevo diseño comparándolo con el original.
+
+
+
+
