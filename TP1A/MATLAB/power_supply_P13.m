@@ -46,7 +46,10 @@ box(subplot1,'on');
 % Set the remaining axes properties
 set(subplot1,'XGrid','on','XMinorTick','on','XScale','log','YGrid','on',...
     'YMinorTick','on','YTick',...
-    [0 0.04 0.08 0.12 0.16 0.2 0.24 0.28 0.32 0.36 0.4 0.44 0.48 0.52 0.56 0.6]);
+    (0:0.025:0.6));
+
+ax = gca;
+ax.YAxis.Exponent = -3;
 
 xlim(subplot1,'manual');
 xlim(subplot1,[0.1 200000]);

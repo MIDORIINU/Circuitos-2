@@ -90,12 +90,15 @@ title('Ripples de entrada y salida');
 box(subplot1,'on');
 % Set the remaining axes properties
 set(subplot1,'XGrid','on','XMinorTick','on','XTick',...
-    [0.01934 0.02184 0.02434 0.02684 0.02934 0.03184 0.03434 0.03684 0.03934 0.04151],...
+    (19E-3:1E-3:42E-3),...
     'YGrid','on','YMinorTick','on','YTick',...
-    [-0.5 -0.25 0 0.25 0.5 0.75 1 1.25 1.5 1.75 2 2.25 2.5]);
+    (-0.5:0.25:2.5));
+
+ax = gca;
+ax.XAxis.Exponent = -3;
 
 xlim(subplot1,'manual');
-xlim(subplot1,[0.01934 0.04151]);
+xlim(subplot1,[19E-3 42E-3]);
 
 ylim(subplot1,'manual');
 ylim(subplot1, [-0.5 2.5]);
@@ -117,12 +120,15 @@ xlabel('Tiempo [s]');
 box(subplot2,'on');
 % Set the remaining axes properties
 set(subplot2,'XGrid','on','XMinorTick','on','XTick',...
-    [0.01934 0.02184 0.02434 0.02684 0.02934 0.03184 0.03434 0.03684 0.03934 0.04151],...
+    (19E-3:1E-3:42E-3),...
     'YGrid','on','YMinorTick','on','YTick',...
-    [-0.0005 -0.00025 0 0.00025 0.0005 0.00075 0.001 0.00125 0.0015 0.00175 0.002 0.00225 0.0025]);
+    (-5E-4:2.5E-4:25E-4));
+
+ax = gca;
+ax.XAxis.Exponent = -3;
 
 xlim(subplot2,'manual');
-xlim(subplot2,[0.01934 0.04151]);
+xlim(subplot2,[19E-3 42E-3]);
 
 ylim(subplot2,'manual');
 ylim(subplot2, [-5E-4 25E-4]);

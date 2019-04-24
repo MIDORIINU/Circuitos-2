@@ -41,9 +41,12 @@ title('Tensión de salida de la fuente de alimentación en función de R_{9} (R_{9}
 box(axes1,'on');
 % Set the remaining axes properties
 set(axes1,'XGrid','on','XMinorTick','on','XTick',...
-    [0 4000 8000 12000 16000 20000 24000 28000 32000 36000 40000 44000 48000 52000 56000 60000 64000 68000 72000 76000 80000 84000 88000 90000],...
+    (0:2000:90000),...
     'YGrid','on','YMinorTick','on','YTick',...
-    [0 0.5 1 1.5 2 2.5 3 3.5 4 4.5 5 5.5 6 6.5 7 7.5 8 8.5 9 9.5 10 10.5 11]);
+    (0:0.5:11));
+
+ax = gca;
+ax.XAxis.Exponent = 3;
 
 xlim(axes1,'manual');
 xlim([0 9E4]);

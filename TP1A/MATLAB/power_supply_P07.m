@@ -41,9 +41,12 @@ title('Corriente de salida de la fuente de alimentación en función de R_{18} (R_
 box(axes1,'on');
 % Set the remaining axes properties
 set(axes1,'XGrid','on','XMinorTick','on','XTick',...
-    [0 1000 2000 3000 4000 5000 6000 7000 8000 9000 10000 11000 12000 13000 14000 15000 16000 17000 18000],...
+    (0:1000:18000),...
     'YGrid','on','YMinorTick','on','YTick',...
-    [0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1 1.1 1.2 1.3 1.4 1.5 1.6 1.7 1.8 1.9 2 2.1 2.2 2.3 2.4 2.5]);
+    (0:0.1:2.5));
+
+ax = gca;
+ax.XAxis.Exponent = 3;
 
 xlim(axes1,'manual');
 xlim([0 1.8E4]);

@@ -1,6 +1,6 @@
 
 Se hizo inicialmente un cálculo del punto de reposo en forma manual para la fuente de alimentación en regulación de tensión y de corriente, pero los valores obtenidos, a pesar de ser lógicos, diferían bastante respecto de la simulación, en particular, como es de esperarse, la etapa diferencial, por lo tanto se decidió utilizar los valores obtenidos de la simulación para los puntos de trabajo y los elementos del modelo de pequeña señal de cada dispositivo activo.
-A continuación en los cuadros~\tableref{table:table_qpoint_voltage_regulation}~y~\tableref{table:table_qpoint_current_regulation} se resumen los valores obtenidos para todos los transistores en el caso de regulación de tensión ($R_{L}=100 \Omega$) y regulación de corriente ($R_{L}=0 \Omega$) respectivamente.
+A continuación en los cuadros~\tableref{table:table_qpoint_voltage_regulation}~y~\tableref{table:table_qpoint_current_regulation} se resumen los valores obtenidos para todos los transistores en el caso de regulación de tensión ($R_{L}=100 \si[per-mode=symbol]{\ohm}$) y regulación de corriente ($R_{L}=0 \si[per-mode=symbol]{\ohm}$) respectivamente.
 
 
 
@@ -46,13 +46,13 @@ A continuación en los cuadros~\tableref{table:table_qpoint_voltage_regulation}~
     \rowcolor{HeadersColor} \cellcolor{white} \thead{}  & \thead{Q1} & \thead{Q2} & \thead{Q3} & \thead{Q4} & \thead{Q5} & \thead{Q6} & \thead{Q9} & \thead{Q10} & \thead{Q12} & \thead{Q13} & \thead{Q14} \\
     
     \hhline{|-|-|-|-|-|-|-|-|-|-|-|-|}
-    \rowcolor{Butter!20} \cellcolor{Butter!40} $I_{C}$ [$mA$] & 1.28 & 1.26 & 17 & 3.93 & 16.7 & 17.1 & 0.603 &  0.837 & 1.15 & 1.27 & 18.5  \\
+    \rowcolor{Butter!20} \cellcolor{Butter!40} $I_{C}$ [$\si[per-mode=symbol]{\milli\ampere}$] & 1.28 & 1.26 & 17 & 3.93 & 16.7 & 17.1 & 0.603 &  0.837 & 1.15 & 1.27 & 18.5  \\
     \hhline{|-|-|-|-|-|-|-|-|-|-|-|-|}
-    \rowcolor{gray!20} \cellcolor{gray!40} $gm$ [$\frac{A}{V}$] & \num{4.89e-2} & \num{4.79e-2} & \num{6.58e-1} & \num{1.21e-1} & \num{7.43e-1} & \num{6.62e-1} & \num{2.32e-2} & \num{3.2e-2} & \num{4.39e-2} & \num{4.85e-2} & \num{7.15e-1}  \\
+    \rowcolor{gray!20} \cellcolor{gray!40} $gm$ [$\si[per-mode=symbol]{\ampere\per\volt}$] & \num{4.89e-2} & \num{4.79e-2} & \num{6.58e-1} & \num{1.21e-1} & \num{7.43e-1} & \num{6.62e-1} & \num{2.32e-2} & \num{3.2e-2} & \num{4.39e-2} & \num{4.85e-2} & \num{7.15e-1}  \\
     \hhline{|-|-|-|-|-|-|-|-|-|-|-|-|}
-    \rowcolor{gray!20} \cellcolor{gray!40}  $r_{\pi}$ [$\Omega$] & 8.08 k & 5.74 k & 197 & 927 & 189 & 184 & 14.5 k & 10.1 k & 7.21 k & 8.12 k & 174  \\
+    \rowcolor{gray!20} \cellcolor{gray!40}  $r_{\pi}$ [$\si[per-mode=symbol]{\ohm}$] & 8.08 k & 5.74 k & 197 & 927 & 189 & 184 & 14.5 k & 10.1 k & 7.21 k & 8.12 k & 174  \\
     \hhline{|-|-|-|-|-|-|-|-|-|-|-|-|}
-    \rowcolor{gray!20} \cellcolor{gray!40} $r_{o}$ [$\Omega$] & 40.7 k & 28.9 k & 13.9 k & 10.5 k & 2.1 k & 13 k & 117 k & 50.9 k & 56 k & 63.5 k & 12.3 k  \\
+    \rowcolor{gray!20} \cellcolor{gray!40} $r_{o}$ [$\si[per-mode=symbol]{\ohm}$] & 40.7 k & 28.9 k & 13.9 k & 10.5 k & 2.1 k & 13 k & 117 k & 50.9 k & 56 k & 63.5 k & 12.3 k  \\
     \hhline{|-|-|-|-|-|-|-|-|-|-|-|-|}
     \rowcolor{gray!20} \cellcolor{gray!40} $\beta$ & 395 & 275 & 130 & 112 & 140 & 122 & 335 & 324 & 316 & 394 & 124  \\
     \hhline{|-|-|-|-|-|-|-|-|-|-|-|-|}          
@@ -111,13 +111,13 @@ El par de transistores transistores $Q_{7}/Q_{11}$ no se considera por estar $Q_
     \rowcolor{HeadersColor} \cellcolor{white} \thead{}  & \thead{Q1} & \thead{Q2} & \thead{Q3} & \thead{Q4} & \thead{Q5} & \thead{Q6} & \thead{Q7} & \thead{Q11} & \thead{Q12} & \thead{Q13} & \thead{Q14} \\
     
     \hhline{|-|-|-|-|-|-|-|-|-|-|-|-|}
-    \rowcolor{Butter!20} \cellcolor{Butter!40} $I_{C}$ [$mA$] & 1.28 & 1.26 & 17.2 & 19.7 & 2040 & 17.1 & 0.603 & 0.837 & 1.15 & 1.27 & 18.5  \\
+    \rowcolor{Butter!20} \cellcolor{Butter!40} $I_{C}$ [$\si[per-mode=symbol]{\milli\ampere}$] & 1.28 & 1.26 & 17.2 & 19.7 & 2040 & 17.1 & 0.603 & 0.837 & 1.15 & 1.27 & 18.5  \\
     \hhline{|-|-|-|-|-|-|-|-|-|-|-|-|}
-    \rowcolor{gray!20} \cellcolor{gray!40} $gm$ [$\frac{A}{V}$] & \num{4.9e-2} & \num{4.79e-2} & \num{6.64e-1} & \num{6.07e-1} & 54.3 & \num{6.62e-1} & \num{2.32e-2} & \num{3.2e-2} & \num{4.39e-2} & \num{4.85e-2} & \num{7.15e-1}  \\
+    \rowcolor{gray!20} \cellcolor{gray!40} $gm$ [$\si[per-mode=symbol]{\ampere\per\volt}$] & \num{4.9e-2} & \num{4.79e-2} & \num{6.64e-1} & \num{6.07e-1} & 54.3 & \num{6.62e-1} & \num{2.32e-2} & \num{3.2e-2} & \num{4.39e-2} & \num{4.85e-2} & \num{7.15e-1}  \\
     \hhline{|-|-|-|-|-|-|-|-|-|-|-|-|}
-    \rowcolor{gray!20} \cellcolor{gray!40}  $r_{\pi}$ [$\Omega$] & 8.32 k & 5.75 k & 197 & 186 & 2.11 & 183 & 14.5 k & 10.1 k & 7.21 k & 8.12 k & 174  \\
+    \rowcolor{gray!20} \cellcolor{gray!40}  $r_{\pi}$ [$\si[per-mode=symbol]{\ohm}$] & 8.32 k & 5.75 k & 197 & 186 & 2.11 & 183 & 14.5 k & 10.1 k & 7.21 k & 8.12 k & 174  \\
     \hhline{|-|-|-|-|-|-|-|-|-|-|-|-|}
-    \rowcolor{gray!20} \cellcolor{gray!40} $r_{o}$ [$\Omega$] & 41.8 k & 29 k & 13.9 k & 2.12 k & 17.9 k & 12.9 k & 117 k & 50.9 k & 56 k & 63.5 k & 12.3 k  \\
+    \rowcolor{gray!20} \cellcolor{gray!40} $r_{o}$ [$\si[per-mode=symbol]{\ohm}$] & 41.8 k & 29 k & 13.9 k & 2.12 k & 17.9 k & 12.9 k & 117 k & 50.9 k & 56 k & 63.5 k & 12.3 k  \\
     \hhline{|-|-|-|-|-|-|-|-|-|-|-|-|}
     \rowcolor{gray!20} \cellcolor{gray!40} $\beta$ & 407 & 275 & 131 & 113 & 115 & 121 & 335 & 324 & 316 & 394 & 124  \\
     \hhline{|-|-|-|-|-|-|-|-|-|-|-|-|}          
@@ -131,7 +131,7 @@ El par de transistores transistores $Q_{7}/Q_{11}$ no se considera por estar $Q_
 
 
 El par de transistores transistores $Q_{9}/Q_{10}$ no se considera por estar $Q_{9}$ cortado, lo mismo para el transistor $Q_{15}$, ídem al caso anterior.
-El diodo $D_{1}$ presenta una resistencia dinámica equivalente de $r_{d_{D_{1}}}=46.8 \Omega$ en ambos casos, también presenta una capacidad equivalente que no es considerada para el reposo (pero es importante en su funcionamiento dinámico).
+El diodo $D_{1}$ presenta una resistencia dinámica equivalente de $r_{d_{D_{1}}}=46.8 \si[per-mode=symbol]{\ohm}$ en ambos casos, también presenta una capacidad equivalente que no es considerada para el reposo (pero es importante en su funcionamiento dinámico).
 
 
 Algo importante a observar es la perfecta inversión de los puntos de reposo de los pares de transistores $Q_{9}/Q_{10}$ y  $Q_{7}/Q_{11}$, sus puntos de reposo son idénticos al estar activos en el correspondiente lazo de realimentación, se explica en detalle mas adelante. El transistor  $Q_{15}$ solo conduce por breves períodos de tiempo al limitar picos de corriente, en estado estacionario siempre está cortado.
