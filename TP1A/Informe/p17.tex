@@ -1,0 +1,99 @@
+\vspace{1.5cm}
+
+Para calcular la eficiencia de la fuente de alimentación simplemente se aplicó la definición $\eta = \frac{P_{out}}{P_{in}}$, el cálculo se realizó en estado estacionario, ignorando el consumo durante los transitorios, los cuales de todas formas, a largo plazo, deben ser despreciables. El cálculo se realizó directamente dentro del \textbf{LTSPICE}, utilizando el comando de \textbf{SPICE}, \textit{.measure}, este comando permite realizar cálculos utilizando valores de variables simuladas, y luego operar con estos resultados. Realizando una simulación de \textbf{SPICE} de punto de operación, \textit{.op}, se realizan las siguientes mediciones:
+
+%******************************************************************************************
+\lstset{language=,xleftmargin=1em,numbers=none}
+
+\lstset{showspaces=false}
+\lstset{showstringspaces=false}
+\normalfont
+\normalsize
+\lstset{backgroundcolor=\color{white},rulecolor=\color{blue}}
+\lstset{basicstyle=\ttfamily\color{Deepblue}}
+
+\lstset{keywordstyle=[1]\ttfamily\color{red}\bfseries}
+\lstset{keywordstyle=[2]\ttfamily\color{LightSkyBlue}}
+\lstset{keywordstyle=[3]\ttfamily\bfseries\color{Plum}}
+\lstset{keywordstyle=[4]\ttfamily\bfseries\color{Chocolate}}
+
+\lstset{identifierstyle=\ttfamily\color{black}}
+\lstset{commentstyle=\ttfamily\color{blue}\textit}
+\lstset{stringstyle=\ttfamily\color{purple}\upshape}
+\lstset{tabsize=4}
+
+\lstset{numberstyle=\ttfamily\color{Deeppurple}\upshape}
+\lstset{numbersep=5pt}
+
+\lstset{inputencoding=utf8/latin1}
+
+
+
+\fontencoding{T1}
+\fontseries{m}
+\fontsize{10pt}{11pt}
+\selectfont
+%******************************************************************************************
+
+
+\begin{lstlisting}
+.op
+
+.meas Pin PARAM V(Vin)*(-I(V1))
+.meas Pout PARAM V(Vout)*(-I(RL))
+.meas Eff PARAM Pout / Pin
+\end{lstlisting}
+
+
+
+Los resultados obtenidos para la eficiencia para cada uno de los valores de tensión de entrada para la que se realizó la simulación, se resumen en la tabla~\tableref{table:table_efficiency}. Se puede ver claramente como la eficiencia disminuye al aumentar la tensión de entrada, cosa totalmente esperable, ya que, a tensión de salida constante, la tensión en el elemento de paso es cada vez mayor, a la misma corriente de carga, se tiene mayor potencia disipada en el mismo.
+
+
+%% \noindent
+%% \begin{center}
+ 
+%%\begin{spacing}{1}  
+\begin{table}[H]  %%\centering
+    
+    \setlength\arrayrulewidth{1.5pt}
+    \arrayrulecolor{white}
+    \def\clinecolor{\hhline{|>{\arrayrulecolor{white}}-%
+    >{\arrayrulecolor{white}}|-|-|-|-|}}
+\resizebox{0.85 \textwidth}{!}{% 
+       
+\begin{tabularx}{1 \textwidth}%
+    {|
+    >{\columncolor{white} \centering\arraybackslash}m{0.25\linewidth}
+     |
+    >{\columncolor{white} \centering\arraybackslash}m{0.25\linewidth}
+     |
+    >{\columncolor{white} \centering\arraybackslash}m{0.25\linewidth}
+     |
+    >{\columncolor{white} \centering\arraybackslash}m{0.25\linewidth}
+     |
+    }
+    \rowcolor{HeadersColor} \cellcolor{white} \thead{}  & \thead{$V_{i} = 15 V$} & \thead{$V_{i} = 20 V$} & \thead{$V_{i} = 25 V$} \\
+    
+    \hhline{|-|-|-|-|}
+    \rowcolor{gray!20} \cellcolor{gray!40} $\eta$ & 0.639 & 0.480 & 0.385  \\
+    \hhline{|-|-|-|-|}       
+    \end{tabularx}}
+	\caption{\footnotesize{Eficiencia en función de la tensión de entrada.}}
+	\label{table:table_efficiency}
+\end{table}
+%%\end{spacing}
+
+%% \end{center}
+
+
+
+
+
+
+
+
+
+
+
+
+\clearpage

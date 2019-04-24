@@ -1,4 +1,4 @@
-function power_supply_P20()
+function power_supply_P16()
 
 %Cierro las figuras existentes.
 close all;
@@ -7,59 +7,11 @@ close all;
 size_percent = 80;
 
 %Cargo los datos
-TableData = importdata("../LTSPICE/power_supply_P20.txt");
+TableData = importdata("../LTSPICE/power_supply_P16.txt");
 
 time = TableData.data(:,1);
 
-Vin = TableData.data(:,2);
-
-Vout = TableData.data(:,3);
-
-
-Vin_min = min(Vin);
-
-Vin_ripple = Vin - Vin_min;
-
-Vout_min = min(Vout);
-
-Vout_ripple = Vout - Vout_min;
-
-% rms(Vin_ripple)
-% sqrt(mean((Vin_ripple.^2)))
-% rms(Vout_ripple)
-% sqrt(mean((Vout_ripple.^2)))
-
-% 
-% min(Vin_ripple)
-% max(Vin_ripple)
-% 
-% min(Vout)
-
-Ripple_rejection_db1 = -20*log10(...
-    rms(Vout_ripple(round(size(Vout_ripple)/5):end)) / ...
-    sqrt(rms(Vin_ripple(round(size(size(Vin_ripple)/5):end)))));
-
-
-measure_index_max = 818;
-measure_index_min = 820;
-
-Vout_peak = Vout_ripple(measure_index_max) - Vout_ripple(measure_index_min);
-Vin_peak = Vin_ripple(measure_index_max) - Vin_ripple(measure_index_min);
-
-
-
-
-
-Ripple_rejection_db2 = -20*log10(Vout_peak/Vin_peak);
-
-
-fprintf("La relación de rechazo de ripple calculada con valores rms es de: %.2f dB\n", ...
-    Ripple_rejection_db1);
-
-
-fprintf("La relación de rechazo de ripple calculada con valores pico es de: %.2f dB\n", ...
-    Ripple_rejection_db2);
-
+Vout = TableData.data(:,2);
 
 % Calculo el tamaño y la posición de la imagen.
 pict_size = size_percent/100;
@@ -75,8 +27,10 @@ subplot1 = subplot(2, 1, 1, 'Parent', figure1);
 hold(subplot1,'on');
 
 % Create plot
-plot1 = plot(time, Vin_ripple, 'Parent', subplot1, 'Color', [1 0 0]);
+plot1 = plot(time, Vout, 'Parent', subplot1, 'Color', [1 0 0]);
 
+% INCOMPLETO.
+return
 
 % Create ylabel
 ylabel('Ripple en la tensión de entrada (V_{in} - Avg(V_{in})) [V]');
