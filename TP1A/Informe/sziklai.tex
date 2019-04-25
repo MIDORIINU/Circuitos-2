@@ -1,32 +1,40 @@
 
 \subsection{Par compuesto (Sziklai)}
 
-El par compuesto, Pseudo-Darlington, o Sziklai, por su inventor, se trata de una estructura formada por dos transistores conectados en cascada, similar al Darlington, pero que se diferencia de este en varios aspectos, para empezar se encuentra compuestos por la combinación de transistores \textit{PNP-NPN} o \textit{NPN-PNP}, es fácil observar que el par se comporta como el tipo de transistor que está en la entrada. El principal motivo del uso de esta estructura, se debió a la falta de transistores \textit{PNP} de buena calidad, en el pasado no había transistores realmente complementarios, con lo que se solía usar el par en la etapa de salida de amplificadores de potencia para reemplazar un transistor \textit{PNP} de potencia, mientras que en la otra rama se usaba un transistor \textit{NPN} o un Darlington. Otra diferencia con el Darlington, es que la tensión de encendido corresponde a solo una caída $V_{be}$, y no a dos como en el Darlington.\\
-En caso de conectarse en forma directa los dos transistores, la ganancia de corriente del par compuesto es $\beta_{ef} = \beta_{1} \cdot \beta_{2} + \beta_{1}$, de orden similar pero algo menor que la del Darlington que es $\beta_{ef} = \beta_{1} \cdot \beta_{2} + \beta_{1} + \beta_{2}$. El agregado de una resistencia $R$ en el colector del primer transistor y base del segundo, tiene el efecto de reducir el $\beta$ efectivo, ya que se tiene:
+
+\begin{wrapfigure}{r}{0.5\textwidth}
+\begin{center}
+\includegraphics[width=0.48 \textwidth, angle=0]{./img/sziklai/sziklai0.png}
+\end{center}
+\caption{\label{fig:fig_sziklai_cir_0}\footnotesize{Par Sziklai NPN}}
+\end{wrapfigure}
+
+El par compuesto, Pseudo-Darlington, o Sziklai, por su inventor, se trata de una estructura formada por dos transistores conectados en cascada, similar al Darlington, pero que se diferencia de este en varios aspectos, para empezar se encuentra compuestos por la combinación de transistores \textit{PNP~-~NPN} o \textit{NPN~-~PNP}, es fácil observar que el par se comporta como el tipo de transistor que está en la entrada. El principal motivo del uso de esta estructura, se debió a la falta de transistores \textit{PNP} de buena calidad, en el pasado no había transistores realmente complementarios, con lo que se solía usar el par en la etapa de salida de amplificadores de potencia para reemplazar un transistor \textit{PNP} de potencia, mientras que en la otra rama se usaba un transistor \textit{NPN} o un Darlington. Otra diferencia con el Darlington, es que la tensión de encendido corresponde a solo una caída $V_{be}$, y no a dos como en el Darlington.\\
+En caso de conectarse en forma directa los dos transistores, la ganancia de corriente del par compuesto es $\beta_{ef} = \beta_{1} \cdot \beta_{2} + \beta_{1}$, de orden similar pero algo menor que la del Darlington que es $\beta_{ef} = \beta_{1} \cdot \beta_{2} + \beta_{1} + \beta_{2}$. El agregado de una resistencia $R$ en el colector del primer transistor y base del segundo, tiene el efecto de reducir el $\beta$ efectivo, ya que en forma aproximada se tiene:
 
 
 \begin{equation}
-\begin{rcases*}v_{be_{2}} = i_{c_{1}} \cdot (r_{\pi_{2}} // R) \\ i_{c_{2}} = gm_{2} \cdot v_{be_{2}} \\ \beta_{1} = \frac{i_{c_{1}}}{i_{b_{1}}}\end{rcases*} \Longrightarrow 
+\begin{rcases*}v_{be_{2}} = i_{c_{1}} \cdot (r_{\pi_{2}} \parallelresistors R) \\ i_{c_{2}} \approx gm_{2} \cdot v_{be_{2}} \\ \beta_{1} = \frac{i_{c_{1}}}{i_{b_{1}}}\end{rcases*} \Longrightarrow 
 \end{equation}
  
 
 \begin{equation}
-i_{c_{2}} = gm_{2} \cdot i_{c_{1}} \cdot \frac{r_{\pi_{2}} \cdot R}{r_{\pi_{2} }+ R} = gm_{2} \cdot i_{c_{1}} \cdot \frac{ \frac{\beta_{2}}{gm_{2}} \cdot R}{r_{\pi_{2} }+ R} =
+i_{c_{2}} \approx gm_{2} \cdot i_{c_{1}} \cdot \frac{r_{\pi_{2}} \cdot R}{r_{\pi_{2} }+ R} = gm_{2} \cdot i_{c_{1}} \cdot \frac{ \frac{\beta_{2}}{gm_{2}} \cdot R}{r_{\pi_{2} }+ R} =
 i_{c_{1}} \cdot \beta_{2} \cdot \frac{R}{r_{\pi_{2} }+ R} \Longrightarrow \\
 \end{equation}
  
 
 \begin{equation}
-\frac{i_{c_{2}}}{i_{c_{1}}} =\frac{i_{c_{2}}}{i_{b_{1}} \cdot  \beta_{1} }= \beta_{2} \cdot \frac{R}{r_{\pi_{2} }+ R}  \Longrightarrow \\
+\frac{i_{c_{2}}}{i_{c_{1}}} \approx \frac{i_{c_{2}}}{i_{b_{1}} \cdot \beta_{1} }= \beta_{2} \cdot \frac{R}{r_{\pi_{2} }+ R}  \Longrightarrow \\
 \end{equation}
 
 
 \begin{equation}
-\boxed{\beta_{ef} = \frac{i_{c_{2}}}{i_{b_{1}}} = \beta_{1} \cdot \beta_{2} \cdot \frac{R}{r_{\pi_{2} }+ R}}
+\boxed{\beta_{ef} \approx \frac{i_{c_{2}}}{i_{b_{1}}} = \beta_{1} \cdot \beta_{2} \cdot \frac{R}{r_{\pi_{2} }+ R}}
 \end{equation}
 
 
-El $\beta_{ef}$ aunque aún grande se ve disminuido por el agregado de $R$, la cual reduce la resistencia en el nodo de la base del segundo transistor, disminuyendo su tiempo asociado y mejorando el ancho de banda.\\
+El $\beta_{ef}$ aunque aún grande se ve disminuido por el agregado de $R$, lo cual reduce la resistencia en el nodo de la base del segundo transistor, disminuyendo su tiempo asociado y mejorando el ancho de banda.\\
 
 Para ver que el circuito está realimentado negativamente, hacemos un análisis incremental, si $I_{C_{1}}$ aumentara, aumentaría $V_{be_{2}}$, luego aumentaría $I_{C_{2}}$, con el consiguiente aumento de la caída en el resistor que estuviese conectado al emisor, por lo tanto aumentaría $V_{e_{1}}$, lo cual disminuye $V_{be_{1}}$ y finalmente esto disminuiría $I_{C_{1}}$, oponiéndose al aumento inicial, con lo cual se ve que está realimentado negativamente, haciendo un circuito mas estable comparándolo con un Darlington. \\
 Lo fundamental es que por $R_{L}$ ahora pasa $I_{C_{1}}$ e $I_{C_{2}}$ con lo cual la ganancia a lazo abierto aumenta y esto mejora mucho el par conectado como seguidor.
@@ -42,9 +50,99 @@ Lo fundamental es que por $R_{L}$ ahora pasa $I_{C_{1}}$ e $I_{C_{2}}$ con lo cu
 \end{center}
 \end{figure}
 
-El tipo de realimentación para la señal es la misma que con un único transistor en configuración seguidor, se muestrea tensión y se suma tensión, es un realimentador \textbf{serie-paralelo}
+Se muestrea tensión y se suma tensión, es un realimentador \textbf{serie-paralelo}. Reemplazando los transistores por su modelo de pequeña señal tenemos:
 
-\textcolor{red}{\textbf{COMPLETAR!!}}
+\vfill
+
+\clearpage
+
+
+\begin{figure}[H] %htb
+\begin{center}
+\includegraphics[width=0.9 \textwidth, angle=0]{./img/sziklai/sziklai2.png}
+\caption{\label{fig:fig_sziklai_cir_2}\footnotesize{Par compuesto como seguidor, modelo de pequeña señal}}
+\end{center}
+\end{figure}
+
+
+Aplicando parámetros \textbf{Z} al realimentador y despreciando el camino directo de la señal en el mismo, tenemos:
+
+
+\begin{figure}[H] %htb
+\begin{center}
+\includegraphics[width=0.9 \textwidth, angle=0]{./img/sziklai/sziklai3.png}
+\caption{\label{fig:fig_sziklai_cir_3}\footnotesize{Aplicando parámetros \textbf{Z} al realimentador}}
+\end{center}
+\end{figure}
+
+%\begin{equation*}
+%f = \frac{R_{1}}{R_{1} + R_{2}}
+%\end{equation*}
+
+
+Remplazando en el circuito y reorganizando para llevar el realimentador a su forma ideal, nos queda:
+
+
+\begin{figure}[H] %htb
+\begin{center}
+\includegraphics[width=0.9 \textwidth, angle=0]{./img/sziklai/sziklai4.png}
+\caption{\label{fig:fig_sziklai_cir_4}\footnotesize{Reemplazando en el circuito original}}
+\end{center}
+\end{figure}
+
+\vfill
+
+\clearpage
+
+
+Ahora para llevar el circuito a nuestro caso, tenemos:
+
+\begin{equation*}
+R_{1} = \infty \; y \; R_{2} = 0 \Rightarrow f = 1
+\end{equation*}
+
+Quedando:
+
+\begin{figure}[H] %htb
+\begin{center}
+\includegraphics[width=0.9 \textwidth, angle=0]{./img/sziklai/sziklai5.png}
+\caption{\label{fig:fig_sziklai_cir_5}\footnotesize{Circuito con $R_{1} = \infty \; y \; R_{2} = 0$}}
+\end{center}
+\end{figure}
+
+
+Para la ganancia de tensión a lazo cerrado, tenemos:
+
+\begin{equation}
+A_{v} = \frac{V_{o}}{V_{G}} = \frac{a}{1 + a \cdot f}
+\end{equation}
+
+
+Para hallar la ganancia a lazo abierto \quotemarks{a}, desactivamos la realimentación, haciendo $f = 0$, ahora calculamos la ganancia por inspección, obteniendo:
+
+\begin{equation}
+\boxed{ a = \evalat{\frac{V_{o}}{V_{G}}}{f=0} = \frac{r_{\pi_{1}}}{r_{\pi_{1}} + R_{G}} \cdot gm_{1} \cdot \left( r_{o_{1}} \parallelresistors R_{3} \parallelresistors r_{\pi_{2}} \right) \cdot gm_{2} \cdot \left( r_{o_{2}} \parallelresistors R_{L} \right) }
+\end{equation}
+
+Para las impedancias de entrada, $Z_{i_{OL}}$, y de salida (mas correctamente en el nodo de salida, ya que incluye a la carga), $Z_{o_{OL}}$, a lazo abierto, también por inspección, tenemos:
+
+\begin{equation}
+Z_{i_{OL}} = r_{\pi_{1}}
+\end{equation}
+
+\begin{equation}
+Z_{o_{OL}} = r_{o_{2}} \parallelresistors R_{L}
+\end{equation}
+
+Con lo que a lazo cerrado, tenemos:
+
+\begin{equation}
+\boxed{ Z_{i} = r_{\pi_{1}} \cdot \left( 1 + a \cdot f \right)}
+\end{equation}
+
+\begin{equation}
+\boxed{ Z_{o} = \frac{ r_{o_{2}} \parallelresistors R_{L} }{1 + a \cdot f} }
+\end{equation}
 
 
 \clearpage

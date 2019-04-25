@@ -80,6 +80,13 @@
 
 %\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+% FOR FIGURE WRAPPING
+
+\usepackage{wrapfig}
+
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
 
 %\\\\\\\\\\\\\\\\\\\\\\\\\\\
 % FOR EQUATION CAPTION FORMAT, COLORS AND OTHERS
@@ -118,9 +125,17 @@
 
 \usepackage{mathtools}
 
-\usepackage{amsmath}
+\usepackage{amsmath,mleftright}
+
+\usepackage{xparse}
 
 \numberwithin{equation}{subsection}
+
+\NewDocumentCommand{\evalat}{sO{\big}mm}{%
+  \IfBooleanTF{#1}
+   {\mleft. #3 \mright|_{#4}}
+   {#3#2|_{#4}}%
+}
 
 %\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
