@@ -111,6 +111,18 @@
 %\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
 
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+% MATH
+
+\usepackage{mathrsfs}
+
+\usepackage{mathtools}
+
+\usepackage{amsmath}
+
+\numberwithin{equation}{subsection}
+
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
 %\\\\\\\\\\\\\\\\\\\\\\\\\\\
 %!!!!!!!!!!!!!!!!!!!!!!!!! DETECCION DE PLATAFORMA !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -256,42 +268,47 @@
 %\\\\\\\\\\\\\\\\\\\\\\\\\\\
 % Símbolos de las unidades
 
-\newcommand{\volt}[1]{\mbox{#1 V}}
-\newcommand{\milivolt}[1]{\mbox{#1 mV}}
-\newcommand{\hertz}[1]{\mbox{#1 Hz}}
-\newcommand{\kilohertz}[1]{\mbox{#1 kHz}}
-\newcommand{\megahertz}[1]{\mbox{#1 MHz}}
-\newcommand{\farad}[1]{\mbox{#1 F}}
-\newcommand{\nanofarad}[1]{\mbox{#1 nF}}
-\newcommand{\microfarad}[1]{\mbox{#1 $\mu$F}}
-\newcommand{\picofarad}[1]{\mbox{#1 pF}}
-\newcommand{\fentofarad}[1]{\mbox{#1 fF}}
-\newcommand{\ohm}[1]{\mbox{#1 $\Omega$}}
-\newcommand{\miliohm}[1]{\mbox{#1 m$\Omega$}}
-\newcommand{\kiloohm}[1]{\mbox{#1 k$\Omega$}}
-\newcommand{\megaohm}[1]{\mbox{#1 M$\Omega$}}
-\newcommand{\amper}[1]{\mbox{#1 A}}
-\newcommand{\miliamper}[1]{\mbox{#1 mA}}
-\newcommand{\microamper}[1]{\mbox{#1 $\mu$A}}
-\newcommand{\picoamper}[1]{\mbox{#1 pA}}
-\newcommand{\fentoamper}[1]{\mbox{#1 fA}}
-\newcommand{\s}[1]{\mbox{#1 s}}
-\newcommand{\milis}[1]{\mbox{#1 ms}}
-\newcommand{\micros}[1]{\mbox{#1 $\mu$s}}
-\newcommand{\nanos}[1]{\mbox{#1 ns}}
-\newcommand{\miliamperporvolt}[1]{ \mbox{#1 $\frac{mA}{V}$}}
-\newcommand{\miliamperporvoltcuad}[1]{ \mbox{#1 $\frac{mA}{V^2}$}}
-\newcommand{\decibel}[1]{\mbox{#1 dB}}
-\newcommand{\decibeli}[1]{\mbox{#1 dBi}}
+%\newcommand{\volt}[1]{\mbox{#1 V}}
+%\newcommand{\milivolt}[1]{\mbox{#1 mV}}
+%\newcommand{\hertz}[1]{\mbox{#1 Hz}}
+%\newcommand{\kilohertz}[1]{\mbox{#1 kHz}}
+%\newcommand{\megahertz}[1]{\mbox{#1 MHz}}
+%\newcommand{\farad}[1]{\mbox{#1 F}}
+%\newcommand{\nanofarad}[1]{\mbox{#1 nF}}
+%\newcommand{\microfarad}[1]{\mbox{#1 $\mu$F}}
+%\newcommand{\picofarad}[1]{\mbox{#1 pF}}
+%\newcommand{\fentofarad}[1]{\mbox{#1 fF}}
+%\newcommand{\ohm}[1]{\mbox{#1 $\Omega$}}
+%\newcommand{\miliohm}[1]{\mbox{#1 m$\Omega$}}
+%\newcommand{\kiloohm}[1]{\mbox{#1 k$\Omega$}}
+%\newcommand{\megaohm}[1]{\mbox{#1 M$\Omega$}}
+%\newcommand{\amper}[1]{\mbox{#1 A}}
+%\newcommand{\miliamper}[1]{\mbox{#1 mA}}
+%\newcommand{\microamper}[1]{\mbox{#1 $\mu$A}}
+%\newcommand{\picoamper}[1]{\mbox{#1 pA}}
+%\newcommand{\fentoamper}[1]{\mbox{#1 fA}}
+%\newcommand{\s}[1]{\mbox{#1 s}}
+%\newcommand{\milis}[1]{\mbox{#1 ms}}
+%\newcommand{\micros}[1]{\mbox{#1 $\mu$s}}
+%\newcommand{\nanos}[1]{\mbox{#1 ns}}
+%\newcommand{\miliamperporvolt}[1]{ \mbox{#1 $\frac{mA}{V}$}}
+%\newcommand{\miliamperporvoltcuad}[1]{ \mbox{#1 $\frac{mA}{V^2}$}}
+%\newcommand{\decibel}[1]{\mbox{#1 dB}}
+%\newcommand{\decibeli}[1]{\mbox{#1 dBi}}
+
+
+% Nombres de las unidades
+%\newcommand{\Metro}{\mbox{metro}}
+%\newcommand{\Volt}{\mbox{Volt}}
+%\newcommand{\Amper}{\mbox{Ampere}}
+%\newcommand{\Farad}{\mbox{Farad}}
 
 \newcommand{\spice}{\mbox{\textit{\textbf{SPICE}}}}
 \newcommand{\schematic}{\mbox{\textit{\textbf{SCHEMATIC}}}}
 
-% Nombres de las unidades
-\newcommand{\Metro}{\mbox{metro}}
-\newcommand{\Volt}{\mbox{Volt}}
-\newcommand{\Amper}{\mbox{Ampere}}
-\newcommand{\Farad}{\mbox{Farad}}
+\newcommand{\parallelresistors}{\mathbin{\!/\mkern-5mu/\!}}
+
+
 %\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
 %\\\\\\\\\\\\\\\\\\\\\\\\\\\
