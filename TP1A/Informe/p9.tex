@@ -1,8 +1,70 @@
 
 \vspace{1.5cm}
 
+Agrupamos los componentes por sección de la fuente de alimentación.
 
-\textcolor{red}{\textbf{COMPLETAR!!}}
+\subsubsection{Amplificador diferencial con caga activa}
+
+$\bm{Q_{12}}$, $\bm{Q_{13}}$: Transistores \textit{BC548}, forman el par diferencial de la entrada del amplificador, estos transistores en este circuito tienen una ganancia de mas de $2000$, lo que justifica su elección como transistores bipolares \textbf{NPN}, y ya que trabajan con corrientes del orden de $1 \si[per-mode=symbol]{\milli\ampere}$, se necesitan transistores de señal, de propósito general, \textit{BC548} es el mas conocido dentro de las necesidades y categoría.\\
+
+$\bm{Q_{1}}$, $\bm{Q_{2}}$: Transistores \textit{BC558}, forman la fuente espejo con degeneración de emisor que forma la carga del par diferencial, su elección como transistores bipolares \textbf{PNP} se basa en el hecho de ser la carga de un par diferencial con transistores bipolares \textbf{NPN}, su elección como transistores bipolares es para lograr un gran $gm$ que se traduzca en un gran $R_{o}$ para la fuente espejo, y al igual que los transistores del par, trabajan con corrientes del orden de $1 \si[per-mode=symbol]{\milli\ampere}$, por las mismas razones, se necesitan transistores de señal, de propósito general, \textit{BC558} es el mas conocido dentro de las necesidades y categoría, y es el complementario del \textit{BC548}.\\
+
+$\bm{D_{1}}$: Diodo \textit{1N4148}, este diodo actúa durante transitorios, que producen picos de corriente en la base de $Q_{12}$, debido fundamentalmente al switcheo de la llave, durante estos momentos $Q_{12}$ se corre hacia la saturación, lo cual llevaría la tensión de su colector, que es la salida del diferencial, a valores muy bajos, cercanos al del emisor, los cuales tenderían a hacer bajar abruptamente, a través de los transistores de salida, la corriente de salida, lo cual provocaría transitorios mas largos en la respuesta de la fuente, al tener esta que luego subir nuevamente la corriente al actuar la realimentación, el diodo impone un valor de piso de continua de piso, de aproximadamente $0.6 \si[per-mode=symbol]{\volt}$ en el colector de $Q_{12}$ respecto del emisor, limitando cuanto puede esta bajar, y por ende, limitando el efecto anterior. Además de lo antes mencionado, se necesita que dinámicamente no afecte al funcionamiento, siendo idealmente un corto, de ahí la elección de un diodo rápido, \textit{1N4148}, el cual tiene menores efectos reactivos que un diodo normal, se puede decir en pequeña señal que su capacidad equivalente es menor, comportándose para bajas/medias frecuencias como solo una pequeña resistencia de unas pocas decenas de $\si[per-mode=symbol]{\ohm}$.\\
+
+$\bm{R_{1}}$: Resistor de $2.2 \si[per-mode=symbol]{\kilo\ohm}$, resistor que determina la corriente de los transistores del par diferencial, si se considera el punto de reposo con la base de los transistores a $1 \si[per-mode=symbol]{\volt}$, los emisores se encuentran a aproximadamente $0.3 \si[per-mode=symbol]{\volt}$, y sobre este resistor caen aproximadamente $5.3 \si[per-mode=symbol]{\volt}$, con lo que la suma de las corrientes de los transistores del diferencial es de aproximadamente $2.4 \si[per-mode=symbol]{\milli\ampere}$ y la fuente espejo se encarga de repartir esta corriente en forma pareja entre los transistores del par en $1.2 \si[per-mode=symbol]{\milli\ampere}$ aproximadamente. Si la intención del diseño es este valor de corrientes, así queda determinado su valor, las tensiones de alimentación determinan también este valor, por lo cual se incluye esa fuente ideal de $-5 \si[per-mode=symbol]{\volt}$, en un circuito real debería ser implementada con un circuito similar al de la referencia de tensión, el \textit{TL431} puede ser usado en referencias de tensión negativa.\\
+
+$\bm{R_{2}}$, $\bm{R_{3}}$: Resistores de $500 \si[per-mode=symbol]{\ohm}$, estos resistores deben ser iguales para mantener el factor de copia en $1$, y su valor es determinado por el valor de $R_{o}$ que se pretende para la fuente espejo, este valor debe ser lo suficientemente grande como para lograr junto al valor de la resistencia de entrada de la siguiente etapa la ganancia deseada. En este caso el valor que se obtiene es cercano a $1 \si[per-mode=symbol]{\mega\ohm}$, este valor pretendido fija el valor de este resistor.\\
+
+$\bm{R_{6}}$: Resistor de $10 \si[per-mode=symbol]{\ohm}$, este resistor forma parte de una red de compensación, tema de la segunda parte de este trabajo práctico.\\
+
+
+\subsubsection{Seguidor con carga activa}
+
+$\bm{Q_{3}}$, $\bm{Q_{6}}$: Transistores \textit{BD135}, estos transistores forman la segunda etapa del amplificador, un seguidor por emisor, siendo $\bm{Q_{3}}$ el transistor en seguidor y formando $\bm{Q_{6}}$ su carga activa, una fuente de corriente constante, por lo tanto la etapa no ganará en tensión, pero trabajan con una corriente de alrededor de $17 \si[per-mode=symbol]{\milli\ampere}$, lo que hace que $\bm{Q_{3}}$ disipe una potencia de unos $300 \si[per-mode=symbol]{\milli\watt}$ y $\bm{Q_{6}}$, unos $30 \si[per-mode=symbol]{\milli\watt}$, la intención de esta etapa es presentar una resistencia de entrada lo suficientemente grande al par diferencial para lograr la ganancia buscada, de ahí el usar carga activa, además de independizar su polarización al depender su valor de la fuente estable de $-5 \si[per-mode=symbol]{\volt}$ y del resistor $\bm{R_{8}}$. La elección del transistor está mayormente regida por la potencia disipada en los mismos, ya que es demasiada para un transistor de señal, pero muy poca para un resistor de potencia, eso lleva a elegir un transistor de potencia media, siendo el \textit{BD135}, una elección adecuada, dentro de los transistores de esa categoría, es de los mas conocido y disponible\\
+
+$\bm{R_{8}}$: Resistor de $10 \si[per-mode=symbol]{\ohm}$, este resistor determina junto a la tensión estable de alimentación negativa la corriente de polarización de $\bm{Q_{3}}$ y $\bm{Q_{6}}$.\\
+
+$\bm{R_{34}}$: Resistor de $10 \si[per-mode=symbol]{\ohm}$, este resistor limita la corriente durante transitorios en $\bm{Q_{3}}$ y $\bm{Q_{6}}$, su valor se determina de manera empírica por simulación y/o medición, no puede ser muy grande porque disiparía mucha potencia y mas importante comenzaría a disminuir la ganancia y la resistencia de entrada de $\bm{Q_{3}}$.\\
+
+
+\subsubsection{Referencia de tensión}
+
+$\bm{U_{2}}$, $\bm{Q_{14}}$, $\bm{R_{30}}$, $\bm{R_{31}}$, $\bm{R_{32}}$, $\bm{R_{33}}$, $\bm{C_{12}}$: Referencia de tensión basada en el \textit{TL431}, esta se analiza en detalle en la sección~\sectref{section:voltage_reference}. Solo queda aclarar el valor específico de $\bm{R_{31}}$ y $\bm{R_{32}}$, sus valores están ajustados a valores comerciales para obtener $10 \si[per-mode=symbol]{\volt}$ de referencia.\\
+
+
+$\bm{R_{4}}$, $\bm{R_{55}}$, $\bm{R_{5}}$: Estos tres resistores forman un divisor resistivo que genera a partir de la referencia de $10 \si[per-mode=symbol]{\volt}$  una de $1 \si[per-mode=symbol]{\volt}$, los valores se eligen de manera de lograr esta tensión y cargar lo menos posible a la referencia, teniendo en cuenta que la carga de la base de $\bm{Q_{13}}$ debe ser despreciable, que es del orden de $4 \si[per-mode=symbol]{\micro\ampere}$, con estos valores tenemos una corriente de $0.9 \si[per-mode=symbol]{\milli\ampere}$, logrando una tensión de prácticamente $1 \si[per-mode=symbol]{\volt}$ sobre la base de $\bm{Q_{13}}$. Los valores son tales de lograr lo anterior, pero se usan tres resistores por la precisión necesaria, lo que por supuesto implica que deben ser de baja tolerancia, en particular estos valores están en la serie de 1 \%.\\
+
+
+
+\subsubsection{Par compuesto (Sziklai)}
+
+$\bm{Q_{4}}$, $\bm{Q_{5}}$, $\bm{R_{11}}$: Par compuesto (Sziklai), explicado en detalle en la sección~\sectref{section:sziklai}.\\
+
+
+\subsubsection{Limitación de corriente simple}
+
+$\bm{Q_{15}}$, $\bm{R_{S}}$: Este circuito es una simple limitación de corriente que limita quitando la corriente a la base del primer transistor del par compuesto, simplemente al llegar la corriente a un valor tal que la caída sobre $\bm{R_{S}}$ sea la necesaria para que $\bm{Q_{15}}$ comience a conducir, se tendrá limitación de corriente, este valor corresponde a aproximadamente $3 \si[per-mode=symbol]{\ampere}$. Dado que la fuente de alimentación cuenta con un lazo de corriente, este circuito solo está para limitar la corriente durante transitorios, protegiendo de estos picos de corriente a los transistores y a la fuente de entrada.\\
+
+\subsubsection{Realimentación de corriente}
+
+$\bm{U_{3_{A}}}$, $\bm{U_{3_{B}}}$, $\bm{R_{12}}$, $\bm{R_{13}}$, $\bm{R_{14}}$, $\bm{R_{15}}$, $\bm{R_{16}}$, $\bm{R_{17}}$, $\bm{R_{18}}$, $\bm{R_{19}}$, $\bm{R_{S}}$: Este circuito forma un amplificador diferencial y un amplificador no inversor en cascada, los cuales se explican en detalle en  la sección~\sectref{section:modelo_operacional}. Además de esto al tener en cuenta $\bm{R_{S}}$, tenemos que el amplificador diferencial convierte corriente a tensión, y dado que el valor de $\bm{R_{S}}$, $0.2 \si[per-mode=symbol]{\ohm}$ es despreciable frente a la resistencia de entrada del diferencial, aproximadamente $27 \si[per-mode=symbol]{\kilo\ohm}$, el factor de conversión de corriente a tensión es simplemente el valor de resistencia de $\bm{R_{S}}$.\\
+
+$\bm{C_{15}}$, $\bm{C_{16}}$: Estos capacitores forman parte de redes de compensación, tema de la segunda parte del presente trabajo práctico.\\
+
+\subsubsection{Realimentación de Tensión}
+
+$\bm{R_{9}}$, $\bm{R_{10}}$: Estos dos resistores forman un divisor resistivo que es básicamente la red de realimentación, si no se tiene en cuenta la llave que es trasparente. Sus valores, o rango de valores mas bien, son tales de lograr una realimentación que va de $0.1$ a $1$, logrando una ganancia de tensión a lazo cerrado que va de $1$ a $10$.\\
+
+$\bm{R_{60}}$, $\bm{C_{9}}$, $\bm{C_{2}}$: Estos capacitores forman parte de redes de compensación, tema de la segunda parte del presente trabajo práctico.\\
+
+
+\subsubsection{Llave analógica}
+
+$\bm{Q_{11}}$, $\bm{Q_{7}}$, $\bm{Q_{9}}$, $\bm{Q_{10}}$, $\bm{R_{20}}$, $\bm{R_{21}}$, $\bm{R_{22}}$, $\bm{R_{23}}$, $\bm{R_{7}}$: Llave electrónica transparente, explicada en detalle en la sección~\sectref{section:switch}. Quedaría analizar el uso de estos específicos transistores y resistores. El uso de los transistores \textit{BC548} y \textit{BC558}, básicamente se debe a que son necesarios transistores de señal y complementarios para lograr la mejor compensación de sus caídas $V_{BE}$, lo cual como antes nos lleva a estos transistores como elección. Los valores de los resistores son tales de lograr unas resistencias de entrada de los seguidores lo suficientemente alta como para despreciarse el efecto de carga sobre el divisor resistivo y al mismo tiempo no comprometer su respuesta en frecuencia, ni su resistencia de salida.\\
+
+\subsubsection{Alimentación}
+
+$\bm{C_{11}}$, $\bm{C_{13}}$: Estos capacitores, de $10 \si[per-mode=symbol]{\micro\farad}$, son capacitores de filtro de la alimentación, ayudando a filtrar un posible rizado presente en la fuente de alimentación de entrada y en la salida de la referencia respectivamente.\\
 
 
 

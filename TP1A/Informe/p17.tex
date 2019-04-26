@@ -46,8 +46,8 @@ Para calcular la eficiencia de la fuente de alimentación simplemente se aplicó
 
 
 
-Los resultados obtenidos para la eficiencia para cada uno de los valores de tensión de entrada para la que se realizó la simulación, se resumen en la tabla~\tableref{table:table_efficiency}. Se puede ver claramente como la eficiencia disminuye al aumentar la tensión de entrada, cosa totalmente esperable, ya que, a tensión de salida constante, la tensión en el elemento de paso es cada vez mayor, a la misma corriente de carga, se tiene mayor potencia disipada en el mismo.
-
+Los resultados obtenidos para la eficiencia para cada uno de los valores de tensión de entrada para la que se realizó la simulación, se resumen en la tabla~\tableref{table:table_efficiency}. Se puede ver claramente como la eficiencia disminuye al aumentar la diferencia entre la tensión de entrada y la tensión de salida, cosa totalmente esperable, ya que, a tensión de salida constante, la tensión en el elemento de paso es cada vez mayor, a la misma corriente de carga, se tiene mayor potencia disipada en el mismo.\\
+También la eficiencia empeora con el aumento de la carga, ya que al pasar la corriente de carga por el elemento de paso. se disipará también mas potencia en este.\\
 
 %% \noindent
 %% \begin{center}
@@ -77,8 +77,10 @@ Los resultados obtenidos para la eficiencia para cada uno de los valores de tens
     \rowcolor{HeadersColor} \cellcolor{white} \thead{}  & \thead{$V_{i} = 15 \si[per-mode=symbol]{\volt}$} & \thead{$V_{i} = 20 \si[per-mode=symbol]{\volt}$} & \thead{$V_{i} = 25 \si[per-mode=symbol]{\volt}$} \\
     
     \hhline{|-|-|-|-|}
-    \rowcolor{gray!20} \cellcolor{gray!40} $\eta = \frac{P_{out}}{P_{in}}$ & 0.639 & 0.480 & 0.385  \\
-    \hhline{|-|-|-|-|}       
+    \rowcolor{gray!20} \cellcolor{gray!60} \thead{ \cellcolor{gray!60} $\eta = \frac{P_{out}}{P_{in}} \cdot 100 \%$ \\ \cellcolor{gray!60} \\ \cellcolor{gray!60} $R_{L} = 10 \si[per-mode=symbol]{\ohm}$, $R_{9} = 90 \si[per-mode=symbol]{\kilo\ohm}$ \\ \cellcolor{gray!60} $R_{18} = 0 \si[per-mode=symbol]{\ohm}$ } & 63.93 \% & 48.04 \% & 38.50 \%  \\
+    \hhline{|-|-|-|-|}
+    \rowcolor{gray!20} \cellcolor{gray!60}  \thead{ \cellcolor{gray!60} $\eta = \frac{P_{out}}{P_{in}} \cdot 100 \%$ \\ \cellcolor{gray!60} \\ \cellcolor{gray!60} $R_{L} = 1 \si[per-mode=symbol]{\ohm}$, $R_{9} = 0 \si[per-mode=symbol]{\ohm}$ \\ \cellcolor{gray!60} $R_{18} = 0 \si[per-mode=symbol]{\ohm}$ } & 6.58 \% & 4.95 \% & 3.96 \%  \\
+    \hhline{|-|-|-|-|}        
     \end{tabularx}}
 	\caption{\footnotesize{Eficiencia en función de la tensión de entrada.}}
 	\label{table:table_efficiency}
@@ -87,15 +89,6 @@ Los resultados obtenidos para la eficiencia para cada uno de los valores de tens
 %%\end{spacing}
 
 %% \end{center}
-
-
-
-
-
-
-
-
-
 
 
 
