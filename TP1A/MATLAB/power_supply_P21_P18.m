@@ -1,0 +1,107 @@
+function power_supply_P21_P18()
+
+%Cierro las figuras existentes.
+close all;
+
+%Tamaño de la figura.
+size_percent = 80;
+
+%Cargo los datos
+TableData=importdata("../LTSPICE/power_supply_P21-P18.txt");
+
+X1 = TableData.data(:,1);
+
+Y1 = TableData.data(:,2);
+
+% Calculo el tamaño y la posición de la imagen.
+pict_size = size_percent/100;
+pict_pos = (1 - pict_size)/2;
+
+% Genero la figura, a un % del tamaño de la panatalla y centrada.
+% No parece funcionar en Octave, pero no genera errores tampoco.
+figure1 = figure('units', 'normalized', 'outerposition', ...
+    [pict_pos pict_pos pict_size pict_size]);
+
+% Create axes
+axes1 = axes('Parent',figure1);
+hold(axes1,'on');
+
+% Create plot
+plot1 = plot(X1,Y1);
+
+% Create ylabel
+ylabel('Tensión de salida de la fuente de alimentación (V_{out}) [V]');
+
+% Create xlabel
+xlabel('Tensión de entrada de la fuente de alimentación (V_{in}) [V]');
+
+% Create title
+title('Tensión de salida de la fuente en función de la tensión de entrada (R_{9} = 90 K\Omega , R_{18} = 0 \Omega, R_{L} = 10 \Omega)');
+
+box(axes1,'on');
+% Set the remaining axes properties
+set(axes1,'XGrid','on','XMinorTick','on','XTick',...
+    [0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30],...
+    'YGrid','on','YMinorTick','on','YTick',...
+    [-2 -1.5 -1 -0.5 0 0.5 1 1.5 2 2.5 3 3.5 4 4.5 5 5.5 6 6.5 7 7.5 8 8.5 9 9.5 10 10.5 11 11.5 12],...
+    'YTickLabel',...
+    {'-2','-1.5','-1','-0.5','0','0.5','1','1.5','2','2.5','3','3.5','4','4.5','5','5.5','6','6.5','7','7.5','8','8.5','9','9.5','10','10.5','11','11.5','12'});
+
+xlim(axes1,'manual');
+xlim([0 30]);
+
+ylim(axes1,'manual');
+ylim( [-0.5 11]);
+
+
+%Agrego datatips customizados.
+
+dcm_obj = datacursormode(figure1);
+
+customtitles = {''};
+customtitlesindexes = 1;
+
+knee_index = find( Y1 > (99/100)*10, 1);
+
+hdtip(knee_index) = dcm_obj.createDatatip(handle(plot1));
+
+set(hdtip(knee_index), 'MarkerSize',5, 'MarkerFaceColor','none', ...
+                  'MarkerEdgeColor','r', 'Marker','o', 'HitTest','off');
+              
+YValue = [X1(knee_index) , Y1(knee_index) , 1];
+              
+set(hdtip(knee_index), 'Position', YValue, 'Orientation','topleft')
+
+customtitles{end + 1} = '*** Comienzo de la regulación de tensión ***';
+
+customtitlesindexes = [customtitlesindexes, knee_index];
+
+set(dcm_obj, 'UpdateFcn', {@customDatatipFunction, customtitles, ...
+    customtitlesindexes})
+
+updateDataCursors(dcm_obj);
+            
+           
+              
+
+function output_txt = customDatatipFunction(~,evt, customtitles, ...
+    customtitlesindexes)
+    pos = get(evt,'Position');
+    idx = get(evt,'DataIndex');
+    
+    idx_f = find(customtitlesindexes == idx, 1);
+    
+    if (isempty(idx_f))
+        idx_f = 1;
+    end    
+    
+    output_txt = {sprintf('%s\nEntrada: %.2f V\nSalida: %.2f V', ...
+        customtitles{idx_f}, pos(1), pos(2))};
+    
+    
+ 
+
+
+
+
+
