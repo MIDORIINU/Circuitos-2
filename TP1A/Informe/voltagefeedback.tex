@@ -96,7 +96,7 @@ T_{D_{R_{9}-R_{10}}} = \frac{R_{10}}{R_{9} + R_{10}}
 
 
 
-\subsection{Transferencia del realimentador \textbf{serie-paralelo}}
+\subsection{Transferencia del realimentador}
 
 Dado que el divisor resistivo tiene su transferencia ideal al no estar cargado, tenemos en el camino de realimentación de tensión solo este divisor y la ganancia en cascada de ambos seguidores, la llamamos ganancia de la llave, cuyo valor es:
 
@@ -126,7 +126,7 @@ R_{o_{llave}} = 43.24 \si[per-mode=symbol]{\ohm} \parallelresistors 10 \si[per-m
 \label{section:voltage_loop_justification}
 
 
-En la figura~\figref{fig:fig_voltage_loop_1}, puede verse el esquema de la fuente de alimentación como circuito realimentado, puede verse que se trata de realimentación \textbf{serie-paralelo}, que como es de esperarse estabiliza la tensión de salida.
+En la figura~\figref{fig:fig_voltage_loop_1}, puede verse el esquema de la fuente de alimentación como circuito realimentado, puede verse que se trata de realimentación \textbf{serie-paralelo}, que como es de esperarse estabiliza la ganancia de tensión.
 
 \begin{figure}[H] %htb
 \begin{center}
@@ -150,6 +150,16 @@ f = 0.99 \times \frac{R_{10}}{R{9} + R{10}}
 \end{equation}
 
 
+\begin{equation}
+a = \evalat{\frac{V_{o}}{V_{Ref}}}{f=0} = \frac{  R_{i_{D}} }{ R_{i_{D}} + R_{7} + R_{o_{llave}} + R_{o_{Ref}}  } \cdot A{v_{OL}} \cdot \frac{  R_{L} \parallelresistors \left( R_{9} + R_{10} \right)  }{ R_{L} \parallelresistors \left( R_{9} + R_{10} \right) + R_{S} + R_{o_{Sziklai}} }
+\end{equation}
+
+
+\begin{equation*}
+a = \frac{  15.34 \si[per-mode=symbol]{\kilo\ohm} }{ 15.34 \si[per-mode=symbol]{\kilo\ohm} + 1 \si[per-mode=symbol]{\kilo\ohm} + 43.05 \si[per-mode=symbol]{\ohm} + 1 \si[per-mode=symbol]{\kilo\ohm}  } \times 2382.03 \times \frac{ 100 \si[per-mode=symbol]{\ohm} \parallelresistors \left( 10 \si[per-mode=symbol]{\kilo\ohm} + 10 \si[per-mode=symbol]{\kilo\ohm} \right)  }{100 \si[per-mode=symbol]{\ohm} \parallelresistors \left( 10 \si[per-mode=symbol]{\kilo\ohm} + 10 \si[per-mode=symbol]{\kilo\ohm} \right) + 0.2 \si[per-mode=symbol]{\ohm} + 171.14 \si[per-mode=symbol]{\milli\ohm} } = 2094.26
+\end{equation*}
+
+
 
 Finalmente tenemos para la ganancia de tensión a lazo cerrado:
 
@@ -159,7 +169,7 @@ A = \frac{a}{1 + a \cdot f}
 \end{equation}
 
 \begin{equation*}
-\boxed{ A = \frac{2382.03}{1 + 2382.03 \times 0.99 \times \frac{R_{10}}{R{9} + R{10}}} \approx 1.01 \times \left(  1 + \frac{R_{9}}{R{10}} \right) }
+\boxed{ A = \frac{2094.26}{1 + 2094.26 \times 0.99 \times \frac{R_{10}}{R{9} + R{10}}} \approx 1.01 \times \left(  1 + \frac{R_{9}}{R{10}} \right) }
 \end{equation*}
 
 \subsection{Cálculo de la tensión de salida a lazo cerrado}
@@ -186,7 +196,7 @@ R_{o_{OL}} \approx R_{o_{Sziklai}} + R_{S}
 \subsection{Cálculo de la resistencia de salida a lazo cerrado}
 
 
-Se tendrá entonces a lazo cerrado
+Se tendrá entonces a lazo cerrado:
 
 \begin{equation}
 R_{o} =  \frac{R_{o_{Sziklai}} + R_{S}}{1 + a \cdot f} 
@@ -194,13 +204,13 @@ R_{o} =  \frac{R_{o_{Sziklai}} + R_{S}}{1 + a \cdot f}
 
 
 \begin{equation}
-\boxed{R_{o} = \frac{114.11 \si[per-mode=symbol]{\milli\ohm} + 0.2 \si[per-mode=symbol]{\ohm}}{1 + 2382.03 \times 0.99 \times \frac{R_{10}}{R{9} + R{10}}} = \frac{314.11 \si[per-mode=symbol]{\milli\ohm}}{1 + 2358.21 \times \frac{R_{10}}{R{9} + R_{10}}} \approx 133.20 \si[per-mode=symbol]{\micro\ohm} \times \left(  1 + \frac{R_{9}}{R{10}} \right) }
+\boxed{R_{o} = \frac{114.11 \si[per-mode=symbol]{\milli\ohm} + 0.2 \si[per-mode=symbol]{\ohm}}{1 + 2094.263 \times 0.99 \times \frac{R_{10}}{R{9} + R{10}}} = \frac{314.11 \si[per-mode=symbol]{\milli\ohm}}{1 + 2094.26 \times \frac{R_{10}}{R{9} + R_{10}}} \approx 150 \si[per-mode=symbol]{\micro\ohm} \times \left(  1 + \frac{R_{9}}{R{10}} \right) }
 \end{equation}
 
 El valor de la misma depende de la realimentación como era de esperar, (también de la ganancia de lazo, esta no es estabilizada). Para el caso de $R_{9} = 10 \si[per-mode=symbol]{\kilo\ohm}$ tenemos:
 
 \begin{equation*}
-R_{o_{10k}} = 266.4 \si[per-mode=symbol]{\micro\ohm}
+R_{o_{\left( R_{9} = 10 \si[per-mode=symbol]{\kilo\ohm} \right)}} = 300 \si[per-mode=symbol]{\micro\ohm}
 \end{equation*}
 
 

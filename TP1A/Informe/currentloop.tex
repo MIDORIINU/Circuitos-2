@@ -1,30 +1,194 @@
-\subsection{Análisis de la ganancia de la etapa diferencial, $Q_{12}/Q_{13}$}
-
-\subsubsection{Análisis de la fuente espejo}
-
-\subsubsection{Ganancia de tensión}
-
-\subsubsection{Resistencia de entrada}
-
-\subsubsection{Resistencia de salida}
+\label{section:current_loop}
 
 
-\subsection{Análisis de la ganancia del seguidor por emisor, $Q_{3}$}
+Las ganancias de las distintas etapas a lazo abierto, tienen las mismas expresiones que para el caso del lazo de tensión. En el caso particular de la llave hay simetría perfecta intercambiando los roles de los transistores, como se explica en la sección~\sectref{section:switch}. Las ganancias de las etapas se ven algo afectadas por la variación de la carga, que se ve reflejada hasta la primera etapa en cierto grado.
 
-\subsubsection{Análisis de la fuente de corriente}
+\subsection{Análisis de la etapa diferencial, $Q_{12}/Q_{13}$}
+
+Para la ganancia de tensión del diferencial, observamos que se trata de una etapa diferencial bipolar \textbf{NPN}, con carga activa, un espejo de corriente bipolar \textbf{PNP} con degeneración de emisor, con factor de copia igual a $1$, y cargado con la resistencia de entrada del seguidor que forma la segunda etapa.\\
+
 
 \subsubsection{Ganancia de tensión}
 
+Para la ganancia de esta etapa, tenemos:
+
+\begin{equation}
+A_{v_{D}} = gm_{D} \cdot \left( \left(  r_{d_{D_{1}}} + r_{o_{Q_{12}}} \right) \parallelresistors  R_{o_{mirror}} \parallelresistors R_{i_{seguidor_{Q_{3}}}} \right)
+\end{equation}
+
+
+\begin{equation}
+gm_{D} \approx \frac{gm_{12} + gm_{13}}{2}
+\end{equation}
+
+
+\begin{equation*}
+gm_{D} \approx \frac{\num{4.39E-2} \si[per-mode=symbol]{\ampere\per\volt} + \num{4.85E-2} \si[per-mode=symbol]{\ampere\per\volt}}{2} = \num{4.62e-2} \si[per-mode=symbol]{\ampere\per\volt}
+\end{equation*}
+
+
+\begin{equation*}
+A_{v_{D}} = \num{4.62e-2} \si[per-mode=symbol]{\ampere\per\volt} \times \left( \left( 46.8 \si[per-mode=symbol]{\ohm}  + 56 \si[per-mode=symbol]{\kilo\ohm} \right) \parallelresistors 1.04 \si[per-mode=symbol]{\mega\ohm} \parallelresistors 295.47 \si[per-mode=symbol]{\kilo\ohm}  \right) = 2082.18
+\end{equation*}
+
 \subsubsection{Resistencia de entrada}
 
+\begin{equation}
+R_{i_{D}} = 2 \cdot r_{\pi_{D}}
+\end{equation}
+
+\begin{equation}
+r_{\pi_{D}} \approx \frac{r_{\pi_{12}} + r_{\pi_{13}}}{2}
+\end{equation}
+
+\begin{equation*}
+r_{\pi_{D}} \approx \frac{7.21 \si[per-mode=symbol]{\kilo\ohm} + 8.12 \si[per-mode=symbol]{\kilo\ohm}}{2} = 7.67 \si[per-mode=symbol]{\kilo\ohm}
+\end{equation*}
+
+\begin{equation*}
+R_{i_{D}} = 2 \times 7.67 \si[per-mode=symbol]{\kilo\ohm} = 15.34 \si[per-mode=symbol]{\kilo\ohm}
+\end{equation*}
+
+
+
 \subsubsection{Resistencia de salida}
+
+\begin{equation}
+R_{o_{D}} = r_{o_{12}} \parallelresistors R_{o_{mirror}}
+\end{equation}
+
+
+\begin{equation*}
+R_{o_{D}} = 56 \si[per-mode=symbol]{\kilo\ohm} \parallelresistors 1.04 \si[per-mode=symbol]{\mega\ohm} = 53.14 \si[per-mode=symbol]{\kilo\ohm}
+\end{equation*}
+
+
+\subsubsection{Análisis de la fuente espejo - resistencia de salida}
+
+La fuente espejo tiene degeneración por emisor, lo que constituye realimentación \textbf{serie-serie}, lo cual aumenta su resistencia de salida.\\ \\
+Dado que en este caso se cumple la aproximación $gm \cdot R_{E} << \beta$, se tiene:
+
+\begin{equation}
+R_{o_{mirror}} = R_{o_{C_{Q_{1}}}} \approx \left( 1 + gm_{1} \cdot R_{2} \right) \cdot r_{o_{1}}
+\end{equation} 
+
+\begin{equation*}
+R_{o_{mirror}} = R_{o_{C_{Q_{1}}}} \approx \left( 1 + \num{4.89E-2} \si[per-mode=symbol]{\ampere\per\volt}  \times 500 \si[per-mode=symbol]{\ohm}  \right) \times 40.7 \si[per-mode=symbol]{\kilo\ohm} = 1.04 \si[per-mode=symbol]{\mega\ohm}
+\end{equation*} 
+
+\subsection{Análisis de la etapa en seguidor por emisor, $Q_{3}$}
+
+
+\subsubsection{Análisis de la ganancia de tensión}
+
+Dado que este circuito no cumple la condición, $r_{o} \gg R_{E}$ no se puede usar la expresión aproximada $A_{v} \approx \frac{gm \cdot R_{E}}{1 + gm \cdot R_{E}}$, con lo que tenemos:
+
+\begin{equation}
+A_{v_{Q_{3}}} = \frac{1}{1 + \frac{r_{\pi_{3}}}{  \left(  \beta_{3} + 1 \right) \cdot \left(  R_{o_{C_{Q_{6}}}} \parallelresistors R_{i_{Sziklai}} \parallelresistors r_{o_{3}}  \right)  } }
+\end{equation}
+
+\begin{equation*}
+A_{v_{Q_{3}}} = \frac{1}{1 + \frac { 197 \si[per-mode=symbol]{\ohm} }{  \left(  130 + 1 \right) \times \left(  925.98 \si[per-mode=symbol]{\kilo\ohm} \parallelresistors 2.7 \si[per-mode=symbol]{\kilo\ohm} \parallelresistors 13.9 \si[per-mode=symbol]{\kilo\ohm}  \right)  } } = 0.92
+\end{equation*}
+
+\subsubsection{Análisis de la resistencia de entrada}
+
+
+Para calcular la  resistencia de entrada, vemos que no se cumple la condición $r_{o} \gg R_{E}$, con lo que la expresión aproximada, $ R_{i_{B_{Q_{3}}}} \approx r_{\pi_{3}} + \beta_{3} \cdot R_{E}$ no se puede usar.\\ \\
+
+Tenemos entonces:
+
+\begin{equation}
+R_{i_{seguidor_{Q_{3}}}} = R_{i_{B_{Q_{3}}}} = r_{\pi_{3}} + \left( \beta_{3} + 1 \right) \cdot  \left(  R_{o_{C_{Q_{6}}}} \parallelresistors R_{i_{Sziklai}}   \right)  \cdot \frac{  r_{o_{3}} + \frac{ R_{34} }{\left( \beta_{3} + 1 \right)} }{  r_{o_{3}} + R_{34} +  \left(  R_{o_{C_{Q_{6}}}} \parallelresistors R_{i_{Sziklai}}   \right)  }
+\end{equation}
+
+
+\begin{equation*}
+R_{i_{seguidor_{Q_{3}}}} = R_{i_{B_{Q_{3}}}} = 197 \si[per-mode=symbol]{\ohm} + \left( 130 + 1 \right) \times \left(  925.98 \si[per-mode=symbol]{\kilo\ohm} \parallelresistors 2.7 \si[per-mode=symbol]{\kilo\ohm} \right)  \times \frac{  13.9 \si[per-mode=symbol]{\kilo\ohm} + \frac{ 10 \si[per-mode=symbol]{\ohm} }{\left( 130 + 1 \right)} }{  13.9 \si[per-mode=symbol]{\kilo\ohm} + 10 \si[per-mode=symbol]{\ohm} +  \left(  925.98 \si[per-mode=symbol]{\kilo\ohm} \parallelresistors 2.7 \si[per-mode=symbol]{\kilo\ohm} \right)  } = 295.47 \si[per-mode=symbol]{\kilo\ohm} 
+\end{equation*}
+
+
+\subsubsection{Análisis de la fuente de corriente, $Q_{6}$ - resistencia de salida}
+
+Dado que en este caso no se cumple la aproximación $gm \cdot R_{E} << \beta$, se tiene:
+
+
+\begin{equation}
+R_{o_{C_{Q_{6}}}} = r_{o_{6}} \cdot \left( 1 + \frac{  gm_{6} \cdot R_{8}  }{  1 + \frac{ gm_{6} \cdot R_{8}  }{ \beta_{6} }   }     \right)
+\end{equation}
+
+
+\begin{equation*}
+R_{o_{C_{Q_{6}}}} = 13 \si[per-mode=symbol]{\kilo\ohm} \times \left( 1 + \frac{  \num{6.62E-1} \si[per-mode=symbol]{\ampere\per\volt} \times 250 \si[per-mode=symbol]{\ohm}  }{  1 + \frac{  \num{6.62E-1} \si[per-mode=symbol]{\ampere\per\volt} \times 250 \si[per-mode=symbol]{\ohm}  }{ 122 }   }     \right) = 925.98 \si[per-mode=symbol]{\kilo\ohm}
+\end{equation*}
+
 
 
 \subsection{Análisis de la ganancia de la etapa del par compuesto (Sziklai), $Q_{4}/Q_{5}$}
 
+Usamos las expresiones obtenidas en la sección~\sectref{section:sziklai}, adaptándolas a este caso particular.
+
+
 \subsubsection{Ganancia de tensión}
+
+\begin{equation}
+a_{Sziklai} = gm_{4} \cdot \left( r_{0_{4}} \parallelresistors R_{11} \parallelresistors r_{\pi_{5}} \right) \cdot gm_{5} \cdot \left( r_{o_{5}} \parallelresistors R_{L_{Sziklai}} \right)
+\end{equation}
+
+\begin{equation}
+R_{L_{Sziklai}} \approx R_{S} + R_{L} \parallelresistors \left( R_{9} + R_{10} \right)
+\end{equation}
+
+\begin{equation*}
+R_{L_{Sziklai}} \approx 0.2 \si[per-mode=symbol]{\ohm} + 0 \si[per-mode=symbol]{\ohm} \parallelresistors \left( 10 \si[per-mode=symbol]{\kilo\ohm} + 10 \si[per-mode=symbol]{\kilo\ohm} \right) \approx 0.2 \si[per-mode=symbol]{\ohm}
+\end{equation*}
+
+
+\begin{equation*}
+a_{Sziklai} = \num{6.07E-1} \si[per-mode=symbol]{\ampere\per\volt} \times \left( 2.12 \si[per-mode=symbol]{\kilo\ohm} \parallelresistors 100 \si[per-mode=symbol]{\ohm} \parallelresistors  2.11 \si[per-mode=symbol]{\ohm} \right) \times 54.3 \si[per-mode=symbol]{\ampere\per\volt} \times \left( 2.1 \si[per-mode=symbol]{\kilo\ohm} \parallelresistors 0.2 \si[per-mode=symbol]{\ohm} \right) = 13.61
+\end{equation*}
+
+
+\begin{equation}
+A_{Sziklai} = \frac{a}{1 + a \cdot f}
+\end{equation}
+
+\begin{equation*}
+A_{Sziklai} = \frac{13.61}{1 + 13.61 \times 1} = 0.93
+\end{equation*}
 
 \subsubsection{Resistencia de entrada}
 
+\begin{equation}
+R_{i_{Sziklai}} = \left( 1 + a \cdot f \right) \cdot r_{\pi_{4}}
+\end{equation}
+
+\begin{equation*}
+R_{i_{Sziklai}} = \left( 1 + 13.61 \times 1 \right) \times 184  \si[per-mode=symbol]{\ohm} = 2.7 \si[per-mode=symbol]{\kilo\ohm}
+\end{equation*}
+
+
+
 \subsubsection{Resistencia de salida}
+
+\begin{equation}
+R_{o_{Sziklai}} = \frac{ r_{o_{5}} \parallelresistors R_{L_{Sziklai}}  }{1 + a \cdot f}
+\end{equation}
+
+\begin{equation*}
+R_{o_{Sziklai}} = \frac{ 17.9 \si[per-mode=symbol]{\ohm} \parallelresistors 0.2 \si[per-mode=symbol]{\ohm}  }{  1 + 13.61 \times 1 } = 13.54 \si[per-mode=symbol]{\milli\ohm}
+\end{equation*}
+
+
+\subsubsection{Ganancia total de lazo abierto de tensión}
+
+\begin{equation}
+A_{v_{OL}} = A_{v_{D}} \cdot A_{v_{Q_{3}}} \cdot A_{Sziklai}
+\end{equation}
+
+\begin{equation*}
+A_{v_{OL}} = 2082.18 \cdot 0.92 \cdot 0.93 = 1781.51
+\end{equation*}
+
+
 

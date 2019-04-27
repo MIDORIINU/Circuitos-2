@@ -1,4 +1,7 @@
 
+\label{section:voltage_loop}
+
+
 \subsection{Como está realimentado el sistema en tensión}
 
 En la sección~\sectref{section:voltage_loop_justification} se muestra un esquema de la fuente de alimentación como circuito realimentado, y se muestra el esquema a lazo abierto y a lazo cerrado, la justificación de como se llega a eso, debe esperar al análisis de cada etapa del circuito, pero era necesario referirla en este punto para justificar los cálculos que siguen a continuación, ya que la manera en que la realimentación carga al circuito debía ser justificada, no es complicado hacer un análisis cualitativo para justificarlo, pero de todas formas parece que hay un problema de por donde se empieza a analizar el circuito.\\
@@ -31,7 +34,7 @@ gm_{D} \approx \frac{\num{4.39E-2} \si[per-mode=symbol]{\ampere\per\volt} + \num
 
 
 \begin{equation*}
-A_{v_{D}} = \num{4.62e-2} \si[per-mode=symbol]{\ampere\per\volt} \times \left( \left( 46.8 \si[per-mode=symbol]{\ohm}  + 56 \si[per-mode=symbol]{\kilo\ohm} \right) \parallelresistors 1.04 \si[per-mode=symbol]{\mega\ohm} \parallelresistors 1.76 \si[per-mode=symbol]{\mega\ohm}  \right) = 2384.89
+A_{v_{D}} = \num{4.62e-2} \si[per-mode=symbol]{\ampere\per\volt} \times \left( \left( 46.8 \si[per-mode=symbol]{\ohm}  + 56 \si[per-mode=symbol]{\kilo\ohm} \right) \parallelresistors 1.04 \si[per-mode=symbol]{\mega\ohm} \parallelresistors 1.75 \si[per-mode=symbol]{\mega\ohm}  \right) = 2384.89
 \end{equation*}
 
 \subsubsection{Resistencia de entrada}
@@ -91,7 +94,7 @@ A_{v_{Q_{3}}} = \frac{1}{1 + \frac{r_{\pi_{3}}}{  \left(  \beta_{3} + 1 \right) 
 \end{equation}
 
 \begin{equation*}
-A_{v_{Q_{3}}} = \frac{1}{1 + \frac { 197 \si[per-mode=symbol]{\ohm} }{  \left(  130 + 1 \right) \times \left(  925.98 \si[per-mode=symbol]{\kilo\ohm} \parallelresistors 773.17 \si[per-mode=symbol]{\kilo\ohm} \parallelresistors 10.5 \si[per-mode=symbol]{\kilo\ohm}  \right)  } } = 0.9998
+A_{v_{Q_{3}}} = \frac{1}{1 + \frac { 197 \si[per-mode=symbol]{\ohm} }{  \left(  130 + 1 \right) \times \left(  925.98 \si[per-mode=symbol]{\kilo\ohm} \parallelresistors 516.48 \si[per-mode=symbol]{\kilo\ohm} \parallelresistors 13.9 \si[per-mode=symbol]{\kilo\ohm}  \right)  } } = 0.9998
 \end{equation*}
 
 \subsubsection{Análisis de la resistencia de entrada}
@@ -107,7 +110,7 @@ R_{i_{seguidor_{Q_{3}}}} = R_{i_{B_{Q_{3}}}} = r_{\pi_{3}} + \left( \beta_{3} + 
 
 
 \begin{equation*}
-R_{i_{seguidor_{Q_{3}}}} = R_{i_{B_{Q_{3}}}} = 197 \si[per-mode=symbol]{\ohm} + \left( 130 + 1 \right) \times \left(  925.98 \si[per-mode=symbol]{\kilo\ohm} \parallelresistors 773.17 \si[per-mode=symbol]{\kilo\ohm} \right)  \times \frac{  13.9 \si[per-mode=symbol]{\kilo\ohm} + \frac{ 10 \si[per-mode=symbol]{\ohm} }{\left( 130 + 1 \right)} }{  13.9 \si[per-mode=symbol]{\kilo\ohm} + 10 \si[per-mode=symbol]{\ohm} +  \left(  925.98 \si[per-mode=symbol]{\kilo\ohm} \parallelresistors 773.17 \si[per-mode=symbol]{\kilo\ohm} \right)  } = 1.76 \si[per-mode=symbol]{\mega\ohm} 
+R_{i_{seguidor_{Q_{3}}}} = R_{i_{B_{Q_{3}}}} = 197 \si[per-mode=symbol]{\ohm} + \left( 130 + 1 \right) \times \left(  925.98 \si[per-mode=symbol]{\kilo\ohm} \parallelresistors 516.48 \si[per-mode=symbol]{\kilo\ohm} \right)  \times \frac{  13.9 \si[per-mode=symbol]{\kilo\ohm} + \frac{ 10 \si[per-mode=symbol]{\ohm} }{\left( 130 + 1 \right)} }{  13.9 \si[per-mode=symbol]{\kilo\ohm} + 10 \si[per-mode=symbol]{\ohm} +  \left(  925.98 \si[per-mode=symbol]{\kilo\ohm} \parallelresistors 516.48 \si[per-mode=symbol]{\kilo\ohm} \right)  } = 1.75 \si[per-mode=symbol]{\mega\ohm} 
 \end{equation*}
 
 
@@ -135,7 +138,7 @@ Usamos las expresiones obtenidas en la sección~\sectref{section:sziklai}, adapt
 \subsubsection{Ganancia de tensión}
 
 \begin{equation}
-a_{Sziklai} = gm_{4} \cdot \left( r_{0_{4}} \parallelresistors R_{11} \parallelresistors r_{\pi_{2}} \right) \cdot gm_{5} \cdot \left( r_{o_{5}} \parallelresistors R_{L_{Sziklai}} \right)
+a_{Sziklai} = gm_{4} \cdot \left( r_{0_{4}} \parallelresistors R_{11} \parallelresistors r_{\pi_{5}} \right) \cdot gm_{5} \cdot \left( r_{o_{5}} \parallelresistors R_{L_{Sziklai}} \right)
 \end{equation}
 
 \begin{equation}
@@ -148,7 +151,7 @@ R_{L_{Sziklai}} \approx 0.2 \si[per-mode=symbol]{\ohm} + 100 \si[per-mode=symbol
 
 
 \begin{equation*}
-a_{Sziklai} = \num{1.21E-1} \si[per-mode=symbol]{\ampere\per\volt} \times \left( 10.5 \si[per-mode=symbol]{\kilo\ohm} \parallelresistors 100 \si[per-mode=symbol]{\ohm} \parallelresistors  5.74 \si[per-mode=symbol]{\kilo\ohm} \right) \cdot \num{7.43E-1} \si[per-mode=symbol]{\ampere\per\volt} \times \left( 2.1 \si[per-mode=symbol]{\kilo\ohm} \parallelresistors 99.7 \si[per-mode=symbol]{\ohm} \right) = 833.06
+a_{Sziklai} = \num{1.21E-1} \si[per-mode=symbol]{\ampere\per\volt} \times \left( 10.5 \si[per-mode=symbol]{\kilo\ohm} \parallelresistors 100 \si[per-mode=symbol]{\ohm} \parallelresistors  189 \si[per-mode=symbol]{\ohm} \right) \times \num{7.43E-1} \si[per-mode=symbol]{\ampere\per\volt} \times \left( 2.1 \si[per-mode=symbol]{\kilo\ohm} \parallelresistors 99.7 \si[per-mode=symbol]{\ohm} \right) = 556.15
 \end{equation*}
 
 
@@ -157,7 +160,7 @@ A_{Sziklai} = \frac{a}{1 + a \cdot f}
 \end{equation}
 
 \begin{equation*}
-A_{Sziklai} = \frac{a}{833.06 + 833.06 \cdot 1} = 0.999
+A_{Sziklai} = \frac{556.15}{1 + 556.15 \times 1} = 0.999
 \end{equation*}
 
 \subsubsection{Resistencia de entrada}
@@ -167,7 +170,7 @@ R_{i_{Sziklai}} = \left( 1 + a \cdot f \right) \cdot r_{\pi_{4}}
 \end{equation}
 
 \begin{equation*}
-R_{i_{Sziklai}} = \left( 1 + 833.06 \times 1 \right) \times 927  \si[per-mode=symbol]{\ohm} = 773.17 \si[per-mode=symbol]{\kilo\ohm}
+R_{i_{Sziklai}} = \left( 1 + 556.15 \times 1 \right) \times 927  \si[per-mode=symbol]{\ohm} = 516.48 \si[per-mode=symbol]{\kilo\ohm}
 \end{equation*}
 
 
@@ -179,18 +182,18 @@ R_{o_{Sziklai}} = \frac{ r_{o_{5}} \parallelresistors R_{L_{Sziklai}}  }{1 + a \
 \end{equation}
 
 \begin{equation*}
-R_{o_{Sziklai}} = \frac{ 2.1 \si[per-mode=symbol]{\kilo\ohm} \parallelresistors 99.7 \si[per-mode=symbol]{\ohm}  }{  1 + 833.06 \times 1 } = 114.11 \si[per-mode=symbol]{\milli\ohm}
+R_{o_{Sziklai}} = \frac{ 2.1 \si[per-mode=symbol]{\kilo\ohm} \parallelresistors 99.7 \si[per-mode=symbol]{\ohm}  }{  1 + 556.15 \times 1 } = 171.14 \si[per-mode=symbol]{\milli\ohm}
 \end{equation*}
 
 
 \subsubsection{Ganancia total de lazo abierto de tensión}
 
 \begin{equation}
-a = A_{v_{OL}} = A_{v_{D}} \cdot A_{v_{Q_{3}}} \cdot A_{Sziklai}
+A_{v_{OL}} = A_{v_{D}} \cdot A_{v_{Q_{3}}} \cdot A_{Sziklai}
 \end{equation}
 
 \begin{equation*}
-a = A_{v_{OL}} = 2384.89 \cdot 0.9998 \cdot 0.999 = 2382.03
+A_{v_{OL}} = 2384.89 \cdot 0.9998 \cdot 0.999 = 2382.03
 \end{equation*}
 
 
