@@ -1,5 +1,10 @@
 
-En esta sección se hace un análisis del comportamiento dinámico del amplificador del circuito a lazo abierto, por lo que se realiza en pequeña señal y a frecuencias bajas/medias.
+\subsection{Como está realimentado el sistema en tensión}
+
+En la sección~\sectref{section:voltage_loop_justification} se muestra un esquema de la fuente de alimentación como circuito realimentado, y se muestra el esquema a lazo abierto y a lazo cerrado, la justificación de como se llega a eso, debe esperar al análisis de cada etapa del circuito, pero era necesario referirla en este punto para justificar los cálculos que siguen a continuación, ya que la manera en que la realimentación carga al circuito debía ser justificada, no es complicado hacer un análisis cualitativo para justificarlo, pero de todas formas parece que hay un problema de por donde se empieza a analizar el circuito.\\
+
+
+A continuación se hace un análisis del comportamiento dinámico del amplificador del circuito a lazo abierto, por lo que se realiza en pequeña señal y a frecuencias bajas/medias.
 El análisis se hace por inspección, pero teniendo en cuenta que se cumplan las condiciones que permite usar simplificaciones, de no ser así se usan expresiones mas completas para el cálculo. Dado que se usan valores posteriores en cada uno de los pasos, se hace el análisis usando nombres descriptivos y luego de calculados, se reemplazan estos valores.
 
 \subsection{Análisis de la etapa diferencial, $Q_{12}/Q_{13}$}
@@ -82,7 +87,7 @@ R_{o_{mirror}} = R_{o_{C_{Q_{1}}}} \approx \left( 1 + \num{4.89E-2} \si[per-mode
 Dado que este circuito no cumple la condición, $r_{o} \gg R_{E}$ no se puede usar la expresión aproximada $A_{v} \approx \frac{gm \cdot R_{E}}{1 + gm \cdot R_{E}}$, con lo que tenemos:
 
 \begin{equation}
-A_{v_{Q_{3}}} = \frac{1}{1 + \frac{r_{\pi_{3}}}{  \left(  \beta_{3} + 1 \right) \cdot \left(  R_{o_{C_{Q_{6}}}} \parallelresistors R{i_{Sziklai}} \parallelresistors r_{o_{3}}  \right)  } }
+A_{v_{Q_{3}}} = \frac{1}{1 + \frac{r_{\pi_{3}}}{  \left(  \beta_{3} + 1 \right) \cdot \left(  R_{o_{C_{Q_{6}}}} \parallelresistors R_{i_{Sziklai}} \parallelresistors r_{o_{3}}  \right)  } }
 \end{equation}
 
 \begin{equation*}
@@ -97,7 +102,7 @@ Para calcular la  resistencia de entrada, vemos que no se cumple la condición $
 Tenemos entonces:
 
 \begin{equation}
-R_{i_{seguidor_{Q_{3}}}} = R_{i_{B_{Q_{3}}}} = r_{\pi_{3}} + \left( \beta_{3} + 1 \right) \cdot  \left(  R_{o_{C_{Q_{6}}}} \parallelresistors R{i_{Sziklai}}   \right)  \cdot \frac{  r_{o_{3}} + \frac{ R_{34} }{\left( \beta_{3} + 1 \right)} }{  r_{o_{3}} + R_{34} +  \left(  R_{o_{C_{Q_{6}}}} \parallelresistors R{i_{Sziklai}}   \right)  }
+R_{i_{seguidor_{Q_{3}}}} = R_{i_{B_{Q_{3}}}} = r_{\pi_{3}} + \left( \beta_{3} + 1 \right) \cdot  \left(  R_{o_{C_{Q_{6}}}} \parallelresistors R_{i_{Sziklai}}   \right)  \cdot \frac{  r_{o_{3}} + \frac{ R_{34} }{\left( \beta_{3} + 1 \right)} }{  r_{o_{3}} + R_{34} +  \left(  R_{o_{C_{Q_{6}}}} \parallelresistors R_{i_{Sziklai}}   \right)  }
 \end{equation}
 
 
@@ -130,15 +135,15 @@ Usamos las expresiones obtenidas en la sección~\sectref{section:sziklai}, adapt
 \subsubsection{Ganancia de tensión}
 
 \begin{equation}
-a_{Sziklai} = gm_{4} \cdot \left( r_{0_{4}} \parallelresistors R_{11} \parallelresistors r_{\pi_{2}} \right) \cdot gm_{5} \cdot \left( r_{o_{5}} \parallelresistors R{L_{Sziklai}} \right)
+a_{Sziklai} = gm_{4} \cdot \left( r_{0_{4}} \parallelresistors R_{11} \parallelresistors r_{\pi_{2}} \right) \cdot gm_{5} \cdot \left( r_{o_{5}} \parallelresistors R_{L_{Sziklai}} \right)
 \end{equation}
 
 \begin{equation}
-R{L_{Sziklai}} \approx R_{S} + R_{L} \parallelresistors \left( R_{9} + R_{10} \right)
+R_{L_{Sziklai}} \approx R_{S} + R_{L} \parallelresistors \left( R_{9} + R_{10} \right)
 \end{equation}
 
 \begin{equation*}
-R{L_{Sziklai}} \approx 0.2 \si[per-mode=symbol]{\ohm} + 100 \si[per-mode=symbol]{\ohm} \parallelresistors \left( 10 \si[per-mode=symbol]{\ohm} + 10 \si[per-mode=symbol]{\ohm} \right) = 99.7 \si[per-mode=symbol]{\ohm}
+R_{L_{Sziklai}} \approx 0.2 \si[per-mode=symbol]{\ohm} + 100 \si[per-mode=symbol]{\ohm} \parallelresistors \left( 10 \si[per-mode=symbol]{\kilo\ohm} + 10 \si[per-mode=symbol]{\kilo\ohm} \right) = 99.7 \si[per-mode=symbol]{\ohm}
 \end{equation*}
 
 
@@ -147,15 +152,22 @@ a_{Sziklai} = \num{1.21E-1} \si[per-mode=symbol]{\ampere\per\volt} \times \left(
 \end{equation*}
 
 
+\begin{equation}
+A_{Sziklai} = \frac{a}{1 + a \cdot f}
+\end{equation}
+
+\begin{equation*}
+A_{Sziklai} = \frac{a}{833.06 + 833.06 \cdot 1} = 0.999
+\end{equation*}
 
 \subsubsection{Resistencia de entrada}
 
 \begin{equation}
-R{i_{Sziklai}} = \left( 1 + a \cdot f \right) \cdot r_{\pi_{4}}
+R_{i_{Sziklai}} = \left( 1 + a \cdot f \right) \cdot r_{\pi_{4}}
 \end{equation}
 
 \begin{equation*}
-R{i_{Sziklai}} = \left( 1 + 833.06 \times 1 \right) \times 927  \si[per-mode=symbol]{\ohm} = 773.17 \si[per-mode=symbol]{\kilo\ohm}
+R_{i_{Sziklai}} = \left( 1 + 833.06 \times 1 \right) \times 927  \si[per-mode=symbol]{\ohm} = 773.17 \si[per-mode=symbol]{\kilo\ohm}
 \end{equation*}
 
 
@@ -163,15 +175,23 @@ R{i_{Sziklai}} = \left( 1 + 833.06 \times 1 \right) \times 927  \si[per-mode=sym
 \subsubsection{Resistencia de salida}
 
 \begin{equation}
-R{0_{Sziklai}} = \frac{ r_{o_{5}} \parallelresistors R{L_{Sziklai}}  }{1 + a \cdot f}
+R_{o_{Sziklai}} = \frac{ r_{o_{5}} \parallelresistors R_{L_{Sziklai}}  }{1 + a \cdot f}
 \end{equation}
 
 \begin{equation*}
-R{0_{Sziklai}} = \frac{ 2.1 \si[per-mode=symbol]{\kilo\ohm} \parallelresistors 99.7 \si[per-mode=symbol]{\ohm}  }{  1 + 833.06 \times 1 } = 114.11 \si[per-mode=symbol]{\milli\ohm}
+R_{o_{Sziklai}} = \frac{ 2.1 \si[per-mode=symbol]{\kilo\ohm} \parallelresistors 99.7 \si[per-mode=symbol]{\ohm}  }{  1 + 833.06 \times 1 } = 114.11 \si[per-mode=symbol]{\milli\ohm}
 \end{equation*}
 
 
+\subsubsection{Ganancia total de lazo abierto de tensión}
 
+\begin{equation}
+a = A_{v_{OL}} = A_{v_{D}} \cdot A_{v_{Q_{3}}} \cdot A_{Sziklai}
+\end{equation}
+
+\begin{equation*}
+a = A_{v_{OL}} = 2384.89 \cdot 0.9998 \cdot 0.999 = 2382.03
+\end{equation*}
 
 
 
