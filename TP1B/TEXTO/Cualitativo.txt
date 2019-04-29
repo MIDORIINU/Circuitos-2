@@ -1,0 +1,15 @@
+﻿
+Analisis de la compensación:
+
+Para tensión:
+
+Trato de compensar introduciendo un polo en el camino directo de la ganancia de tensión, lo hago hasta conseguir lo mejor que se pueda lograr, limitando los valores con criterios que estoy tratando de determinar o encontrar explicados. Esto último me dá la RED1 (Ccomp, Rcomp). No hay mas nada para tocar que tenga ganancia en el camino directo, voy a la red de ralimentación, no puedo poner un cero en serie, porque quedo sin divisor, le meto en paralelo a un resistor un capacitor, eso es la RED2 (Ccomp2, R9), con eso debería lograr lo que busco. Reviso a otras condiciones de carga en regulación de tensión para ver que siempre está bien compensado. Finalmente reviso la salida en saltos de la carga, si es excesivo (queda ver de algún lado, cuando es aceptable), le meto la RED3 (Ramort, CAmort), y varío sus valores para lograr lo que quiero, vuelvo a chequear que no me arruine la compensación.
+
+Para corriente:
+
+El camino directo ya fue compensado en tensión, si lo toco arruino tensión, de todas formas ya no se debería poder mejorar por ese lado, ¿que me queda?, la realimentación de corriente, le meto ceros, primero al diferencial (primer opamp), esta es la RED3 (Ccomp3, R17). Como lo anterior seguro no alcanza, le meto al otro, RED4 (R18, RComp4, Ccomp4), con eso debería lograr la compensación del lazo de corriente. Verifico o retoco con otras limitaciones de corriente y otras cargas que me limiten corriente, corrijo de ser necesario. 
+
+
+Listo
+
+
