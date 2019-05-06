@@ -99,6 +99,10 @@ legend(subplot1, 'show', legends);
 legend(subplot2, 'show', legends);
 
 
+drawnow;
+
+
+
 
 return
 
