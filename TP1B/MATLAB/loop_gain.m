@@ -28,52 +28,52 @@ figure_handle = figure('units', 'normalized', 'outerposition', ...
     [pict_pos pict_pos pict_size pict_size]);
 
 % Create subplot
-subplot1 = subplot(2, 1, 1, 'Parent', figure_handle);
-hold(subplot1,'on');
+subplot_module = subplot(2, 1, 1, 'Parent', figure_handle);
+hold(subplot_module,'on');
 
 % Create subplot
-subplot2 = subplot(2, 1, 2, 'Parent', figure_handle);
-hold(subplot2,'on');
+subplot_phase = subplot(2, 1, 2, 'Parent', figure_handle);
+hold(subplot_phase,'on');
 
 % Create ylabel
-ylabel(subplot1, 'Módulo de la ganancia de lazo');
+ylabel(subplot_module, 'Módulo de la ganancia de lazo');
 
 % Create xlabel
-xlabel(subplot1, 'Frecuencia [Hz]');
+xlabel(subplot_module, 'Frecuencia [Hz]');
 
-box(subplot1,'on');
+box(subplot_module,'on');
 % Set the remaining axes properties
-set(subplot1,'XGrid','on','XMinorTick','on','XScale','log','YGrid','on',...
+set(subplot_module,'XGrid','on','XMinorTick','on','XScale','log','YGrid','on',...
     'YMinorTick','on','ColorOrder', fig_color_order, 'YTick', ...
     mod_ticks);
 
 % xlim(subplot2,'manual');
 % xlim(subplot2,[0.1 200000]);
 %
-ylim(subplot1,'manual');
-ylim(subplot1, mod_limits);
+ylim(subplot_module,'manual');
+ylim(subplot_module, mod_limits);
 
 
 % Create ylabel
-ylabel(subplot2, 'Fase de la ganancia de lazo [º]');
+ylabel(subplot_phase, 'Fase de la ganancia de lazo [º]');
 
 % Create xlabel
-xlabel(subplot2, 'Frecuencia [Hz]');
+xlabel(subplot_phase, 'Frecuencia [Hz]');
 
-box(subplot2,'on');
+box(subplot_phase,'on');
 % Set the remaining axes properties
-set(subplot2,'XGrid','on','XMinorTick','on','XScale','log','YGrid','on',...
+set(subplot_phase,'XGrid','on','XMinorTick','on','XScale','log','YGrid','on',...
     'YMinorTick','on','ColorOrder', fig_color_order, 'YTick',phase_ticks);
 
 % xlim(subplot2,'manual');
 % xlim(subplot2,[0.1 200000]);
 %
-ylim(subplot2,'manual');
-ylim(subplot2, phase_limits);
+ylim(subplot_phase,'manual');
+ylim(subplot_phase, phase_limits);
 
 
 % Create title
-title(subplot1, fig_title);
+title(subplot_module, fig_title);
 
 
 
@@ -87,9 +87,6 @@ Data = zeros(sz1, sz2 + 1, sz3);
 
 PM_indexes = zeros(sz3);
 GM_indexes = zeros(sz3);
-
-module_plots = zeros(sz3);
-phase_plots = zeros(sz3);
 
 for idx = (1: DataCount)
     
@@ -111,56 +108,148 @@ for idx = (1: DataCount)
     GM_indexes(idx) = GM_index;
     
     % Create plot
-    module_plot = semilogx(Data(:, time_index, idx), ...
-        mag2db(Data(:, module_index, idx)), 'Parent', subplot1);
-    
-    module_plots(idx) = module_plot;
-    
+    semilogx(Data(:, time_index, idx), ...
+        mag2db(Data(:, module_index, idx)), 'Parent', subplot_module);
+        
     % Create plot
-    phase_plot = semilogx(Data(:, time_index, idx), ...
-        rad2deg(Data(:, phase_index, idx)), 'Parent', subplot2);
+    semilogx(Data(:, time_index, idx), ...
+        rad2deg(Data(:, phase_index, idx)), 'Parent', subplot_phase);
     
-    phase_plots(idx) = phase_plot;
+    
+    %     if idx == 1
+    %         hold(subplot_module, 'on');
+    %         hold(subplot_phase, 'on');
+    %     elseif idx == DataCount
+    %         hold(subplot_module, 'off');
+    %         hold(subplot_phase, 'off');
+    %     end
+    
     
 end
 
 
-legend(subplot1, 'show', legends);
+legend(subplot_module, 'show', legends);
 
-legend(subplot2, 'show', legends);
+legend(subplot_phase, 'show', legends);
 
 % , 'Location','best'
 
 
-%Agrego datatips customizados.
+hline = refline(subplot_module, 0, 0);
+set(hline, 'Color', [0 0 0]);
+set(hline, 'Clipping', 'on');
+set(hline, 'DisplayName', '0dB');
 
+
+hline = refline(subplot_phase, 0, -180);
+set(hline, 'Color', [0 0 0]);
+set(hline, 'Clipping', 'on');
+set(hline, 'DisplayName', '180º');
+
+
+phase_plots = findobj(subplot_phase, 'type', 'line');
+phase_plots = flip(phase_plots(2:end));
+
+
+module_plots = findobj(subplot_module, 'type', 'line');
+module_plots = flip(module_plots(2:end));
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Agrego datatips customizados.
 
 dcm_obj = datacursormode(figure_handle);
 
-customtitles = cell(DataCount + 1);
-customtitlesindexes = zeros(DataCount);
+customtitles_phase = cell(1, DataCount + 1);
+customtitles_phase{1} = '';
 
-for idx = (1: DataCount)   
+customtitles_phase_indexes = zeros(DataCount + 1);
+
+tip_directions1 = {'bottomleft', 'topright', 'topleft', 'bottomright'};
+[~, sztd] = size(tip_directions1);
+
+
+hdtip1 = zeros();
+
+for idx = (1: DataCount)
+    
+    hdtip1(PM_indexes(idx)) = ...
+        dcm_obj.createDatatip(handle(phase_plots(idx)));
+    
+    set(hdtip1(PM_indexes(idx)), 'MarkerSize',5, 'MarkerFaceColor', ...
+        'none', 'MarkerEdgeColor',fig_color_order(idx,:), ...
+        'Marker','o', 'HitTest','off');
+    
+    YValue = [Data(PM_indexes(idx), time_index, idx) , ...
+        rad2deg(Data(PM_indexes(idx), phase_index, idx)) , 1];   
     
     
-    hdtip(PM_indexes(idx)) = dcm_obj.createDatatip(handle(phase_plots(idx)));
-    
-    set(hdtip(PM_indexes(idx)), 'MarkerSize',5, 'MarkerFaceColor','none', ...
-        'MarkerEdgeColor',fig_color_order(idx,:), 'Marker','o', 'HitTest','off');
-    
-    YValue = [Data(PM_indexes(idx), time_index, 1) , ...
-        rad2deg(Data(PM_indexes(idx), phase_index, 1)) , 1];
-    
-    set(hdtip(PM_indexes(idx)), 'Position', YValue, ...
-        'Orientation','topright');
-    
-       
-    customtitles{idx + 1} = '*** Margen ***';
-    
-    customtitlesindexes(idx) = PM_indexes(idx);
+    set(hdtip1(PM_indexes(idx)), 'Position', YValue, ...
+        'Orientation', tip_directions1{mod(idx, sztd)});
     
     
-    % %%%%%
+    customtitles_phase{idx + 1} = ...
+        sprintf('* PM: (%s) *', ...
+        legends{idx});
+    
+    customtitles_phase_indexes(idx + 1) = PM_indexes(idx);
+    
+    setappdata(phase_plots(idx),'figtype','phase');
+    
+    setappdata(phase_plots(idx),'figindex',idx);
+        
+    setappdata(phase_plots(idx),'tiplabels', customtitles_phase);
+    
+     setappdata(phase_plots(idx),'tiplabelsindexes', ...
+         customtitles_phase_indexes);
+    
+    
+end
+
+
+customtitles_module = cell(1, DataCount + 1);
+customtitles_module{1} = '';
+
+customtitles_module_indexes = zeros(DataCount + 1);
+
+
+tip_directions2 = {'bottomleft', 'topright', 'bottomright', 'topleft'};
+[~, sztd] = size(tip_directions2);
+
+hdtip2 = zeros();
+
+
+for idx = (1: DataCount)
+    
+    hdtip2(GM_indexes(idx)) = ...
+        dcm_obj.createDatatip(handle(module_plots(idx)));
+    
+    set(hdtip2(GM_indexes(idx)), 'MarkerSize',5, 'MarkerFaceColor', ...
+        'none', 'MarkerEdgeColor',fig_color_order(idx,:), ...
+        'Marker','o', 'HitTest','off');
+    
+    YValue = [Data(GM_indexes(idx), time_index, idx) , ...
+        mag2db(Data(GM_indexes(idx), module_index, idx)) , 1];   
+    
+    
+    set(hdtip2(GM_indexes(idx)), 'Position', YValue, ...
+        'Orientation', tip_directions2{mod(idx, sztd)});
+    
+    
+    customtitles_module{idx + 1} = ...
+        sprintf('* GM: (%s) *', ...
+        legends{idx});
+    
+    customtitles_module_indexes(idx + 1) = GM_indexes(idx);
+    
+    setappdata(module_plots(idx),'figtype','module');
+    
+    setappdata(module_plots(idx),'figindex',idx);
+        
+    setappdata(module_plots(idx),'tiplabels', customtitles_module);
+    
+     setappdata(module_plots(idx),'tiplabelsindexes', ...
+         customtitles_module_indexes);
     
     
 end
@@ -168,36 +257,57 @@ end
 
 
 
-set(dcm_obj, 'UpdateFcn', {@customDatatipFunction1, customtitles, ...
-    customtitlesindexes, ...
-    Data(:, time_index, 1), Data(:, module_index, 1), ...
-    Data(:, phase_index, 1)})
+
+set(dcm_obj, 'UpdateFcn', {@customDatatipFunction1, ...
+    Data(:, time_index, :), Data(:, module_index, :), ...
+    Data(:, phase_index, :)})
 
 updateDataCursors(dcm_obj);
 
 drawnow;
 
 
-function output_txt = customDatatipFunction1(~, evt, customtitles, ...
-    customtitlesindexes, time, module, phase_angle ...
+function output_txt = customDatatipFunction1(~, evt, ...
+    ~, module, phase_angle ...
     )
 
+target = get(evt,'Target');
 idx = get(evt,'DataIndex');
+
+fig_type = getappdata(target,'figtype');
+fig_index = getappdata(target,'figindex');
+customtitles = getappdata(target,'tiplabels');
+customtitlesindexes = getappdata(target,'tiplabelsindexes');
 
 idx_f = find(customtitlesindexes == idx, 1);
 
 if (isempty(idx_f))
-    idx_f = 1;
+    label_index = 1;
+else
+    label_index = fig_index + 1;    
 end
 
-output_txt = {sprintf(strjoin(...
-    {'%s\nFrec:      ',...
-    '%.2f Hz\n|a.f|:         ',...
-    '%.4f dB\n ang(a.f): %.4f º'}), ...
-    customtitles{idx_f}, time(idx), ...
-    mag2db(module(idx)), ...
-    rad2deg(phase_angle(idx)))};
+% output_txt = {sprintf(strjoin(...
+%     {'%s\nFrec:      ',...
+%     '%.2f Hz\n|a.f|:         ',...
+%     '%.4f dB\n ang(a.f): %.4f º'}), ...
+%     customtitles{idx_f}, time(idx, fig_index), ...
+%     mag2db(module(idx, fig_index)), ...
+%     rad2deg(phase_angle(idx, fig_index)))};
 
+
+if strcmp('phase', fig_type)
+    output_txt = {sprintf(strjoin(...
+        {'%s\n%.2f º\n'}), ...
+        customtitles{label_index}, ...
+        rad2deg(phase_angle(idx, fig_index)) + 180.0)};
+elseif strcmp('module', fig_type)
+    output_txt = {sprintf(strjoin(...
+        {'%s\n%.2f dB\n'}), ...
+        customtitles{label_index}, ...
+        -mag2db(module(idx, fig_index)))};
+    
+end
 
 
 
