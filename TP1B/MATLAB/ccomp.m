@@ -4,8 +4,41 @@ close all;
 
 clc;
 
-images_directory = '../Informe/img/plots/loop';
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Creo los directorios.
+images_directory = '../Informe/img/plots';
 
+mkdir(images_directory);
+
+if (7 ~= exist(images_directory, 'dir'))
+    error('Could not create directory: "%s".\n', images_directory);
+end
+
+img_loop_directory = fullfile(images_directory, 'loop');
+
+mkdir(img_loop_directory);
+
+if (7 ~= exist(img_loop_directory, 'dir'))
+    error('Could not create directory: "%s".\n', img_loop_directory);
+end
+
+img_rf_directory = fullfile(images_directory, 'rf');
+
+mkdir(img_rf_directory);
+
+if (7 ~= exist(img_rf_directory, 'dir'))
+    error('Could not create directory: "%s".\n', img_rf_directory);
+end
+
+img_dynamic_directory = fullfile(images_directory, 'dynamic');
+
+mkdir(img_dynamic_directory);
+
+if (7 ~= exist(img_dynamic_directory, 'dir'))
+    error('Could not create directory: "%s".\n', img_dynamic_directory);
+end
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 graphic_handle = loop_gain(...
     '../LTSPICE/Ccomp_corriente/power_supply_CCOMP_LOOP_Modo3.txt', ...
@@ -19,7 +52,7 @@ graphic_handle = loop_gain(...
 
 % Salvo el gráfico en un archivo.
 saveas(graphic_handle, fullfile(images_directory, ...
-    'power_supply_CCOMP_LOOP_Modo3.png'));
+    'loop/power_supply_CCOMP_LOOP_Modo3.png'));
 
 graphic_handle = loop_gain(...
     '../LTSPICE/Ccomp_corriente/power_supply_CCOMP_LOOP_Modo4.txt', ...
@@ -33,7 +66,7 @@ graphic_handle = loop_gain(...
 
 % Salvo el gráfico en un archivo.
 saveas(graphic_handle, fullfile(images_directory, ...
-    'power_supply_CCOMP_LOOP_Modo4.png'));
+    'loop/power_supply_CCOMP_LOOP_Modo4.png'));
 
 
 
@@ -49,7 +82,7 @@ graphic_handle = rf(...
 
 % Salvo el gráfico en un archivo.
 saveas(graphic_handle, fullfile(images_directory, ...
-    'power_supply_CCOMP_RF_Modo3.png'));
+    'rf/power_supply_CCOMP_RF_Modo3.png'));
 
 
 graphic_handle = rf(...
@@ -57,13 +90,13 @@ graphic_handle = rf(...
     'Respuesta en frecuencia parametrizada por Ccomp en modo corriente, 200mA', ...
     100, [1 0.4 0.1; 0.4 1 0.1; 0.4 0.1 1], ...
     65000, 3, ...
-    [-65 30], (-65:10:30), ...
-    [-240 60], (-240 :30: 60), ...
+    [-70 50], (-70:10:50), ...
+    [-190 80], (-190 :30: 80), ...
     {'5nF', '10nF', '20nF'});
 
 % Salvo el gráfico en un archivo.
 saveas(graphic_handle, fullfile(images_directory, ...
-    'power_supply_CCOMP_RF_Modo4.png'));
+    'rf/power_supply_CCOMP_RF_Modo4.png'));
 
 
 
