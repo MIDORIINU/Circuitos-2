@@ -69,7 +69,7 @@ ylim(subplot_phase, phase_limits);
 
 
 % Create title
-title(subplot_module, fig_title);
+title(subplot_module, fig_title, 'Interpreter', 'latex');
 
 
 
@@ -135,7 +135,7 @@ set(hline, 'HandleVisibility','off');
 % set(get(get(hline,'Annotation'), 'LegendInformation'), ...
 %     'IconDisplayStyle','off');
 
-% Add vertical lines.
+% Add vertical lines and annotations.
 for idx = (1: DataCount)
     plot(subplot_module, ...
         [Data(PM_indexes(idx), freq_index, idx), ...
@@ -345,18 +345,18 @@ drawnow;
 
 end
 
-function output_txt = customDatatipFunction1(~, ~, ...
-    ~, ~, ~ )
+function output_txt = customDatatipFunction1(~,evt, freq, module, ...
+    ~)
 
-% target = get(evt,'Target');
-% idx = get(evt,'DataIndex');
+target = get(evt,'Target');
+idx = get(evt,'DataIndex');
 %
 % fig_type = getappdata(target,'figtype');
-% fig_index = getappdata(target,'figindex');
+fig_index = getappdata(target,'figindex');
 % customtitles = getappdata(target,'tiplabels');
-% customtitlesindexes = getappdata(target,'tiplabelsindexes');
+customtitlesindexes = getappdata(target,'tiplabelsindexes');
 %
-% idx_f = find(customtitlesindexes == idx, 1);
+idx_f = find(customtitlesindexes == idx, 1);
 
 % if (isempty(idx_f))
 %     label_index = 1;
@@ -375,7 +375,16 @@ function output_txt = customDatatipFunction1(~, ~, ...
 %         customtitles{label_index}, ...
 %         -mag2db(module(idx, fig_index)))};
 
-output_txt = '';
+
+if (~isempty(idx_f))
+    output_txt = '';
+else
+    output_txt = {sprintf(...
+        'freq: %.2f\nmod: %.2f dB\n', ...
+        freq(idx, fig_index),...
+        mag2db(module(idx, fig_index)))};
+    
+end
 
 
 end

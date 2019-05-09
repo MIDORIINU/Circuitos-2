@@ -69,7 +69,7 @@ ylim(subplot_phase, phase_limits);
 
 
 % Create title
-title(subplot_module, fig_title);
+title(subplot_module, fig_title, 'Interpreter', 'latex');
 
 
 
@@ -95,19 +95,19 @@ for idx = (1: DataCount)
         unwrap(angle(Data_raw(:, 2, idx))); % Phase (radians).
     
     
-    CF_index = find_bandwidth(...
+    CF_index = find_cutoff_freq(...
         Data(:, module_index, idx), Data(:, phase_index, idx));
-       
+    
     CF_indexes(idx) = CF_index;
     
     % Create plot
     semilogx(Data(:, freq_index, idx), ...
         mag2db(Data(:, module_index, idx)), 'Parent', subplot_module);
-  
+    
     % Create plot
     semilogx(Data(:, freq_index, idx), ...
         rad2deg(Data(:, phase_index, idx)), 'Parent', subplot_phase);
-        
+    
 end
 
 
@@ -117,6 +117,38 @@ set(hline, 'Color', [0 0 0]);
 set(hline, 'Clipping', 'on');
 set(hline, 'DisplayName', '-3dB');
 set(hline, 'HandleVisibility','off');
+
+
+% Add annotations.
+for idx = (1: DataCount)
+    
+    freq_val = ...
+        Data(CF_indexes(idx), freq_index, idx);
+    
+    if (freq_val > 1e6)
+        freq_val = freq_val /1e6;
+        freq_unit='MHz';
+    elseif (freq_val > 1e3)
+        freq_val = freq_val /1e3;
+        freq_unit='MHz';
+    else
+        freq_unit='Hz';
+    end  
+    
+    annotation(figure_handle,'textbox',...
+        [0.50 (0.775 - idx*0.04) 0 0],...
+        'Color',fig_color_order(idx,:),...
+        'String',{sprintf('Ancho de banda (%s): %.2f%s', ...
+        legends{idx}, ...
+        freq_val, freq_unit)},...
+        'LineStyle',':',...
+        'FontWeight','bold',...
+        'FitBoxToText','on',...
+        'EdgeColor',fig_color_order(idx,:));
+    
+    
+end
+
 
 phase_plots = findobj(subplot_phase, 'type', 'line');
 phase_plots = flip(phase_plots(end - DataCount + 1:end));
@@ -131,59 +163,10 @@ legend(phase_plots, 'show', legends);
 legend(module_plots, 'show', legends);
 
 
-return;
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Agrego datatips customizados.
 
 dcm_obj = datacursormode(figure_handle);
-
-customtitles_phase = cell(1, DataCount + 1);
-customtitles_phase{1} = '';
-
-customtitles_phase_indexes = zeros(DataCount + 1);
-
-tip_directions1 = {'bottomleft', 'topright', 'topleft', 'bottomright'};
-[~, sztd] = size(tip_directions1);
-
-
-hdtip1 = zeros();
-
-for idx = (1: DataCount)
-    
-    hdtip1(PM_indexes(idx)) = ...
-        dcm_obj.createDatatip(handle(phase_plots(idx)));
-    
-    set(hdtip1(PM_indexes(idx)), 'MarkerSize',5, 'MarkerFaceColor', ...
-        'none', 'MarkerEdgeColor',fig_color_order(idx,:), ...
-        'Marker','o', 'HitTest','off');
-    
-    YValue = [Data(PM_indexes(idx), freq_index, idx) , ...
-        rad2deg(Data(PM_indexes(idx), phase_index, idx)) , 1];
-    
-    
-    set(hdtip1(PM_indexes(idx)), 'Position', YValue, ...
-        'Orientation', tip_directions1{mod(idx, sztd)});
-    
-    
-    customtitles_phase{idx + 1} = ...
-        sprintf('PM: (%s)', ...
-        legends{idx});
-    
-    customtitles_phase_indexes(idx + 1) = PM_indexes(idx);
-    
-    setappdata(phase_plots(idx),'figtype','phase');
-    
-    setappdata(phase_plots(idx),'figindex',idx);
-    
-    setappdata(phase_plots(idx),'tiplabels', customtitles_phase);
-    
-    setappdata(phase_plots(idx),'tiplabelsindexes', ...
-        customtitles_phase_indexes);
-    
-    
-end
-
 
 customtitles_module = cell(1, DataCount + 1);
 customtitles_module{1} = '';
@@ -215,7 +198,7 @@ for idx = (1: DataCount)
     
     
     customtitles_module{idx + 1} = ...
-        sprintf('GM: (%s)', ...
+        sprintf('Frec. de corte: (%s)', ...
         legends{idx});
     
     customtitles_module_indexes(idx + 1) = CF_indexes(idx);
@@ -252,18 +235,18 @@ drawnow;
 
 end
 
-function output_txt = customDatatipFunction1(~, ~, ...
-    ~, ~, ~ )
+function output_txt = customDatatipFunction1(~,evt, freq, module, ...
+    ~)
 
-% target = get(evt,'Target');
-% idx = get(evt,'DataIndex');
+target = get(evt,'Target');
+idx = get(evt,'DataIndex');
 %
 % fig_type = getappdata(target,'figtype');
-% fig_index = getappdata(target,'figindex');
+fig_index = getappdata(target,'figindex');
 % customtitles = getappdata(target,'tiplabels');
-% customtitlesindexes = getappdata(target,'tiplabelsindexes');
+customtitlesindexes = getappdata(target,'tiplabelsindexes');
 %
-% idx_f = find(customtitlesindexes == idx, 1);
+idx_f = find(customtitlesindexes == idx, 1);
 
 % if (isempty(idx_f))
 %     label_index = 1;
@@ -282,7 +265,18 @@ function output_txt = customDatatipFunction1(~, ~, ...
 %         customtitles{label_index}, ...
 %         -mag2db(module(idx, fig_index)))};
 
-output_txt = '';
+
+if (~isempty(idx_f))
+    output_txt = '';
+else
+    output_txt = {sprintf(...
+        'freq: %.2f\nmod: %.2f dB\n', ...
+        freq(idx, fig_index),...
+        mag2db(module(idx, fig_index)))};
+    
+end
+
+
 
 
 end
