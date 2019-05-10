@@ -133,7 +133,7 @@ for idx = (1: DataCount)
         freq_unit='MHz';
     else
         freq_unit='Hz';
-    end  
+    end
     
     annotation(figure_handle,'textbox',...
         [0.50 (0.775 - idx*0.04) 0 0],...
@@ -207,6 +207,10 @@ for idx = (1: DataCount)
     
     setappdata(module_plots(idx),'figindex',idx);
     
+    setappdata(module_plots(1),'specialindex',0);
+    
+    setappdata(module_plots(1),'speciallabelindex',1);
+    
     setappdata(module_plots(idx),'tiplabels', customtitles_module);
     
     setappdata(module_plots(idx),'tiplabelsindexes', ...
@@ -216,15 +220,58 @@ for idx = (1: DataCount)
 end
 
 
+%%%% Datatip low freq. gain.
+
+[~, low_freq_index] = min(abs(Data(:, freq_index, 1) - 1E-1));
+
+hdtip3(low_freq_index) = ...
+    dcm_obj.createDatatip(handle(module_plots(1)));
+
+set(hdtip3(low_freq_index), 'MarkerSize',5, 'MarkerFaceColor', ...
+    'none', 'MarkerEdgeColor','k', ...
+    'Marker','o', 'HitTest','off');
+
+YValue = [Data(low_freq_index, freq_index, 1) , ...
+    mag2db(Data(low_freq_index, module_index, 1)) , 1];
+
+
+set(hdtip3(low_freq_index), 'Position', YValue, ...
+    'Orientation', 'bottomright');
+
+
+customtitles_module{DataCount + 2} = ...
+    'Ganancia de lazo cerrado a bajas frecuencias:';
+
+customtitles_module_indexes(DataCount + 2) = low_freq_index;
+
+
+setappdata(module_plots(1),'figtype','module');
+
+setappdata(module_plots(1),'figindex',1);
+
+setappdata(module_plots(1),'specialindex',low_freq_index);
+
+setappdata(module_plots(1),'speciallabelindex',DataCount + 2);
+
+setappdata(module_plots(1),'tiplabels', customtitles_module);
+
+setappdata(module_plots(1),'tiplabelsindexes', ...
+    customtitles_module_indexes);
+
+
+%%%%%%%%%%
+
+
+
 set(dcm_obj, 'UpdateFcn', {@customDatatipFunction1, ...
     Data(:, freq_index, :), Data(:, module_index, :), ...
     Data(:, phase_index, :)})
 
 
 
-alldatacursors = findall(figure_handle, 'type', 'hggroup');
-set(alldatacursors, 'FontSize', 8);
-set(alldatacursors, 'FontName', 'Times');
+% alldatacursors = findall(figure_handle, 'type', 'hggroup');
+% set(alldatacursors, 'FontSize', 8);
+% set(alldatacursors, 'FontName', 'Times');
 % set(alldatacursors, 'FontWeight', 'bold');
 
 
@@ -243,9 +290,12 @@ idx = get(evt,'DataIndex');
 %
 % fig_type = getappdata(target,'figtype');
 fig_index = getappdata(target,'figindex');
-% customtitles = getappdata(target,'tiplabels');
+customtitles = getappdata(target,'tiplabels');
 customtitlesindexes = getappdata(target,'tiplabelsindexes');
 %
+special_index = getappdata(target,'specialindex');
+special_label_index = getappdata(target,'speciallabelindex');
+
 idx_f = find(customtitlesindexes == idx, 1);
 
 % if (isempty(idx_f))
@@ -267,7 +317,14 @@ idx_f = find(customtitlesindexes == idx, 1);
 
 
 if (~isempty(idx_f))
-    output_txt = '';
+    if (special_index == idx)
+        output_txt = {sprintf(...
+            '%s\n%.2fdB', ...
+            customtitles{special_label_index}, ...
+            mag2db(module(idx, fig_index)))};
+    else
+        output_txt = '';
+    end
 else
     output_txt = {sprintf(...
         'freq: %.2f\nmod: %.2f dB\n', ...
@@ -275,9 +332,6 @@ else
         mag2db(module(idx, fig_index)))};
     
 end
-
-
-
 
 end
 

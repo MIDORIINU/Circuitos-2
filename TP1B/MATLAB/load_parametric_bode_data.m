@@ -45,6 +45,10 @@ while true
     if ~end_of_file && ~header_found
         % New value.
         
+        if ((0 == NewDataCount) && contains(tline,')')) % Check for dB format.
+            error('%s.\n', 'Cartesian format expected');
+        end        
+        
         C = textscan(tline, '%f %f,%f'); % Parse line.
         
         if ~isequal(size(C), [1 3])
@@ -52,6 +56,16 @@ while true
         end
         
         NewDataCount = NewDataCount + 1;
+        
+        if (NewDataCount > prealocate_array_size)
+            prealocate_array_size = prealocate_array_size + 1000;
+            
+            Data(prealocate_array_size, 2, ...
+                prealocate_array_count) = 0;
+            
+            NewData(prealocate_array_size, 2) = 0;
+            
+        end
         
         NewData(NewDataCount, :) = [C{1} complex(C{2}, C{3})];
         

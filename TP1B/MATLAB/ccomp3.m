@@ -4,6 +4,11 @@ close all;
 
 clc;
 
+
+
+
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Creo los directorios.
 images_directory = '../Informe/img/plots';
