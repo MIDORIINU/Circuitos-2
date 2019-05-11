@@ -76,6 +76,9 @@ image_file_name = fullfile(images_directory, ...
 % Salvo el gráfico en un archivo.
 saveas(graphic_handle, image_file_name);
 
+% Cierro el gráfico luego de salvado.
+close(graphic_handle);
+
 %%%%-----------------------------------------------
 
 simulation_name = 'power_supply_CCOMP_LOOP_Modo4';
@@ -111,6 +114,9 @@ image_file_name = fullfile(images_directory, ...
 
 % Salvo el gráfico en un archivo.
 saveas(graphic_handle, image_file_name);
+
+% Cierro el gráfico luego de salvado.
+close(graphic_handle);
 
 % Execute crop script.
 olddir = cd(fullfile(images_directory, ...
@@ -168,6 +174,9 @@ image_file_name = fullfile(images_directory, ...
 % Salvo el gráfico en un archivo.
 saveas(graphic_handle, image_file_name);
 
+% Cierro el gráfico luego de salvado.
+close(graphic_handle);
+
 %%%%-----------------------------------------------
 
 simulation_name = 'power_supply_CCOMP_RF_Modo4';
@@ -203,6 +212,9 @@ image_file_name = fullfile(images_directory, ...
 
 % Salvo el gráfico en un archivo.
 saveas(graphic_handle, image_file_name);
+
+% Cierro el gráfico luego de salvado.
+close(graphic_handle);
 
 % Execute crop script.
 olddir = cd(fullfile(images_directory, ...
@@ -241,10 +253,6 @@ simulation_title = strjoin({...
     component_value, ..., ...
     ' en modo corriente, 2A'}, '');
 
-simulation_time_limits = [0 7E-3];
-
-simulation_time_ticks = (0 :0.25E-3:7E-3);
-
 simulation_voltage_limits = [0 11];
 
 simulation_voltage_ticks = (0 :0.5:11);
@@ -257,7 +265,6 @@ graphic_handle = dynamic_response(...
     fullfile(spice_directory, simulation_directory, ...
     strjoin({simulation_name, '.txt'}, '')), ...
     simulation_title, 100, time_simulation_color_list, ...
-    simulation_time_limits, simulation_time_ticks, ...
     simulation_voltage_limits, simulation_voltage_ticks, ...
     simulation_current_limits, simulation_current_ticks);
 
@@ -268,83 +275,8 @@ image_file_name = fullfile(images_directory, ...
 % Salvo el gráfico en un archivo.
 saveas(graphic_handle, image_file_name);
 
-return;
-
-%%%%-----------------------------------------------
-
-simulation_save_name = strjoin({simulation_name, '_Zoom1'}, '');
-
-simulation_directory = 'Ccomp_corriente';
-
-simulation_title = strjoin({'Respuesta din\''{a}mica a un salto de carga ', ...
-    ' (zoom al cargar) para Ccomp = ', ...
-    component_value, ..., ...
-    ' en modo corriente, 2A'}, '');
-
-simulation_time_limits = [1.95E-3 2.075E-3];
-
-simulation_time_ticks = (1.95E-3 :5E-6:2.075E-3);
-
-simulation_voltage_limits = [0 11];
-
-simulation_voltage_ticks = (0 :0.5:11);
-
-simulation_current_limits = [0 70];
-
-simulation_current_ticks = (0 :5:70);
-
-graphic_handle = dynamic_response(...
-    fullfile(spice_directory, simulation_directory, ...
-    strjoin({simulation_name, '.txt'}, '')), ...
-    simulation_title, 100, time_simulation_color_list, ...
-    simulation_time_limits, simulation_time_ticks, ...
-    simulation_voltage_limits, simulation_voltage_ticks, ...
-    simulation_current_limits, simulation_current_ticks);
-
-image_file_name = fullfile(images_directory, ...
-    dynamic_directory, ...
-    strjoin({simulation_save_name, '.png'}, ''));
-
-% Salvo el gráfico en un archivo.
-saveas(graphic_handle, image_file_name);
-
-%%%%-----------------------------------------------
-
-simulation_save_name = strjoin({simulation_name, '_Zoom2'}, '');
-
-simulation_directory = 'Ccomp_corriente';
-
-simulation_title = strjoin({'Respuesta din\''{a}mica a un salto de carga ', ...
-    ' (zoom al descargar) para Ccomp = ',...
-    component_value, ...
-    ' en modo corriente, 2A'}, '');
-
-simulation_time_limits = [3.95E-3 4.075E-3];
-
-simulation_time_ticks = (3.95E-3 :5E-6:4.075E-3);
-
-simulation_voltage_limits = [0 11];
-
-simulation_voltage_ticks = (0 :0.5:11);
-
-simulation_current_limits = [0 70];
-
-simulation_current_ticks = (0 :5:70);
-
-graphic_handle = dynamic_response(...
-    fullfile(spice_directory, simulation_directory, ...
-    strjoin({simulation_name, '.txt'}, '')), ...
-    simulation_title, 100, time_simulation_color_list, ...
-    simulation_time_limits, simulation_time_ticks, ...
-    simulation_voltage_limits, simulation_voltage_ticks, ...
-    simulation_current_limits, simulation_current_ticks);
-
-image_file_name = fullfile(images_directory, ...
-    dynamic_directory, ...
-    strjoin({simulation_save_name, '.png'}, ''));
-
-% Salvo el gráfico en un archivo.
-saveas(graphic_handle, image_file_name);
+% Cierro el gráfico luego de salvado.
+close(graphic_handle);
 
 end
 
@@ -367,10 +299,6 @@ simulation_title = strjoin(...
     component_value, ..., ...
     ' en modo corriente, 200mA'}, '');
 
-simulation_time_limits = [0 7E-3];
-
-simulation_time_ticks = (0 :0.25E-3:7E-3);
-
 simulation_voltage_limits = [0 11];
 
 simulation_voltage_ticks = (0 :0.5:11);
@@ -383,7 +311,6 @@ graphic_handle = dynamic_response(...
     fullfile(spice_directory, simulation_directory, ...
     strjoin({simulation_name, '.txt'}, '')), ...
     simulation_title, 100, time_simulation_color_list, ...
-    simulation_time_limits, simulation_time_ticks, ...
     simulation_voltage_limits, simulation_voltage_ticks, ...
     simulation_current_limits, simulation_current_ticks);
 
@@ -394,84 +321,8 @@ image_file_name = fullfile(images_directory, ...
 % Salvo el gráfico en un archivo.
 saveas(graphic_handle, image_file_name);
 
-return;
-
-%%%%-----------------------------------------------
-
-simulation_save_name = strjoin({simulation_name, '_Zoom1'}, '');
-
-simulation_directory = 'Ccomp_corriente';
-
-simulation_title = strjoin(...
-    {'Respuesta din\''{a}mica a un salto de carga ', ...
-    ' (zoom al cargar) para Ccomp = ', ...
-    component_value, ..., ...
-    ' en modo corriente, 200mA'}, '');
-
-simulation_time_limits = [1.95E-3 2.075E-3];
-
-simulation_time_ticks = (1.95E-3 :5E-6:2.075E-3);
-
-simulation_voltage_limits = [0 11];
-
-simulation_voltage_ticks = (0 :0.5:11);
-
-simulation_current_limits = [0 70];
-
-simulation_current_ticks = (0 :5:70);
-
-graphic_handle = dynamic_response(...
-    fullfile(spice_directory, simulation_directory, ...
-    strjoin({simulation_name, '.txt'}, '')), ...
-    simulation_title, 100, time_simulation_color_list, ...
-    simulation_time_limits, simulation_time_ticks, ...
-    simulation_voltage_limits, simulation_voltage_ticks, ...
-    simulation_current_limits, simulation_current_ticks);
-
-image_file_name = fullfile(images_directory, ...
-    dynamic_directory, ...
-    strjoin({simulation_save_name, '.png'}, ''));
-
-% Salvo el gráfico en un archivo.
-saveas(graphic_handle, image_file_name);
-
-%%%%-----------------------------------------------
-
-simulation_save_name = strjoin({simulation_name, '_Zoom2'}, '');
-
-simulation_directory = 'Ccomp_corriente';
-
-simulation_title = strjoin({'Respuesta din\''{a}mica a un salto de carga ', ...
-    ' (zoom al descargar) para Ccomp = ',...
-    component_value, ...
-    ' en modo corriente, 200mA'}, '');
-
-simulation_time_limits = [3.95E-3 4.075E-3];
-
-simulation_time_ticks = (3.95E-3 :5E-6:4.075E-3);
-
-simulation_voltage_limits = [0 11];
-
-simulation_voltage_ticks = (0 :0.5:11);
-
-simulation_current_limits = [0 70];
-
-simulation_current_ticks = (0 :5:70);
-
-graphic_handle = dynamic_response(...
-    fullfile(spice_directory, simulation_directory, ...
-    strjoin({simulation_name, '.txt'}, '')), ...
-    simulation_title, 100, time_simulation_color_list, ...
-    simulation_time_limits, simulation_time_ticks, ...
-    simulation_voltage_limits, simulation_voltage_ticks, ...
-    simulation_current_limits, simulation_current_ticks);
-
-image_file_name = fullfile(images_directory, ...
-    dynamic_directory, ...
-    strjoin({simulation_save_name, '.png'}, ''));
-
-% Salvo el gráfico en un archivo.
-saveas(graphic_handle, image_file_name);
+% Cierro el gráfico luego de salvado.
+close(graphic_handle);
 
 end
 

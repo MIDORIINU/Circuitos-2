@@ -32,14 +32,15 @@ subplot_phase = subplot(2, 1, 2, 'Parent', figure_handle);
 hold(subplot_phase,'on');
 
 % Create ylabel
-ylabel(subplot_module, 'Módulo de la ganancia de lazo');
+ylabel(subplot_module, 'Módulo de la ganancia de lazo [dB]');
 
 % Create xlabel
 xlabel(subplot_module, 'Frecuencia [Hz]');
 
 box(subplot_module,'on');
 % Set the remaining axes properties
-set(subplot_module,'XGrid','on','XMinorTick','on','XScale','log','YGrid','on',...
+set(subplot_module,'XGrid','on','XMinorTick','on','XScale','log', ...
+    'YGrid','on',...
     'YMinorTick','on','ColorOrder', fig_color_order, 'YTick', ...
     mod_ticks);
 
@@ -58,7 +59,8 @@ xlabel(subplot_phase, 'Frecuencia [Hz]');
 
 box(subplot_phase,'on');
 % Set the remaining axes properties
-set(subplot_phase,'XGrid','on','XMinorTick','on','XScale','log','YGrid','on',...
+set(subplot_phase,'XGrid','on','XMinorTick','on','XScale','log', ...
+    'YGrid','on',...
     'YMinorTick','on','ColorOrder', fig_color_order, 'YTick',phase_ticks);
 
 % xlim(subplot2,'manual');

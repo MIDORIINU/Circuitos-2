@@ -1,6 +1,5 @@
 function [figure_handle] = dynamic_response(file_name, ...
     fig_title, size_percent, fig_color_order, ...
-    time_limits, time_ticks, ...    
     voltage_limits, voltage_ticks, ...
     current_limits, current_ticks)
 %DYNAMIC_RESPONSE Plots a temporal graphic of the step response.
@@ -45,7 +44,7 @@ title(subplot1, fig_title, 'Interpreter', 'latex');
 box(subplot1,'on');
 % Set the remaining axes properties
 set(subplot1,'XGrid','on','XMinorTick','on','XTick',...
-    time_ticks,...
+    (0 : round((time(end)/28)*1E5)/1E5 : time(end)),...
     'YGrid','on','YMinorTick','on','YTick',...
     voltage_ticks);
 
@@ -53,7 +52,7 @@ set(subplot1,'XGrid','on','XMinorTick','on','XTick',...
 subplot1.XAxis.Exponent = -3;
 
 xlim(subplot1,'manual');
-xlim(subplot1,time_limits);
+xlim(subplot1,[0 time(end)]);
 
 ylim(subplot1,'manual');
 ylim(subplot1,voltage_limits);
@@ -79,15 +78,15 @@ xlabel(subplot2, 'Tiempo [S]');
 box(subplot2,'on');
 % Set the remaining axes properties
 set(subplot2,'XGrid','on','XMinorTick','on','XTick',...
-    time_ticks,...
+    (0 : round((time(end)/28)*1E5)/1E5 : time(end)),...
     'YGrid','on','YMinorTick','on','YTick',...
     current_ticks);
 
 
-%subplot1.XAxis.Exponent = -3;
+subplot2.XAxis.Exponent = -3;
 
 xlim(subplot2,'manual');
-xlim(subplot2,time_limits);
+xlim(subplot2,[0 time(end)]);
 
 ylim(subplot2,'manual');
 ylim(subplot2,current_limits);

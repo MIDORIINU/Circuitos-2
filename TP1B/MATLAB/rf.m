@@ -32,7 +32,7 @@ subplot_phase = subplot(2, 1, 2, 'Parent', figure_handle);
 hold(subplot_phase,'on');
 
 % Create ylabel
-ylabel(subplot_module, 'Módulo de la respuesta en frecuencia');
+ylabel(subplot_module, 'Módulo de la respuesta en frecuencia [dB]');
 
 % Create xlabel
 xlabel(subplot_module, 'Frecuencia [Hz]');
