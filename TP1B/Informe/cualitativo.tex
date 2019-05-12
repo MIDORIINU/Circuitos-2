@@ -1,6 +1,26 @@
 
-\subsection{Secciones del circuito}
+\subsection{Criterio de compensación}
+
+La compensación de un circuito realimentado negativamente, como lo es la fuente de alimentación analizada, consiste básicamente en evitar que la realimentación negativa se torne positiva al variar la frecuencia, ya que al haber presentes en el circuito estímulos de todas las frecuencias, por ejemplo por el ruido, de existir estas frecuencias a la que el circuito se torna inestables, el circuito oscilará. El criterio mas básico utilizado para verificar la estabilidad es observar el \textbf{margen de fase} y el \textbf{margen de ganancia} del lazo, verificando que ambas son positivas o que tienen un valor mínimo que garantice que ante variaciones del circuito las mismas no se tornen negativas. El buscar que los márgenes sean positivos corresponde a buscar que nunca se alcance el estado dado por el \textbf{criterio de Barkhausen}:
+
+\begin{align}
+\begin{split}
+\left| a_{(j \cdot \omega)} \cdot \beta_{(j \cdot \omega)} \right| &= 1 \\
+& \land \\
+\phase{a_{(j \cdot \omega)} \cdot \beta_{(j \cdot \omega)}} &= 2 \cdot n \cdot \pi,\;\;\; n \in \left \{  0, 1, 2, \ldots \right \} 
+\end{split} 
+\end{align}
 
 
-\normalfont
+En el caso particular de la fuente de alimentación, la realimentación se realiza entrando por la entrada negativa de la etapa diferencial, con lo que ya se tienen $-180 \si[per-mode=symbol]{\degree}$ de desfasaje, con lo que si la fase de la ganancia de lazo alcanza $-180 \si[per-mode=symbol]{\degree}$, cuando la ganancia es aún mayor a $0 \si[per-mode=symbol]{\decibel}$, el circuito se tornará inestable. De lo dicho anteriormente, el margen de fase se obtiene de observar cuanto le falta a la fase de la ganancia de lazo para alcanzar los $-180 \si[per-mode=symbol]{\degree}$  cuando el módulo de la ganancia llega a $0 \si[per-mode=symbol]{\decibel}$, ganancia unitaria. Similarmente, el margen de ganancia se obtiene como la ganancia por debajo de $0 \si[per-mode=symbol]{\decibel}$ cuando la fase alcanza los $-180 \si[per-mode=symbol]{\degree}$.
+
+
+\subsection{Análisis de la compensación}
+
+En esta sección analizamos la localización de las redes de compensación, su ubicación y el efecto que las mismas tienen en la respuesta del circuito.
+
+
+
+
+
 
