@@ -130,7 +130,7 @@ for idx = (1: DataCount)
         freq_unit='MHz';
     elseif (freq_val > 1e3)
         freq_val = freq_val /1e3;
-        freq_unit='MHz';
+        freq_unit='KHz';
     else
         freq_unit='Hz';
     end

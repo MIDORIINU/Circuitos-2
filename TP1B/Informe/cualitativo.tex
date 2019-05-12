@@ -15,12 +15,115 @@ La compensación de un circuito realimentado negativamente, como lo es la fuente
 En el caso particular de la fuente de alimentación, la realimentación se realiza entrando por la entrada negativa de la etapa diferencial, con lo que ya se tienen $-180 \si[per-mode=symbol]{\degree}$ de desfasaje, con lo que si la fase de la ganancia de lazo alcanza $-180 \si[per-mode=symbol]{\degree}$, cuando la ganancia es aún mayor a $0 \si[per-mode=symbol]{\decibel}$, el circuito se tornará inestable. De lo dicho anteriormente, el margen de fase se obtiene de observar cuanto le falta a la fase de la ganancia de lazo para alcanzar los $-180 \si[per-mode=symbol]{\degree}$  cuando el módulo de la ganancia llega a $0 \si[per-mode=symbol]{\decibel}$, ganancia unitaria. Similarmente, el margen de ganancia se obtiene como la ganancia por debajo de $0 \si[per-mode=symbol]{\decibel}$ cuando la fase alcanza los $-180 \si[per-mode=symbol]{\degree}$.
 
 
-\subsection{Análisis de la compensación}
+\subsection{Método general de compensación}
 
-En esta sección analizamos la localización de las redes de compensación, su ubicación y el efecto que las mismas tienen en la respuesta del circuito.
+El método de compensación consiste básicamente en agregar polos y ceros, de modo de lograr que en todos los casos el circuito realimentado sea estable, logrando el mayor ancho de banda posible con sobre-picos que sean aceptables para el uso del circuito. En el caso mas simple, que es el utilizado en el caso de la compensación que tienen internamente muchos amplificadores operacionales comerciales, se fuerza un polo dominante, de manera que el circuito se comporte aproximadamente como un sistema de un único polo estable, caso que es estable para toda frecuencia, ese es el motivo por el cual los fabricantes informan en sus hojas de datos el producto ganancia por ancho de banda, \textbf{GBP}, lo cual es justamente válido para un sistema de un único polo. En el caso mas general se suelen introducir múltiples polos y ceros de modo de lograr la compensación deseada, esto se hace en forma de redes de adelanto o de atraso de fase, estas redes introducen cada una, un cero y un polo, en el caso de las redes de atraso de fase, el polo aparece primero en la respuesta, en el caso de las redes de adelanto es el cero el que aparece primero en la respuesta. En algunos casos se introduce una red \textbf{R-C} y otros solo un capacitor en alguna parte del circuito de modo de lograr el efecto deseado, en estos casos se suele usar la técnica de multiplicación por \textbf{Miller}, colocando un capacitor pequeño entre la entrada y la salida de una etapa que amplifique, logrando que se vea en la entrada con el valor buscado. Los puntos donde se introducen las redes de compensación dependerán de cada circuito. Para las redes de adelanto o atraso de fase, esperamos encontrar las de atraso en el camino directo de la señal, mientras que las de adelanto las esperamos encontrar en el camino de realimentación, esto es debido a que al cerrar el lazo la ubicación de los polos y ceros se invertirán aproximadamente.\\
+Las singularidades se deben introducir ya sea en las etapas de ganancia, comúnmente asociadas a nodos de alta impedancia, o en las redes de realimentación, como se dijo antes introduciendo los polos primero en el camino directo y los ceros primero en la realimentación para lograr el efecto deseado.
+
+
+
+\subsection{Método de compensación en el circuito analizado}
+
+
+En esta sección analizamos la localización de las redes de compensación, el motivo de su ubicación y el efecto que las mismas tienen en la respuesta del circuito.\\
+
+Las redes de compensación que el diseño del circuito incluye se muestran en el cuadro~\tableref{table:compensation_networks}, junto al nombre que le asignamos y el modo en el que actúan.
+
+%% \noindent
+%% \begin{center}
+ 
+%%\begin{spacing}{1}  
+\begin{table}[H]  %%\centering
+    
+    \setlength\arrayrulewidth{1.5pt}
+    \arrayrulecolor{white}
+    \def\clinecolor{\hhline{|>{\arrayrulecolor{white}}-%
+    >{\arrayrulecolor{white}}|-|-|-|}}
+\resizebox{0.90 \textwidth}{!}{% 
+       
+\begin{tabularx}{1 \textwidth}%
+    {|
+    >{\columncolor{white} \centering\arraybackslash}m{0.25\linewidth}
+     |
+    >{\columncolor{white} \arraybackslash}m{0.45\linewidth}
+     |
+    >{\columncolor{white} \centering\arraybackslash}m{0.30\linewidth}
+     |     
+    }
+    
+%    \rowcolor{HeadersColor} \multicolumn{2}{|>{\hsize=\dimexpr2\hsize+2\tabcolsep+\arrayrulewidth\relax}X|}{ Redes de compensación} \\
+%    \hhline{|-|}  
+    %%\rowcolor{HeadersColor} \cellcolor{white} \thead{Redes de compensación}  \\
+    
+    
+    \rowcolor{HeadersColor} \thead{Nombre}  & \thead{Componentes} & \thead{Modo} \\
+    \hhline{|-|-|}
+    
+    \rowcolor{gray!20} \cellcolor{gray!40} \textbf{Red~número~1} &  \textbf{Ccomp} (C1) y \textbf{Rcomp} (R6) & \textbf{Tensión} y \textbf{corriente} \\
+    \hhline{|-|-|}
+     \rowcolor{gray!20} \cellcolor{gray!40} \textbf{Red~número~2} &  \textbf{Ccomp2} (C9) y R9 & \textbf{Tensión} \\
+    \hhline{|-|-|}   
+      \rowcolor{gray!20} \cellcolor{gray!40} \textbf{Red~número~3} &  \textbf{Ccomp3} (C16) y R17 & \textbf{Corriente} \\
+    \hhline{|-|-|}  
+    \rowcolor{gray!20} \cellcolor{gray!40} \textbf{Red~número~4} &  \textbf{Ccomp4} (C15), \textbf{Rcomp4} (R6) y R18 & \textbf{Corriente} \\
+    \hhline{|-|-|}
+     \rowcolor{gray!20} \cellcolor{gray!40} \textbf{Red~número~5} &  \textbf{Camort} (C2) y \textbf{Ramort} (R60) & \textbf{Tensión} \\
+    \hhline{|-|-|}
+               
+    \end{tabularx}}
+    
+	\caption{\footnotesize{Redes de compensación del circuito.}}
+	\label{table:compensation_networks}
+\end{table}
+%%\end{spacing}
+
+%% \end{center}
+
+
+
+Los componentes resaltados en negrita en el cuadro~\tableref{table:compensation_networks}, son los agregados como compensación, los demás son parte del circuito original pero forman también parte de la red de compensación correspondiente.\\
+
+
+En el caso del circuito de la fuente de alimentación que analizamos, se tienen dos lazos de realimentación independientes, donde solo uno está activo por vez, como se explico en el trabajo práctico anterior (\textbf{TP1A}). Como se vio, ambos lazos  de realimentación comparten el amplificador, pero difieren en sus redes de realimentación, siendo del amplificador, la etapa diferencial, la única que provee ganancia de tensión.\\
+
+
+\subsubsection{\textbf{Red~número~1}}
+
+Dado que las singularidades se deben introducir en las etapas de ganancia, en el caso del camino directo, estas están comúnmente asociadas a nodos de alta impedancia, es justamente por esta razón la etapa diferencial la indicada para introducir una red de compensación, es simple ver que de conectar una red, cuya impedancia disminuya con la frecuencia, en paralelo a la carga de esta primera etapa, su ganancia disminuirá, es decir, introducimos un polo (y un cero) en la respuesta del amplificador diferencial. Esta red es la \textbf{Red~número~1}. Viendo esta ganancia en detalle, se tiene:
+
+\begin{equation}
+a_{diff}(s) = g_m R_{ca} \frac{1+ R_{comp} \cdot C_{comp} \cdot s}{ 1 + \left( R_{comp}+R_{ca} \right) \cdot C_{comp} \cdot s}
+\end{equation}\\
+
+Se ve claramente que  $\bm{Ccomp}$ y la impedancia en el nodo de colector $\bm{R_{ca}}$, imponen el polo, el valor de $\bm{Rcomp}$ es despreciable frente a esta, en el \textbf{TP1A} por cálculo y simulación se vio que esta resistencia está en el orden de los $53 \si[per-mode=symbol]{\kilo\ohm}$. El valor de $\bm{Ccomp}$ y $\bm{Rcomp}$ imponen el cero. Se puede ver que el polo,$\frac{1}{ \left( R_{comp}+R_{ca} \right) \cdot C_{comp} }$, aparece primero en la respuesta que el cero, $ \frac{1}{R_{comp} \cdot C_{comp}}$, con lo que se trata de una red de atraso de fase, cosa esperable ya que se está aplicando al camino directo de la señal, el amplificador.\\
+
+Dado que no se tienen mas etapas que ganen en el circuito, y además que se tienen dos lazos de realimentación, el resto de las redes de compensación necesariamente irán en las redes de realimentación de cada lazo. Una razón para necesitar mas de una red de realimentación es justamente que se tiene mas de un lazo de realimentación y ambos deben ser compensados, la compensación que introduce la \textbf{Red~número~1} no puede compensar ambos lazos para todos las combinaciones posibles de seteo de tensión, seteo de corriente y valor de la carga. Dado que solo un lazo está activo por lazo de realimentación, las redes de compensación actuaran en uno u otro modo, o en ambos, en el caso de la \textbf{Red~número~1}, esto se indica en el cuadro~\tableref{table:compensation_networks}.
 
 
 
 
+
+%
+%Ccomp2
+%
+%\begin{equation}
+%H(s) = R_{10}+R_9 \frac{R_{10}||R_9C_{comp2}s+1}{R_9C_{comp2}s+1}
+%\end{equation}\\
+%
+%
+%
+%Ccomp3
+%
+%\begin{equation}
+%H(s) = 1 + \frac{R_{18}}{R_{19}} \frac{1+R_{comp}C_{comp}s}{1+(R_{comp}+R_{18})C_{comp}s}
+%\end{equation}\\
+%
+%
+%
+%Ccomp4
+%
+%\begin{equation}
+%H(s)=\frac{R_{18}}{R_{19}}\frac{1+C_{comp4}R_{comp4}s}{1+C_{comp4}(R_{comp4}+R_{18})s}
+%\end{equation}\\
 
 
