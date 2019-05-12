@@ -1,4 +1,4 @@
-function [PM_index, GM_index] = find_margins(freq, module, phase_angle)
+function [PM_index, GM_index] = aac_find_margins(freq, module, phase_angle)
 %FIND_MARGINS Find phase margins and gain margins in data arrays.
 
 %[~, PM_index] = min( abs(module - 1) );

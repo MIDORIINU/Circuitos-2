@@ -51,24 +51,35 @@ end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-ccomp_current(spice_directory, loop_directory, rf_directory, ...
-    dynamic_directory, images_directory);
+ccomp_current(spice_directory, loop_directory, rf_directory, ... % Check.
+    dynamic_directory, images_directory, true);
 
-ccomp_voltage(spice_directory, loop_directory, rf_directory, ...
-    dynamic_directory, images_directory);
+ccomp_voltage(spice_directory, loop_directory, rf_directory, ... % Check.
+    dynamic_directory, images_directory, true);
 
-ccomp2(spice_directory, loop_directory, rf_directory, ...
-    dynamic_directory, images_directory);
+rcomp_current(spice_directory, loop_directory, rf_directory, .... % Check.
+    dynamic_directory, images_directory, true);
 
-ccomp3(spice_directory, loop_directory, rf_directory, ...
-    dynamic_directory, images_directory);
+rcomp_voltage(spice_directory, loop_directory, rf_directory, ... % Check.
+    dynamic_directory, images_directory, true);
 
-ccomp4(spice_directory, loop_directory, rf_directory, ...
-    dynamic_directory, images_directory);
+ccomp2(spice_directory, loop_directory, rf_directory, ... % Check.
+    dynamic_directory, images_directory, true);
 
-camort(spice_directory, loop_directory, rf_directory, ...
-    dynamic_directory, images_directory);
+ccomp3(spice_directory, loop_directory, rf_directory, .... % Check.
+    dynamic_directory, images_directory, true);
 
+ccomp4(spice_directory, loop_directory, rf_directory, ... % Check.
+    dynamic_directory, images_directory, true);
+
+rcomp4(spice_directory, loop_directory, rf_directory, ... % Check.
+    dynamic_directory, images_directory, true);
+
+camort(spice_directory, loop_directory, rf_directory, .... % Check.
+    dynamic_directory, images_directory, true);
+
+ramort(spice_directory, loop_directory, rf_directory, ... % Check.
+    dynamic_directory, images_directory, true);
 
 
 

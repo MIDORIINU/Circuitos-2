@@ -1,5 +1,5 @@
 function camort(spice_directory, loop_directory, rf_directory, ...
-    dynamic_directory, images_directory)
+    dynamic_directory, images_directory, close_figures)
 
 
 bode_simulation_color_list = [1 0.4 0.1; 0.4 1 0.1; 0.4 0.1 1];
@@ -9,15 +9,17 @@ bode_simulation_color_list = [1 0.4 0.1; 0.4 1 0.1; 0.4 0.1 1];
 % DYNAMIC RESPONSE.
 
 component_values = {'0', '10u', '22u'};
-
+component_labels = {'0', '10uF', '22uF'};
 
 for idx = (1 : length(component_values))
     
-    dynamic_plot_mode_1(component_values{idx}, spice_directory, ...
-        dynamic_directory, images_directory);
+    dynamic_plot_mode_1(component_values{idx}, ...
+        component_labels{idx}, spice_directory, ...
+        dynamic_directory, images_directory, close_figures);
     
-    dynamic_plot_mode_2(component_values{idx}, spice_directory, ...
-        dynamic_directory, images_directory);
+    dynamic_plot_mode_2(component_values{idx}, ...
+        component_labels{idx}, spice_directory, ...
+        dynamic_directory, images_directory, close_figures);
     
 end
 
@@ -60,7 +62,7 @@ simulation_ang_limits = [-500 50];
 
 simulation_ang_ticks = sort([(-500 :50: 50) -180]);
 
-graphic_handle = loop_gain(...
+graphic_handle = aab_loop_gain(...
     fullfile(spice_directory, simulation_directory, ...
     strjoin({simulation_name, '.txt'}, '')), ...
     simulation_title, ...
@@ -78,7 +80,9 @@ image_file_name = fullfile(images_directory, ...
 saveas(graphic_handle, image_file_name);
 
 % Cierro el gráfico luego de salvado.
-close(graphic_handle);
+if (close_figures)
+    close(graphic_handle);
+end
 
 %%%%-----------------------------------------------
 
@@ -99,7 +103,7 @@ simulation_ang_limits = [-500 50];
 
 simulation_ang_ticks = sort([(-500 :50: 50) -180]);
 
-graphic_handle = loop_gain(...
+graphic_handle = aab_loop_gain(...
     fullfile(spice_directory, simulation_directory, ...
     strjoin({simulation_name, '.txt'}, '')), ...
     simulation_title, ...
@@ -117,7 +121,9 @@ image_file_name = fullfile(images_directory, ...
 saveas(graphic_handle, image_file_name);
 
 % Cierro el gráfico luego de salvado.
-close(graphic_handle);
+if (close_figures)
+    close(graphic_handle);
+end
 
 % Execute crop script.
 olddir = cd(fullfile(images_directory, ...
@@ -150,15 +156,15 @@ simulation_title = strjoin({'Respuesta en frecuencia $',...
 
 simulation_prealocation_count = 65000;
 
-simulation_mod_limits = [-65 30];
+simulation_mod_limits = [-65 35];
 
-simulation_mod_ticks = (-65:10:30);
+simulation_mod_ticks = (-65:10:35);
 
-simulation_ang_limits = [-240 60];
+simulation_ang_limits = [-210 60];
 
-simulation_ang_ticks = (-240 :30: 60);
+simulation_ang_ticks = unique(sort([(-210 :30: 60) 0]),'first');
 
-graphic_handle = rf(...
+graphic_handle = aab_rf(...
     fullfile(spice_directory, simulation_directory, ...
     strjoin({simulation_name, '.txt'}, '')), ...
     simulation_title, ...
@@ -176,7 +182,9 @@ image_file_name = fullfile(images_directory, ...
 saveas(graphic_handle, image_file_name);
 
 % Cierro el gráfico luego de salvado.
-close(graphic_handle);
+if (close_figures)
+    close(graphic_handle);
+end
 
 %%%%-----------------------------------------------
 
@@ -189,15 +197,15 @@ simulation_title = strjoin({'Respuesta en frecuencia $', ...
 
 simulation_prealocation_count = 65000;
 
-simulation_mod_limits = [-70 50];
+simulation_mod_limits = [-65 35];
 
-simulation_mod_ticks = (-70:10:50);
+simulation_mod_ticks = (-65:10:35);
 
-simulation_ang_limits = [-210 90];
+simulation_ang_limits = [-210 60];
 
-simulation_ang_ticks = unique(sort([(-210 :30: 90) 0]),'first');
+simulation_ang_ticks = unique(sort([(-210 :30: 60) 0]),'first');
 
-graphic_handle = rf(...
+graphic_handle = aab_rf(...
     fullfile(spice_directory, simulation_directory, ...
     strjoin({simulation_name, '.txt'}, '')), ...
     simulation_title, ...
@@ -215,7 +223,9 @@ image_file_name = fullfile(images_directory, ...
 saveas(graphic_handle, image_file_name);
 
 % Cierro el gráfico luego de salvado.
-close(graphic_handle);
+if (close_figures)
+    close(graphic_handle);
+end
 
 % Execute crop script.
 olddir = cd(fullfile(images_directory, ...
@@ -236,8 +246,8 @@ end
 
 
 
-function dynamic_plot_mode_1(component_value, spice_directory, ...
-    dynamic_directory, images_directory)
+function dynamic_plot_mode_1(component_value, component_label, ...
+    spice_directory, dynamic_directory, images_directory, close_figures)
 
 time_simulation_color_list = [1 0.4 0.1; 0.4 0.1 1];
 
@@ -250,19 +260,19 @@ simulation_directory = 'Camort_tensión';
 
 simulation_title = strjoin({...
     'Respuesta din\''{a}mica a un salto de carga ', ...
-    ' para Camort = ', ...
-    component_value, ..., ...
-    ' en modo tensi\''{o}n, 10V, carga de 1A'}, '');
+    ' para $ Camort = ', ...
+    component_label, ..., ...
+    '$ en modo tensi\''{o}n, 10V, carga de 1A'}, '');
 
-simulation_voltage_limits = [0 25];
+simulation_voltage_limits = [0 21];
 
-simulation_voltage_ticks = (0 :1:25);
+simulation_voltage_ticks = (0 :1.5:21);
 
 simulation_current_limits = [0 3];
 
-simulation_current_ticks = (0 :0.5:3);
+simulation_current_ticks = (0 :0.25:3);
 
-graphic_handle = dynamic_response(...
+graphic_handle = aab_dynamic_response(...
     fullfile(spice_directory, simulation_directory, ...
     strjoin({simulation_name, '.txt'}, '')), ...
     simulation_title, 100, time_simulation_color_list, ...
@@ -277,13 +287,15 @@ image_file_name = fullfile(images_directory, ...
 saveas(graphic_handle, image_file_name);
 
 % Cierro el gráfico luego de salvado.
-close(graphic_handle);
+if (close_figures)
+    close(graphic_handle);
+end
 
 end
 
 
-function dynamic_plot_mode_2(component_value, spice_directory, ...
-    dynamic_directory, images_directory)
+function dynamic_plot_mode_2(component_value, component_label, ...
+    spice_directory, dynamic_directory, images_directory, close_figures)
 
 time_simulation_color_list = [1 0.4 0.1; 0.4 0.1 1];
 
@@ -296,19 +308,19 @@ simulation_directory = 'Camort_tensión';
 
 simulation_title = strjoin(...
     {'Respuesta din\''{a}mica a un salto de carga ', ...
-    ' para Camort = ', ...
-    component_value, ..., ...
-    ' en modo tensi\''{o}n, 1V, carga de 1A'}, '');
+    ' para $ Camort = ', ...
+    component_label, ..., ...
+    '$ en modo tensi\''{o}n, 1V, carga de 1A'}, '');
 
-simulation_voltage_limits = [0 25];
+simulation_voltage_limits = [0 21];
 
-simulation_voltage_ticks = (0 :1:25);
+simulation_voltage_ticks = (0 :1.5:21);
 
 simulation_current_limits = [0 3];
 
-simulation_current_ticks = (0 :0.5:3);
+simulation_current_ticks = (0 :0.25:3);
 
-graphic_handle = dynamic_response(...
+graphic_handle = aab_dynamic_response(...
     fullfile(spice_directory, simulation_directory, ...
     strjoin({simulation_name, '.txt'}, '')), ...
     simulation_title, 100, time_simulation_color_list, ...
@@ -323,7 +335,9 @@ image_file_name = fullfile(images_directory, ...
 saveas(graphic_handle, image_file_name);
 
 % Cierro el gráfico luego de salvado.
-close(graphic_handle);
+if (close_figures)
+    close(graphic_handle);
+end
 
 end
 
