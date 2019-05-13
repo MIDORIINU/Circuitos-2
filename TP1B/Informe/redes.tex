@@ -27,9 +27,11 @@ El análisis primero consiste en evaluar la simulación de ganancia de lazo en f
 
 Luego también se observa la respuesta en frecuencia del circuito, realizando también un barrido de frecuencia con el comando \textbf{SPICE} \textit{.ac} y en forma paramétrica con los valores a comparar de las redes de compensación de a uno por vez, de esta simulación se obtiene principalmente el ancho de banda del circuito.\\
 
-Finalmente se observa la simulación de la respuesta del circuito a un salto de carga, según el modo analizado, esto equivale a una respuesta al escalón para este circuito, donde se puede ver si la respuesta es la esperada para un circuito estable, y evaluar si los sobre-picos presentes son aceptables.\\
+Finalmente se observa la simulación de la respuesta del circuito a un salto de carga, según el modo analizado, para cada uno de los valores de cada uno de los componentes de las redes de compensación, esto equivale a una respuesta al escalón para este circuito, donde se puede ver si la respuesta es la esperada para un circuito estable, y evaluar si los sobre-picos presentes y el tiempo de crecimiento son aceptables.\\
 
+El análisis se realizará comparando lo obtenido y comentando en cada caso lo mas importante, refiriendo al gráfico relevante.\\
 
+Hay algunos modos que no se analizan por que no aplican, como ser por ejemplo la \textbf{Red~número~4} en el caso de que $R_{18} = 0 \si[per-mode=symbol]{\ohm}$, $I_{out} = 2 \si[per-mode=symbol]{\ampere}$ ,o la \textbf{Red~número~2} cuando $R_{9} = 0 \si[per-mode=symbol]{\ohm}$, $V_{out} = 1 \si[per-mode=symbol]{\volt}$.
 
 
 
@@ -42,8 +44,6 @@ Finalmente se observa la simulación de la respuesta del circuito a un salto de 
 \subsection{Red de compensación Ccomp/Rcomp}
 
 La red formada por \textbf{Ccomp} y \textbf{Rcomp} actúa tanto para el lazo de tensión como para el de corriente, por lo que se analizan ambos modos.
-
-\clearpage
 
 
 \input{ccomp}
