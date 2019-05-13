@@ -59,15 +59,15 @@ Las redes de compensación que el diseño del circuito incluye se muestran en el
     \rowcolor{HeadersColor} \thead{Nombre}  & \thead{Componentes} & \thead{Modo} \\
     \hhline{|-|-|}
     
-    \rowcolor{gray!20} \cellcolor{gray!40} \textbf{Red~número~1} &  \textbf{Ccomp} (C1) y \textbf{Rcomp} (R6) & \textbf{Tensión} y \textbf{corriente} \\
+    \rowcolor{gray!20} \cellcolor{gray!40} \textbf{Red~número~1} &  \textbf{$C_{comp}$} ($C_{1}$) y \textbf{$R_{comp}$} ($R_{6}$) & \textbf{Tensión} y \textbf{corriente} \\
     \hhline{|-|-|}
-     \rowcolor{gray!20} \cellcolor{gray!40} \textbf{Red~número~2} &  \textbf{Ccomp2} (C9) y R9 & \textbf{Tensión} \\
+     \rowcolor{gray!20} \cellcolor{gray!40} \textbf{Red~número~2} &  \textbf{$C_{comp_{2}}$} ($C_{9}$), $R_{9}$ y $R_{10}$ & \textbf{Tensión} \\
     \hhline{|-|-|}   
-      \rowcolor{gray!20} \cellcolor{gray!40} \textbf{Red~número~3} &  \textbf{Ccomp3} (C16) y R17 & \textbf{Corriente} \\
+      \rowcolor{gray!20} \cellcolor{gray!40} \textbf{Red~número~3} &  \textbf{$C_{comp_{3}}$} ($C_{16}$) y $R_{17}$ & \textbf{Corriente} \\
     \hhline{|-|-|}  
-    \rowcolor{gray!20} \cellcolor{gray!40} \textbf{Red~número~4} &  \textbf{Ccomp4} (C15), \textbf{Rcomp4} (R6) y R18 & \textbf{Corriente} \\
+    \rowcolor{gray!20} \cellcolor{gray!40} \textbf{Red~número~4} &  \textbf{$C_{comp_{4}}$} ($C_{15}$), \textbf{$R_{comp_{4}}$} ($R_{81}$) y $R_{18}$ & \textbf{Corriente} \\
     \hhline{|-|-|}
-     \rowcolor{gray!20} \cellcolor{gray!40} \textbf{Red~número~5} &  \textbf{Camort} (C2) y \textbf{Ramort} (R60) & \textbf{Tensión} \\
+     \rowcolor{gray!20} \cellcolor{gray!40} \textbf{Red~número~5} &  \textbf{$C_{amort}$} ($C_{2}$) y \textbf{$R_{amort}$} ($R_{60}$) & \textbf{Tensión} \\
     \hhline{|-|-|}
                
     \end{tabularx}}
@@ -92,38 +92,69 @@ En el caso del circuito de la fuente de alimentación que analizamos, se tienen 
 Dado que las singularidades se deben introducir en las etapas de ganancia, en el caso del camino directo, estas están comúnmente asociadas a nodos de alta impedancia, es justamente por esta razón la etapa diferencial la indicada para introducir una red de compensación, es simple ver que de conectar una red, cuya impedancia disminuya con la frecuencia, en paralelo a la carga de esta primera etapa, su ganancia disminuirá, es decir, introducimos un polo (y un cero) en la respuesta del amplificador diferencial. Esta red es la \textbf{Red~número~1}. Viendo esta ganancia en detalle, se tiene:
 
 \begin{equation}
-a_{diff}(s) = g_m R_{ca} \frac{1+ R_{comp} \cdot C_{comp} \cdot s}{ 1 + \left( R_{comp}+R_{ca} \right) \cdot C_{comp} \cdot s}
+a_{diff}\left(s\right) = g_m \cdot R_{ca} \cdot \frac{1+ s \cdot C_{comp} \cdot R_{comp}}{ 1 + s \cdot C_{comp} \cdot \left( R_{comp} + R_{ca} \right) }
 \end{equation}\\
 
-Se ve claramente que  $\bm{Ccomp}$ y la impedancia en el nodo de colector $\bm{R_{ca}}$, imponen el polo, el valor de $\bm{Rcomp}$ es despreciable frente a esta, en el \textbf{TP1A} por cálculo y simulación se vio que esta resistencia está en el orden de los $53 \si[per-mode=symbol]{\kilo\ohm}$. El valor de $\bm{Ccomp}$ y $\bm{Rcomp}$ imponen el cero. Se puede ver que el polo,$\frac{1}{ \left( R_{comp}+R_{ca} \right) \cdot C_{comp} }$, aparece primero en la respuesta que el cero, $ \frac{1}{R_{comp} \cdot C_{comp}}$, con lo que se trata de una red de atraso de fase, cosa esperable ya que se está aplicando al camino directo de la señal, el amplificador.\\
+Se ve claramente que  $\bm{C_{comp}}$ y la impedancia en el nodo de colector $\bm{R_{ca}}$, imponen el polo, el valor de $\bm{R_{comp}}$ es despreciable frente a esta, en el \textbf{TP1A} por cálculo y simulación se vio que esta resistencia está en el orden de los $53 \si[per-mode=symbol]{\kilo\ohm}$. El valor de $\bm{C_{comp}}$ y $\bm{R_{comp}}$ imponen el cero. Se puede ver que el polo, $\frac{1}{ C_{comp} \cdot \left( R_{comp}+R_{ca} \right) }$, aparece primero en la respuesta que el cero, $ \frac{1}{C_{comp} \cdot R_{comp}}$, con lo que se trata de una red de atraso de fase, cosa esperable ya que se está aplicando al camino directo de la señal, el amplificador.\\
 
 Dado que no se tienen mas etapas que ganen en el circuito, y además que se tienen dos lazos de realimentación, el resto de las redes de compensación necesariamente irán en las redes de realimentación de cada lazo. Una razón para necesitar mas de una red de realimentación es justamente que se tiene mas de un lazo de realimentación y ambos deben ser compensados, la compensación que introduce la \textbf{Red~número~1} no puede compensar ambos lazos para todos las combinaciones posibles de seteo de tensión, seteo de corriente y valor de la carga. Dado que solo un lazo está activo por lazo de realimentación, las redes de compensación actuaran en uno u otro modo, o en ambos, en el caso de la \textbf{Red~número~1}, esto se indica en el cuadro~\tableref{table:compensation_networks}.
 
+\subsubsection{\textbf{Red~número~2}}
+
+Como se vio en el \textbf{TP1A}, para el lazo de tensión la red de realimentación está formada solo por $R_{9}$ y $R_{10}$ (ignorando la llave que es casi transparente), con lo que en esta red se tiene el único otro lugar para compensar el lazo de tensión, esta es la \textbf{Red~número~2}, esta red pone al capacitor $C_{comp_{2}}$ ($C_{9}$) en paralelo al resistor $R_{9}$, y como la realimentación para el lazo de tensión es $f_{V} \approx \frac{R_{10}}{R_{9} + R_{10}}$, se ve claramente que al reemplazar $R_{9}$ por el paralelo \textbf{R-C}, a medida que la frecuencia suba, el módulo de la realimentación irá subiendo hacia un valor de $1$, efectivamente disminuyendo el módulo de la ganancia a lazo cerrado, $ A = \frac{a}{1 + a \cdot f_{V}}$, llevándola hacia $A \approx \frac{1}{f_{V}} \approx 1$. Analizando en detalle la transferencia de ese circuito se tiene:
+
+
+\begin{equation}
+f_{V}\left(s\right) = \frac{R_{10}}{R_{9} + R_{10}}  \cdot \frac{1 + s \cdot C_{comp_{2}} \cdot R_{9}}{1 + s \cdot C_{comp_{2}} \cdot \left( R_{9} \parallelresistors R_{10}  \right)}
+\end{equation}\\
+
+
+ Se puede ver que el cero, $\frac{1}{  C_{comp_{2}} \cdot R_{9} }$, aparece primero en la respuesta que el polo, $\frac{1}{  C_{comp_{2}} \cdot \left( R_{9} \parallelresistors R_{10}  \right) }$, con lo que se trata de una red de adelanto de fase, cosa esperable ya que se está aplicando al camino de realimentación de la señal.\\
+
+
+\subsubsection{\textbf{Red~número~3}}
+
+Como se vio en el \textbf{TP1A}, para el lazo de corriente la red de realimentación está formada solo por los amplificadores armados alrededor de $U_{3A}$ y $U_{3B}$, un diferencial y un no inversor, respectivamente (ignorando la llave que es casi transparente), la red \textbf{Red~número~3} está en el amplificador diferencial armado alrededor de $U_{3A}$, específicamente,  en su red de realimentación local, en paralelo al resistor $R17$, ya que la ganancia de este diferencial es $A_{OP_{diff}} = \frac{R_{17}}{R_{16}}$, se ve que al reemplazar $R_{17}$ por el paralelo \textbf{R-C}, a medida que la frecuencia suba, el módulo de la ganancia de este diferencial irá disminuyendo, en realidad el análisis no es tan simple ya que la expresión de la ganancia diferencial deja de ser válida al variar la relación que la impedancia de la realimentación local debe mantener con el resto de las resistencias del circuito, lo que en realidad se obtiene es que la ganancia de la entrada inversora tiende a $0$ y la de la no inversora tiende a $1$, un seguidor. Esto último puede verse en la siguientes expresiones:
+
+
+\begin{align}
+\begin{split}
+A_{OP_{V_{-}}}\left( s \right) &= - \frac{R_{17}}{R_{16}} \cdot \frac{1}{1 + s \cdot C_{comp_{3}} \cdot R_{17}  }
+\\\\
+A_{OP_{V_{+}}}\left( s \right) &= \frac{ R_{13} \parallelresistors R_{14}  }{ R_{12} + R_{13} \parallelresistors R_{14} } \cdot \left( 1 + \frac{R_{17}}{R_{15}} + \frac{R_{17}}{R_{16}} \right) \cdot \frac{ 1 + s \cdot C_{comp_{3}} \cdot \left(  R_{15} \parallelresistors R_{16} \parallelresistors R_{17}   \right) }{1 + s \cdot C_{comp_{3}} \cdot R_{17} }
+\end{split}
+\end{align}\\
+
+La relación necesaria para que el circuito sea realmente diferencial, y que se cumple para este circuito, es:
+
+\begin{equation}
+A_{OP_{diff}}\left( 0 \right) = \frac{ R_{13} \parallelresistors R_{14}  }{ R_{12} + R_{13} \parallelresistors R_{14} } \cdot \left( 1 + \frac{R_{17}}{R_{15}} + \frac{R_{17}}{R_{16}} \right) = \frac{R_{17}}{R_{16}}
+\end{equation}\\
+
+Con lo que las expresiones anteriores se reducen a:
+
+\begin{align}
+\begin{split}
+A_{OP_{V_{-}}}\left( s \right) &= - A_{OP}\left( 0 \right) \cdot \frac{1}{1 + s \cdot C_{comp_{3}} \cdot R_{17} }
+\\\\
+A_{OP_{V_{+}}}\left( s \right) &= A_{OP}\left( 0 \right) \cdot \frac{ 1 + s \cdot C_{comp_{3}} \cdot \left(  R_{15} \parallelresistors R_{16} \parallelresistors R_{17}   \right) }{1 + s \cdot C_{comp_{3}} \cdot R_{17} }
+\end{split}
+\end{align}\\
+
+Se puede ver que la ganancia deja de ser estrictamente diferencial a medida que la frecuencia sube, aunque puede decirse aproximadamente que se introduce un polo  y un cero en la ganancia diferencial. Lo que tiene mayor importancia en el circuito por estar en la red de realimentación de corriente, será el cero que impone, que se traducirá en un cero a lazo cerrado.
+
+
+\subsubsection{\textbf{Red~número~4}}
+
+En el amplificador no inversor armado alrededor alrededor de $U_{3B}$, se encuentra la red \textbf{Red~número~4}, la misma se encuentra conectada en paralelo al resistor $R_{18}$, que forma la realimentación local, es fácil ver que a medida que sube la frecuencia la ganancia de este amplificador irá disminuyendo desde su ganancia a frecuencias bajas, $1 + \frac{R_{18}}{R_{19}}$, hacia el valor a frecuencia muy alta, $1 + \frac{R_{18} \parallelresistors R_{comp_{4}}}{R_{19}}$, con lo que disminuirá el módulo de la realimentación del lazo de corriente, $f_{I} \approx A_{OP_{diff}} \cdot A_{OP_{NI}}$, con lo que efectivamente disminuirá la ganancia a lazo cerrado, $ A = \frac{a}{1 + a \cdot f_{I}} \approx \frac{1}{f_{I}}$, . Viendo en detalle la ganancia de este amplificador se tiene:
+
+\begin{equation}
+A_{OP_{NI}}\left( s \right) = \left( 1 + \frac{ R_{18} }{ R_{19} } \right) \cdot \frac{ 1 + s \cdot C_{comp_{4}} \cdot \left(  R_{comp4} + R_{18} \parallelresistors R_{19}  \right)  }{1+ s \cdot C_{comp_{4}} \cdot \left( R_{comp4} + R_{18} \right) }
+\end{equation}\\
+
+En este caso se ve claramente que se tiene un polo en $\frac{1}{ C_{comp_{4}} \cdot \left( R_{comp4} + R_{18} \right) }$, y un cero en $\frac{1}{ C_{comp_{4}} \cdot \left(  R_{comp4} + R_{18} \parallelresistors R_{19}  \right) }$, nuevamente como en el caso anterior lo importante será el cero impuesto por esta red, que se traducirá en un polo a lazo cerrado. Es importante el notar que esta red solo tendrá efecto a valores de $R_{18}$ grandes, es decir a valores corrientes de limitación pequeños, ya que si se hace $R_{18}$ muy chica, esta red deja de actuar, en particular para $R_{18} = 0 \si[per-mode=symbol]{\ohm}$, la red queda completamente cortocircuitada.
 
 
 
-
-%
-%Ccomp2
-%
-%\begin{equation}
-%H(s) = R_{10}+R_9 \frac{R_{10}||R_9C_{comp2}s+1}{R_9C_{comp2}s+1}
-%\end{equation}\\
-%
-%
-%
-%Ccomp3
-%
-%\begin{equation}
-%H(s) = 1 + \frac{R_{18}}{R_{19}} \frac{1+R_{comp}C_{comp}s}{1+(R_{comp}+R_{18})C_{comp}s}
-%\end{equation}\\
-%
-%
-%
-%Ccomp4
-%
-%\begin{equation}
-%H(s)=\frac{R_{18}}{R_{19}}\frac{1+C_{comp4}R_{comp4}s}{1+C_{comp4}(R_{comp4}+R_{18})s}
-%\end{equation}\\
 
 
