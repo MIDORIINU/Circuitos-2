@@ -1,5 +1,6 @@
 
 \subsection{Criterio de compensación}
+\label{sect_margins_explanation}
 
 La compensación de un circuito realimentado negativamente, como lo es la fuente de alimentación analizada, consiste básicamente en evitar que la realimentación negativa se torne positiva al variar la frecuencia, ya que al haber presentes en el circuito estímulos de todas las frecuencias, por ejemplo por el ruido, de existir estas frecuencias a la que el circuito se torna inestables, el circuito oscilará. El criterio mas básico utilizado para verificar la estabilidad es observar el \textbf{margen de fase} y el \textbf{margen de ganancia} del lazo, verificando que ambas son positivas o que tienen un valor mínimo que garantice que ante variaciones del circuito las mismas no se tornen negativas. El buscar que los márgenes sean positivos corresponde a buscar que nunca se alcance el estado dado por el \textbf{criterio de Barkhausen}:
 
@@ -59,15 +60,15 @@ Las redes de compensación que el diseño del circuito incluye se muestran en el
     \rowcolor{HeadersColor} \thead{Nombre}  & \thead{Componentes} & \thead{Modo} \\
     \hhline{|-|-|}
     
-    \rowcolor{gray!20} \cellcolor{gray!40} \textbf{Red~número~1} &  \textbf{$C_{comp}$} ($C_{1}$) y \textbf{$R_{comp}$} ($R_{6}$) & \textbf{Tensión} y \textbf{corriente} \\
+    \rowcolor{gray!20} \cellcolor{gray!40} \textbf{Red~número~1} &  \textbf{$\bm{C_{comp}}$} ($C_{1}$) y \textbf{$\bm{R_{comp}}$} ($R_{6}$) & \textbf{Tensión} y \textbf{corriente} \\
     \hhline{|-|-|}
-     \rowcolor{gray!20} \cellcolor{gray!40} \textbf{Red~número~2} &  \textbf{$C_{comp_{2}}$} ($C_{9}$), $R_{9}$ y $R_{10}$ & \textbf{Tensión} \\
+     \rowcolor{gray!20} \cellcolor{gray!40} \textbf{Red~número~2} &  \textbf{$\bm{C_{comp_{2}}}$} ($C_{9}$), $R_{9}$ y $R_{10}$ & \textbf{Tensión} \\
     \hhline{|-|-|}   
-      \rowcolor{gray!20} \cellcolor{gray!40} \textbf{Red~número~3} &  \textbf{$C_{comp_{3}}$} ($C_{16}$) y $R_{17}$ & \textbf{Corriente} \\
+      \rowcolor{gray!20} \cellcolor{gray!40} \textbf{Red~número~3} &  \textbf{$\bm{C_{comp_{3}}}$} ($C_{16}$) y $R_{17}$ & \textbf{Corriente} \\
     \hhline{|-|-|}  
-    \rowcolor{gray!20} \cellcolor{gray!40} \textbf{Red~número~4} &  \textbf{$C_{comp_{4}}$} ($C_{15}$), \textbf{$R_{comp_{4}}$} ($R_{81}$) y $R_{18}$ & \textbf{Corriente} \\
+    \rowcolor{gray!20} \cellcolor{gray!40} \textbf{Red~número~4} &  \textbf{$\bm{C_{comp_{4}}}$} ($C_{15}$), \textbf{$\bm{R_{comp_{4}}}$} ($R_{81}$) y $R_{18}$ & \textbf{Corriente} \\
     \hhline{|-|-|}
-     \rowcolor{gray!20} \cellcolor{gray!40} \textbf{Red~número~5} &  \textbf{$C_{amort}$} ($C_{2}$) y \textbf{$R_{amort}$} ($R_{60}$) & \textbf{Tensión} \\
+     \rowcolor{gray!20} \cellcolor{gray!40} \textbf{Red~número~5} &  \textbf{$\bm{C_{amort}}$} ($C_{2}$) y \textbf{$\bm{R_{amort}}$} ($R_{60}$) & \textbf{Tensión} \\
     \hhline{|-|-|}
                
     \end{tabularx}}
@@ -86,6 +87,9 @@ Los componentes resaltados en negrita en el cuadro~\tableref{table:compensation_
 
 En el caso del circuito de la fuente de alimentación que analizamos, se tienen dos lazos de realimentación independientes, donde solo uno está activo por vez, como se explico en el trabajo práctico anterior (\textbf{TP1A}). Como se vio, ambos lazos  de realimentación comparten el amplificador, pero difieren en sus redes de realimentación, siendo del amplificador, la etapa diferencial, la única que provee ganancia de tensión.\\
 
+\vfill
+
+\clearpage
 
 \subsubsection{\textbf{Red~número~1}}
 
@@ -154,6 +158,10 @@ A_{OP_{NI}}\left( s \right) = \left( 1 + \frac{ R_{18} }{ R_{19} } \right) \cdot
 
 En este caso se ve claramente que se tiene un polo en $\frac{1}{ C_{comp_{4}} \cdot \left( R_{comp4} + R_{18} \right) }$, y un cero en $\frac{1}{ C_{comp_{4}} \cdot \left(  R_{comp4} + R_{18} \parallelresistors R_{19}  \right) }$, nuevamente como en el caso anterior lo importante será el cero impuesto por esta red, que se traducirá en un polo a lazo cerrado. Es importante el notar que esta red solo tendrá efecto a valores de $R_{18}$ grandes, es decir a valores corrientes de limitación pequeños, ya que si se hace $R_{18}$ muy chica, esta red deja de actuar, en particular para $R_{18} = 0 \si[per-mode=symbol]{\ohm}$, la red queda completamente cortocircuitada.
 
+
+\subsubsection{\textbf{Red~número~5}}
+
+La última red de compensación, se trata de un amortiguador (snubber). Cuando se tiene un circuito que se comporta inductivamente, al producirse un brusco cambio en la corriente, aparecen sobre-picos de tensión. En nuestro circuito no hay inductancias como tales, salvo aquellas que aporten los cableados y pistas del PCB, efectos que no simulamos, sin embargo si se observa la simulación de la impedancia de salida hecha en el \textbf{TP1A}, se ve claramente como se comporta inductivamente a partir de cierta frecuencia (el efecto se debe a capacidades reflejadas giradas en fase), esto justifica la necesidad de la red de amortiguamiento. La red básicamente compensa el efecto inductivo, limitando los sobre-picos de tensión, en circuitos donde se tiene verdaderas inductancias, los valores de resistencia y capacidad pueden ser calculados, como por ejemplo en una fuente switching, donde hay verdaderas inductancias. En el caso de la fuente los valores de la red se obtuvieron empíricamente, teniendo en cuenta ciertos criterios, como ser una idea del tiempo de crecimiento buscado. El efecto de la red se puede interpretar como que amortigua los sobre-picos transformando la energía de los mismos en calor disipado en el resistor.
 
 
 
