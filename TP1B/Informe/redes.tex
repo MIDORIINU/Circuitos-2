@@ -23,7 +23,7 @@ Los modos elegidos responden a ser los casos extremos en modo tensión y modo co
 
 Los valores de los componentes de las redes de compensación se analizan para el valor de diseño y dos valores mas, uno por debajo y otro por arriba, tratando de ver porque el valor de diseño es el mas adecuado.\\
 
-El análisis primero consiste en evaluar la simulación de ganancia de lazo en función de la frecuencia, realizando un barrido de frecuencia con el comando \textbf{SPICE} \textit{.ac} y en forma paramétrica con los valores a comparar de las redes de compensación de a uno por vez, para obtener en cada estado los márgenes de fase y de ganancia como se describió en la sección~\sectref{sect_margins_explanation}. En esto cabe aclarar que el análisis es aproximado dado que los márgenes en algunos casos pueden no ser sufientes para garantizar la estabilidad, siendo necesarios para un análisis completo, diagramas de \textbf{Nyquist} y de \textbf{Root Locus}, sin embargo para esto sería necesario un análisis teórico completo que permita obtener las transferencias completas cosa que no corresponde al simple análisis de validación por simulación.\\
+El análisis primero consiste en evaluar la simulación de ganancia de lazo en función de la frecuencia, realizando un barrido de frecuencia con el comando \textbf{SPICE} \textit{.ac} y en forma paramétrica con los valores a comparar de las redes de compensación de a uno por vez, para obtener en cada estado los márgenes de fase y de ganancia como se describió en la sección~\sectref{sect_margins_explanation}. En esto cabe aclarar que el análisis es aproximado dado que los márgenes en algunos casos pueden no ser suficientes para garantizar la estabilidad, siendo necesarios para un análisis completo, diagramas de \textbf{Nyquist} y de \textbf{Root Locus}, sin embargo para esto sería necesario un análisis teórico completo que permita obtener las transferencias completas cosa que no corresponde al simple análisis de validación por simulación.\\
 
 Luego también se observa la respuesta en frecuencia del circuito, realizando también un barrido de frecuencia con el comando \textbf{SPICE} \textit{.ac} y en forma paramétrica con los valores a comparar de las redes de compensación de a uno por vez, de esta simulación se obtiene principalmente el ancho de banda del circuito.\\
 
@@ -41,17 +41,74 @@ Hay algunos modos que no se analizan por que no aplican, como ser por ejemplo la
 
 
 %\\\\\\\\\\\\\\\\\\\\\\\\\\\
-\subsection{Red de compensación Ccomp/Rcomp}
+\subsection{Red de compensación de $C_{comp}/R_{comp}$}
 
-La red formada por \textbf{Ccomp} y \textbf{Rcomp} actúa tanto para el lazo de tensión como para el de corriente, por lo que se analizan ambos modos.
+La red formada por $\bm{C_{comp}}$ y $\bm{R_{comp}}$ actúa tanto para el lazo de tensión como para el de corriente, por lo que se analizan ambos modos.
 
 
 \input{ccomp}
+
+\input{rcomp}
 
 
 \clearpage
 %\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
+
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\subsection{Red de compensación de $C_{comp_{2}}$}
+
+La red que contiene a $\bm{C_{comp2}}$ actúa solo para el lazo de tensión, por lo que se analiza solo este modo.
+
+
+\input{ccomp2}
+
+
+\clearpage
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\subsection{Red de compensación de $C_{comp_{3}}$}
+
+La red que contiene a $\bm{C_{comp3}}$ actúa solo para el lazo de corriente, por lo que se analiza solo este modo.
+
+
+\input{ccomp3}
+
+
+\clearpage
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\subsection{Red de compensación de $C_{comp_{4}}/R_{comp_{4}}$}
+
+La red que contiene a $\bm{C_{comp3}}$ actúa solo para el lazo de corriente, por lo que se analiza solo este modo.
+
+
+\input{ccomp4}
+
+\input{rcomp4}
+
+
+\clearpage
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\subsection{Red de compensación de $C_{amort}/R_{amort}$}
+
+La red formada por $\bm{R_{amort}}$ y $\bm{R_{amort}}$ actúa solo para el lazo de tensión, por lo que se analiza solo este modo.
+
+
+\input{camort}
+
+\input{ramort}
+
+
+\clearpage
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
 
 
