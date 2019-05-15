@@ -1,0 +1,20 @@
+7-
+Df=620, es bueno?
+Poner algo de Df, la red zobel y la inductora
+Douglas Self pagina 120
+
+10.c-
+
+11.e-
+como decido si ya distorsiona?
+
+11.f-
+iii. Me da distinto al que se obtiene con analisis .AC, está mal configurado el escalón o no estoy tomando bien el tiempo de crecimiento.
+
+iv. Como se obtiene el item iv a partir del item ii? En la ultima pagina del apunte "Slew Rate o velocidad de crecimiento" hay una configuración distinta a la que se tomó en el item ii.
+
+11.h
+
+11.i
+
+11.j
