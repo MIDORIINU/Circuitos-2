@@ -1,0 +1,2 @@
+Se usó la distribución Mixtex 2.9 y el Texmaker 5.0.3
+
