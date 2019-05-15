@@ -1,7 +1,7 @@
 \documentclass[12pt]{book}
 
 \usepackage[utf8]{inputenc}
-\usepackage[spanish]{babel}
+\usepackage[spanish,es-tabla]{babel}
 \parindent = 0cm
 
 \usepackage{amsmath}
@@ -62,10 +62,34 @@ ver
 \caption{Valores de polarización calculados}
 \label{figura1}
 \end{figure}
-Los valores de $\beta$ como los de $V_{BE}$ se tomaron de las hojas de datos de los respectivos transistores, excepto la tensión de Early, $V_{A}$ , que fue tomada del modelo spice correspondiente.
-\begin{center}
-\includegraphics[scale=0.8]{figuras/tabla1.jpg}\\
-\end{center}
+Los valores de $\beta$ como los de $V_{BE}$ se tomaron de las hojas de datos de los respectivos transistores, excepto la tensión de Early, $V_{A}$ , que fue tomada del modelo spice correspondiente.\\
+Para $\beta$ de Q402/3 se tomó el valor típico, y para los restantes el promedio entre el máximo y el mínimo.\\
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|l|c|c|c|c|c|}
+\hline
+&$\beta$&$I_{CQ}$(mA)&$g_{m}$(mA/V)&$r_{\pi}$($\Omega$)&$r_{o}$($\Omega$)\\
+\hline
+Q402&330&0,54&21,6&15,3K&\\
+\hline
+Q403&330&8,66&346&954&\\
+\hline
+Q404&140&9&360&389&12,9K\\
+\hline
+Q405&140&6&240&583&\\
+\hline
+Q406&140&5,5&220&636&\\
+\hline
+Q407&50&10&400&125&\\
+\hline
+Q408&50&10&400&125&\\
+\hline
+\end{tabular}
+\caption{Parámetros calculados para el punto de reposo.}
+\label{Polarizacion}
+\end{table}
+
 Se procedió a tomar en cuenta primero los datos de salida $V_{OQ}$=0V e $I_{CQ407/8}$=10mA, se despreciaron todas las corrientes de base de los transistores (excepto $Q_{402}$, para ajustar PS401), con esto se llegó al paso (9). En el paso (10) se aplicó la ecuación del multiplicador de $V_{BE}$  con $V_{CE}$=1,8V, paso (8), obteniéndose:\\
 \begin{center}
 PS402A=1099$\Omega$  y  PS402B=1101$\Omega$
@@ -73,7 +97,7 @@ PS402A=1099$\Omega$  y  PS402B=1101$\Omega$
 Luego para los pasos (11) y (12) se propuso que los 9mA de Q404 y los 0,54mA de R408 (9,54mA) pasaran por R418 y y con eso se obtuvo una primer tensión (14) de –28,57V y una corriente en R407 (13) de 132,6$\mu$A, que ajusta levemente a la tensión anterior (14) a –28,55V.\\
 Por último (15), para lograr un mejor ajuste de PS401 se tuvo en cuenta la corriente base de $Q_{402}$, obteniéndose :
 \begin{center}
-PS401=56,5K$\Omega$
+PS401=50,7K$\Omega$
 \end{center}
 
 \subsection{Punto 2}
@@ -87,7 +111,7 @@ Para este punto hacemos el esquemático para alterna, reemplazamos la tercera et
 \end{figure}
 Al muestrear tensión y sumar tensión tenemos que a la entrada se comparte la corriente y a la salida la tensión, entonces parametrizamos la realimentación con parámetros híbridos H.
 \begin{center}
-El factor de realimentación $f$ , es:\qquad $f$ = $h_{12}$ = $\dfrac{120\Omega}{120\Omega+3,3K\Omega}$ = 0,0135
+El factor de realimentación $f$ , es:\qquad $f$ = $h_{12}$ = $\dfrac{120\Omega}{120\Omega+3,3K\Omega}$ = 0,035
 \end{center}
 Luego $h_{11}$=R410//R411 se acopla a la entrada, y $h_{22}$=R410+R411 a la salida para considerar una realimentación ideal:
 \begin{figure}[H]
@@ -97,66 +121,70 @@ Luego $h_{11}$=R410//R411 se acopla a la entrada, y $h_{22}$=R410+R411 a la sali
 \label{figura2-2}
 \end{figure}
 Se despreció $h_{21}$, el efecto de la salida sobre la entrada.\\[0.5cm]
-$Av_{1} = \dfrac{-gm_{1}Rca1}{1+gm_{1} Re1} = \dfrac{-gm_{1}(R408//r_{\pi_2})}{1+gm_{1}(R411//R410)} = -1,45$\\
-$Av_{2} = -gm_{2}Rca2 = -gm_{2}(ro_{2}//Ri_{3}//Rbt) = -360\dfrac{mA}{V} 6,9K\Omega = -2484$\\[0.5cm]
+$Av_{1} = \dfrac{-gm_{1}Rca1}{1+gm_{1} Re1} = \dfrac{-gm_{1}(R408//r_{\pi_2})}{1+gm_{1}(R411//R410)} = -1,81$\\
+$Av_{2} = -gm_{2}Rca2 = -gm_{2}(ro_{2}//Ri_{3}//Rbt) = -360\dfrac{mA}{V} 10K\Omega = -3600$\\[0.5cm]
 Donde :\\
-Ri3 $=\beta_{405} \beta_{407} RL = 50$ . 40 . $8\Omega = 16K\Omega$\\
+Ri3 $=\beta_{405} \beta_{407} RL = 140$ . 50 . $8\Omega = 56K\Omega$\\
 $ro_{2}$ = 12,9K$\Omega$ es la resistencia de salida correspondiente al modelo a $Q_{404}$\\
 Rbt = 100 . R414 = 100 . 2,2K$\Omega$ = 220K$\Omega$ es la resistencia de bootstrap
 \begin{center}
-$\Longrightarrow$   Av = Av1 . Av2 . Av3 = (-1,45)(-2484) 0,99 = 3565,8\\
+$\Longrightarrow$   Av = Av1 . Av2 . Av3 = (-1,81)(-3600) 0,99 = 6450,84\\
 \end{center}
 La ganancia del amplificador a lazo abierto es  $a$ = Av ($\dfrac{zc}{zc+ro}$) ($\dfrac{ri}{zg+ri+Re1}$)\\
 Siendo :\\
-$zc$ = RL//(R411+R410) = 97,2$\Omega$\\
-$ro$ y $ri$ se obtienen mediante simulación: $ro$ = 4$\Omega$ y $ri$ = 38,8K$\Omega$
+$zc$ = RL//(R411+R410) = 7,98$\Omega$\\
+$ro=ro_{sup}//ro_{inf}=2,92\Omega$\quad aproximada, debido a que al tratarse de una etapa clase AB, los transistores de potencia Q405/7 no están en conducción de alterna todo el ciclo.\\
+.... $ro_{sup} = 0,47\Omega+\dfrac{r\pi_{407}}{\beta_{407}}+\dfrac{R419}{\beta_{407}}//\dfrac{r\pi_{405}}{\beta_{407}\beta_{405}}$ = 7$\Omega$\\
+.... $ro_{inf}=0,47\Omega+\dfrac{r\pi_{406}}{\beta_{406}}=5\Omega$\\
+$zg=0$, ya que la resistencia interna de la fuente es nula\\
+$ri =r_{\pi_1}+\beta_{Q402} . R410=54,9K\Omega$\\
+$Re1=R410//R411=116\Omega$
 \begin{center}
-$\Longrightarrow$   $a$ = 3414\\
+$\Longrightarrow$   $a$ = 4712,77\\
 \end{center}
 Con lo que la ganancia a lazo abierto, T, es :
 \begin{center}
-T = $a$ $f$ = 119,5\\
+T = $a$ $f$ = 164,9\\
 \end{center}
 
 \subsection{Punto 3}
 \textbf{Enunciado : } Calcular la ganancia global para frecuencias medias (1KHz)\\
 \begin{center}
-Ganacia global\quad A = $\dfrac{a}{1+af}$ = 28,3
+Ganacia global\quad A = $\dfrac{a}{1+af}$ = 28,4
 \end{center}
-
+Que es aproximadamente igual a $\dfrac{1}{f}$, (28,6), debido a que $T$ es mucho mayor que 1.
 \subsection{Punto 4}
 \textbf{Enunciado : } Calcular la máxima potencia obtenible sobre la carga para frecuencias medias (1KHz)\\[1cm]
 Máxima potencia disipada por el transistor $Q_{407/8}$:\quad $Pc_{max}=\dfrac{Vcc^{2}}{\pi^{2}RL}=11,4W$\\[0,75cm]
 Que es el 40\% de la máxima potencia disipada en la carga $P_{cargamax}$, entonces :
 \begin{center}
-
+$P_{cargamax}$=28,5W
 \end{center}
 
 \subsection{Punto 5}
 \textbf{Enunciado : } Calcular la impedancia de entrada para frecuencias medias (1KHz)\\[1cm]
-Ri = [($1+af$) Rib]//Rb\\
-Rib = r$\pi_{Q402}$ + $\beta_{Q402}$ (R410//R411) = 19,9K$\Omega$\\
-Rb = (R5 + PS401) // R407 = 86,9K$\Omega$
+Rin = [($1+af$) Rib]//Rb\\
+Rib = ri+Re1 = 55K$\Omega$\\
+Rb = (R5 + PS401) // R407 = 85,84K$\Omega$
 \begin{center}
-$\Longrightarrow$  Ri = 86,9K$\Omega$
+$\Longrightarrow$  Rin = 85K$\Omega$
 \end{center}
 
 \subsection{Punto 6}
 \textbf{Enunciado : } Calcular la impedancia de salida para frecuencias medias (1KHz)\\[1cm]
-Mediante simulación se obtuvo que ro=4$\Omega$\\
-Por lo que $Ro=\dfrac{ro}{1+af}$ al estar muestreando tensión.
+$Ro=\dfrac{ro//RL//(R410+R411)}{1+af}$\quad al estar muestreando tensión.
 \begin{center}
-$\Longrightarrow$  Ro = 33,2m$\Omega$
+$\Longrightarrow$  Ro = 12,9m$\Omega$
 \end{center}
 
 \subsection{Punto 7}
 \textbf{Enunciado : } Calcular el factor de amortiguamiento para frecuencias medias (1KHz)\\[1cm]
 
-Factor de amortiguamiento, Df (Damping factor) :\qquad $Df=\dfrac{RL}{Ro}$\\
+Factor de amortiguamiento, Df (Damping factor) :\qquad Df =$\dfrac{RL}{Ro}$\\
 \begin{center}
-$\Longrightarrow$  Df = $\dfrac{8\Omega}{33,2m\Omega}$ = 240
+$\Longrightarrow$  Df = $\dfrac{8\Omega}{12,9m\Omega}$ = 620
 \end{center}
-Debido a que el cable de conexión entre la carga y el nodo de salida puede aumentar Df, se coloca la red de compensación capacitiva......FALTA
+VER PAGINA 120, AudioPowerAmplifierDesignHandbook DOUGLAS SELF
 
 \subsection{Punto 8}
 \textbf{Enunciado : } Calcular la máxima tensión pico sobre la carga para frecuencias medias (1KHz)\\[1cm]
@@ -178,9 +206,70 @@ $\Longrightarrow$  $\eta_{max}$ = 55\%
 
 \subsubsection{Punto 10.a)}
 \textbf{Enunciado : } El tamaño de los disipadores para cada transistor (resistencia térmica disipador ambiente)\\[1cm]
+Para los transistores de señal tenemos :
+\begin{table}[H]
+\centering
+\begin{tabular}{|l|c|c|c|c|c|c|c|}
+\hline
+&Modelo&$I_{CQ}$(mA)&$V_{CEQ}$(V)&$P_{D}$(mW)&$P_{Dmax}$(mW)&$^{o}C/W$&$^{o}C/W$\\
+\hline
+Q402&BC558B&0,54&26,1&14,1&625&200&83,3\\
+\hline
+Q403&BC548B&8,66&1,8&15,6&625&200&83,3\\
+\hline
+Q404&BD135&9&27,95&251&1,25&100&10\\
+\hline
+Q405&BD135&6&29,4&81,4&1,25&100&10\\
+\hline
+Q406&BD136&5,5&29,4&81,4&1,25&100&10\\
+\hline
+\end{tabular}
+\caption{Potencia disipada por los transistores de señal.}
+\label{PotenciaDeSenial}
+\end{table}
+Para Q402/3/4, la potencia consumida $P_{D}$ se obtuvo como el producto de $I_{CQ}$ y $V_{CEQ}$, que es el consumo máximo de potencia (casi permanente), al trabajar en clase A.\\
+Como Q405/6 trabajan en conjunto con los transistores de potencia (formando la clase AB) para ellos estimamos la potencia consumida como $\beta$ veces menor que la hallada en el punto 4, $Pc_{max}$=11,4W. Es decir :\\
+para\qquad Q405/6 :\quad $P_{D}=\dfrac{Pc_{max}}{\beta_{405/6}}=\dfrac{11,4W}{140}$=81,4mW\\
+Sean :\\
+$T_{jmax}$ : temperatura máxima de operación, $150^{o}C$ para todos los transistores.\\
+$T_{je}$ : temperatura de operación estimada.\\
+Ta : temperatura ambiente, $40^{o}C$, pero caso.\\
+Rja : resistencia térmica entre la unión y el ambiente, de cada transistor.\\
+Entonces,\\
+$T_{je}=P_{D}$.$Rja+Ta$\\
+Con lo que obtenemos :
+\begin{center}
+$T_{je}(Q402)=42,8^{o}C$\qquad $T_{je}(Q403)=43,1^{o}C$\qquad $T_{je}(Q404)=75,1^{o}C$\\
+$T_{je}(Q405)=48,1^{o}C$\qquad $T_{je}(Q406)=48,1^{o}C$
+\end{center}
+Ningún $T_{je}$ es cercano a $T_{jmax}$ de 150$^{o}$C, por lo tanto no necesitan disipadores. Además se encuentran en el área de operación segura (SOA).\\
+Para el caso de los transistores de potencia obtenemos de la hoja de datos la pendiente de la curva Power Derating :
+\begin{center}
+Rca=$\dfrac{150^{o}C-120^{o}C}{0,5W}=60\dfrac{^{o}C}{W}$\\
+Rjc=$\dfrac{150^{o}C-112,5^{o}C}{20W}=1,9\dfrac{^{o}C}{W}$
+\end{center}
+donde Rca es la resistencia térmica entre la cápsula y el ambiente, y Rjc la resistencia térmica entre juntura y cápsula, entonces :
+\begin{center}
+Rja = Rca + Rjc = 61,9$\dfrac{^{o}C}{W}$\\
+y $T_{je}$= 11,4W 61,9$\dfrac{^{o}C}{W}$+ 40$^{o}C$ = 745$^{o}C$
+\end{center}
+Vemos que se necesita disipador.\\
+Calculamos Rda, la resistencia térmica entre el disipador y el ambiente, que es lo que necesitamos como dato para el disipador comercial.
+\begin{center}
+Rda=$\dfrac{150^{o}C-40^{o}C}{11,4W}-$ Rjc $-$ Rcd = 6,75$\dfrac{^{o}C}{W}$
+\end{center}
+Donde Rcd es la resistencia térmica entre cápsula y disipador, que para el caso de usar silicona sin mica se encuentra entre 0,5 y 1$\dfrac{^{o}C}{W}$, usamos 1$\dfrac{^{o}C}{W}$ como peor caso.
 
 \subsubsection{Punto 10.b)}
 \textbf{Enunciado : } Encontrar el disipador comercial que podría utilizarse para construir un prototipo funcional\\[1cm]
+En el item anterior obtuvimos que se necesita un disipador con una Rda = 6,75$\dfrac{^{o}C}{W}$ como máximo.
+En el sitio web www.disipadores.com se ofrece, en la categoría Disipadores Regulares, el artículo 6225M ZD-5, con Rda=5,1$\dfrac{^{o}C}{W}$ cubre ampliamente el requisito.
+\begin{figure}[H]
+\centering
+\includegraphics[scale=1]{figuras/10b-6225M-ZD-5.png}
+\caption{Disipador comercial 6225M ZD-5, Rda=5,1$\dfrac{^{o}C}{W}$}
+\label{figura10b}
+\end{figure}
 
 \subsubsection{Punto 10.c)}
 \textbf{Enunciado : } Comparar con los disipadores utilizados originalmente por Turner y obtener conclusiones\\[1cm]
@@ -196,7 +285,7 @@ $\Longrightarrow$  $\eta_{max}$ = 55\%
 \caption{Valores obtenidos de la simulación del punto de operación}
 \label{figura11a}
 \end{figure}
-Vemos una gran similitud con los valores calculados anteriormente, Fig.\eqref{figura1}
+Vemos una gran similitud con los valores calculados anteriormente, Fig.\eqref{figura1}, aunque hubo que cambiar PS401 con respecto al calculado para acercarnos lo más posible a 0V en la salida, y tambíén PS402A y PS402B para asegurar 10mA en los colectores de Q407 y Q408.
 
 \subsubsection{Punto 11.b)}
 \textbf{Enunciado : } Medir la impedancia de entrada en función de la frecuencia (desde 0,1Hz hasta 1GHz)\\[1cm]
@@ -207,9 +296,9 @@ Vemos una gran similitud con los valores calculados anteriormente, Fig.\eqref{fi
 \label{figura11b}
 \end{figure}
 \begin{center}
-Rin(1KHz) = $10^\frac{98,7}{20}K\Omega$ = 86K$\Omega$
+Rin(1KHz) = $10^\frac{98,7}{20}\Omega$ = 86023,2$\Omega$
 \end{center}
-Recordemos que el valor calculado fue :\quad Rin=83,9K$\Omega$
+Recordemos que el valor calculado fue :\quad Rin=85K$\Omega$
 
 \subsubsection{Punto 11.c)}
 \textbf{Enunciado : } Medir la impedancia de salida en función de la frecuencia (desde 0,1Hz hasta 1GHz)\\[1cm]
@@ -220,9 +309,9 @@ Recordemos que el valor calculado fue :\quad Rin=83,9K$\Omega$
 \label{figura11c}
 \end{figure}
 \begin{center}
-Ro(1KHz) = $10^\frac{98,7}{20}K\Omega$ = 17,8m$\Omega$
+Ro(1KHz) = $10^\frac{-35.08}{20}\Omega$ = 17,6m$\Omega$
 \end{center}
-Recordemos que el valor calculado fue :\quad Rin=33,2m$\Omega$
+Recordemos que el valor calculado fue :\quad Ro=12,9m$\Omega$
 
 \subsubsection{Punto 11.d)}
 \textbf{Enunciado : } Respuesta en frecuencia para 1W sobre la carga)\\[1cm]
@@ -238,6 +327,10 @@ Vop = $\sqrt{Po\:\:2\:RL}$ = 4V\quad $\Longrightarrow$\qquad Vip= $\dfrac{Vop}{A
 \textcolor{blue}{A(1KHz) = 29dB}\qquad $\Longrightarrow$\qquad A=28,2\\
 \textcolor{orange}{Po(1KHz) = 0dB}\qquad $\Longrightarrow$\qquad Po=1W
 \end{center}
+$f_{h}(-3dB)$=83,17KHz\qquad $f_{l}(-3dB)$=4,7Hz
+\begin{center}
+BW = $f_{h}-f_{l}$ = 83,17KHz
+\end{center}
 
 \subsubsection{Punto 11.e)}
 \textbf{Enunciado : } Ancho de banda de potencia\\
@@ -249,10 +342,40 @@ Vop = $\sqrt{Po\:\:2\:RL}$ = 21,3V\qquad $\Longrightarrow$\qquad Vip= $\dfrac{Vo
 \caption{Ancho de banda de potencia}
 \label{figura11e}
 \end{figure}
+Como se trata de gran señal se harán simulaciones en tiempo en lugar de frecuencia.\\
+Subjetivamente se ve que a partir de 42KHz distorsiona, pero objetivamente?
 
 \subsubsection{Punto 11.f)}
-\textbf{Enunciado : } Respuesta al escalón\\[1cm]
-VER COMO HACER SUBSECCIONES PARA ITEMS i, ii, iii, iv
+\textbf{Enunciado : } Respuesta al escalón\\
+\begin{itemize}
+
+\item i. Pequeña señal (la tensión pico de salida estará entre 0,1V y 1V)
+\end{itemize}
+Usando una tensión de entrada $V_{in}=\dfrac{1V}{A}=35mV$, donde A es la ganancia del sistema realimentado, obtenemos :
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.2]{figuras/11-f-i-escalon.png}
+\caption{Respuesta al escalón, pequeña señal.}
+\label{figura11fi}
+\end{figure}
+
+\begin{itemize}
+\item ii. Gran señal (amplitud de salida apenas menor que la máxima tensión pico de salida hallada en el punto 8
+\end{itemize}
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.2]{figuras/11-f-ii-escalon2.png}
+\caption{Respuesta al escalón, gran señal.}
+\label{figura11fii}
+\end{figure}
+
+\begin{itemize}
+\item iii. En base a lo medido en i.determinar el ancho de banda para pequeña señal asumiendo que el amplificador está compensado por polo dominante
+\end{itemize}
+
+\begin{itemize}
+\item iv. En base a lo medido en ii.determinar la velocidad de crecimiento de la tensión de salida (“slewrate”)
+\end{itemize}
 
 \subsubsection{Punto 11.g)}
 \textbf{Enunciado : } Determinar el margen de fase\\[1cm]
@@ -260,13 +383,13 @@ A partir de la siguiente figura observamos el margen de fase que le queda a la g
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.4]{figuras/11-g-margenFase.png}
-\caption{Ancho de banda de potencia}
+\caption{Margen de fase, MF.}
 \label{figura11g}
 \end{figure}
 \begin{center}
 Margen de fase :\quad MF $=180^{o}-114^{o}=66^{o}$
 \end{center}
-\textcolor{red}{VERIFICAR VALOR DE T}
+Observamos que el módulo de T a frecuencias medias es de 47dB, cercano a los 44,3dB calculados en el punto 2.
 
 \subsubsection{Punto 11.h)}
 \textbf{Enunciado : } Determinar la distorsión armónica a 1KHz y a 10KHz para potencias de 0,1W; 1W; 10W y 90\% de la máxima calculada en el punto 4\\[1cm]
