@@ -393,15 +393,73 @@ Observamos que el módulo de T a frecuencias medias es de 47dB, cercano a los 44
 
 \subsubsection{Punto 11.h)}
 \textbf{Enunciado : } Determinar la distorsión armónica a 1KHz y a 10KHz para potencias de 0,1W; 1W; 10W y 90\% de la máxima calculada en el punto 4\\[1cm]
-\begin{center}
-\includegraphics[scale=0.5]{figuras/tabla2.jpg}\\
-\end{center}
-Vemos que alrededor del 40\% de $Po_{max}$ = 28,5W la distorsión es menor.
+Primeramente obtenemos la tensión de entrada $v_i$ necesaria para obtener esos valores de potencia de salida.\\
+Siendo $Vo_{pico}=\sqrt{Po\:\:2\:RL}$\, y\, $Vi_{pico}=\dfrac{Vo_{pico}}{A}$, tenemos :
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|c|c|}
+\hline
+Po[W]&$Vo_{pico}$[V]&$Vi_{pico}$[mV]\\
+\hline
+0,1&1,26&44,7\\
+\hline
+1&4&141,3\\
+\hline
+10&12,65&447\\
+\hline
+25,65&20,26&715,8\\
+\hline
+\end{tabular}
+\caption{Valores de $v_i$ para obtener la distorsión armónica}
+\label{Vi-distorsion}
+\end{table}
+
+Usando los comandos SPICE :
+\begin{itemize}
+\item .FOUR 1K 10 -1 V(o)
+\item .FOUR 10K 10 -1 V(o)
+\end{itemize}
+Para obtener la distorsión armónica total (THD)de las 10 primeras armónicas en la tensión de salida Vo cuando la frecuencia de entrada es de 1KHz y 10KHz respectivamente.\\
+Se tomarán los 10 primeros períodos en ambos casos, el ``-1'' es para que realice el análisis sobre todo el tiempo simulado, 10ms para 1KHz y 1ms para 10KHz, obtuvimos :\\
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|c|c|}
+\hline
+Po[W]&THD[\%] (1KHz)&THD[\%] (10KHz)\\
+\hline
+0,1&0,046&0,157\\
+\hline
+1&0,039&0,094\\
+\hline
+10&0,011&0,065\\
+\hline
+25,65&0,038&0,086\\
+\hline
+\end{tabular}
+\caption{Distorsión armónica total para frecuencias de entrada 1KHz y 10KHz.}
+\label{11h-THD}
+\end{table}
+Vemos que la distorsión es menor para 1KHz de frecuencia de entrada y también que presenta un mínimo alrededor de la potencias medias, es decir, disminuye de bajas a medias potencias y sube de medias a altas potencias.
 
 \subsubsection{Punto 11.i)}
 \textbf{Enunciado : } Determinar la distorsión por intermodulación para potencias de 0,1W; 1W; 10W y 90\% de la máxima calculada en el punto 4\\[1cm]
 
 \subsubsection{Punto 11.j)}
 \textbf{Enunciado : } Determinar el Rechazo de Ruido de la Fuente de Alimentación (“PSNR”)\\[1cm]
+Se pasivó la señal de entrada y se agregó a cada fuente de alimentación una fuente de prueba Vp.\\
+Obteniendo el rechazo de ruido de la fuente de alimentación como:
+\begin{center}
+PSNR=$\dfrac{Vo_{pico}}{Vp_{pico}}$
+\end{center}
+Se simuló para las frecuencias 50Hz, 100Hz, 1KHz, 10KHz, 50KHz y 100KHz con una $Vp_{pico}$ de 1mV.\\
+Se obtuvo :
+\begin{center}
+\begin{tabular}{llllll}
+-54dB&-60dB&-80dB&-95dB&-91dB&-86dB\\
+0,2\%&0,1\%&0,01\%&0,018\%&0,027\%&0,051\%\\
+\end{tabular}
+\end{center}
+respectivamente.\\
+Se observa que varia con la frecuencia, con un mínimo a 10KHz. En la frecuencia de alimentación de red (50Hz) vemos una atenuación aceptable, en la salida se observa el ruido de esa fuente atenuado 500 veces. Al variar $Vp_{pico}$ alrededor de 1mV no se observaron cambios.
 
 \end{document}
