@@ -90,15 +90,35 @@ Q408&50&10&400&125&\\
 \label{Polarizacion}
 \end{table}
 
-Se procedió a tomar en cuenta primero los datos de salida $V_{OQ}$=0V e $I_{CQ407/8}$=10mA, se despreciaron todas las corrientes de base de los transistores (excepto $Q_{402}$, para ajustar PS401), con esto se llegó al paso (9). En el paso (10) se aplicó la ecuación del multiplicador de $V_{BE}$  con $V_{CE}$=1,8V, paso (8), obteniéndose:\\
+Se procedió a tomar en cuenta primero los requisitos de salida $V_{OQ}$=0V e $I_{CQ407/8}$=10mA, se despreciaron todas las corrientes de base de los transistores (excepto $Q_{402}$, para ajustar PS401)\\
+Se realizaron los siguientes pasos :
+\begin{itemize}
+\item (1) $V_{BQ407}$=0,6V , estimado de la Figura 10 ``On Voltages'' de la hoja de datos del transistor TIP41A-D.
+\item (1') $I_{R419}=\dfrac{0,6V}{R419}=6mA$
+\item (2)  $V_{BQ405}$=1,2V , a $V_{BQ407}$ se suma $V_{BEQ405}$=0,6V , este último estimado de la Figura 4 ``Base-Emitter On Voltage'', de la hoja de datos del transistor BD135-On, tomando la corriente obtenida en (1').
+\item (3) $I_{CQ404}=\dfrac{30V-1,2V}{R413+R414}$=9mA
+\item (4) $I_{CQ402}=\dfrac{V_{BEQ404}}{R408}$=0,54mA , donde $V_{BEQ404}$ se estima de la Figura 4 ``Base-Emitter On Voltage'', de la hoja de datos del transistor BD135-On, tomando la corriente obtenida en (3).
+\item (5) $V_{EQ402}=Vo_Q-I_{CQ402}.R411=-1,8V$
+\item (5') $V_{BQ402}$=$V_{EQ402}+V_{BEQ402}=-1,8V-0,65V=-2,45V$ , donde $V_{BEQ402}$ se estima de la Figura 2 ``Saturation and On Voltages'', de la hoja de datos del transitor BC558B-Motorola, usando la corriente obtenida en (4).
+\item (6) $I_{R422}=I_{CQ407}+I_{R419}-I_{R411}$= 10mA + 6mA $-$ 0,5mA = 15,5mA.
+\item (7) $V_{BQ408}$=0,55V , estimado de la Figura 10 ``On Voltages'' de la hoja de datos del transistor TIP41A-D, se elige menor que en (1) debido a que en este caso no tenemos resistencia de emisor y coincida con $I_{CQ406}$, que hallamos en el siguiente item.
+\item (7') $I_{CQ406}=15,5mA-10mA=5,5mA$ , $V_{BQ406}=-0,6V$ , estimado de la Figura 4 ``Base-Emitter On Voltage'' de la hoja de datos del transistor BD136-On, usando $I_{CQ406}$, recién obtenida.
+\item (8) $V_{CEQ403}=V_{CQ403}-V_{EQ403}=1,2V-(-0,6V)$= 1,8V.
+\item (9) $I_{R415}=\dfrac{V_{CEQ403}}{R415+PS402+R416}=\dfrac{1,8V}{5,4K\Omega}$=0,33mA.
+\item (9') $I_{CQ403}=I_{R414}-I_{R415}=9mA-0,33mA=8,67mA$
+\item (10) Primeramente obtenemos $V_{BEQ403}$=0,7V de la Figura 2 ``Saturation and On Voltages'', de la hoja de datos del transitor BC548B-Motorola.\\
+Luego tenemos que PS402B=$\dfrac{0,7V}{0,33mA}-1K\Omega=1121\Omega$.\\
+Con lo que PS402A$=2200\Omega-1121\Omega=1079\Omega$
 \begin{center}
-PS402A=1099$\Omega$  y  PS402B=1101$\Omega$
+PS402A=1079$\Omega$  y  PS402B=1121$\Omega$
 \end{center}
-Luego para los pasos (11) y (12) se propuso que los 9mA de Q404 y los 0,54mA de R408 (9,54mA) pasaran por R418 y y con eso se obtuvo una primer tensión (14) de –28,57V y una corriente en R407 (13) de 132,6$\mu$A, que ajusta levemente a la tensión anterior (14) a –28,55V.\\
-Por último (15), para lograr un mejor ajuste de PS401 se tuvo en cuenta la corriente base de $Q_{402}$, obteniéndose :
-\begin{center}
-PS401=50,7K$\Omega$
-\end{center}
+\item (11) Primero se considera que solamente 9.54mA, la suma de $I_{CQ404}$ e $I_{R408}$, pasan por R418, con esto se obtuvo un primer valor de (12) de $-28,57V$, con esto ultimo se obtiene $I_{R407}=\dfrac{-2,45-(-28,57)}{197K\Omega}=132,6\mu A$, con esto obtenemos el valor final de (11) de 9,67mA.
+\item (12) $V_{EQ404}=9,67mA . 150\Omega-30V=-28,55V$.
+\item (13) Con este valor reajustamos $I_{R407}$ para ajustar mejor PS401, quedando finalmente  $I_{R407}=\dfrac{-2,45-(-28,55)}{197K\Omega}=132,5\mu A$.
+\item (14) $I_{BQ402}=\dfrac{I_{CQ402}}{\beta_{402}}=\dfrac{0,54mA}{330}=1,6\mu A$.
+\item (14') $I_{PS401}=I_{R407}-I_{BQ402}=130,9\mu A$.
+\item (15) $PS401=\dfrac{30V-(-2,45V)}{130,9\mu A}=50,9K\Omega$
+\end{itemize}
 
 \subsection{Punto 2}
 \textbf{Enunciado : } Calcular la ganancia de lazo para frecuencias medias (1KHz)\\[1cm]
