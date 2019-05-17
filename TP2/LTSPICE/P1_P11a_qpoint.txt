@@ -1,0 +1,142 @@
+﻿       --- Operating Point ---
+
+V(n001):	 23.9008	 voltage
+V(n004):	 4.43524	 voltage
+V(n002):	 30	 voltage
+V(n011):	 -2.70212	 voltage
+V(n019):	 -22.375	 voltage
+V(n013):	 0	 voltage
+V(n017):	 -27.8684	 voltage
+V(n012):	 -2.01091	 voltage
+V(n006):	 -2.01091	 voltage
+V(n020):	 -28.5392	 voltage
+V(vout):	 -0.00359648	 voltage
+V(n003):	 20.9975	 voltage
+V(n005):	 1.19187	 voltage
+V(n007):	 0.394884	 voltage
+V(n009):	 0.0181253	 voltage
+V(n014):	 -0.369503	 voltage
+V(n016):	 -0.703665	 voltage
+V(n008):	 0.53386	 voltage
+V(n010):	 0.00127732	 voltage
+V(n015):	 -0.0109217	 voltage
+V(n018):	 -29.4678	 voltage
+V(n021):	 -30	 voltage
+Ic(Q406):	 -0.00554912	 device_current
+Ib(Q406):	 -2.81098e-005	 device_current
+Ie(Q406):	 0.00557723	 device_current
+Ic(Q408):	 0.0100084	 device_current
+Ib(Q408):	 0.000227214	 device_current
+Ie(Q408):	 -0.0102356	 device_current
+Ic(Q407):	 0.0101403	 device_current
+Ib(Q407):	 0.000229436	 device_current
+Ie(Q407):	 -0.0103698	 device_current
+Ic(Q403):	 0.00861034	 device_current
+Ib(Q403):	 2.81063e-005	 device_current
+Ie(Q403):	 -0.00863844	 device_current
+Ic(Q405):	 0.00557407	 device_current
+Ib(Q405):	 2.9934e-005	 device_current
+Ie(Q405):	 -0.005604	 device_current
+Ic(Q404):	 0.00900071	 device_current
+Ib(Q404):	 4.79419e-005	 device_current
+Ie(Q404):	 -0.00904866	 device_current
+Ic(Q402):	 -0.000606896	 device_current
+Ib(Q402):	 -1.38226e-006	 device_current
+Ie(Q402):	 0.000608278	 device_current
+I(C409):	 2.71648e-021	 device_current
+I(C411):	 4.4161e-022	 device_current
+I(C408):	 2.10011e-015	 device_current
+I(C407):	 2.85392e-015	 device_current
+I(C405):	 4.9225e-016	 device_current
+I(C412):	 3e-018	 device_current
+I(C413):	 3e-018	 device_current
+I(C406):	 9.4513e-016	 device_current
+I(C401):	 -5.94467e-018	 device_current
+I(C404):	 -5.25817e-016	 device_current
+I(Ps402a):	 0.000362268	 device_current
+I(R10):	 0.000131153	 device_current
+I(R418):	 0.00973876	 device_current
+I(Rl):	 -0.00044956	 device_current
+I(R422):	 0.0155856	 device_current
+I(R420):	 0.00532191	 device_current
+I(R419):	 0.00537457	 device_current
+I(R421):	 0.0103698	 device_current
+I(R416):	 0.000334162	 device_current
+I(Ps402b):	 0.000334162	 device_current
+I(R415):	 0.000362268	 device_current
+I(R414):	 0.00900254	 device_current
+I(R413):	 0.00900254	 device_current
+I(R411):	 -0.000608278	 device_current
+I(R408):	 0.000558954	 device_current
+I(R410):	 9.4369e-016	 device_current
+I(R407):	 0.000131153	 device_current
+I(Ps401):	 0.00012977	 device_current
+I(R405):	 0.00012977	 device_current
+I(R5):	 0.00012977	 device_current
+I(V2):	 -0.0252963	 device_current
+I(V1):	 -0.0248467	 device_current
+I(Vg):	 -5.94467e-018	 device_current
+
+
+
+Circuit: * Circuitos-2\TP2\LTSPICE\P1_qpoint.asc
+
+Direct Newton iteration for .op point succeeded.
+Semiconductor Device Operating Points:
+                        --- Bipolar Transistors ---
+Name:      q406        q408        q407        q403        q405
+Model:     bd136      tip41c      tip41c      bc548b       bd135
+Ib:      -2.81e-05    2.27e-04    2.29e-04    2.81e-05    2.99e-05
+Ic:      -5.55e-03    1.00e-02    1.01e-02    8.61e-03    5.57e-03
+Vbe:     -6.93e-01    5.32e-01    5.33e-01    7.22e-01    6.58e-01
+Vbc:      2.88e+01   -2.95e+01   -2.95e+01   -1.17e+00   -2.88e+01
+Vce:     -2.95e+01    3.00e+01    3.00e+01    1.90e+00    2.95e+01
+BetaDC:   1.97e+02    4.40e+01    4.42e+01    3.06e+02    1.86e+02
+Gm:       2.14e-01    3.43e-01    3.47e-01    3.06e-01    2.15e-01
+Rpi:      9.71e+02    1.72e+02    1.70e+02    9.62e+02    9.05e+02
+Rx:       0.00e+00    4.54e+00    4.54e+00    0.00e+00    0.00e+00
+Ro:       2.24e+04    1.29e+04    1.28e+04    7.43e+03    2.59e+04
+Cbe:      3.58e-10    4.69e-09    4.74e-09    1.68e-10    2.16e-10
+Cbc:      1.42e-11    3.74e-11    3.74e-11    3.70e-12    4.94e-12
+Cjs:      0.00e+00    0.00e+00    0.00e+00    0.00e+00    0.00e+00
+BetaAC:   2.08e+02    5.90e+01    5.91e+01    2.94e+02    1.95e+02
+Cbx:      0.00e+00    9.18e-12    9.18e-12    0.00e+00    0.00e+00
+Ft:       9.13e+07    1.15e+07    1.15e+07    2.84e+08    1.55e+08
+
+Name:      q404        q402
+Model:     bd135      bc558b
+Ib:       4.79e-05   -1.38e-06
+Ic:       9.00e-03   -6.07e-04
+Vbe:      6.71e-01   -6.91e-01
+Vbc:     -2.72e+01    2.52e+01
+Vce:      2.78e+01   -2.59e+01
+BetaDC:   1.88e+02    4.39e+02
+Gm:       3.47e-01    2.33e-02
+Rpi:      5.62e+02    1.89e+04
+Rx:       0.00e+00    0.00e+00
+Ro:       1.59e+04    1.28e+05
+Cbe:      2.90e-10    7.43e-11
+Cbc:      5.04e-12    2.63e-12
+Cjs:      0.00e+00    0.00e+00
+BetaAC:   1.95e+02    4.42e+02
+Cbx:      0.00e+00    0.00e+00
+Ft:       1.87e+08    4.83e+07
+
+
+
+Date: Thu May 16 02:18:00 2019
+Total elapsed time: 1.644 seconds.
+
+tnom = 27
+temp = 27
+method = trap
+totiter = 11
+traniter = 0
+tranpoints = 0
+accept = 0
+rejected = 0
+matrix size = 36
+fillins = 28
+solver = Normal
+Matrix Compiler1: 4.54 KB object code size
+Matrix Compiler2: 3.79 KB object code size

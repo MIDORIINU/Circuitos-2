@@ -1,0 +1,46 @@
+﻿Circuit: * Circuitos-2\TP2\LTSPICE\P4_max_power.asc
+
+Direct Newton iteration for .op point succeeded.
+N-Period=1
+Fourier components of V(vout)
+DC component:-0.0370707
+
+Harmonic	Frequency	 Fourier 	Normalized	 Phase  	Normalized
+ Number 	  [Hz]   	Component	 Component	[degree]	Phase [deg]
+    1   	1.000e+03	2.194e+01	1.000e+00	   -0.16°	    0.00°
+    2   	2.000e+03	4.113e-02	1.874e-03	  170.37°	  170.52°
+    3   	3.000e+03	3.499e-02	1.595e-03	 -127.59°	 -127.44°
+    4   	4.000e+03	4.775e-02	2.176e-03	   58.90°	   59.05°
+    5   	5.000e+03	6.026e-02	2.746e-03	   15.63°	   15.78°
+    6   	6.000e+03	3.502e-02	1.596e-03	  -38.57°	  -38.42°
+    7   	7.000e+03	2.857e-02	1.302e-03	 -117.90°	 -117.75°
+    8   	8.000e+03	1.884e-02	8.584e-04	  144.15°	  144.31°
+    9   	9.000e+03	8.637e-03	3.936e-04	   19.01°	   19.17°
+Total Harmonic Distortion: 0.484406%(0.502844%)
+
+
+
+vrms: RMS(v(vout))=15.4976 FROM 0 TO 0.9
+pout: (vrms*vrms/ 8 )=30.0221
+
+
+Date: Fri May 17 00:37:07 2019
+Total elapsed time: 8.869 seconds.
+
+tnom = 27
+temp = 27
+method = modified trap
+totiter = 432633
+traniter = 432622
+tranpoints = 142167
+accept = 96849
+rejected = 45318
+matrix size = 36
+fillins = 30
+solver = Normal
+Matrix Compiler1: 4.63 KB object code size  1.8/1.5/[0.5]
+Matrix Compiler2: off  [0.7]/1.2/0.9
+
+
+
+.param VPin 0.7818
