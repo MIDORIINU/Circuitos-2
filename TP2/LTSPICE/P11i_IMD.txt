@@ -1,0 +1,110 @@
+﻿Circuit: * Circuitos-2\TP2\LTSPICE\P11i_IMD.asc
+
+Direct Newton iteration for .op point succeeded.
+.step vpin=0.03172
+N-Period=all
+Fourier components of V(vout)
+DC component:-0.00594539
+
+Harmonic	Frequency	 Fourier 	Normalized	 Phase  	Normalized
+ Number 	  [Hz]   	Component	 Component	[degree]	Phase [deg]
+    1   	1.000e+03	4.066e-04	1.000e+00	  -83.02°	    0.00°
+    2   	2.000e+03	1.708e-04	4.201e-01	  100.46°	  183.48°
+    3   	3.000e+03	1.051e-04	2.586e-01	  -76.87°	    6.15°
+    4   	4.000e+03	7.117e-05	1.751e-01	  104.50°	  187.51°
+    5   	5.000e+03	5.072e-05	1.247e-01	  -76.35°	    6.67°
+    6   	6.000e+03	3.551e-05	8.734e-02	  104.38°	  187.40°
+    7   	7.000e+03	2.379e-05	5.853e-02	  -72.96°	   10.05°
+    8   	8.000e+03	1.615e-05	3.971e-02	  107.81°	  190.83°
+    9   	9.000e+03	9.762e-06	2.401e-02	  -70.90°	   12.12°
+Total Harmonic Distortion: 55.025790%(311156.980736%)
+
+
+.step vpin=0.1004
+N-Period=all
+Fourier components of V(vout)
+DC component:-0.00732529
+
+Harmonic	Frequency	 Fourier 	Normalized	 Phase  	Normalized
+ Number 	  [Hz]   	Component	 Component	[degree]	Phase [deg]
+    1   	1.000e+03	7.651e-04	1.000e+00	  -82.68°	    0.00°
+    2   	2.000e+03	1.874e-04	2.450e-01	  111.44°	  194.12°
+    3   	3.000e+03	1.233e-04	1.612e-01	  -64.65°	   18.03°
+    4   	4.000e+03	9.354e-05	1.223e-01	  110.26°	  192.94°
+    5   	5.000e+03	7.244e-05	9.468e-02	  -65.65°	   17.03°
+    6   	6.000e+03	5.846e-05	7.641e-02	  117.55°	  200.23°
+    7   	7.000e+03	5.084e-05	6.644e-02	  -62.59°	   20.09°
+    8   	8.000e+03	3.969e-05	5.187e-02	  117.43°	  200.11°
+    9   	9.000e+03	3.019e-05	3.946e-02	  -60.88°	   21.80°
+Total Harmonic Distortion: 35.268298%(523602.141974%)
+
+.step vpin=0.3173
+N-Period=all
+Fourier components of V(vout)
+DC component:-0.00942632
+
+Harmonic	Frequency	 Fourier 	Normalized	 Phase  	Normalized
+ Number 	  [Hz]   	Component	 Component	[degree]	Phase [deg]
+    1   	1.000e+03	4.971e-03	1.000e+00	  -88.74°	    0.00°
+    2   	2.000e+03	3.169e-04	6.375e-02	  104.72°	  193.47°
+    3   	3.000e+03	1.152e-04	2.316e-02	  -55.75°	   33.00°
+    4   	4.000e+03	8.779e-05	1.766e-02	  150.77°	  239.51°
+    5   	5.000e+03	9.821e-05	1.976e-02	  -43.38°	   45.37°
+    6   	6.000e+03	7.751e-05	1.559e-02	  119.25°	  207.99°
+    7   	7.000e+03	6.943e-05	1.397e-02	  -54.67°	   34.07°
+    8   	8.000e+03	5.467e-05	1.100e-02	  111.55°	  200.29°
+    9   	9.000e+03	4.168e-05	8.385e-03	  -25.80°	   62.95°
+Total Harmonic Distortion: 7.702280%(254620.196953%)
+
+.step vpin=0.463
+N-Period=all
+Fourier components of V(vout)
+DC component:-0.00942102
+
+Harmonic	Frequency	 Fourier 	Normalized	 Phase  	Normalized
+ Number 	  [Hz]   	Component	 Component	[degree]	Phase [deg]
+    1   	1.000e+03	9.474e-03	1.000e+00	  -89.41°	    0.00°
+    2   	2.000e+03	3.393e-04	3.581e-02	  119.86°	  209.27°
+    3   	3.000e+03	3.854e-04	4.068e-02	  -95.38°	   -5.97°
+    4   	4.000e+03	1.895e-04	2.001e-02	 -148.95°	  -59.54°
+    5   	5.000e+03	2.115e-04	2.232e-02	  -87.72°	    1.69°
+    6   	6.000e+03	1.283e-04	1.354e-02	 -144.74°	  -55.33°
+    7   	7.000e+03	1.293e-04	1.365e-02	  -70.84°	   18.56°
+    8   	8.000e+03	1.015e-04	1.072e-02	 -148.00°	  -58.59°
+    9   	9.000e+03	1.017e-04	1.073e-02	  -75.54°	   13.87°
+Total Harmonic Distortion: 6.660101%(194848.294053%)
+
+
+
+Measurement: vout_max
+  step	MAX(v(vout))	FROM	TO
+     1	1.78018	0	0.9
+     2	5.64958	0	0.9
+     3	17.8732	0	0.9
+     4	26.0355	0	0.9
+
+Measurement: vout_tone_max
+  step	(vout_max/2)
+     1	0.890092
+     2	2.82479
+     3	8.93661
+     4	13.0177
+
+
+Date: Sun May 19 23:16:23 2019
+Total elapsed time: 264.557 seconds.
+
+tnom = 27
+temp = 27
+method = modified trap
+totiter = 5032700
+traniter = 5032689
+tranpoints = 1948400
+accept = 1598085
+rejected = 350315
+matrix size = 38
+fillins = 28
+solver = Normal
+Matrix Compiler1: 4.65 KB object code size  1.8/1.4/[0.5]
+Matrix Compiler2: off  [0.9]/1.3/1.0
+

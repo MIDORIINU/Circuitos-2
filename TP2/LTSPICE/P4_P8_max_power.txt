@@ -1,46 +1,44 @@
-﻿Circuit: * Circuitos-2\TP2\LTSPICE\P4_max_power.asc
+﻿Circuit: * Circuitos-2\TP2\LTSPICE\P4_P8_max_power.asc
 
 Direct Newton iteration for .op point succeeded.
-N-Period=1
+N-Period=all
 Fourier components of V(vout)
-DC component:-0.0370707
+DC component:-0.00689043
 
 Harmonic	Frequency	 Fourier 	Normalized	 Phase  	Normalized
  Number 	  [Hz]   	Component	 Component	[degree]	Phase [deg]
-    1   	1.000e+03	2.194e+01	1.000e+00	   -0.16°	    0.00°
-    2   	2.000e+03	4.113e-02	1.874e-03	  170.37°	  170.52°
-    3   	3.000e+03	3.499e-02	1.595e-03	 -127.59°	 -127.44°
-    4   	4.000e+03	4.775e-02	2.176e-03	   58.90°	   59.05°
-    5   	5.000e+03	6.026e-02	2.746e-03	   15.63°	   15.78°
-    6   	6.000e+03	3.502e-02	1.596e-03	  -38.57°	  -38.42°
-    7   	7.000e+03	2.857e-02	1.302e-03	 -117.90°	 -117.75°
-    8   	8.000e+03	1.884e-02	8.584e-04	  144.15°	  144.31°
-    9   	9.000e+03	8.637e-03	3.936e-04	   19.01°	   19.17°
-Total Harmonic Distortion: 0.484406%(0.502844%)
+    1   	1.000e+03	2.606e+01	1.000e+00	   -0.23°	    0.00°
+    2   	2.000e+03	6.872e-03	2.637e-04	  -90.71°	  -90.48°
+    3   	3.000e+03	1.670e-02	6.408e-04	    3.57°	    3.80°
+    4   	4.000e+03	2.102e-03	8.068e-05	  131.29°	  131.52°
+    5   	5.000e+03	3.573e-03	1.371e-04	 -147.91°	 -147.68°
+    6   	6.000e+03	1.175e-03	4.509e-05	  -17.78°	  -17.55°
+    7   	7.000e+03	2.705e-03	1.038e-04	   42.80°	   43.03°
+    8   	8.000e+03	1.962e-03	7.531e-05	  152.27°	  152.50°
+    9   	9.000e+03	3.246e-03	1.246e-04	 -132.51°	 -132.27°
+Total Harmonic Distortion: 0.073452%(0.088735%)
 
 
 
-vrms: RMS(v(vout))=15.4976 FROM 0 TO 0.9
-pout: (vrms*vrms/ 8 )=30.0221
+vrms: RMS(v(vout))=18.4241 FROM 0 TO 0.9
+pout: (vrms*vrms/ 8 )=42.4308
+vout_max: MAX(v(vout))=26.0346 FROM 0 TO 0.9
 
 
-Date: Fri May 17 00:37:07 2019
-Total elapsed time: 8.869 seconds.
+Date: Sun May 19 17:40:29 2019
+Total elapsed time: 65.919 seconds.
 
 tnom = 27
 temp = 27
 method = modified trap
-totiter = 432633
-traniter = 432622
-tranpoints = 142167
-accept = 96849
-rejected = 45318
+totiter = 2209918
+traniter = 2209907
+tranpoints = 1077595
+accept = 1045537
+rejected = 32058
 matrix size = 36
 fillins = 30
 solver = Normal
-Matrix Compiler1: 4.63 KB object code size  1.8/1.5/[0.5]
-Matrix Compiler2: off  [0.7]/1.2/0.9
+Matrix Compiler1: 4.64 KB object code size  1.7/1.4/[0.5]
+Matrix Compiler2: off  [0.7]/1.2/1.0
 
-
-
-.param VPin 0.7818
