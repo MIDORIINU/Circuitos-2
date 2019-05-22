@@ -33,7 +33,9 @@ subplot_phase = subplot(2, 1, 2, 'Parent', figure_handle);
 hold(subplot_phase,'on');
 
 % Create ylabel
-ylabel(subplot_module, 'Módulo de la ganancia de lazo [dB]');
+ylabel(subplot_module, ...
+    "M\'{0}dulo de la ganancia de lazo ($\left| a \cdot f \right|$) [dB]", ...
+    'Interpreter', 'latex');
 
 % Create xlabel
 xlabel(subplot_module, 'Frecuencia [Hz]');
@@ -53,7 +55,9 @@ ylim(subplot_module, mod_limits);
 
 
 % Create ylabel
-ylabel(subplot_phase, 'Fase de la ganancia de lazo [º]');
+ylabel(subplot_phase, ...
+    'Fase de la ganancia de lazo ($\angle a \cdot f$) [${}^\circ$]', ...
+    'Interpreter', 'latex');
 
 % Create xlabel
 xlabel(subplot_phase, 'Frecuencia [Hz]');

@@ -29,5 +29,29 @@ end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-P11g_phase_margin(spice_directory, points_directory, ... % Check.
+% P11g_phase_margin(spice_directory, points_directory, ... % Check.
+%     images_directory, false);
+% 
+% P11b_Ri(spice_directory, points_directory, ... % Check.
+%     images_directory, false);
+% 
+% P11c_Ro(spice_directory, points_directory, ... % Check.
+%     images_directory, false);
+
+% P11d_RF_1W(spice_directory, points_directory, ... % Check.
+%     images_directory, false);
+
+% P11e_Power_BW(spice_directory, points_directory, ... % Check.
+%     images_directory, false);
+
+% P11f_I_step_small_signal(spice_directory, points_directory, ... % Check.
+%     images_directory, false);
+
+P11f_I_step_big_signal(spice_directory, points_directory, ... % Check.
     images_directory, false);
+
+
+
+
+
+
