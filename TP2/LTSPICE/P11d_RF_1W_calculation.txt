@@ -1,0 +1,27 @@
+﻿Circuit: * Circuitos-2\TP2\LTSPICE\P11d_RF_1W.asc
+
+Number of points per decade reduced from 10000 to 6368.
+Direct Newton iteration for .op point succeeded.
+
+max_pout: MAX(mag(v(vout)*v(vout)/ 8 ))=(6.20212dB,0°) FROM 0.1 TO 1e+009
+low_freq_cut: mag(v(vout)*v(vout)/ 8 )=(0.18152dB,0°) at 3.05746
+max_pout_freq: mag(v(vout)*v(vout)/ 8 )=(6.20212dB,0°) at 620.235
+high_freq_cut: mag(v(vout)*i(rl))=(0.18152dB,0°) at 129498
+
+
+Date: Tue May 21 21:38:20 2019
+Total elapsed time: 2.199 seconds.
+
+tnom = 27
+temp = 27
+method = trap
+totiter = 11
+traniter = 0
+tranpoints = 0
+accept = 0
+rejected = 0
+matrix size = 36
+fillins = 28
+solver = Normal
+Matrix Compiler1:     250 opcodes
+Matrix Compiler2: 3.79 KB object code size
