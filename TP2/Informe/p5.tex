@@ -1,0 +1,32 @@
+\vspace{1.5cm}
+\label{calculated_zi}
+
+Para calcular la impedancia de entrada a lazo cerrado, debemos primero calcular la impedancia de entrada a lazo abierto, tenemos:
+
+\begin{align}
+\begin{split}
+R_{i_{OL}} &= R_{i_{B_{402}}} \approx r_{\pi_{402}} + R_{E_{1}} \cdot \beta_{402} = \\
+&= r_{\pi_{402}} + \left( R_{410} \parallelresistors R_{411} \right) \cdot \beta_{402} = \\
+&= 15.3 \si[per-mode=symbol]{\kilo\ohm} + \left( 120 \si[per-mode=symbol]{\ohm} \parallelresistors 3.3 \si[per-mode=symbol]{\kilo\ohm} \right) \cdot 330 = 53.5 \si[per-mode=symbol]{\kilo\ohm}
+\end{split}
+\end{align}
+
+Luego por tratarse de un circuito realimentado que suma tensión, tenemos
+
+\begin{align}
+\begin{split}
+R_{i} &= \left[\left(1 + a \cdot f \right) \cdot R_{i_{OL}} \right] \parallelresistors R_{B} = \\
+&= \left[\left(1 + a \cdot f \right) \cdot R_{i_{OL}} \right] \parallelresistors \left[ \left( R_{5} + PS_{401} \right) \parallelresistors R_{407} \right] = \\
+&= \left[\left(1 + 6718 \cdot 0.035 \right) \cdot 53.5 \si[per-mode=symbol]{\kilo\ohm} \right] \parallelresistors \left[ \left( 150 \si[per-mode=symbol]{\kilo\ohm} + 50.9 \si[per-mode=symbol]{\kilo\ohm} \right) \parallelresistors 150 \si[per-mode=symbol]{\kilo\ohm} \right] \approx 85.3 \si[per-mode=symbol]{\kilo\ohm}
+\end{split}
+\end{align}
+
+\begin{equation}
+\boxed{ R_{i} \approx 85.3 \si[per-mode=symbol]{\kilo\ohm} }
+\end{equation}
+
+
+
+\vfill
+
+\clearpage

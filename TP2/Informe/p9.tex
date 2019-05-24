@@ -1,0 +1,29 @@
+\vspace{1.5cm}
+
+Para calcular la máxima eficiencia del amplificador, utilizamos la definición de eficiencia:
+
+\begin{equation}
+\eta_{max} = max\left\{ \frac{P_{L}}{P_{sources}} \right\} \cdot 100\%
+\end{equation}
+
+Donde $P_{L}$ es la potencia entregada a la carga y $P_{sources}$ es la potencia entregada por las fuentes de alimentación. Se puede observar fácilmente que la potencia consumida por todos los transistores que trabajan en \textbf{clase A}, no varía, salvo al tener señal aplicada, parte de esa potencia es entregada a la siguiente etapa, pero todos los transistores, excepto los de la etapa de salida, no entregan potencia a la carga, por lo que no contribuyen a la potencia útil, solo a la consumida, con esto en mente, basta ver las corrientes de reposo de todas las ramas, excepto la de los transistores de potencia, para obtener la parte fija del consumo en la fuente. Luego para ver el cuando se da el caso de mayor eficiencia, se ve fácilmente que será cuando se entregue la máxima potencia a la carga.\\
+
+
+Usando la expresión general de la potencia máxima en un \textbf{clase AB}, pero con correcciones para tener en cuenta el consumo de potencia en las primeras etapas en \textbf{clase A} y la potencia disipada en las resistencias de emisor de la etapa de salida, llamando $I_{cA}$ a la corriente que circula por las ramas de las primeras etapas, y usando los valores máximos obtenidos en la sección~\sectref{max_pot}, tenemos:
+
+
+\begin{equation*}
+\eta_{max} = \frac{ \frac{ \hat{I}_{L{max}} \cdot \hat{V}_{L{max}} }{2}   }{  \frac{ 2 \cdot \hat{I}_{L{max}} \cdot V_{CC}  }{ \pi } + \left( V_{CC} + V_{SS} \right) \cdot I_{cA} + \hat{I}_{L{max}} \cdot R_{421}  } \cdot 100\%
+\end{equation*}\\
+
+
+\begin{equation}
+\boxed{ \eta_{max} = \frac{ \frac{ 3.33 \si[per-mode=symbol]{\ampere}  \cdot 26.6 \si[per-mode=symbol]{\volt} }{2}   }{  \frac{ 2 \cdot  3.33 \si[per-mode=symbol]{\ampere} \cdot 30 \si[per-mode=symbol]{\volt}  }{ \pi } + 60 \si[per-mode=symbol]{\volt} \cdot 9.25 \si[per-mode=symbol]{\milli\ampere} + 3.33 \si[per-mode=symbol]{\ampere} \cdot 0.47 \si[per-mode=symbol]{\ohm}  } \cdot 100\% \approx 67.4 \% }
+\end{equation}
+
+
+
+
+\vfill
+
+\clearpage
