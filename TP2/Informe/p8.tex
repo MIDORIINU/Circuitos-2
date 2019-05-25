@@ -1,0 +1,47 @@
+\vspace{1.5cm}
+
+\label{punto8}
+
+Para obtener la máxima tensión pico sobre la carga, debemos hacer la suposición que la misma se obtiene al límite donde los transistores del amplificador están al borde salir de modo activo directo, en general no son solo los transistores de la etapa de salida, sino que dependiendo la configuración el límite será impuesto por los transistores de mas de una etapa.\\
+
+En particular para este amplificador podemos ver que para los ciclos positivo de la señal, lo siguiente:
+
+\begin{equation} \label{eq:1}
+\hat{V}_{L{max}} + V_{BE_{407}} + V_{BE_{405}} + \hat{V}_{R_{421_{max}}} = V_{CC}
+\end{equation}
+
+Condición que lleva a $Q_{407}$ y $Q_{405}$ al límite de la saturación, por supuesto en esta condición la distorsión por alinealidad será  máxima, pero mas allá el amplificador comenzará a recortar.
+
+además tenemos que:
+
+\begin{equation} \label{eq:2}
+\hat{V}_{R_{421_{max}}} = \hat{I}_{L_{max}} \cdot R_{421} = \frac{\hat{V}_{L{max}}}{R_{L}}
+\end{equation}
+
+Combinando \ref{eq:1} y \ref{eq:2} tenemos:
+
+\begin{equation} \label{eq:3}
+\hat{V}_{L{max}} = \frac{V_{CC} - V_{BE_{407}} - V_{BE_{405}} }{1 + \frac{R_{421}}{R_{L}} }
+\end{equation}
+
+
+Pero \ref{eq:3} es una expresión trascendente , ya que $V_{BE_{405}}$ y $V_{BE_{407}}$ dependen de la corriente de colector de cada transistor. Asumiendo para el par una relación de $\beta$ veces en las corrientes, se tiene:
+
+
+\begin{equation} \label{eq:3}
+ \hat{I}_{C_{407_{max}}} = \frac{\hat{I}_{L_{max}}}{1 + \frac{1}{\beta_{407}} } = \frac{\hat{V}_{L_{max}}}{ R_{L} \cdot \left( 1 + \frac{1}{\beta_{407}} \right) }
+\end{equation}
+
+Podemos operar iterativamente usando las curvas de $I_{C} = f_{\left( V_{BE} \right)}$ de cada transistor, \textbf{Figura~10},\, \quotemarks{On~Voltages}, de la hoja de datos del transistor \textbf{TIP41}, apéndice~\sectref{datasheet_TIP41}, y \textbf{Figura~4}, \quotemarks{\mbox{Base-Emitter~On~Voltage}}, de la hoja de datos del transistor \textbf{BD135}, apéndice~\sectref{datasheet_BD135}, empezamos asumiendo que $V_{BE} = 0.7$ para ambos transistores, calculamos una tensión de pico máxima y con esta una corriente de colector máxima para el transistor $Q_{407}$ y de esta un nuevo valor para el $V_{BE}$, que nos permite calcular un nuevo valor para la tensión pico máxima, en este caso con una iteración es suficiente, se obtiene:
+
+\begin{equation} \label{eq:3}
+\boxed{\hat{V}_{L{max}} = 26.6 \si[per-mode=symbol]{\volt}}
+\end{equation}
+
+Para el ciclo negativo se obtiene un valor cercano, haciendo un análisis similar, pero que involucra a los transistores $Q_{406}$ y $Q_{404}$, tomamos este valor para el ciclo positivo, de todos modos es solo una aproximación. 
+
+
+
+\vfill
+
+\clearpage

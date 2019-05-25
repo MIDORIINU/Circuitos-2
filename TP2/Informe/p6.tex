@@ -1,0 +1,42 @@
+\vspace{1.5cm}
+\label{calculated_zo}
+
+Para calcular la impedancia de salida a lazo cerrado, debemos primero calcular la impedancia de salida a lazo abierto, como se dijo antes la etapa de salida es \textbf{clase AB}, por lo tanto los cálculos usando el modelo de pequeña señal son solo una aproximación, en este casos suponemos la salida de un seguidor por emisor, tenemos:
+
+\begin{equation}
+R_{o_{OL}} = \left( R_{421} + R_{o_{fol}} \right) \parallelresistors R_{413} \parallelresistors \left( R_{410} + R_{411} \right) 
+\end{equation}
+
+
+Para el Darlington se tiene (asumiendo un $\beta$ efectivo para $Q_{407}$, ya que se tiene a $R_{419}$ ):
+
+\begin{equation}
+\beta_{407_{ef}} \approx \left( r_{\pi_{407}} \parallelresistors R_{419} \right) \cdot gm_{407} = \left( 125 \si[per-mode=symbol]{\ohm} \parallelresistors 100 \si[per-mode=symbol]{\ohm} \right) \cdot 400 \si[per-mode=symbol]{\milli\ampere\per\volt} \approx 22.2
+\end{equation}
+
+
+\begin{equation}
+R_{o_{fol}} \approx r_{d_{407}} + \frac{ r_{d_{405}} + \frac{ R_{414_{reflec}} \parallelresistors r_{o_{404} }   }{ \beta_{405}} }{ \beta_{407_{ef}} } = 
+2.5 \si[per-mode=symbol]{\ohm} + \frac{ 4.17 \si[per-mode=symbol]{\ohm} + \frac{ 220 \si[per-mode=symbol]{\kilo\ohm} \parallelresistors 15.9 \si[per-mode=symbol]{\kilo\ohm}   }{ 210 }}{ 22.2  } \approx 6.5 \si[per-mode=symbol]{\ohm}
+\end{equation}
+
+
+\begin{equation}
+R_{o_{OL}} = \left( 0.47 \si[per-mode=symbol]{\ohm} + 6.5 \si[per-mode=symbol]{\ohm} \right) \parallelresistors 1 \si[per-mode=symbol]{\kilo\ohm} \parallelresistors \left( 120 \si[per-mode=symbol]{\ohm} + 3.3 \si[per-mode=symbol]{\kilo\ohm} \right) \approx 7 \si[per-mode=symbol]{\ohm}
+\end{equation}
+
+
+Luego por tratarse de un circuito realimentado que muestrea tensión, tenemos
+
+\begin{equation}
+\boxed{ R_{o} = \frac{R_{o_{OL}}}{\left(1 + a \cdot f \right)} = \frac{7 \si[per-mode=symbol]{\ohm}}{\left(1 + 6718 \cdot 0.035 \right)} = 29.6 \si[per-mode=symbol]{\milli\ohm} }
+\end{equation}
+
+
+A pequeñas señales donde ambos transistores conduzcan la resistencia de salida a lazo abierto será mas parecida al paralelo de dos seguidores.
+
+
+
+\vfill
+
+\clearpage

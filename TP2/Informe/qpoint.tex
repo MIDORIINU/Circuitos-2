@@ -1,0 +1,164 @@
+\label{qpoint}
+
+\begin{sloppypar}
+
+Para el cálculo manual del punto de reposo, se procedió a tomar en cuenta primero los requisitos de salida, $V_{o_{Q}} = 0 \si[per-mode=symbol]{\volt}$, $I_{C_{Q_{407}}}=10 \si[per-mode=symbol]{\milli\ampere}$ y $I_{C_{Q_{408}}}=10 \si[per-mode=symbol]{\milli\ampere}$, se despreciaron además todas las corrientes de base de los transistores (se verificó la asunción luego de cada cálculo), excepto $I_{B_{Q_{402}}}$, para ajustar $PS_{401}$. \\
+Todas los $V_{BE}$ de los transistores se tomaron de las curvas dadas en las hojas de datos correspondientes, una vez obtenida la corriente de colector, para tener algo mas de precisión en los cálculos.\\
+
+
+En detalle, se realizaron los siguientes pasos (los mismos están marcados y se pueden seguir en la \mbox{figura~\figref{fig:fig_calculated_qpoint}}) para hallar el punto de reposo:
+
+
+
+\begin{enumerate}
+
+\item[\textbf{(1)}] $V_{B_{Q_{407}}} =  V_{o_{Q}} + V_{BE_{Q_{407}}}  = 0 \si[per-mode=symbol]{\volt} + 0.6 \si[per-mode=symbol]{\volt} = 0.6 \si[per-mode=symbol]{\volt}$, se desprecia la caída en $R_{421}$ y el $V_{BE}$ es tomado de la \textbf{Figura~10},\, \quotemarks{On~Voltages}, de la hoja de datos del transistor \textbf{TIP41}, apéndice~\sectref{datasheet_TIP41}.
+
+
+\item[\textbf{(1')}] Despreciando la caída en $R_{421}$, se tiene $I_{R_{419}}=\dfrac{V_{BE_{Q_{407}}}}{R_{419}}=  \frac{0.6 \si[per-mode=symbol]{\volt}}{100 \si[per-mode=symbol]{\ohm}}  =6\si[per-mode=symbol]{\milli\ampere}$.
+
+
+\item[\textbf{(2)}]  $V_{B_{Q_{405}}}=1.2 \si[per-mode=symbol]{\volt}$ , a $V_{B_{Q_{407}}}$ se suma $V_{BE_{Q_{405}}}=0.6 \si[per-mode=symbol]{\volt}$, este último tomado de la \textbf{Figura~4}, \quotemarks{\mbox{Base-Emitter~On~Voltage}}, de la hoja de datos del transistor \textbf{BD135}, apéndice~\sectref{datasheet_BD135}, tomando la corriente obtenida en \textbf{(1')}.
+
+
+\item[\textbf{(3)}] $I_{C_{Q_{404}}} = \frac{V_{CC} - V_{B_{Q_{405}}}}{R_{413} + R_{414}} = \frac{30 \si[per-mode=symbol]{\volt} - 1.2 \si[per-mode=symbol]{\volt}}{1 \si[per-mode=symbol]{\kilo\ohm + 2.2 \si[per-mode=symbol]{\kilo\ohm}}} = 9 \si[per-mode=symbol]{\milli\ampere}$.
+
+
+\item[\textbf{(4)}] $I_{C_{Q_{402}}}=\frac{V_{BE_{Q_{404}}}}{R_{408}} =  \frac{0.65 \si[per-mode=symbol]{\volt}}{1.2 \si[per-mode=symbol]{\kilo\ohm}}  = 0.54 \si[per-mode=symbol]{\milli\ampere}$ , donde $V_{BE_{Q_{404}}}$ se toma igual que antes de las hoja de datos, usando la corriente obtenida en \textbf{(3)}.
+
+
+\item[\textbf{(5)}] $V_{E_{Q_{402}}}=V_{o_{Q}}-I_{C_{Q_{402}}} \cdot R_{411} = 0 \si[per-mode=symbol]{\volt} - 0.54 \si[per-mode=symbol]{\milli\ampere} \cdot 3.3 \si[per-mode=symbol]{\kilo\ohm} \approx -1.8 \si[per-mode=symbol]{\volt}$.
+
+
+\item[\textbf{(5')}] $V_{B_{Q_{402}}} = V_{E_{Q_{402}}} + V_{BE_{Q_{402}}} = -1.8 \si[per-mode=symbol]{\volt} - 0.65 \si[per-mode=symbol]{\volt} = -2.45 \si[per-mode=symbol]{\volt}$ , donde $V_{BEQ402}$ se toma de la \textbf{Figura~2}, \quotemarks{Saturation~and~On~Voltages}, de la hoja de datos del transistor \textbf{BC558}, apéndice~\sectref{datasheet_BC558}, usando la corriente obtenida en \textbf{(4)}.
+
+\item[\textbf{(6)}] $I_{R_{422}} = I_{C_{Q_{407}}}+I_{R_{419}}-I_{R_{411}} = 10 \si[per-mode=symbol]{\milli\ampere} + 6 \si[per-mode=symbol]{\milli\ampere} - 0.5 \si[per-mode=symbol]{\milli\ampere} = 15.5 \si[per-mode=symbol]{\milli\ampere} $.
+
+\item[\textbf{(7)}] $V_{B_{Q_{408}}} = V_{SS} + V_{BE_{Q_{408}}} = -30 \si[per-mode=symbol]{\volt} + 0.55 \si[per-mode=symbol]{\volt} = -29.45 \si[per-mode=symbol]{\volt} $, el $V_{BE}$ se toma igual que antes de las hoja de datos, se elige menor que en \textbf{(1)} debido a que en este caso no tenemos resistencia de emisor y además coincida con $I_{C_{Q_{406}}}$, que hallamos en el siguiente item.
+
+
+\item[\textbf{(7')}] $I_{C_{Q_{406}}} = 15.5 \si[per-mode=symbol]{\milli\ampere} - 10 \si[per-mode=symbol]{\milli\ampere} = 5.5 \si[per-mode=symbol]{\milli\ampere} $ , $V_{B_{Q_{406}}} = -0.6 \si[per-mode=symbol]{\volt} $ , calculado despreciando la caída en $R_{422}$ a partir de $V_{BE}$ tomado de la \textbf{Figura~4}, \quotemarks{\mbox{Base-Emitter~On~Voltage}}, de la hoja de datos del transistor \textbf{BD136}, apéndice~\sectref{datasheet_BD136}, usando $I_{C_{Q_{406}}}$, recién obtenida.
+
+
+\item[\textbf{(8)}] $V_{CE_{Q_{403}}} = V_{C_{Q_{403}}} - V_{E_{Q_{403}}} = 1.2 \si[per-mode=symbol]{\volt} - (-0.6 \si[per-mode=symbol]{\volt}) = 1,8 \si[per-mode=symbol]{\volt} $.
+
+
+\item[\textbf{(9)}] $I_{R_{415}} = \frac{V_{CE_{Q_{403}}}}{R_{415} + PS_{402} + R_{416} } = \frac{1.8 \si[per-mode=symbol]{\volt} }{2.2 \si[per-mode=symbol]{\kilo\ohm} + 2.2 \si[per-mode=symbol]{\kilo\ohm} + 1 \si[per-mode=symbol]{\kilo\ohm} } = 0.33 \si[per-mode=symbol]{\milli\ampere} $.
+
+
+\item[\textbf{(9')}] $I_{C_{Q_{403}}} = I_{R_{414}} - I_{R_{415}} = 9 \si[per-mode=symbol]{\milli\ampere} - 0.33 \si[per-mode=symbol]{\milli\ampere} = 8.67 \si[per-mode=symbol]{\milli\ampere} $.
+
+
+\item[\textbf{(10)}] Primeramente obtenemos $V_{BE_{Q_{403}}} = 0.7 \si[per-mode=symbol]{\volt} $, se toma de la \textbf{Figura~2}, \quotemarks{Saturation~and~On~Voltages}, de la hoja de datos del transistor \textbf{BC548}, apéndice~\sectref{datasheet_BC548}.\\
+
+Luego tenemos que $PS_{402_{B}} = \frac{V_{BE_{Q_{403}}}}{I_{R_{415}}} - R_{416} = \frac{0.7 \si[per-mode=symbol]{\volt} }{0.33 \si[per-mode=symbol]{\milli\ampere}  } - 1 \si[per-mode=symbol]{\kilo\ohm} = 1121 \si[per-mode=symbol]{\ohm} $, con lo que $PS_{402_{A}} = 2200 \si[per-mode=symbol]{\ohm} - 1121 \Omega = 1079 \si[per-mode=symbol]{\ohm} $\\
+
+Finalmente:
+\begin{center}
+$PS_{402_{A}} = 1079 \si[per-mode=symbol]{\ohm} $  y  $PS_{402_{B}} = 1121 \si[per-mode=symbol]{\ohm} $
+\end{center}
+
+
+\item[\textbf{(11)}] Primero se considera que $I_{R_{418}} = 9.54 \si[per-mode=symbol]{\milli\ampere} $, la suma de $I_{C_{Q_{404}}}$ e $I_{R_{408}}$, circulan por $R_{418}$, con esto se obtuvo un primer valor de $V_{E_{Q_{404}}} = -28.57 \si[per-mode=symbol]{\volt} $, primera aproximación (se calcula en el punto \textbf{(12)}), con esto último se obtiene $I_{R_{407}} = \frac{V_{B_{Q_{402}}} - V_{E_{Q_{404}}} }{R_{407} + R_{10} } = \frac{-2.45 \si[per-mode=symbol]{\volt} - (-28,57 \si[per-mode=symbol]{\volt})}{197 \si[per-mode=symbol]{\kilo\ohm} } = 132.6 \si[per-mode=symbol]{\micro\ampere} $, con esto obtenemos el valor final de $I_{R_{418}} = 9.67 \si[per-mode=symbol]{\milli\ampere} $.
+
+
+\item[\textbf{(12)}] $V_{E_{Q_{404}}} = I_{R_{418}} \cdot R_{418} + V_{SS}  = 9.67 \si[per-mode=symbol]{\milli\ampere} \cdot 150 \si[per-mode=symbol]{\ohm} - 30 \si[per-mode=symbol]{\volt} = -28.55 \si[per-mode=symbol]{\volt} $.
+
+
+
+\item[\textbf{(13)}] Con este valor reajustamos $I_{R_{407}}$ para ajustar mejor $PS_{401}$, quedando finalmente  
+
+$I_{R_{407}} =\frac{V_{B_{Q_{402}}} - V_{E_{Q_{404}}} }{R_{407} + R_{10}}   = \frac{-2.45 \si[per-mode=symbol]{\volt} - (-28.55 \si[per-mode=symbol]{\volt})}{197 \si[per-mode=symbol]{\kilo\ohm}} = 132.5 \si[per-mode=symbol]{\micro\ampere} $.
+
+
+\item[\textbf{(14)}] $I_{B_{Q_{402}}} = \frac{ I_{C_{Q_{402}}} }{ \beta_{402} } = \frac{ 0.54 \si[per-mode=symbol]{\milli\ampere} }{ 330 } = 1.6 \si[per-mode=symbol]{\micro\ampere}  $.
+
+
+\item[\textbf{(14')}] $I_{PS_{401}} = I_{R_{407}} - I_{B_{Q_{402}}} = 130.9 \si[per-mode=symbol]{\micro\ampere} $.
+
+
+\item[\textbf{(15)}] $PS_{401} = \frac{ V_{CC} - V_{B_{Q_{402}}} }{I_{PS_{401}} } - R_{5} - R_{405} =  \frac{ 30 \si[per-mode=symbol]{\volt} - (-2,45 \si[per-mode=symbol]{\volt} )}{130.9 \si[per-mode=symbol]{\micro\ampere} } - 150 \si[per-mode=symbol]{\kilo\ohm} - 47 \si[per-mode=symbol]{\kilo\ohm} \approx 50.9 \si[per-mode=symbol]{\kilo\ohm} $\\
+
+\end{enumerate}
+
+\end{sloppypar}
+
+Se verifica que todos los transistores están en modo activo directo. El punto de reposo obtenido se muestra sobre el circuito en la figura~\figref{fig:fig_calculated_qpoint}, las corrientes de colector y los elementos del modelo de pequeña señal para los transistores se resumen en en el cuadro~\tableref{table:table_qpoint}.
+
+
+%% \noindent
+%% \begin{center}
+ 
+%%\begin{spacing}{1}  
+\begin{table}[H]  %%\centering
+    
+    \setlength\arrayrulewidth{1.5pt}
+    \arrayrulecolor{white}
+    \def\clinecolor{\hhline{|>{\arrayrulecolor{white}}-%
+    >{\arrayrulecolor{white}}|-|-|-|-|-|-|-|-|}}
+\resizebox{0.9 \textwidth}{!}{% 
+       
+\begin{tabularx}{1 \textwidth}%
+    {|
+    >{\columncolor{white} \centering\arraybackslash}m{0.130\linewidth}
+     |
+    >{\columncolor{white} \centering\arraybackslash}m{0.065\linewidth}
+     |
+    >{\columncolor{white} \centering\arraybackslash}m{0.065\linewidth}
+     |
+    >{\columncolor{white} \centering\arraybackslash}m{0.065\linewidth}
+     |
+    >{\columncolor{white} \centering\arraybackslash}m{0.065\linewidth}
+     |
+    >{\columncolor{white} \centering\arraybackslash}m{0.065\linewidth} 
+     |
+    >{\columncolor{white} \centering\arraybackslash}m{0.065\linewidth}  
+     |
+    >{\columncolor{white} \centering\arraybackslash}m{0.065\linewidth}  
+     |
+    >{\columncolor{white} \centering\arraybackslash}m{0.065\linewidth} 
+     |
+    >{\columncolor{white} \centering\arraybackslash}m{0.065\linewidth}  
+     |
+    >{\columncolor{white} \centering\arraybackslash}m{0.065\linewidth} 
+     |
+    >{\columncolor{white} \centering\arraybackslash}m{0.065\linewidth} 
+     |
+    }
+    \rowcolor{HeadersColor} \cellcolor{white} \thead{}  & \thead{$Q_{402}$} & \thead{$Q_{403}$} & \thead{$Q_{404}$} & \thead{$Q_{405}$} & \thead{$Q_{406}$} & \thead{$Q_{407}$} & \thead{$Q_{408}$} \\
+    
+    \hhline{|-|-|-|-|-|-|-|-|}
+    \rowcolor{Butter!20} \cellcolor{Butter!40} $I_{C}$ [$\si[per-mode=symbol]{\milli\ampere}$] & $0.54$ & $8.66$ & $9$ & $6$ & $5.5$ & $10$ & $10$  \\
+    \hhline{|-|-|-|-|-|-|-|-|}
+    \rowcolor{gray!20} \cellcolor{gray!40} $gm$ [$\si[per-mode=symbol]{\milli\ampere\per\volt}$] & $21.6$ & $346$ & $360$ & $240$ & $220$ & $400$ & $400$  \\
+    \hhline{|-|-|-|-|-|-|-|-|}
+    \rowcolor{gray!20} \cellcolor{gray!40}  $r_{\pi}$ [$\si[per-mode=symbol]{\ohm}$] & $15.3 \si[per-mode=symbol]{\kilo}$ & $953.8$ & $388.9$ & $583.3$ & $636.4$ & $125$ & $125$  \\
+    \hhline{|-|-|-|-|-|-|-|-|}
+    \rowcolor{gray!20} \cellcolor{gray!40} $r_{o}^{\left(*\right)}$ [$\si[per-mode=symbol]{\kilo\ohm}$] & $128$ & $7.43$ & $15.9$ & $25.9$ & $22.4$ & $12.8$ & $12.9$  \\
+    \hhline{|-|-|-|-|-|-|-|-|}
+    \rowcolor{gray!20} \cellcolor{gray!40} $\beta^{\left(**\right)}$ & $330$ & $330$ & $140$ & $210$ & $200$ & $50$ & $50$  \\
+    \hhline{|-|-|-|-|-|-|-|-|}          
+    \end{tabularx}}
+	\caption{\footnotesize{Elementos del modelo de pequeña señal de los transistores ($f_{\left(I_{C}\right)}$).}}
+	\label{table:table_qpoint}
+\end{table}
+%%\end{spacing}
+
+%% \end{center}
+
+\footnotesize{
+$\left(*\right)$ Las tensiones de Early ($V_{A}$) de los transistores usadas para el cálculo de los $r_{o}$ fueron obtenidas de las simulaciones, ya que no todas las hojas de datos proveían el dato.\\
+$\left(**\right)$ Los $\beta$ de los transistores fueron obtenidos de las hojas de datos, usando las curvas cuando estas se proveían, o valores aproximados en otros casos, de acuerdo al punto de trabajo.
+}
+
+
+\vfill
+
+
+
+
+
+
+
+
+

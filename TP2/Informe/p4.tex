@@ -1,0 +1,21 @@
+\vspace{1.5cm}
+\label{max_pot}
+
+Para obtener la potencia máxima, debemos suponer algo, en una primera aproximación si suponemos que los transistores son ideales y no hay caídas extra en la etapa de salida, podemos decir que la tensión de pico máxima corresponderá a las tensión de alimentación, que es simétrica, con esta suposición obtenemos:
+
+
+\begin{equation} \label{eq:1}
+P_{max} = \frac{{\hat{V}_{L{max}}}^2}{2 \cdot R_{L}} = \frac{{V_{CC}}^2}{2 \cdot R_{L}} = \frac{30 \si[per-mode=symbol]{\volt}}{2 \cdot 8 \si[per-mode=symbol]{\ohm}} \approx 56.3 \si[per-mode=symbol]{\watt}
+\end{equation}
+
+Por supuesto la asunción es falsa en cualquier caso, una estimación mas cercana a la realidad sería utilizar la tensión máxima de salida, que se obtiene de suponer que los transistores de llevan al borde de la operación en modo activo directo, este cálculo se realiza en la sección~\sectref{punto8}, usando ese valor de tensión máxima, obtenemos:
+
+\begin{equation} \label{eq:1}
+\boxed{ P_{max} = \frac{{\hat{V}_{L{max}}}^2}{2 \cdot R_{L}} = \frac{26.6 \si[per-mode=symbol]{\volt}}{2 \cdot 8 \si[per-mode=symbol]{\ohm}} \approx 44.2 \si[per-mode=symbol]{\watt} }
+\end{equation}
+
+
+
+\vfill
+
+\clearpage
