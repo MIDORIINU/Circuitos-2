@@ -1,0 +1,9 @@
+.MODEL D1N972 D(
++     RS=25.311
++     BV=29.895     
++     CJO=364.57P
++     TT=20N
++     N=2
++     IS=1E-9
++     IBV=4.1667M )   
+*     Motorola  30.0 Volt Si Zener 10-26-1990
