@@ -1,4 +1,4 @@
-.MODEL D1N973B D(
+.MODEL D1N973 D(
 +     Is=31.47f
 +     Rs=9.494
 +     Ikf=0
