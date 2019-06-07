@@ -1,0 +1,23 @@
+Especificaciones
+
+Máxima Potencia de Salida: 42W RMS@8Ohm
+
+Salida clase G
+
+THD: < 0.03% @1kHz, < 0.04% @10kHz; a 42W RMS@8Ohm y 1W RMS@8Ohm
+
+Impedancia de entrada: > 30kOhm
+
+Sensibilidad: 1V RMS @ 8Ohm
+
+Slew Rate: > 12 V/uS
+
+Ancho de banda: 10Hz a 30kHz
+
+Factor de amortiguamiento: > 150
+
+Ancho de banda de potencia: > 30kHz
+
+Alimentación:
+Baja tensión: += 15.94V, riple máximo 5%  (Salida de trafo de 12V)
+Alta tensión: += 40.55V, riple máximo 5%  (Salida de trafo de 30V)
