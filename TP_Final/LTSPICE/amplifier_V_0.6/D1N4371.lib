@@ -1,0 +1,11 @@
+.MODEL D1N4371 D(
++     RS=14.877
++     BV=2.4025     
++     CJO=687.46P
++     TT=50N
++     M=.33
++     VJ=.75
++     IS=1E-11
++     N=1.27
++     IBV=10MA )     
+*     Motorola  2.7 Volt Si Zener 10-26-1990
