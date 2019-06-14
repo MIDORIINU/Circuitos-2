@@ -1,0 +1,11 @@
+*SRC=BZX84C2V4;DI_BZX84C2V4;Diodes;Zener <=10V; 2.40V  0.350W   Diodes Inc. 
+*SYM=HZEN
+.SUBCKT DI_BZX84C2V4  1 2
+*        Terminals    A   K
+D1 1 2 DF
+DZ 3 1 DR
+VZ 2 3 0
+.MODEL DF D ( IS=60.1p RS=36.1 N=1.10
++ CJO=205p VJ=0.750 M=0.330 TT=50.1n )
+.MODEL DR D ( IS=12.0f RS=84.5 N=3.00 )
+.ENDS
