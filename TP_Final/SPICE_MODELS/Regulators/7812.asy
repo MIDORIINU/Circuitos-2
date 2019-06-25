@@ -4,11 +4,11 @@ RECTANGLE Normal -128 -64 128 96
 TEXT 0 0 Center 0 LT
 WINDOW 0 -56 -80 Left 0
 WINDOW 3 16 112 Left 0
-SYMATTR Value LM7905
+SYMATTR Value LM7812
 SYMATTR Prefix X
-SYMATTR Description Voltage regulator 7915 (-15V)
-SYMATTR SpiceModel LM7915.lib
-SYMATTR Value2 LM7915
+SYMATTR Description Voltage regulator 7812 (+12V)
+SYMATTR SpiceModel regulators.lib
+SYMATTR Value2 LM7812
 PIN -128 0 LEFT 8
 PINATTR PinName IN
 PINATTR SpiceOrder 1
