@@ -1,0 +1,11 @@
+*SRC=BZX84C5V1;DI_BZX84C5V1;Diodes;Zener <=10V; 5.10V  0.350W   Diodes Inc. 
+*SYM=HZEN
+.SUBCKT DI_BZX84C5V1  1 2
+*        Terminals    A   K
+D1 1 2 DF
+DZ 3 1 DR
+VZ 2 3 2.74
+.MODEL DF D ( IS=28.3p RS=33.9 N=1.10
++ CJO=66.2p VJ=0.750 M=0.330 TT=50.1n )
+.MODEL DR D ( IS=5.65f RS=44.5 N=3.00 )
+.ENDS
