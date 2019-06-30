@@ -1,0 +1,11 @@
+*SRC=BZT52C24;DI_BZT52C24;Diodes;Zener 10V-50V; 24.0V  0.500W   Diodes Inc.
+-
+*SYM=HZEN
+.SUBCKT DI_BZT52C24  1 2
+*        Terminals    A   K
+D1 1 2 DF
+DZ 3 1 DR
+VZ 2 3 21.5
+.MODEL DF D ( IS=8.58p RS=30.5 N=1.10
++ CJO=21.4p VJ=1.00 M=0.330 TT=50.1n )
+.MODEL DR D ( IS=1.72f RS=54.5 N=3.00).ENDS

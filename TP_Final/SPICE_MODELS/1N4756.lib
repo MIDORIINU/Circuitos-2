@@ -1,0 +1,11 @@
+*1N4756
+*Motorola 47V 1W Si Zener pkg:DO-41 1,2
+.MODEL D1N4756 D (
++IS=2.67E-9
++RS=50.3
++TT=5.01E-8
++CJO=3.52E-11
++M=0.33 
++BV=46.74
++IBV=0.0055 )
+
