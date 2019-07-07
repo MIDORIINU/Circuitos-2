@@ -1,0 +1,9 @@
+.MODEL D1N969B D(
++     RS=15.783
++     BV=21.910     
++     CJO=448.08P
++     TT=20N
++     N=2
++     IS=1E-9
++     IBV=5.6818M )   
+*     Motorola  22.0 Volt Si Zener 10-26-1990
