@@ -1,8 +1,0 @@
-- Reemplazar los transistores de la etapa de entrada por transistores apareados integrados (y mas baratos, esos son muy caros para usar tantos).
-- Reemplazar las fuentes de corriente basadas en un LED, por espejos copiando desde un bandgap reference, puede ser usando un TL431.
-- Ver si vale la pena reemplazar la polarización del VAS con fuente de corriente.
-- Calcular por simulación el valor óptimo del capacitor del multiplicador de VBE.
-- Compenzar, solo tiene una compensación hecha muy rápido, pero por arriba de 15KHz oscila mal.
-- Caracterizar, calcular la ganacia de lazo (es enorme por el doble diferencial con cargas activas), ver Ri, Ro, DF, THD, IMD, etc.
-- Ver los circuitos de protección, cual sería adecuado.
-- Ver la red de Zobel.

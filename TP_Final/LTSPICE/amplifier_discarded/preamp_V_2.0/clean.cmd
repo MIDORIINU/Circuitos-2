@@ -1,0 +1,1 @@
+DEL *.raw *.log *.net
