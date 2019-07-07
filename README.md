@@ -6,3 +6,5 @@ Irusta Pablo
 Luna Diego
 
 Niero Adrián
+
+Romero Daniel
