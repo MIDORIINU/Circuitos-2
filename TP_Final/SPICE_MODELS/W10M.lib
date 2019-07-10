@@ -1,0 +1,11 @@
+*SRC=W10M;DI_W10M;Diodes;Si;  1.00kV  1.50A  
+.MODEL W10M D  ( 
++     IS=63.0n
++     RS=14.1m
++     BV=1.00k
++     IBV=10.0u 
++     CJO=53.0p
++     M=0.333
++     N=1.70
++     TT=4.32u )
+* Model format: PSpice
