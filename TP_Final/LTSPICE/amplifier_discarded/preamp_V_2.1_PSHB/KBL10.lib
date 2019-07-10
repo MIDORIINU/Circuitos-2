@@ -1,0 +1,9 @@
+.MODEL DI_KBL10 D  ( 
++     IS=23.3n
++     RS=7.20m
++     BV=1.00k
++     IBV=5.00u
++     CJO=148p
++     M=0.333
++     N=1.80
++     TT=4.32u )
