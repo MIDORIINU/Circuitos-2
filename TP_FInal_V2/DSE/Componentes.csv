@@ -1,0 +1,73 @@
+,TIPO,MODELO,VALOR (ohm),TOLERANCIA,POTENCIA,TENSIÓN,
+,,,,,,,"R2 a R5 son del PD, lo mas apareadas posibles"
+R2,película metálica,-,220,0.10%,<50uW,-,
+R3,película metálica,-,220,0.10%,<50uW,-,
+R4,película metálica,-,50,0.10%,<50uW,-,
+R5,película metálica,-,50,0.10%,<50uW,-,
+R6,película metálica,-,22k,0.1%/0.5%,<50uW,-,
+R7,película metálica,-,5k,0.1%/0.5%,<300uW,-,R7-R8 VAS
+R8,película metálica,-,22,0.1%/0.5%,<50mW,-,
+R9,película metálica,-,10k,0.10%,<1mW,-,R9-R10-Rpot1 VBE
+R10,película metálica,-,2.7k,0.10%,<1mW,-,
+Rpot1,Potenciómetro,-,5k (variable),-,<1mW,-,
+R11,película metálica,-,4.7k,0.1%/0.5%,<170mW,-,R11 a R14 fuentes de corriente
+R12,película metálica,-,4.7k,0.1%/0.5%,<170mW,-,
+R13,película metálica,-,2k,0.1%/0.5%,<5mW,-,
+R14,película metálica,-,250,0.1%/0.5%,<80mW,-,
+R15,película metálica,-,100,0.10%,<80mW,-,R15 a R20 clase G
+R16,película metálica,-,100,0.10%,<80mW,-,
+R17,película metálica,-,100,0.10%,<80mW,-,
+R18,película metálica,-,100,0.10%,<80mW,-,
+R19,alambre,-,0.1,0.10%,5W,-,
+R20,alambre,-,0.1,0.10%,5W,-,
+RF1,película metálica,-,22k,0.10%,<50mW,-,RF1-RF2-Rpot2 realimentador
+RF2,película metálica,-,500,0.10%,<5mW,-,
+Rpot2,Potenciómetro,-,1k,-,-,-,
+Rcomp2,película metálica,-,1,0.10%,,-,
+,,,,,,,
+C1,electrolítico,-,100u,,-,<30V,C1 a C8 cap de la fuente
+C2,cerámico,-,10n,,-,<30V,
+C3,electrolítico,-,100u,,-,<15V,
+C4,cerámico,-,10n,,-,<15V,
+C5,electrolítico,-,100u,,-,<30V,
+C6,cerámico,-,10n,,-,<30V,
+C7,electrolítico,-,100u,,-,<15V,
+C8,cerámico,-,10n,,-,<15V,
+C9,electrolítico,-,100u,,-,<30V,C9 fuente de corriente
+Cs,electrolítico,-,1u,,-,,Cs desacople de fuente de señal
+Cf,electrolítico,-,100u,,-,,Cf realimentador
+Ccomp1,cerámico,-,220p,,-,,Ccomp1 y Ccomp2 cap de compensación
+Ccomp2,cerámico,-,10n,,-,,
+Cpop1,electrolítico,-,470u,,-,<30V,Cpop1 y Cpop2 almacenan energía para evitar el “pop” al desconectar la fuente
+Cpop2,electrolítico,-,470u,,-,<30V,
+,,,,,,,
+Q1,npn,BD135,-,-,,,Q1-Q3-Q5-Q7 drivers
+Q2,pnp,MJL21194,-,-,,,Q2-Q4-Q6-Q9 potencia
+Q3,npn,BD135,-,-,,,
+Q4,pnp,MJL21194,-,-,,,
+Q5,pnp,BD136,-,-,,,
+Q6,npn,MJL21193,-,-,,,
+Q7,pnp,BD136,-,-,,,
+Q8,npn,MJL21193,-,-,,,
+Q9,npn,BC548C,-,-,,,Q9 multiplicador Vbe
+Q10,npn,BC546C,-,-,,,Q10-Q11 fuentes corriente
+Q11,npn,BC546C,-,-,,,
+Q12,npn,BC546C,-,-,,,Q12-Q13 PD
+Q13,npn,BC546C,-,-,,,
+Q14,pnp,BC556C,-,-,,,Q14-Q15 espejo corriente
+Q15,pnp,BC556C,-,-,,,
+Q16,pnp,BC556C,-,-,,,Q16-Q17 VAS
+Q17,pnp,BC556C,-,-,,,
+Q18_protect1,npn,2N3904,-,-,,,Q18-Q19 protección de la carga
+Q19_protect2,pnp,2N3906,-,-,,,
+,,,,,,,
+D1,Schottky,MBR1645,,,,,
+D2,Schottky,MBR1645,,,,,
+D3,Silicon,1n4148,,,,,
+D4,Silicon,1n4148,,,,,
+D5,Zener,N4370,,,,,
+D6,Zener,N4370,,,,,
+Dpop1,Rectifier,RR2L4s,,,,,
+Dpop2,Rectifier,RR2L4s,,,,,
+Dled,Led,NSCW100,,,,,
+,,,,,,,
