@@ -1581,13 +1581,13 @@ Wire Wire Line
 Wire Wire Line
 	3000 6000 3000 6500
 $Comp
-L Amplifier_Operational:LMH6609MA U1
+L Amplifier_Operational:NE5532 U1
 U 1 1 5D17A951
 P 2700 6000
 F 0 "U1" H 3044 6046 50  0000 L CNN
-F 1 "LMH6609MA" H 3044 5955 50  0000 L CNN
-F 2 "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm" H 2600 5800 50  0001 L CNN
-F 3 "http://www.ti.com/lit/ds/symlink/lmh6609.pdf" H 2850 6150 50  0001 C CNN
+F 1 "NE5532" H 3044 5955 50  0000 L CNN
+F 2 "Kicad-extra:DIP-8_W7.62mm_W3DM" H 2600 5800 50  0001 L CNN
+F 3 "NE5532" H 2850 6150 50  0001 C CNN
 	1    2700 6000
 	1    0    0    -1  
 $EndComp
