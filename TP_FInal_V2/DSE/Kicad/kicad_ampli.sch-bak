@@ -5,10 +5,10 @@ EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
 Sheet 1 1
-Title ""
-Date ""
-Rev ""
-Comp ""
+Title "Proyecto de diseño de circuitos electrónicos"
+Date "2019-07-14"
+Rev "1.1"
+Comp "FIUBA"
 Comment1 ""
 Comment2 ""
 Comment3 ""
@@ -20,7 +20,7 @@ U 1 1 5D0293C8
 P 1650 2700
 F 0 "C1" V 1905 2700 50  0000 C CNN
 F 1 "1u" V 1814 2700 50  0000 C CNN
-F 2 "Capacitor_THT:CP_Radial_D6.3mm_P2.50mm" H 1688 2550 50  0001 C CNN
+F 2 "Capacitor_THT:CP_Radial_D4.0mm_P2.00mm" H 1688 2550 50  0001 C CNN
 F 3 "~" H 1650 2700 50  0001 C CNN
 	1    1650 2700
 	0    -1   -1   0   
@@ -284,7 +284,7 @@ Wire Wire Line
 Wire Wire Line
 	2550 4150 2700 4150
 Wire Wire Line
-	3050 3950 3050 3350
+	3050 3950 3050 3550
 Wire Wire Line
 	3050 3350 2750 3350
 Wire Wire Line
@@ -371,8 +371,6 @@ Wire Wire Line
 	5200 750  4500 750 
 Wire Wire Line
 	4500 750  4500 900 
-Wire Wire Line
-	4500 750  3450 750 
 Wire Wire Line
 	3450 750  3450 1100
 Connection ~ 4500 750 
@@ -504,7 +502,7 @@ Connection ~ 8400 2100
 Wire Wire Line
 	8400 2100 8400 1900
 Wire Wire Line
-	7050 2350 6050 2350
+	7050 2350 6950 2350
 Wire Wire Line
 	6050 2200 6050 2350
 Wire Wire Line
@@ -555,7 +553,7 @@ U 1 1 5D0744F8
 P 5850 950
 F 0 "C6" H 5968 996 50  0000 L CNN
 F 1 "470u" H 5968 905 50  0000 L CNN
-F 2 "Capacitor_THT:CP_Radial_D8.0mm_P3.50mm" H 5888 800 50  0001 C CNN
+F 2 "Capacitor_THT:CP_Radial_D10.0mm_P5.00mm" H 5888 800 50  0001 C CNN
 F 3 "~" H 5850 950 50  0001 C CNN
 	1    5850 950 
 	1    0    0    -1  
@@ -603,7 +601,7 @@ U 1 1 5D07FA9E
 P 8400 3100
 F 0 "R20" H 8470 3146 50  0000 L CNN
 F 1 "0.1" H 8470 3055 50  0000 L CNN
-F 2 "Resistor_THT:R_Axial_Power_L20.0mm_W6.4mm_P22.40mm" V 8330 3100 50  0001 C CNN
+F 2 "Resistor_THT:R_Axial_Power_L20.0mm_W6.4mm_P30.48mm" V 8330 3100 50  0001 C CNN
 F 3 "~" H 8400 3100 50  0001 C CNN
 	1    8400 3100
 	1    0    0    -1  
@@ -625,7 +623,7 @@ U 1 1 5D080989
 P 8400 3650
 F 0 "R21" H 8470 3696 50  0000 L CNN
 F 1 "0.1" H 8470 3605 50  0000 L CNN
-F 2 "Resistor_THT:R_Axial_Power_L20.0mm_W6.4mm_P22.40mm" V 8330 3650 50  0001 C CNN
+F 2 "Resistor_THT:R_Axial_Power_L20.0mm_W6.4mm_P30.48mm" V 8330 3650 50  0001 C CNN
 F 3 "~" H 8400 3650 50  0001 C CNN
 	1    8400 3650
 	1    0    0    -1  
@@ -689,7 +687,7 @@ Wire Wire Line
 Wire Wire Line
 	8400 3250 8400 3400
 Wire Wire Line
-	8400 2950 8400 2850
+	8400 2950 8400 2900
 Wire Wire Line
 	7350 2800 7350 2650
 Connection ~ 7350 2650
@@ -699,7 +697,7 @@ Wire Wire Line
 	6000 3950 6050 3950
 Connection ~ 6050 3950
 Wire Wire Line
-	6050 3950 6700 3950
+	6050 3950 6600 3950
 Wire Wire Line
 	6000 3950 6000 4050
 Wire Wire Line
@@ -797,7 +795,7 @@ U 1 1 5D0DE933
 P 5200 4950
 F 0 "C5" H 5318 4996 50  0000 L CNN
 F 1 "470u" H 5318 4905 50  0000 L CNN
-F 2 "Capacitor_THT:CP_Radial_D8.0mm_P3.50mm" H 5238 4800 50  0001 C CNN
+F 2 "Capacitor_THT:CP_Radial_D10.0mm_P5.00mm" H 5238 4800 50  0001 C CNN
 F 3 "~" H 5200 4950 50  0001 C CNN
 	1    5200 4950
 	1    0    0    -1  
@@ -886,7 +884,7 @@ U 1 1 5D14B80E
 P 4850 3100
 F 0 "JP2" V 4804 3227 50  0000 L CNN
 F 1 "Jumper" V 4895 3227 50  0000 L CNN
-F 2 "Connector_PinHeader_1.00mm:PinHeader_1x02_P1.00mm_Vertical" H 4850 3100 50  0001 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 4850 3100 50  0001 C CNN
 F 3 "~" H 4850 3100 50  0001 C CNN
 	1    4850 3100
 	0    1    1    0   
@@ -918,7 +916,7 @@ L Device:C C10
 U 1 1 5D042B48
 P 9050 2250
 F 0 "C10" H 9165 2296 50  0000 L CNN
-F 1 "C" H 9165 2205 50  0000 L CNN
+F 1 "10n" H 9165 2205 50  0000 L CNN
 F 2 "Capacitor_SMD:C_1206_3216Metric" H 9088 2100 50  0001 C CNN
 F 3 "~" H 9050 2250 50  0001 C CNN
 	1    9050 2250
@@ -932,7 +930,7 @@ L Device:C C11
 U 1 1 5D0436DB
 P 9100 4450
 F 0 "C11" H 9215 4496 50  0000 L CNN
-F 1 "C" H 9215 4405 50  0000 L CNN
+F 1 "10n" H 9215 4405 50  0000 L CNN
 F 2 "Capacitor_SMD:C_1206_3216Metric" H 9138 4300 50  0001 C CNN
 F 3 "~" H 9100 4450 50  0001 C CNN
 	1    9100 4450
@@ -972,7 +970,7 @@ L Device:CP C14
 U 1 1 5D047834
 P 9350 2250
 F 0 "C14" H 9468 2296 50  0000 L CNN
-F 1 "CP" H 9468 2205 50  0000 L CNN
+F 1 "100u" H 9468 2205 50  0000 L CNN
 F 2 "Capacitor_THT:CP_Radial_D8.0mm_P3.50mm" H 9388 2100 50  0001 C CNN
 F 3 "~" H 9350 2250 50  0001 C CNN
 	1    9350 2250
@@ -986,7 +984,7 @@ L Device:CP C15
 U 1 1 5D048164
 P 9350 4450
 F 0 "C15" H 9232 4404 50  0000 R CNN
-F 1 "CP" H 9232 4495 50  0000 R CNN
+F 1 "100u" H 9232 4495 50  0000 R CNN
 F 2 "Capacitor_THT:CP_Radial_D8.0mm_P3.50mm" H 9388 4300 50  0001 C CNN
 F 3 "~" H 9350 4450 50  0001 C CNN
 	1    9350 4450
@@ -1099,7 +1097,7 @@ Connection ~ 5500 2850
 Wire Wire Line
 	5500 2850 5500 3000
 Wire Wire Line
-	7350 3400 4850 3400
+	7350 3400 6950 3400
 Wire Wire Line
 	6050 3300 6050 3600
 $Comp
@@ -1196,7 +1194,7 @@ U 1 1 5D04CB8C
 P 5650 1850
 F 0 "JP4" H 5650 2114 50  0000 C CNN
 F 1 "Jumper" H 5650 2023 50  0000 C CNN
-F 2 "Connector_PinHeader_1.00mm:PinHeader_1x02_P1.00mm_Vertical" H 5650 1850 50  0001 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 5650 1850 50  0001 C CNN
 F 3 "~" H 5650 1850 50  0001 C CNN
 	1    5650 1850
 	1    0    0    -1  
@@ -1214,7 +1212,7 @@ U 1 1 5D06907C
 P 4700 2150
 F 0 "JP3" H 4700 2414 50  0000 C CNN
 F 1 "Jumper" H 4700 2323 50  0000 C CNN
-F 2 "Connector_PinHeader_1.00mm:PinHeader_1x02_P1.00mm_Vertical" H 4700 2150 50  0001 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 4700 2150 50  0001 C CNN
 F 3 "~" H 4700 2150 50  0001 C CNN
 	1    4700 2150
 	1    0    0    -1  
@@ -1233,39 +1231,13 @@ U 1 1 5D0A8423
 P 8800 3300
 F 0 "J2" H 8880 3292 50  0000 L CNN
 F 1 "Screw_Terminal_01x02" H 8880 3201 50  0000 L CNN
-F 2 "TerminalBlock:TerminalBlock_bornier-2_P5.08mm" H 8800 3300 50  0001 C CNN
+F 2 "Kicad-extra:TerminalBlock_bornier-2_P5.08mm_W3DM" H 8800 3300 50  0001 C CNN
 F 3 "~" H 8800 3300 50  0001 C CNN
 	1    8800 3300
 	1    0    0    -1  
 $EndComp
-$Comp
-L Connector:Jack-DC J6
-U 1 1 5D0F2C20
-P 10800 3050
-F 0 "J6" H 10570 3008 50  0000 R CNN
-F 1 "Jack-DC" H 10570 3099 50  0000 R CNN
-F 2 "Connector_BarrelJack:BarrelJack_Horizontal" H 10850 3010 50  0001 C CNN
-F 3 "~" H 10850 3010 50  0001 C CNN
-	1    10800 3050
-	-1   0    0    1   
-$EndComp
-$Comp
-L Connector:Jack-DC J7
-U 1 1 5D0F3E4A
-P 10800 3450
-F 0 "J7" H 10570 3500 50  0000 R CNN
-F 1 "Jack-DC" H 10570 3409 50  0000 R CNN
-F 2 "Connector_BarrelJack:BarrelJack_Horizontal" H 10850 3410 50  0001 C CNN
-F 3 "~" H 10850 3410 50  0001 C CNN
-	1    10800 3450
-	-1   0    0    -1  
-$EndComp
-Wire Wire Line
-	10500 3550 10500 3850
 Wire Wire Line
 	9150 5100 10500 5100
-Wire Wire Line
-	10500 2950 10500 2600
 Wire Wire Line
 	9150 800  10500 800 
 Wire Wire Line
@@ -1284,30 +1256,6 @@ $EndComp
 Connection ~ 10500 3250
 Wire Wire Line
 	10500 3250 10500 3350
-$Comp
-L Connector:Jack-DC J4
-U 1 1 5D127729
-P 10050 3050
-F 0 "J4" H 9820 3008 50  0000 R CNN
-F 1 "Jack-DC" H 9820 3099 50  0000 R CNN
-F 2 "Connector_BarrelJack:BarrelJack_Horizontal" H 10100 3010 50  0001 C CNN
-F 3 "~" H 10100 3010 50  0001 C CNN
-	1    10050 3050
-	-1   0    0    1   
-$EndComp
-$Comp
-L Connector:Jack-DC J5
-U 1 1 5D128CCC
-P 10050 3500
-F 0 "J5" H 9820 3550 50  0000 R CNN
-F 1 "Jack-DC" H 9820 3459 50  0000 R CNN
-F 2 "Connector_BarrelJack:BarrelJack_Horizontal" H 10100 3460 50  0001 C CNN
-F 3 "~" H 10100 3460 50  0001 C CNN
-	1    10050 3500
-	-1   0    0    -1  
-$EndComp
-Wire Wire Line
-	9750 2950 9750 2700
 Wire Wire Line
 	9350 2100 9750 2100
 Wire Wire Line
@@ -1354,8 +1302,8 @@ U 1 1 5D04F65B
 P 1500 7350
 F 0 "J1" H 1532 7675 50  0000 C CNN
 F 1 "AudioJack2" H 1532 7584 50  0000 C CNN
-F 2 "Connector_Audio:Jack_3.5mm_Neutrik_NMJ6HCD2_Horizontal" H 1500 7350 50  0001 C CNN
-F 3 "~" H 1500 7350 50  0001 C CNN
+F 2 "Kicad-extra:ACJS-NH35" H 1500 7350 50  0001 C CNN
+F 3 "~" H 1500 7350 50  0000 C CNN
 	1    1500 7350
 	-1   0    0    1   
 $EndComp
@@ -1365,7 +1313,7 @@ U 1 1 5D050088
 P 1050 6850
 F 0 "JP1" H 1050 7114 50  0000 C CNN
 F 1 "Jumper" H 1050 7023 50  0000 C CNN
-F 2 "Connector_PinHeader_1.00mm:PinHeader_1x02_P1.00mm_Vertical" H 1050 6850 50  0001 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical" H 1050 6850 50  0001 C CNN
 F 3 "~" H 1050 6850 50  0001 C CNN
 	1    1050 6850
 	0    -1   -1   0   
@@ -1376,7 +1324,7 @@ U 1 1 5D050CBC
 P 1200 6200
 F 0 "C16" V 1455 6200 50  0000 C CNN
 F 1 "1u" V 1364 6200 50  0000 C CNN
-F 2 "Capacitor_SMD:C_1206_3216Metric" H 1238 6050 50  0001 C CNN
+F 2 "Capacitor_THT:CP_Radial_D4.0mm_P2.00mm" H 1238 6050 50  0001 C CNN
 F 3 "~" H 1200 6200 50  0001 C CNN
 	1    1200 6200
 	0    -1   -1   0   
@@ -1501,15 +1449,7 @@ Wire Wire Line
 	2800 7000 2800 6800
 Wire Wire Line
 	2050 6200 1900 6200
-Wire Wire Line
-	4100 6650 4100 7150
-Wire Wire Line
-	4100 7150 3950 7150
 Connection ~ 4100 6650
-Wire Wire Line
-	3650 7150 3500 7150
-Wire Wire Line
-	3500 7150 3500 7200
 Wire Wire Line
 	2400 6100 2400 6650
 Wire Wire Line
@@ -1529,7 +1469,7 @@ U 1 1 5D1E1817
 P 3500 6650
 F 0 "RV3" H 3431 6696 50  0000 R CNN
 F 1 "R_POT" H 3431 6605 50  0000 R CNN
-F 2 "Potentiometer_THT:Potentiometer_Alps_RK09L_Single_Horizontal" H 3500 6650 50  0001 C CNN
+F 2 "Kicad-extra:Potentiometer_Alps_RK163_Single_Horizontal_W3DM" H 3500 6650 50  0001 C CNN
 F 3 "~" H 3500 6650 50  0001 C CNN
 	1    3500 6650
 	1    0    0    -1  
@@ -1540,7 +1480,7 @@ U 1 1 5D1E24C6
 P 4600 7050
 F 0 "RV4" H 4531 7096 50  0000 R CNN
 F 1 "R_POT" H 4531 7005 50  0000 R CNN
-F 2 "Potentiometer_THT:Potentiometer_Alps_RK09L_Single_Horizontal" H 4600 7050 50  0001 C CNN
+F 2 "Kicad-extra:Potentiometer_Alps_RK163_Single_Horizontal_W3DM" H 4600 7050 50  0001 C CNN
 F 3 "~" H 4600 7050 50  0001 C CNN
 	1    4600 7050
 	1    0    0    -1  
@@ -1551,7 +1491,7 @@ U 1 1 5D1EF3E4
 P 5550 6700
 F 0 "RV5" H 5481 6746 50  0000 R CNN
 F 1 "R_POT" H 5481 6655 50  0000 R CNN
-F 2 "Potentiometer_THT:Potentiometer_Alps_RK09L_Single_Horizontal" H 5550 6700 50  0001 C CNN
+F 2 "Kicad-extra:Potentiometer_Alps_RK163_Single_Horizontal_W3DM" H 5550 6700 50  0001 C CNN
 F 3 "~" H 5550 6700 50  0001 C CNN
 	1    5550 6700
 	-1   0    0    1   
@@ -1573,9 +1513,6 @@ Wire Wire Line
 	4600 6650 4400 6650
 Wire Wire Line
 	3650 6650 4100 6650
-Wire Wire Line
-	3500 6800 3500 7150
-Connection ~ 3500 7150
 $Comp
 L power:GND #PWR0116
 U 1 1 5D26F7F9
@@ -1644,13 +1581,13 @@ Wire Wire Line
 Wire Wire Line
 	3000 6000 3000 6500
 $Comp
-L Amplifier_Operational:LMH6609MA U1
+L Amplifier_Operational:NE5532 U1
 U 1 1 5D17A951
 P 2700 6000
 F 0 "U1" H 3044 6046 50  0000 L CNN
-F 1 "LMH6609MA" H 3044 5955 50  0000 L CNN
-F 2 "Package_DIP:DIP-8_W7.62mm" H 2600 5800 50  0001 L CNN
-F 3 "http://www.ti.com/lit/ds/symlink/lmh6609.pdf" H 2850 6150 50  0001 C CNN
+F 1 "NE5532" H 3044 5955 50  0000 L CNN
+F 2 "Kicad-extra:DIP-8_W7.62mm_W3DM" H 2600 5800 50  0001 L CNN
+F 3 "NE5532" H 2850 6150 50  0001 C CNN
 	1    2700 6000
 	1    0    0    -1  
 $EndComp
@@ -1675,7 +1612,7 @@ U 1 1 5D29CD5A
 P 4950 7350
 F 0 "JP5" V 4904 7477 50  0000 L CNN
 F 1 "Jumper" V 4995 7477 50  0000 L CNN
-F 2 "Connector_PinHeader_1.00mm:PinHeader_1x02_P1.00mm_Vertical" H 4950 7350 50  0001 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical" H 4950 7350 50  0001 C CNN
 F 3 "~" H 4950 7350 50  0001 C CNN
 	1    4950 7350
 	0    1    1    0   
@@ -1740,86 +1677,6 @@ Wire Wire Line
 	4900 6200 5150 6200
 Wire Wire Line
 	9750 3150 9750 3300
-Wire Wire Line
-	9750 3600 9750 3850
-$Comp
-L Connector_Generic:Conn_01x01 J8
-U 1 1 5D0A9C98
-P 9950 3300
-F 0 "J8" H 10030 3342 50  0000 L CNN
-F 1 "Conn_01x01" H 10030 3251 50  0000 L CNN
-F 2 "Connector_PinHeader_1.00mm:PinHeader_1x01_P1.00mm_Vertical" H 9950 3300 50  0001 C CNN
-F 3 "~" H 9950 3300 50  0001 C CNN
-	1    9950 3300
-	1    0    0    -1  
-$EndComp
-$Comp
-L Connector_Generic:Conn_01x01 J3
-U 1 1 5D0AA4F9
-P 9950 2700
-F 0 "J3" H 10030 2742 50  0000 L CNN
-F 1 "Conn_01x01" H 10030 2651 50  0000 L CNN
-F 2 "Connector_PinHeader_1.00mm:PinHeader_1x01_P1.00mm_Vertical" H 9950 2700 50  0001 C CNN
-F 3 "~" H 9950 2700 50  0001 C CNN
-	1    9950 2700
-	1    0    0    -1  
-$EndComp
-Connection ~ 9750 2700
-Wire Wire Line
-	9750 2700 9750 2450
-$Comp
-L Connector_Generic:Conn_01x01 J9
-U 1 1 5D0ABD36
-P 9950 3850
-F 0 "J9" H 10030 3892 50  0000 L CNN
-F 1 "Conn_01x01" H 10030 3801 50  0000 L CNN
-F 2 "Connector_PinHeader_1.00mm:PinHeader_1x01_P1.00mm_Vertical" H 9950 3850 50  0001 C CNN
-F 3 "~" H 9950 3850 50  0001 C CNN
-	1    9950 3850
-	1    0    0    -1  
-$EndComp
-Connection ~ 9750 3850
-Wire Wire Line
-	9750 3850 9750 4300
-$Comp
-L Connector_Generic:Conn_01x01 J10
-U 1 1 5D0ACE80
-P 10700 2600
-F 0 "J10" H 10780 2642 50  0000 L CNN
-F 1 "Conn_01x01" H 10780 2551 50  0000 L CNN
-F 2 "Connector_PinHeader_1.00mm:PinHeader_1x01_P1.00mm_Vertical" H 10700 2600 50  0001 C CNN
-F 3 "~" H 10700 2600 50  0001 C CNN
-	1    10700 2600
-	1    0    0    -1  
-$EndComp
-Connection ~ 10500 2600
-Wire Wire Line
-	10500 2600 10500 800 
-$Comp
-L Connector_Generic:Conn_01x01 J12
-U 1 1 5D0ADDBB
-P 10700 3850
-F 0 "J12" H 10780 3892 50  0000 L CNN
-F 1 "Conn_01x01" H 10780 3801 50  0000 L CNN
-F 2 "Connector_PinHeader_1.00mm:PinHeader_1x01_P1.00mm_Vertical" H 10700 3850 50  0001 C CNN
-F 3 "~" H 10700 3850 50  0001 C CNN
-	1    10700 3850
-	1    0    0    -1  
-$EndComp
-Connection ~ 10500 3850
-Wire Wire Line
-	10500 3850 10500 5100
-$Comp
-L Connector_Generic:Conn_01x01 J11
-U 1 1 5D0AE398
-P 10700 3250
-F 0 "J11" H 10780 3292 50  0000 L CNN
-F 1 "Conn_01x01" H 10780 3201 50  0000 L CNN
-F 2 "Connector_PinHeader_1.00mm:PinHeader_1x01_P1.00mm_Vertical" H 10700 3250 50  0001 C CNN
-F 3 "~" H 10700 3250 50  0001 C CNN
-	1    10700 3250
-	1    0    0    -1  
-$EndComp
 $Comp
 L Transistor_BJT:BD135 Q9
 U 1 1 5D224F14
@@ -1924,17 +1781,6 @@ F 3 "~" H 3500 7350 50  0001 C CNN
 	-1   0    0    1   
 $EndComp
 $Comp
-L Device:C C21
-U 1 1 5D2DE61D
-P 3800 7150
-F 0 "C21" V 3548 7150 50  0000 C CNN
-F 1 "220n" V 3639 7150 50  0000 C CNN
-F 2 "Capacitor_SMD:C_1206_3216Metric_Pad1.42x1.75mm_HandSolder" H 3838 7000 50  0001 C CNN
-F 3 "~" H 3800 7150 50  0001 C CNN
-	1    3800 7150
-	0    1    1    0   
-$EndComp
-$Comp
 L Device:C C22
 U 1 1 5D2E4E5E
 P 5300 6200
@@ -1988,4 +1834,230 @@ F 3 "http://www.st.com/internet/com/TECHNICAL_RESOURCES/TECHNICAL_LITERATURE/DAT
 	1    7250 2350
 	1    0    0    -1  
 $EndComp
+$Comp
+L Device:C C21
+U 1 1 5D2DE61D
+P 3800 7150
+F 0 "C21" V 3548 7150 50  0000 C CNN
+F 1 "220n" V 3639 7150 50  0000 C CNN
+F 2 "Capacitor_SMD:C_1206_3216Metric_Pad1.42x1.75mm_HandSolder" H 3838 7000 50  0001 C CNN
+F 3 "~" H 3800 7150 50  0001 C CNN
+	1    3800 7150
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	3500 6800 3500 7150
+Wire Wire Line
+	3950 7150 4100 7150
+Wire Wire Line
+	4100 7150 4100 6650
+Wire Wire Line
+	3650 7150 3500 7150
+Connection ~ 3500 7150
+Wire Wire Line
+	3500 7150 3500 7200
+Wire Wire Line
+	10500 800  10500 2300
+Wire Wire Line
+	9750 2450 9750 2600
+Wire Wire Line
+	9750 3600 9750 3900
+Wire Wire Line
+	10500 3550 10500 3850
+$Comp
+L Connector:Jack-DC Jack4
+U 1 1 5D127729
+P 10050 3050
+F 0 "Jack4" H 9820 3008 50  0000 R CNN
+F 1 "+15" H 9820 3099 50  0000 R CNN
+F 2 "Kicad-extra:BarrelJack_Horizontal_W3DM" H 10100 3010 50  0001 C CNN
+F 3 "~" H 10100 3010 50  0001 C CNN
+	1    10050 3050
+	-1   0    0    1   
+$EndComp
+$Comp
+L Connector:Jack-DC Jack5
+U 1 1 5D128CCC
+P 10050 3500
+F 0 "Jack5" H 9820 3550 50  0000 R CNN
+F 1 "-15" H 9820 3459 50  0000 R CNN
+F 2 "Kicad-extra:BarrelJack_Horizontal_W3DM" H 10100 3460 50  0001 C CNN
+F 3 "~" H 10100 3460 50  0001 C CNN
+	1    10050 3500
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	3450 750  4500 750 
+Connection ~ 3500 7500
+Connection ~ 10500 2300
+Wire Wire Line
+	10500 2300 10500 2950
+Connection ~ 10500 3850
+Wire Wire Line
+	10500 3850 10500 5100
+Connection ~ 9750 2600
+Wire Wire Line
+	9750 2600 9750 2950
+Connection ~ 9750 3900
+Wire Wire Line
+	9750 3900 9750 4300
+$Comp
+L Connector:Jack-DC Jack7
+U 1 1 5D0F3E4A
+P 10800 3450
+F 0 "Jack7" H 10570 3500 50  0000 R CNN
+F 1 "-30" H 10570 3409 50  0000 R CNN
+F 2 "Kicad-extra:BarrelJack_Horizontal_W3DM" H 10850 3410 50  0001 C CNN
+F 3 "~" H 10850 3410 50  0001 C CNN
+	1    10800 3450
+	-1   0    0    -1  
+$EndComp
+$Comp
+L Connector:Jack-DC Jack6
+U 1 1 5D0F2C20
+P 10800 3050
+F 0 "Jack6" H 10570 3008 50  0000 R CNN
+F 1 "+30" H 10570 3099 50  0000 R CNN
+F 2 "Kicad-extra:BarrelJack_Horizontal_W3DM" H 10850 3010 50  0001 C CNN
+F 3 "~" H 10850 3010 50  0001 C CNN
+	1    10800 3050
+	-1   0    0    1   
+$EndComp
+$Comp
+L Connector:Conn_01x01_Male J6
+U 1 1 5D4F809C
+P 10700 2300
+F 0 "J6" H 10672 2232 50  0000 R CNN
+F 1 "Conn_01x01_Male" H 10672 2323 50  0000 R CNN
+F 2 "Connector_PinHeader_1.00mm:PinHeader_1x01_P1.00mm_Vertical" H 10700 2300 50  0001 C CNN
+F 3 "~" H 10700 2300 50  0001 C CNN
+	1    10700 2300
+	-1   0    0    1   
+$EndComp
+$Comp
+L Connector:Conn_01x01_Male J7
+U 1 1 5D4F968E
+P 10700 3850
+F 0 "J7" H 10672 3782 50  0000 R CNN
+F 1 "Conn_01x01_Male" H 10672 3873 50  0000 R CNN
+F 2 "Connector_PinHeader_1.00mm:PinHeader_1x01_P1.00mm_Vertical" H 10700 3850 50  0001 C CNN
+F 3 "~" H 10700 3850 50  0001 C CNN
+	1    10700 3850
+	-1   0    0    1   
+$EndComp
+$Comp
+L Connector:Conn_01x01_Male J5
+U 1 1 5D4FACAB
+P 9950 3900
+F 0 "J5" H 9922 3832 50  0000 R CNN
+F 1 "Conn_01x01_Male" H 9922 3923 50  0000 R CNN
+F 2 "Connector_PinHeader_1.00mm:PinHeader_1x01_P1.00mm_Vertical" H 9950 3900 50  0001 C CNN
+F 3 "~" H 9950 3900 50  0001 C CNN
+	1    9950 3900
+	-1   0    0    1   
+$EndComp
+$Comp
+L Connector:Conn_01x01_Male J4
+U 1 1 5D4FA69F
+P 9950 2600
+F 0 "J4" H 9922 2532 50  0000 R CNN
+F 1 "Conn_01x01_Male" H 9922 2623 50  0000 R CNN
+F 2 "Connector_PinHeader_1.00mm:PinHeader_1x01_P1.00mm_Vertical" H 9950 2600 50  0001 C CNN
+F 3 "~" H 9950 2600 50  0001 C CNN
+	1    9950 2600
+	-1   0    0    1   
+$EndComp
+$Comp
+L Connector:Conn_01x01_Male J3(GND)1
+U 1 1 5D4D0190
+P 3700 7500
+F 0 "J3(GND)1" H 3672 7432 50  0000 R CNN
+F 1 "Conn_01x01_Male" H 3672 7523 50  0000 R CNN
+F 2 "Connector_PinHeader_1.00mm:PinHeader_1x01_P1.00mm_Vertical" H 3700 7500 50  0001 C CNN
+F 3 "~" H 3700 7500 50  0001 C CNN
+	1    3700 7500
+	-1   0    0    1   
+$EndComp
+$Comp
+L Connector:Conn_01x01_Male J3
+U 1 1 5D65A401
+P 2850 3550
+F 0 "J3" H 2958 3731 50  0000 C CNN
+F 1 "Conn_01x01_Male" H 2958 3640 50  0000 C CNN
+F 2 "Connector_PinHeader_1.00mm:PinHeader_1x01_P1.00mm_Vertical" H 2850 3550 50  0001 C CNN
+F 3 "~" H 2850 3550 50  0001 C CNN
+	1    2850 3550
+	1    0    0    -1  
+$EndComp
+Connection ~ 3050 3550
+Wire Wire Line
+	3050 3550 3050 3350
+$Comp
+L Connector:Conn_01x01_Male J8
+U 1 1 5D65BF63
+P 4450 3650
+F 0 "J8" V 4512 3694 50  0000 L CNN
+F 1 "Conn_01x01_Male" V 4603 3694 50  0000 L CNN
+F 2 "Connector_PinHeader_1.00mm:PinHeader_1x01_P1.00mm_Vertical" H 4450 3650 50  0001 C CNN
+F 3 "~" H 4450 3650 50  0001 C CNN
+	1    4450 3650
+	0    1    1    0   
+$EndComp
+Connection ~ 4450 3850
+$Comp
+L Device:Q_NPN_EBC Q19
+U 1 1 5D27769C
+P 7050 2650
+F 0 "Q19" H 7241 2696 50  0000 L CNN
+F 1 "2N3904" H 7241 2605 50  0000 L CNN
+F 2 "Package_TO_SOT_THT:TO-92_Inline_Wide" H 7250 2750 50  0001 C CNN
+F 3 "~" H 7050 2650 50  0001 C CNN
+	1    7050 2650
+	-1   0    0    -1  
+$EndComp
+$Comp
+L Device:Q_PNP_EBC Q18
+U 1 1 5D27A801
+P 6700 3650
+F 0 "Q18" H 6891 3604 50  0000 L CNN
+F 1 "2N3906" H 6891 3695 50  0000 L CNN
+F 2 "Package_TO_SOT_THT:TO-92_Inline_Wide" H 6900 3750 50  0001 C CNN
+F 3 "~" H 6700 3650 50  0001 C CNN
+	1    6700 3650
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	6950 2350 6950 2450
+Connection ~ 6950 2350
+Wire Wire Line
+	6950 2350 6050 2350
+Wire Wire Line
+	7250 2650 7250 2900
+Wire Wire Line
+	7250 2900 8400 2900
+Connection ~ 8400 2900
+Wire Wire Line
+	8400 2900 8400 2850
+Wire Wire Line
+	6950 2850 6950 3400
+Connection ~ 6950 3400
+Wire Wire Line
+	6950 3400 6600 3400
+Wire Wire Line
+	6600 3450 6600 3400
+Connection ~ 6600 3400
+Wire Wire Line
+	6600 3400 4850 3400
+Wire Wire Line
+	6900 3650 8050 3650
+Wire Wire Line
+	8050 3650 8050 3800
+Wire Wire Line
+	8050 3800 8400 3800
+Connection ~ 8400 3800
+Wire Wire Line
+	6600 3850 6600 3950
+Connection ~ 6600 3950
+Wire Wire Line
+	6600 3950 6700 3950
 $EndSCHEMATC

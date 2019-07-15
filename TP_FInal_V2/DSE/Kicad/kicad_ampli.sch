@@ -5,10 +5,10 @@ EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
 Sheet 1 1
-Title "Proyecto de diseño de circuitos electrónicos"
-Date "2019-07-14"
-Rev "1.1"
-Comp "FIUBA"
+Title ""
+Date ""
+Rev ""
+Comp ""
 Comment1 ""
 Comment2 ""
 Comment3 ""
@@ -1581,13 +1581,13 @@ Wire Wire Line
 Wire Wire Line
 	3000 6000 3000 6500
 $Comp
-L Amplifier_Operational:NE5532 U1
+L Amplifier_Operational:LMH6609MA U1
 U 1 1 5D17A951
 P 2700 6000
 F 0 "U1" H 3044 6046 50  0000 L CNN
-F 1 "NE5532" H 3044 5955 50  0000 L CNN
-F 2 "Kicad-extra:DIP-8_W7.62mm_W3DM" H 2600 5800 50  0001 L CNN
-F 3 "NE5532" H 2850 6150 50  0001 C CNN
+F 1 "LMH6609MA" H 3044 5955 50  0000 L CNN
+F 2 "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm" H 2600 5800 50  0001 L CNN
+F 3 "http://www.ti.com/lit/ds/symlink/lmh6609.pdf" H 2850 6150 50  0001 C CNN
 	1    2700 6000
 	1    0    0    -1  
 $EndComp
@@ -1870,7 +1870,7 @@ U 1 1 5D127729
 P 10050 3050
 F 0 "Jack4" H 9820 3008 50  0000 R CNN
 F 1 "+15" H 9820 3099 50  0000 R CNN
-F 2 "Kicad-extra:BarrelJack_Horizontal_W3DM" H 10100 3010 50  0001 C CNN
+F 2 "Connector_BarrelJack:BarrelJack_Horizontal" H 10100 3010 50  0001 C CNN
 F 3 "~" H 10100 3010 50  0001 C CNN
 	1    10050 3050
 	-1   0    0    1   
@@ -1881,7 +1881,7 @@ U 1 1 5D128CCC
 P 10050 3500
 F 0 "Jack5" H 9820 3550 50  0000 R CNN
 F 1 "-15" H 9820 3459 50  0000 R CNN
-F 2 "Kicad-extra:BarrelJack_Horizontal_W3DM" H 10100 3460 50  0001 C CNN
+F 2 "Connector_BarrelJack:BarrelJack_Horizontal" H 10100 3460 50  0001 C CNN
 F 3 "~" H 10100 3460 50  0001 C CNN
 	1    10050 3500
 	-1   0    0    -1  
@@ -1907,7 +1907,7 @@ U 1 1 5D0F3E4A
 P 10800 3450
 F 0 "Jack7" H 10570 3500 50  0000 R CNN
 F 1 "-30" H 10570 3409 50  0000 R CNN
-F 2 "Kicad-extra:BarrelJack_Horizontal_W3DM" H 10850 3410 50  0001 C CNN
+F 2 "Connector_BarrelJack:BarrelJack_Horizontal" H 10850 3410 50  0001 C CNN
 F 3 "~" H 10850 3410 50  0001 C CNN
 	1    10800 3450
 	-1   0    0    -1  
@@ -1918,7 +1918,7 @@ U 1 1 5D0F2C20
 P 10800 3050
 F 0 "Jack6" H 10570 3008 50  0000 R CNN
 F 1 "+30" H 10570 3099 50  0000 R CNN
-F 2 "Kicad-extra:BarrelJack_Horizontal_W3DM" H 10850 3010 50  0001 C CNN
+F 2 "Connector_BarrelJack:BarrelJack_Horizontal" H 10850 3010 50  0001 C CNN
 F 3 "~" H 10850 3010 50  0001 C CNN
 	1    10800 3050
 	-1   0    0    1   

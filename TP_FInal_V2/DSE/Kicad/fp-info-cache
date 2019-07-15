@@ -1,4 +1,4 @@
-15987598436898587
+15989161590566112
 Battery
 BatteryHolder_Bulgin_BX0036_1xC
 Bulgin Battery Holder, BX0036, Battery Type C (https://www.bulgin.com/products/pub/media/bulgin/data/Battery_holders.pdf)
@@ -48047,6 +48047,13 @@ THT DIP DIL PDIP 2.54mm 7.62mm 300mil
 0
 8
 8
+Kicad-extra
+Heatsink_150x28x59mm
+Heatsink, 125x35x50mm, 3 fixation holes 3.2mm
+heatsink
+0
+0
+0
 Kicad-extra
 Potentiometer_ACP_CA6-H2,5_Horizontal_BELOW_W3DM
 Potentiometer, horizontal, ACP CA6-H2,5, http://www.acptechnologies.com/wp-content/uploads/2017/06/01-ACP-CA6.pdf

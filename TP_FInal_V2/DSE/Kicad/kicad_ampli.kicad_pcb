@@ -5,7 +5,7 @@
     (drawings 24)
     (tracks 455)
     (zones 0)
-    (modules 110)
+    (modules 111)
     (nets 66)
   )
 
@@ -243,6 +243,33 @@
     (add_net "Net-(U1-Pad1)")
     (add_net "Net-(U1-Pad5)")
     (add_net "Net-(U1-Pad8)")
+  )
+
+  (module Kicad-extra:Heatsink_150x28x59mm (layer F.Cu) (tedit 5D2BD48A) (tstamp 5D2C3195)
+    (at 173.7 85 270)
+    (descr "Heatsink, 125x35x50mm, 3 fixation holes 3.2mm")
+    (tags heatsink)
+    (fp_text reference REF** (at 0 -34 90) (layer F.SilkS) hide
+      (effects (font (size 1 1) (thickness 0.15)))
+    )
+    (fp_text value Heatsink_150x28x59mm (at 0 4 90) (layer F.Fab) hide
+      (effects (font (size 1 1) (thickness 0.15)))
+    )
+    (fp_line (start -75 0) (end -75 -28) (layer F.SilkS) (width 0.12))
+    (fp_line (start 75 0) (end -75 0) (layer F.CrtYd) (width 0.05))
+    (fp_line (start 75 0) (end 75 -28) (layer F.CrtYd) (width 0.05))
+    (fp_line (start -75 -28) (end -75 0) (layer F.CrtYd) (width 0.05))
+    (fp_line (start -75 -28) (end 75 -28) (layer F.CrtYd) (width 0.05))
+    (fp_line (start 75 -28) (end 75 0) (layer F.Fab) (width 0.1))
+    (fp_line (start -75 0) (end 75 0) (layer F.Fab) (width 0.1))
+    (fp_line (start -75 -28) (end -75 0) (layer F.Fab) (width 0.1))
+    (fp_line (start 75 -28) (end 75 0) (layer F.SilkS) (width 0.12))
+    (fp_line (start 75 0) (end -75 0) (layer F.SilkS) (width 0.12))
+    (model ${KIPRJMOD}/3D/Heatsink_125x35x50mm_3xFixationM3_Gold.wrl
+      (offset (xyz 0 2 0))
+      (scale (xyz 0.475 0.33 0.475))
+      (rotate (xyz 0 0 0))
+    )
   )
 
   (module Kicad-extra:Potentiometer_ACP_CA6-H2,5_Horizontal_BELOW_W3DM (layer F.Cu) (tedit 5D2BAED6) (tstamp 5D047A8D)
