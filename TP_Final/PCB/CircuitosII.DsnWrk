@@ -44,3 +44,5 @@ ProjectPath=..\..\..\..\..\..\..\..\..\Public\Documents\Altium\AD18\My_Library\G
 ProjectPath=..\..\..\..\..\..\..\..\..\Public\Documents\Altium\AD18\My_Library\GENERIC_DIODE_BRIDGES\SRC\diode-bridges.LibPkg
 [Project22]
 ProjectPath=E:\DATA\Public\Documents\Altium\AD18\My_Library\TEST_POINTS_AND_JUMPERS\Test Points and Jumpers.LibPkg
+[Project23]
+ProjectPath=..\..\..\..\..\..\..\..\..\Public\Documents\Altium\AD18\My_Library\LOGOS\PCB Logo Creator\PCBLogoCreator.PRJSCR

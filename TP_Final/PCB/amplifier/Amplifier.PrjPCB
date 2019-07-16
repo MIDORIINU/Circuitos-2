@@ -75,6 +75,22 @@ DocumentUniqueId=LWSLHVBP
 DocumentPath=Project Outputs for Amplifier\Design Rule Check - amplifier.html
 DItemRevisionGUID=
 
+[Parameter1]
+Name=Organización
+Value=Facultad de ingeniería - UBA
+
+[Parameter2]
+Name=Cuatrimestre
+Value=1º 2019
+
+[Parameter3]
+Name=Grupo
+Value=Irusta - Luna - Niero - Romero
+
+[Parameter4]
+Name=Project Name
+Value=Proyecto de Circuitos electrónicos 2 - Amplificador clase G
+
 [Configuration1]
 Name=Sources
 ParameterCount=0
