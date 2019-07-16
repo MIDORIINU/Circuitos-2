@@ -1,0 +1,46 @@
+[ProjectGroup]
+Version=1.0
+[Project1]
+ProjectPath=amplifier\Amplifier.PrjPCB
+[Project2]
+ProjectPath=..\..\..\..\..\..\..\..\WORK\DYSTECH\UPS_CULTIVAR_SCHEMATIC_AND_PCB\POWER_SUPPLY\power_supply.PrjPcb
+[Project3]
+ProjectPath=dummy\Dummy.PrjPCB
+[Project4]
+ProjectPath=E:\DATA\My Documents\AltiumLL\SamacSys.LibPkg
+[Project5]
+ProjectPath=..\..\..\..\..\..\..\..\..\Public\Documents\Altium\AD18\My_Library\NEW_TOSHIBA\TOSHIBA.LibPkg
+[Project6]
+ProjectPath=..\..\..\..\..\..\..\..\..\Public\Documents\Altium\AD18\My_Library\NEW_MICROSEMI\MICROSEMI.LibPkg
+[Project7]
+ProjectPath=..\..\..\..\..\..\..\..\..\Public\Documents\Altium\AD18\My_Library\NEW_ON\ON Semi Rectifiers.LibPkg
+[Project8]
+ProjectPath=..\..\..\..\..\..\..\..\..\Public\Documents\Altium\AD18\My_Library\NEW_ON\ON Semi Transistors.LibPkg
+[Project9]
+ProjectPath=..\..\..\..\..\..\..\..\..\Public\Documents\Altium\AD18\My_Library\NEW_DIODES_INCORPORATED\DIODES_INCROPORATED.LibPkg
+[Project10]
+ProjectPath=..\..\..\..\..\..\..\..\..\Public\Documents\Altium\AD18\My_Library\NEW_VISHAY\RECTIFIERS\VISHAY rectifiers.LibPkg
+[Project11]
+ProjectPath=..\..\..\..\..\..\..\..\..\Public\Documents\Altium\AD18\My_Library\NEW_YAGEO\Yageo_SMD_passives_.LibPkg
+[Project12]
+ProjectPath=..\..\..\..\..\..\..\..\..\Public\Documents\Altium\AD18\My_Library\NEW_VISHAY\POWER MOSFETS\SRC\VISHAY Discrete MOSFET - Power.LibPkg
+[Project13]
+ProjectPath=..\..\..\..\..\..\..\..\..\Public\Documents\Altium\AD18\My_Library\NEW_INTERNATIONAL_RECTIFIERS\SRC\New IR Discrete MOSFET - Power.LibPkg
+[Project14]
+ProjectPath=..\..\..\..\..\..\..\..\..\Public\Documents\Altium\AD18\My_Library\NEW_TEXAS\FIXED_REGULATORS\FIXED_REGULATORS.LibPkg
+[Project15]
+ProjectPath=..\..\..\..\..\..\..\..\..\Public\Documents\Altium\AD18\My_Library\NEW_TEXAS\National Semiconductor Amplifier\National Semiconductor Amplifier.LibPkg
+[Project16]
+ProjectPath=..\..\..\..\..\..\..\..\..\Public\Documents\Altium\AD18\My_Library\NEW_BOURNS\Bourns.LibPkg
+[Project17]
+ProjectPath=..\..\..\..\..\..\..\..\..\Public\Documents\Altium\AD18\My_Library\GENERIC_RESISTORS\SRC\Resistors.LibPkg
+[Project18]
+ProjectPath=..\..\..\..\..\..\..\..\..\Public\Documents\Altium\AD18\My_Library\GENERIC_CAPACITORS\SRC\Capacitors.LibPkg
+[Project19]
+ProjectPath=..\..\..\..\..\..\..\..\..\Public\Documents\Altium\AD18\My_Library\GENERIC_CONNECTORS\SRC\Connectors.LibPkg
+[Project20]
+ProjectPath=..\..\..\..\..\..\..\..\..\Public\Documents\Altium\AD18\My_Library\GENERIC_FUSES\SRC\Fuses.LibPkg
+[Project21]
+ProjectPath=..\..\..\..\..\..\..\..\..\Public\Documents\Altium\AD18\My_Library\GENERIC_DIODE_BRIDGES\SRC\diode-bridges.LibPkg
+[Project22]
+ProjectPath=E:\DATA\Public\Documents\Altium\AD18\My_Library\TEST_POINTS_AND_JUMPERS\Test Points and Jumpers.LibPkg
