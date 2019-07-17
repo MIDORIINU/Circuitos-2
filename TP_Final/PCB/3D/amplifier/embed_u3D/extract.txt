@@ -20,3 +20,10 @@ rm ./amplifier.unc.pdf
 
 
 truncate --size=-1 ./amplifier.u3d
+
+
+
+
+grep -obUaP $( echo -n stream | hexdump -e '/1 "\\"' -e '/1 "x"' -e '/1 "%02x"' ) ./amplifier.unc.pdf
+
+
