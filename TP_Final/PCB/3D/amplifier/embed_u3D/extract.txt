@@ -1,0 +1,22 @@
+### pdf-parser.py -t /3D amplifier.pdf
+
+### pdf-parser.py -o 10 -d amplifier.u3d amplifier.pdf
+
+
+### PATH=${PATH}:$(cygpath "C:\Program Files (x86)\HDD\Progs\x86\PDFtk\bin")
+
+
+pdftk ../amplifier.pdf output ./amplifier.unc.pdf uncompress
+
+grep -i -n -a stream ./amplifier.unc.pdf
+
+
+sed -n '105,82520 p' ./amplifier.unc.pdf > ./amplifier.u3d
+
+rm ./amplifier.unc.pdf
+
+
+## [[ $(tail -c1 ./amplifier.u3d | wc -l) == 1 ]] && head -c -1 ./amplifier.u3d | sponge ./amplifier.u3d
+
+
+truncate --size=-1 ./amplifier.u3d
