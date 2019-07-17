@@ -3,7 +3,7 @@ Version=1.0
 [Project1]
 ProjectPath=amplifier\Amplifier.PrjPCB
 [Project2]
-ProjectPath=..\..\..\..\..\..\..\..\WORK\DYSTECH\UPS_CULTIVAR_SCHEMATIC_AND_PCB\POWER_SUPPLY\power_supply.PrjPcb
+ProjectPath=preamp\preamp.PrjPCB
 [Project3]
 ProjectPath=dummy\Dummy.PrjPCB
 [Project4]
@@ -45,4 +45,6 @@ ProjectPath=..\..\..\..\..\..\..\..\..\Public\Documents\Altium\AD18\My_Library\G
 [Project22]
 ProjectPath=E:\DATA\Public\Documents\Altium\AD18\My_Library\TEST_POINTS_AND_JUMPERS\Test Points and Jumpers.LibPkg
 [Project23]
+ProjectPath=..\..\..\..\..\..\..\..\..\Public\Documents\Altium\AD18\My_Library\GENERIC_SWITCHES\Switches.LibPkg
+[Project24]
 ProjectPath=..\..\..\..\..\..\..\..\..\Public\Documents\Altium\AD18\My_Library\LOGOS\PCB Logo Creator\PCBLogoCreator.PRJSCR
