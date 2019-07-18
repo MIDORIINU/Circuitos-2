@@ -1,0 +1,33 @@
+Output: Gerber Files
+Type  : Gerber
+From  : Variant [[No Variations]] of Project [preamp.PrjPCB]
+   Generated File[preamp.GTO]
+   Generated File[preamp.GTP]
+   Generated File[preamp.GTS]
+   Generated File[preamp.GTL]
+   Generated File[preamp.GBL]
+   Generated File[preamp.GBS]
+   Generated File[preamp.GBP]
+   Generated File[preamp.GBO]
+   Generated File[preamp.GM1]
+   Generated File[preamp.GM3]
+   Generated File[preamp.GM4]
+   Generated File[preamp.GM13]
+   Generated File[preamp.GM15]
+   Generated File[preamp.GM16]
+   Generated File[preamp.GKO]
+   Generated File[preamp.GPT]
+   Generated File[preamp.GPB]
+   Generated File[preamp.1]
+   Generated File[preamp.GML]
+   Generated File[preamp.GD1]
+   Generated File[preamp.GG1]
+   Generated File[preamp.RUL]
+   Generated File[preamp.EXTREP]
+   Generated File[preamp.REP]
+
+
+Files Generated   : 24
+Documents Printed : 0
+
+Finished Output Generation At 7:04:36 AM On 7/18/2019

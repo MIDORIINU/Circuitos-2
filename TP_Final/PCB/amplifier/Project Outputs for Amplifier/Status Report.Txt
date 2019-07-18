@@ -1,0 +1,33 @@
+Output: Gerber Files
+Type  : Gerber
+From  : Variant [[No Variations]] of Project [amplifier.PrjPCB]
+   Generated File[amplifier.GTO]
+   Generated File[amplifier.GTP]
+   Generated File[amplifier.GTS]
+   Generated File[amplifier.GTL]
+   Generated File[amplifier.GBL]
+   Generated File[amplifier.GBS]
+   Generated File[amplifier.GBP]
+   Generated File[amplifier.GBO]
+   Generated File[amplifier.GM1]
+   Generated File[amplifier.GM3]
+   Generated File[amplifier.GM4]
+   Generated File[amplifier.GM13]
+   Generated File[amplifier.GM15]
+   Generated File[amplifier.GM16]
+   Generated File[amplifier.GKO]
+   Generated File[amplifier.GPT]
+   Generated File[amplifier.GPB]
+   Generated File[amplifier.1]
+   Generated File[amplifier.GML]
+   Generated File[amplifier.GD1]
+   Generated File[amplifier.GG1]
+   Generated File[amplifier.RUL]
+   Generated File[amplifier.EXTREP]
+   Generated File[amplifier.REP]
+
+
+Files Generated   : 24
+Documents Printed : 0
+
+Finished Output Generation At 7:06:03 AM On 7/18/2019

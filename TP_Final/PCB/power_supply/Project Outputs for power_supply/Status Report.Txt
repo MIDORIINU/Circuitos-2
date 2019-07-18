@@ -1,0 +1,31 @@
+Output: Gerber Files
+Type  : Gerber
+From  : Variant [[No Variations]] of Project [power_supply.PrjPCB]
+   Generated File[power_supply.GTO]
+   Generated File[power_supply.GTP]
+   Generated File[power_supply.GTS]
+   Generated File[power_supply.GTL]
+   Generated File[power_supply.GBL]
+   Generated File[power_supply.GBS]
+   Generated File[power_supply.GBP]
+   Generated File[power_supply.GBO]
+   Generated File[power_supply.GM1]
+   Generated File[power_supply.GM3]
+   Generated File[power_supply.GM13]
+   Generated File[power_supply.GM15]
+   Generated File[power_supply.GKO]
+   Generated File[power_supply.GPT]
+   Generated File[power_supply.GPB]
+   Generated File[power_supply.1]
+   Generated File[power_supply.GML]
+   Generated File[power_supply.GD1]
+   Generated File[power_supply.GG1]
+   Generated File[power_supply.RUL]
+   Generated File[power_supply.EXTREP]
+   Generated File[power_supply.REP]
+
+
+Files Generated   : 22
+Documents Printed : 0
+
+Finished Output Generation At 7:05:13 AM On 7/18/2019

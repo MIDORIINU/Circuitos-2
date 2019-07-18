@@ -1,0 +1,28 @@
+------------------------------------------------------------------------------------------
+Gerber File Extension Report For: power_supply.GBR   7/18/2019  7:05:11 AM
+------------------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------------------
+Layer Extension     Layer Description                      
+------------------------------------------------------------------------------------------
+.GTL                Top Layer                               
+.GPB                Bottom Pad Master                       
+.GTS                Top Solder                              
+.GBS                Bottom Solder                           
+.GPT                Top Pad Master                          
+.GTP                Top Paste                               
+.GTO                Top Overlay                             
+.GBL                Bottom Layer                            
+.GBP                Bottom Paste                            
+.GBO                Bottom Overlay                          
+.GKO                Keep-Out Layer                          
+.GM3                Mechanical 3                            
+.GM13               Mechanical 13                           
+.GML                Multi-Layer                             
+.1                  Dielectric 1                            
+.GM1                Mechanical 1                            
+.GM15               Mechanical 15                           
+.GD1                Drill Drawing                           
+.GG1                Drill Guide                             
+------------------------------------------------------------------------------------------

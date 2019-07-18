@@ -1,0 +1,30 @@
+------------------------------------------------------------------------------------------
+Gerber File Extension Report For: preamp.GBR   7/18/2019  7:04:34 AM
+------------------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------------------
+Layer Extension     Layer Description                      
+------------------------------------------------------------------------------------------
+.GTL                Top Layer                               
+.GPB                Bottom Pad Master                       
+.GTO                Top Overlay                             
+.GBS                Bottom Solder                           
+.GTS                Top Solder                              
+.GPT                Top Pad Master                          
+.GM1                Mechanical 1                            
+.GBO                Bottom Overlay                          
+.GTP                Top Paste                               
+.GBP                Bottom Paste                            
+.GBL                Bottom Layer                            
+.GKO                Keep-Out Layer                          
+.GM3                Mechanical 3                            
+.GM13               Mechanical 13                           
+.GM4                Mechanical 4                            
+.GM15               Mechanical 15                           
+.GM16               Mechanical 16                           
+.GML                Multi-Layer                             
+.1                  Dielectric 1                            
+.GD1                Drill Drawing                           
+.GG1                Drill Guide                             
+------------------------------------------------------------------------------------------
