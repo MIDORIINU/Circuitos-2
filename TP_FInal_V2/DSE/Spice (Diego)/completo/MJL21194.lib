@@ -1,0 +1,34 @@
+.MODEL MJL21194 NPN (
++     IS=4p BF=70
++     VAF=500
++     IKF=14
++     ISE=1.2n
++     NE=2.0
++     NF=1.01
++      RB=3.4
++     RBM=0.1
++     IRB=1.0
++     RC=0.06
++     CJE=8n
++     MJE=0.35
++     VJE=0.5
++     RE=0.01
++     CJC=1.2n
++     MJC=0.5
++     VJC=0.6
++     FC=0.5
++     TF=21n
++     XTF=90
++     VTF=10
++     ITF=100
++     TR=100n
++     BR=5
++     VAR=100
++     NR=1.1
++     EG=1.1
++     XCJC=0.96
++     XTB=0.1
++     XTI=1
++     NC=4
++     ISC=0.3p
++     mfg=CA112210 )
