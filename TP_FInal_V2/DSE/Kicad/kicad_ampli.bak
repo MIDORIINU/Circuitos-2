@@ -1117,7 +1117,7 @@ U 1 1 5D07BC21
 P 5500 3450
 F 0 "RV2" H 5431 3496 50  0000 R CNN
 F 1 "R_POT 2k" H 5431 3405 50  0000 R CNN
-F 2 "Potentiometer_THT:Potentiometer_ACP_CA6-H2,5_Horizontal" H 5500 3450 50  0001 C CNN
+F 2 "Kicad-extra:Potentiometer_ACP_CA6-H2,5_Horizontal_BELOW_W3DM" H 5500 3450 50  0001 C CNN
 F 3 "~" H 5500 3450 50  0001 C CNN
 	1    5500 3450
 	1    0    0    -1  
@@ -1165,7 +1165,7 @@ U 1 1 5D0A1B21
 P 3950 3500
 F 0 "RV1" H 3881 3546 50  0000 R CNN
 F 1 "R_POT (1k)" H 3881 3455 50  0000 R CNN
-F 2 "Potentiometer_THT:Potentiometer_ACP_CA6-H2,5_Horizontal" H 3950 3500 50  0001 C CNN
+F 2 "Kicad-extra:Potentiometer_ACP_CA6-H2,5_Horizontal_BELOW_W3DM" H 3950 3500 50  0001 C CNN
 F 3 "~" H 3950 3500 50  0001 C CNN
 	1    3950 3500
 	1    0    0    -1  

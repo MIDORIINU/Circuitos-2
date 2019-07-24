@@ -675,8 +675,6 @@ F 3 "~" H 6000 4200 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 Wire Wire Line
-	6000 4350 6000 4400
-Wire Wire Line
 	7000 3750 7150 3750
 Wire Wire Line
 	7150 3750 7150 3900
@@ -701,14 +699,9 @@ Wire Wire Line
 Wire Wire Line
 	6000 3950 6000 4050
 Wire Wire Line
-	6000 4400 5100 4400
-Wire Wire Line
 	5100 4400 5100 3850
 Wire Wire Line
 	5100 3850 4450 3850
-Connection ~ 6000 4400
-Wire Wire Line
-	6000 4400 6000 4600
 $Comp
 L Device:R R16
 U 1 1 5D0B8B1F
@@ -1231,7 +1224,7 @@ U 1 1 5D0A8423
 P 8800 3300
 F 0 "J2" H 8880 3292 50  0000 L CNN
 F 1 "Screw_Terminal_01x02" H 8880 3201 50  0000 L CNN
-F 2 "Kicad-extra:TerminalBlock_bornier-2_P5.08mm_W3DM" H 8800 3300 50  0001 C CNN
+F 2 "Kicad-extra:TerminalBlock_bornier-2_P5.08mm_BELOW_W3DM" H 8800 3300 50  0001 C CNN
 F 3 "~" H 8800 3300 50  0001 C CNN
 	1    8800 3300
 	1    0    0    -1  
@@ -2060,4 +2053,11 @@ Wire Wire Line
 Connection ~ 6600 3950
 Wire Wire Line
 	6600 3950 6700 3950
+Connection ~ 6000 4400
+Wire Wire Line
+	6000 4400 6000 4600
+Wire Wire Line
+	6000 4350 6000 4400
+Wire Wire Line
+	6000 4400 5100 4400
 $EndSCHEMATC

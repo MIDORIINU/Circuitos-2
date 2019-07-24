@@ -1,4 +1,4 @@
-15989161590566112
+15990725193080668
 Battery
 BatteryHolder_Bulgin_BX0036_1xC
 Bulgin Battery Holder, BX0036, Battery Type C (https://www.bulgin.com/products/pub/media/bulgin/data/Battery_holders.pdf)
@@ -48075,6 +48075,13 @@ Potentiometer horizontal Alps RK163 Single
 0
 3
 3
+Kicad-extra
+TerminalBlock_bornier-2_P5.08mm_BELOW_W3DM
+simple 2-pin terminal block, pitch 5.08mm, revamped version of bornier2
+terminal block bornier2
+0
+2
+2
 Kicad-extra
 TerminalBlock_bornier-2_P5.08mm_W3DM
 simple 2-pin terminal block, pitch 5.08mm, revamped version of bornier2
