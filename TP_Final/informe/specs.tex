@@ -9,19 +9,19 @@ Nuestro objetico es armar un circuito que amplifique una señal de audio que ser
 \bigskip
 
 \begin{itemize}
-	\item Máxima Potencia de Salida:  $60\si[per-mode=symbol]{\watt}$ \textit{RMS @} $8\si[per-mode=symbol]{\ohm}$
+	\item Máxima Potencia de Salida:  $>= 60\si[per-mode=symbol]{\watt} RMS @8\si[per-mode=symbol]{\ohm}$
 	\item Salida clase \textbf{G}
 	\item THD: $< 0.01 \si[per-mode=symbol]{\percent} @ 1\si[per-mode=symbol]{\kilo\hertz}$, $<0.02 \si[per-mode=symbol]{\percent} @ 10\si[per-mode=symbol]{\kilo\hertz}$ , a $60W RMS@8\si[per-mode=symbol]{\ohm}$ y $1\si[per-mode=symbol]{\watt} RMS @8 \si[per-mode=symbol]{\ohm}$
 	\item Slew Rate: $>15\frac{V}{\mu S}$
 	\item Impedancia de entrada: $>30\si[per-mode=symbol]{\kilo\ohm}$
-	\item Sensibilidad: $1.1\si[per-mode=symbol]{\volt}$ \textit{pico @} $8\Omega$
-	\item Ancho de banda: $10\si[per-mode=symbol]{\hertz}-30\si[per-mode=symbol]{\kilo\hertz}$
+	\item Sensibilidad: $1.1\si[per-mode=symbol]{\volt}$ \textit{pico} $@8\Omega$
+	\item Ancho de banda: $10\si[per-mode=symbol]{\hertz} \longrightarrow  30\si[per-mode=symbol]{\kilo\hertz}$
 	\item Factor de amortiguamiento: $>200$
 	\item Ancho de banda de potencia: $>30\si[per-mode=symbol]{\kilo\hertz}$
 	\item Alimentación: 
 	\begin{itemize}
-		\item Baja tensión: $ \pm 15\si[per-mode=symbol]{\volt}$\textit{, riple máximo} $10 \si[per-mode=symbol]{\percent}$
-		\item Alta tensión: $ \pm 49\si[per-mode=symbol]{\volt}$\textit{, riple máximo} $10 \si[per-mode=symbol]{\percent}$
+		\item Baja tensión: $ \pm 15\si[per-mode=symbol]{\volt}$ \textit{nominal (desde transformador de $ 12 \si[per-mode=symbol]{\volt} +12 \si[per-mode=symbol]{\volt}$), ripple máximo} $10 \si[per-mode=symbol]{\percent}$
+		\item Alta tensión: $ \pm 49\si[per-mode=symbol]{\volt}$ \textit{nominal (desde transformador de $ 36 \si[per-mode=symbol]{\volt} +36 \si[per-mode=symbol]{\volt}$), ripple máximo} $10 \si[per-mode=symbol]{\percent}$
 	\end{itemize}
 	
 	\item Máxima excursión: $31\si[per-mode=symbol]{\volt}$
@@ -35,7 +35,7 @@ Nuestro objetico es armar un circuito que amplifique una señal de audio que ser
  
  \begin{sloppypar}
  
-Para una salida senoidal de $60\si[per-mode=symbol]{\watt}$ \textit{RMS}, su potencia pico es ${\frac{V_{max}^2}{R_L}=120\si[per-mode=symbol]{\watt}}$ que, con carga ${R_L=8\si[per-mode=symbol]{\ohm}}$ da una tensión pico de ${V_{max} \cong 31\si[per-mode=symbol]{\volt}}$. A esta tensión se llega cuando la entrada es la sensibilidad especificada, ${1.1\si[per-mode=symbol]{\volt} pico @8\si[per-mode=symbol]{\ohm}}$. Estos ${31\si[per-mode=symbol]{\volt}}$ serán la máxima excursión, la tensión máxima en la que el amplificador garantiza que no haya recortes bajo cualquier condición de alimentación, ya que al no ser regulada la fuente de alimentación se consideró el peor caso, con la tensión de línea a ${80\si[per-mode=symbol]{\percent}}$ de su valor nominal, esto se detalla en la sección sobre la fuente de alimentación.
+Para una salida senoidal de $60\si[per-mode=symbol]{\watt}$ \textit{RMS}, su potencia pico es ${\frac{V_{max}^2}{R_L} = 120\si[per-mode=symbol]{\watt}}$ que, con carga ${R_L=8\si[per-mode=symbol]{\ohm}}$ da una tensión pico de ${V_{max} \cong 31 \si[per-mode=symbol]{\volt}}$. A esta tensión se llega cuando la entrada es la sensibilidad especificada, ${1.1\si[per-mode=symbol]{\volt} pico @8\si[per-mode=symbol]{\ohm}}$. Estos ${31 \si[per-mode=symbol]{\volt}}$ serán la máxima excursión, la tensión máxima en la que el amplificador garantiza que no haya recortes bajo cualquier condición de alimentación, ya que al no ser regulada la fuente de alimentación se consideró el peor caso, con la tensión de línea a ${80\si[per-mode=symbol]{\percent}}$ de su valor nominal, esto se detalla en la sección sobre la fuente de alimentación.
 
 \end{sloppypar}
 

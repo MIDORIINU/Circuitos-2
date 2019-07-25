@@ -1,0 +1,180 @@
+
+En la figura~\figref{fig:designed_circuit} puede verse nuestro circuito amplificador completo, incluyendo el punto de trabajo de cada transistor, es el circuito que se usó en cada una de las simulaciones para validar el circuito contra las especificaciones que se establecieron.
+
+\clearpage
+
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\paperwidth,angle=90,origin=c]{img/circuito.png}
+\caption{Circuito Diseñado}
+\label{fig:designed_circuit} 
+\end{figure}
+
+\subsection{Etapa de entrada}
+
+
+
+Se usó doble par diferencial para mantener la simetría total y reducir la distorsión por armónicos pares (figura~\ref{fig:etapa-1}). Cada par se diseñó teniendo en cuenta que la tensión de salida de polarización debía ser estable, pues la segunda etapa no estará polarizada por una fuente de corriente. Por esto, la resistencia de carga del par diferencial (\texttt{RC1} y \texttt{RC2}) es de sólo $2.4k\Omega$, mucho menor que la resistencia dinámica de pequeña señal que le ofrece la segunda etapa ($\cong 100k\Omega$), dominando el paralelo.
+Por la misma razón, se consideró de particular importancia garantizar que las corrientes de polarización por las ramas del par se independicen de posibles variaciones en la segunda etapa o del riel. Los transistores \texttt{Q19} y \texttt{Q21}, en configuración cascode con \texttt{Q17} y \texttt{Q20} cumplen justamente la función de generar esta independencia.
+
+Se polarizó cada rama con una corriente de $\cong 1mA$. Mayor corriente no generaría una mucho mayor amplificación de la etapa, pues, para mantener una tensión de salida fija habría sido necesario reducir la resistencia de carga en igual proporción. Esta corriente se generó con una fuente hecha por un LED de $2.3V$. Este LED permitirá visualizar rápidamente posibles errores de polarización en el amplificador armado.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.4\textwidth]{img/etapa-1}
+\caption{Etapa primera del circuito diseñado.}
+\label{fig:etapa-1} 
+\end{figure}
+
+
+
+\subsection{Etapa de amplificación de tensión}
+
+Se optó por una configuración CC-EC, una para cada salida del doble par diferencial (figura~\ref{fig:vas-1}). El colector común cumple la función de ofrecer una resistencia alta a la primera etapa, independizando la polarización de los parámetros variables de los transistores de la segunda etapa. Además, aumenta la diferencia de tensión de polarización requerida entre el riel y la entrada de la etapa, lo que permite el uso de una resistencia de carga mayor en la primera etapa, mejorando su ganancia. Esta configuración, además, ofrece un alto grado de independencia de las variaciones de tensión del riel, pues todas las tensiones involucradas varían en conjunto (la única que no lo hace es masa, pero está conectada al colector de \texttt{Q13} y \texttt{Q10}, nodos de alta impedancia). 
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.3\textwidth]{img/sim/vas-1}
+\caption{VAS en CC-EC del riel negativo del circuito diseñado.}
+\label{fig:vas-1} 
+\end{figure}
+
+Las resistencias de emisor del EC (\texttt{R8} y \texttt{R13}) implementan realimentaciones locales que estabilizan la corriente de polarización y ganancia de la etapa. Son realimentaciones que serie-serie (muestrean corriente y suman tensión). Son de valor reducido pues al estabilizar la ganancia, la reducen. Además, la caída de tensión en estas resistencias reduce la máxima excursión de la etapa antes de que saturen los transistores. Se eligieron los valores exactos (junto con los de las cargas de la primera etapa) para que la corriente de polarización sea $\cong 25mA$.
+
+Las resistencias \texttt{RECC2} y \texttt{RECC1} aseguran una corriente de polarización del colector común $>1.5mA$. De no existir, la polarización podría ser muy baja, y dependiente de las variabilidades del $\beta$ del transistor del EC. Esta baja corriente implicaría, además, un $r_d$ grande, y esto es indeseable: El EC es un amplificador de conductancia y, como tal, funciona mejor recibiendo una señal de entrada de baja impedancia por su base.
+
+
+\subsection{Etapa de salida}
+
+Se usan transistores en configuración Darlington, para tener una ganancia de corriente elevada, y con transistores en paralelo en la parte de mayor potencia para repartir la corriente y disminuir la disipación en cada uno. Se colocaron las resistencias \texttt{R14}, \texttt{R15}, \texttt{R16} y \texttt{R17} de valor $0.1\Omega$ para ayudar a que se reparta de forma equilibrada la potencia entre los transistores de potencia \texttt{Q1}-\texttt{Q11} y \texttt{Q7}-\texttt{Q12}.
+
+\subsection{Realimentador}
+
+Como se había mencionado en el diseño conceptual, el factor de realimentación queda definido por las especificaciones de sensibilidad y potencia RMS que definen la ganancia. Para nuestras especificaciones, la ganancia del amplificador debe ser de $29dB$ y por lo tanto el realimentador debe atenuar $-29dB$. Se implementa mediante un divisor de tensión que muestrea tensión y suma tensión. Deben ser resistencias lo suficientemente altas para que no afecten la salida al muestrear. Con una carga de $8\Omega$, esto es sencillo. Por otra parte, la corriente que entra a la base del par diferencial de la primera etapa debe ser despreciable frente a la que circula por el realimentador para no afectar al factor $f$. Los valores usados se ven en la figura~\ref{fig:realimentacion-global}.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.4\textwidth]{img/realimentacion-global}
+	\caption{Realimentación global implementada, junto con su compensación por atraso de fase.}
+	\label{fig:realimentacion-global}
+\end{figure}
+ 
+ El capacitor \texttt{C1} cumple la función de modificar la realimentación en continua, a un factor unitario, y generar una simetría en las resistencias que ven las bases de los pares diferenciales de la primera etapa, y así reducir la tensión de offset. Por esta misma razón, la resistencia en paralelo a la entrada \texttt{R12}, que permite la polarización de \texttt{Q17} y \texttt{Q20} es del mismo valor que \texttt{R11}.
+ 
+
+Consideremos el diagrama de la figura~\ref{fig:ampli_realimentacion}. Para hallar los valores de impedancia de entrada y salida, primero debemos reflejar las resistencias $R_{10}$ y $R_{11}$, como vemos en el siguiente dibujo.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\textwidth]{img/reflejo}
+	\caption{Modelo amplificador-reflejando resistencias}
+	\label{fig:ampli_reflejo}
+\end{figure}
+
+Este amplificador tiene una amplificación de tensión a lazo abierto, de aproximadamente $90$ dB, con una impedancia de salida de aproximadamente $6\;\Omega$.
+La realimentación tiene un valor de $\frac{1}{f} = \frac{R_{10}}{R_{10} + R_{11}} \rightarrow f = 0.035$, resultando $1+a_V\times f = 9\mathrm{K} \times 0.035 = 318.77$. La ganancia a lazo cerrado es $A\cong f^{-1} =28.6$. En cuanto a la impedancia de entrada, $R_{11}$ y $R_{10}$ se reflejan en paralelo entre ellas, en serie a la impedancia de entrada del amplificador $Z_i$. Dada la relación entre las resistencias, $R_{11}$ resulta despreciable, y a su vez, $R_{10}$ resulta despreciable en serie con $Z_i$, que resulta despreciable, en paralelo con $R_{12}$, de $10\; \mathrm{K}\Omega$. Para la resistencia de salida, tenemos la resistencia reflejada $R_{10} + R_{11}$, que es despreciable en paralelo con $Z_o || R_{Carga} = 3.42\; \Omega$. Luego $\frac{3.42}{(1 + a_V \times f)} = 0.01\; \Omega$, que es la impedancia de salida resultante. La impedancia de entrada incrementada en la ganancia de lazo resulta ser mucho mayor a $10k\Omega$. En nuestro circuito, la resistencia \texttt{R12} de valor $10k\Omega$ en paralelo a la entrada del amplificador a lazo cerrado que domina la impedancia de entrada final.
+
+
+\subsection{Multiplicador de $V_{be}$}
+
+
+Se diseñó (figura~\ref{fig:mvbe}) con dos transistores para mantener la simetría total del circuito. La corriente de polarización de los transistores del VAS es $\cong 25mA$, y esta puede tener una excursión máxima de aproximadamente $4mA$ pico-a-pico. Es decir, el multiplicador debe lograr polarizarse con corrientes de $\cong 20mA$. Las simulaciones muestran que se logra una mayor estabilidad en la tensión si los transistores están polarizados con corrientes bajas. Por lo tanto, se eligió \texttt{Rmvbe} tal que consuma una corriente $<20mA$, pero del orden de los $mA$. Se podría haber elegido un valor más cercano a $20mA$, pero una simulación remplazando al multiplicador por un generador de tensión ideal mostró que el funcionamiento y la distorsión del circuito no se veían afectados. Por esta misma razón, no se agregaron resistencias adicionales en los colectores, que usualmente se usan para generar una caída que compense el incremento de tensión con la corriente. Puede hacerse como posible optimización.
+
+Las resistencias \texttt{R18} y \texttt{R19} se eligieron iguales por simetría, y de valor tal que la tensión generada sea levemente superior a $2.8V$. Esto permite colocar a los transistores de salida en modo levemente A-B, reduciendo la distorsión de su etapa.
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[height=0.5\textwidth]{img/sim/mvbe}
+\caption{Multiplicador de $V_{be}$ simétrico utilizado.}
+\label{fig:mvbe} 
+\end{figure}
+
+%Dice en la consigna que acá toca:
+%1.Explora distintos circuitos y analiza CORRECTAMENTE su funcionamiento*
+%2.Calcula CORRECTAMENTE TODOS los componentes de circuitos individuales y las
+%condiciones de funcionamiento*
+%3.Investiga y selecciona los componentes
+%4.Valida y optimiza el diseño mediante simulaciones y mediciones, y determina todos los
+%parámetros de funcionamiento de los circuitos
+%5.Determina si las especificaciones del circuito son alcanzables*
+%6.Realiza las simulaciones, indica y explica los circuitos simulados, los puntos de medición,
+%los parámetros utilizados y los resultados obtenidos
+%7.Realiza mediciones, indica y explica los circuitos implementados, las mediciones
+%realizadas, los instrumentos utilizados y los resultados obtenidos*
+%8.Realiza los diagramas esquemáticos con las referencias de todos sus componentes
+%9.Realiza el listado de componentes indicando referencia, descripción, valor, parámetros, fabricantes y posibles proveedores para cada componente.
+
+
+\subsection{Compensación}
+
+Un sistema realimentado puede sufrir de pérdidas de estabilidad debido al desfasaje que se produce en la señal. Si para algunas frecuencias se produce una inversión de fase y la ganancia es unitaria o mayor entonces el sistema pasa a estar realimentado positivamente para dichas frecuencias y oscila o se desestabiliza.
+
+Para analizar la estabilidad del sistema es necesario analizar la ganancia a lazo abierto $T(j\omega)$. Un sistema adquiere la capacidad de oscilar si para una frecuencia dada $\omega_k$ se da que $T(j\omega_k)=-1$ y se vuelve inestable si $\left| T(j\omega_k) \right| > 1 \; \land \; \angle T(j\omega_k) < -180º$.
+
+Para esta clase de análisis es útil trazar el bode de la ganancia de lazo e identificar el margen de ganancia (MG) y de fase (MF), ver figura \ref{fig:margenes}.
+
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[height=0.4\textwidth]{img/margenes}
+	\caption{Bode - margen de fase y ganancia.}
+	\label{fig:margenes}
+\end{figure}
+
+
+Lo que representan estos margenes es lo siguiente:
+
+
+\begin{description}
+	\item[Margen de Ganancia] \hfill \\
+		Representa la ganancia que habría que agregar (sumar en caso de dB) para volver inestable al sistema, se mide entonces la diferencia entre 0dB y la ganancia para la frecuencia en que la fase se invierte 180º. Si $\mathrm{MG} \le \mathrm{0dB}$ entonces el sistema es inestable.
+
+	\item[Margen de Fase] \hfill \\
+		Es el defasaje que habría que agregar al sistema para volverlo inestable, se mide entonces el ángulo que le resta a la fase por llegar a -180º al tener ganancia unitaria.
+\end{description}
+
+Si el margen de fase o ganancia son muy bajos o negativos, es necesario corregir, modificar el circuito para que no haya una inversión de fase en ninguna frecuencias que se amplifique en el lazo, por medio de su compensación.
+
+
+Se realizó nuevamente una simulación a lazo abierto de forma análoga a la descripta en la sección anterior (figura~\ref{fig:ala}): agregando un capacitor de $1F$ en la entrada inversora del amplificador, y midiendo a la salida. Luego, a la salida se la multiplicó por $f$ para obtener una simulación de la ganancia de lazo (figura~\ref{fig:bode-la-sin-comp})
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[height=0.4\textwidth]{img/sim/bode-la-sin-comp}
+	\caption{Bode de la ganancia de lazo sin compensación. La línea inferior corresponde a la fase y la superior a la amplitud.}
+	\label{fig:bode-la-sin-comp}
+\end{figure}
+
+Se puede apreciar un margen de fase negativo que es necesario compensar. El polo dominante se ubica en $180kHz$ y corresponde al nodo entre la segunda y tercera etapa: a los colectores de \texttt{Q14} y \texttt{Q9}. El margen de ganancia es de $\cong 30dB$. Desplazando al polo dominante una década y media hacia las frecuencias más bajas (hasta $5.7k\Omega$) se llega a un margen de ganancia nulo, pues un polo hace decaer la ganancia en $20dB$ por década. Sin embargo, el polo correspondiente a los nodos de entrada de la segunda etapa (bases de \texttt{Q10} y \texttt{Q13}) puede desplazarse a $5.7kHz$ con capacidades de menor valor, casi sin desplazar el polo en $180kHz$, aprovechando el efecto Miller. 
+La resistencia de estos nodos está dominada por la de carga de los pares diferenciales (\texttt{RC1} y \texttt{RC2}), de valor $2.4k\Omega$. Siendo $\frac{1}{2 \pi RC}$ la frecuencia del polo, se obtiene $C\cong 11nF$. Ahora bien, si la capacidad se coloca, en vez de contra masa, contra la salida de la etapa (colectores de \texttt{Q14} y \texttt{Q9}), se puede usar una capacidad desde $20pF$, pues recordemos que la etapa tiene una amplificación de alrededor de $55dB$ o 560 veces. 
+
+Se partió de ese valor como piso, se fue ajustando por simulación, y finalmente se colocaron capacitores (\texttt{C\_comp\_1} y \texttt{C\_comp\_2}) de $40pF$. Esto da un margen de fase de $85^{\circ}$ y un ancho de banda de $2.4MHz$. Estos capacitores limitan el slew rate, pero se observó que para valores menores a $100pF$ el slew rate se encontraba por arriba de los $7.5\frac{V}{\mu s}$ necesarios para el ancho de banda de potencia especificado, y para valores menores a $60pF$, sobre los $15V/\mu s$ especificados. Por otra parte, incrementar este capacitor reduce la ganancia de lazo en frecuencias altas y, por lo tanto, los beneficios que esto trae a la distorsión, resistencias de entrada y salida, etc. Se optó por un valor de capacidades, con margen, que podría eventualmente reducirse.
+
+Luego, se agregó un capacitor en paralelo al realimentador (\texttt{C\_comp\_3}) para mejorar levemente estas especificaciones. Esto agrega un cero seguido de un polo. Por ejemplo, para la frecuencia del cero, la fase se incrementa en $45^{\circ}$ y la ganancia aumenta sólo en $3dB$, por lo que el ancho de banda se verá incrementado levemente y el margen de fase significativamente. Se comprobó simulando que ubicar el cero en $4MHz$ es un buen valor. Esto se obtiene con una capacidad de $4pF$ pues $\frac{1}{2 \pi 10k\Omega 4pF}\cong 4MHz$. El bode resultante de la ganancia de lazo compensado se muestra en la figura~\ref{fig:bode-la-con-comp}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[height=0.4\textwidth]{img/sim/bode-la-con-comp}
+	\caption{Bode de la ganancia de lazo con compensación. La línea punteada corresponde a la fase y la llena a la amplitud.}
+	\label{fig:bode-la-con-comp}
+\end{figure}
+
+
+El margen de fase resultante ese de $105^{\circ}$ y el ancho de banda de $3MHz$, con un margen de ganancia de $3dB$. Se puede ver en la figura~\ref{fig:slew} que la respuesta al escalón no oscila.
+
+Otra compensación se implementó para corregir el comportamiento inductivo del multiplicador de $V_{be}$ en altas frecuencias. Se compensó con el capacitor \texttt{C\_mvbe\_comp} de $20nF$.
+
+Finalmente, con las ganancias a lazo abierto y lazo cerrado, realizamos el siguiente diagrama:
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\textwidth]{img/bodecompensado}
+	\caption{Aumento del ancho de banda, debido a la realimentación.}
+	\label{fig:bode-copmensado}
+\end{figure}
+
+Como se puede ver en el gráfico, la ganancia a lazo abierto, de $90$ dB, tiene un ancho de banda de $1.8kHz$, totalmente inútil para un amplificador de audio que trabaja con señales de decenas de kilohertz. Cuando aplicamos la realimentación, la ganancia cae a $29$ dB, pero la frecuencia de corte pasa a ser $1.8kHz \times (1 + a_V \times f) = 1.8 \times 1107 = 1.9 \mathrm{MHz}$.
