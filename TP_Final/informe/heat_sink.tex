@@ -2,13 +2,12 @@
 \label{sec:disipadores}
 \begin{figure}[H]
     \centering
-    \includegraphics[height=0.4\textwidth]{img/calculo_disipador}
-    \caption{Modelo termico estacionario.}
+    \includegraphics[height=0.4\textwidth]{img/calculo_disipador.png}
+    \caption{Modelo térmico estacionario.}
     \label{fig:disipadores}
 \end{figure}
 
-En el peor caso, los transistores de potencia 2SC3281 de la etapa de salida y su par complementario 2SA1302
-disipan cada uno 18 W, ya que los mismos se utilizan en paralelo.
+En el peor caso, los transistores de potencia \textbf{2SC5200} de la etapa de salida y su par complementario \textbf{2SA1943} disipan cada uno $18 \si[per-mode=symbol]{\watt}$, ya que los mismos se utilizan en paralelo.
 
 \begin{equation*}
 T_r = R_{thra} * (P_{dis1}+P_{dis2}) + T_a
@@ -19,46 +18,45 @@ T_r = T_{juntura_{N}} - (R_{t_{j-case}}+R_{t_{c-heat}})*P_{disN}
 \end{equation*}
 
 \begin{equation*}
-T_r = 130°C - (0.85 °C/W + 0.1 °C/W)*(18*2 W) = 95.8 °C
+T_r = 130 \si[per-mode=symbol]{\celsius} - (0.85 \si[per-mode=symbol]{\celsius\per\watt} + 0.1 \si[per-mode=symbol]{\celsius\per\watt})*(18*2 \si[per-mode=symbol]{\watt}) = 95.8 \si[per-mode=symbol]{\celsius}
 \end{equation*}
 
 \begin{equation*}
-95.8°C = R_{thra}*(18*2*2 W) + 40°C
+95.8 \si[per-mode=symbol]{\celsius} = R_{thra}*(18*2*2 \si[per-mode=symbol]{\watt}) + 40 \si[per-mode=symbol]{\celsius}
 \end{equation*}
 
 \begin{equation*}
-R_{tha} = 0.77 °C/W
+R_{tha} = 0.77 \si[per-mode=symbol]{\celsius\per\watt}
 \end{equation*}
 
-En la  parte interna de la etapa de salida, tenemos que en el peor caso se disipan 3.25  W por cada transistor.
-Haciendo las mismas cuentas con otros valores.
+En la  parte interna de la etapa de salida, tenemos que en el peor caso se disipan $3.25 \si[per-mode=symbol]{\watt}$ por cada transistor. Haciendo las mismas cuentas con otros valores.
 
 
 \begin{equation*}
-T_r = 120°C - (6.25°C/W + 0.1°C/W)*(3.25W) = 99.36 °C
+T_r = 120 \si[per-mode=symbol]{\celsius} - (6.25 \si[per-mode=symbol]{\celsius\per\watt} + 0.1 \si[per-mode=symbol]{\celsius\per\watt})*(3.25 \si[per-mode=symbol]{\watt}) = 99.36 \si[per-mode=symbol]{\celsius}
 \end{equation*}
 
 \begin{equation*}
-R_{tha} = 9.13 °C/W
+R_{tha} = 9.13 \si[per-mode=symbol]{\celsius\per\watt}
 \end{equation*}
 
 \paragraph{Disipadores elegidos:}
 
-Para la parte externa de la salida ZD-23 0.65°C/W , elegimos este modelo porque nos da un poco de margen.
+Para la parte externa de la salida \textbf{ZD-23} $0.65 \si[per-mode=symbol]{\celsius\per\watt}$ , elegimos este modelo porque nos da un poco de margen.
 
 \begin{figure}[H]
     \centering
     \includegraphics[height=0.4\textwidth]{img/zd23.jpg}
-    \caption{Disipador ZD-23}
+    \caption{Disipador \textbf{ZD-23}}
     \label{fig:diszd23}
 \end{figure}
 
 
-Para parte interna ZD-14 2°C/W, si bien solo necesitamos 9°C/W , elegimos este modelo porque nos da mas margen:
+Para parte interna ZD-14 $2 \si[per-mode=symbol]{\celsius\per\watt}$, si bien solo necesitamos $9 \si[per-mode=symbol]{\celsius\per\watt}$ , elegimos este modelo porque nos da mas margen:
 
 \begin{figure}[H]
     \centering
     \includegraphics[height=0.4\textwidth]{img/zd14.jpg}
-    \caption{Disipador ZD-14}
+    \caption{Disipador \textbf{ZD-14}}
     \label{fig:diszd14}
 \end{figure}
