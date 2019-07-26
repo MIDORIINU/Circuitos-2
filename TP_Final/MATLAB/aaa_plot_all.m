@@ -29,8 +29,7 @@ end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% P11g_phase_margin(spice_directory, points_directory, ... % Check.
-%     images_directory, false);
+
 % 
 % P11b_Ri(spice_directory, points_directory, ... % Check.
 %     images_directory, false);
@@ -47,11 +46,21 @@ end
 % P11f_I_step_small_signal(spice_directory, points_directory, ... % Check.
 %     images_directory, false);
 
-aab_Slew_Rate(spice_directory, sims_directory, ... % Check.
-    images_directory, false);
 
 
 
+% aab_Slew_Rate(spice_directory, sims_directory, ... % Check.
+%     images_directory, false);
 
+
+%  aab_phase_margin_NC(spice_directory, sims_directory, ... % Check.
+%      images_directory, false);
+% 
+% 
+% aab_phase_margin_C(spice_directory, sims_directory, ... % Check.
+%     images_directory, false);
+
+aab_Power_BW(spice_directory, sims_directory, ...
+      images_directory, false);
 
 
