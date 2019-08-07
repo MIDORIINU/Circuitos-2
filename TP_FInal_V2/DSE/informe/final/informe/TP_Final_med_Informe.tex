@@ -1,0 +1,185 @@
+
+\input{config}
+
+
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+%-------------------------------------------------
+%--------------- BEGIN DOCUMENT ------------------
+%-------------------------------------------------
+\begin{document}
+
+
+
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+%Incluyo la caratula
+%Caratula
+\input{caratula}
+\thispagestyle{empty}
+\cleardoublepage
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+	
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+%Reinicio la cuenta y seteo el estilo de headers y footers.
+\pagestyle{indexstyle}
+\pagenumbering{Roman}
+\setcounter{page}{1}
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\begin{small}
+\tableofcontents 
+\addcontentsline{toc}{section}{Índice}
+%\phantomsection\pdfbookmark[0]{\indexname}{bookmarkForTheIndex}
+
+\clearpage
+
+\listoffigures
+
+\clearpage
+
+\listoftables
+
+\end{small}
+
+\cleardoublepage
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+%Reinicio la cuenta y seteo el stilo de headers y footers.
+\pagestyle{allpages}
+\setcounter{page}{1}
+\pagenumbering{arabic}
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\section{Consideraciones previas al diseño}
+\resetallcounters
+\input{specs}
+\clearpage
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+%%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+%\section{Diseño conceptual}
+%\resetallcounters
+%\input{concept}
+%\clearpage
+%%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+%
+%
+%%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+%\section{Diseño circuital}
+%\resetallcounters
+%\input{design}
+%\clearpage
+%%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+%
+%
+%%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+%\section{Simulaciones}
+%\resetallcounters
+%\input{simulations}
+%\clearpage
+%%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+%
+%%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+%\section{Alimentación}
+%\resetallcounters
+%\input{power_supply}
+%\clearpage
+%%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+%
+%%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+%\section{Diseño del pre-amplificador}
+%\resetallcounters
+%\input{preamp}
+%\clearpage
+%%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+%
+%
+%%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+%\section{Diseño de PCB}
+%\resetallcounters
+%\input{PCB}
+%\clearpage
+%%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+%
+%
+%%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+%\section{Disipación de calor}
+%\resetallcounters
+%\input{heat_sink}
+%\clearpage
+%%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+
+%\subsection{Diagramas de conexionado}
+%El siguiente diagrama muestra como se conectaría la fuente [seccion~\ref{sec:fuente}], el amplificador y el parlante.
+%
+%\begin{figure}[H]
+%\centering
+%\includegraphics[width=1\textwidth]{img/integracion/diagrama_completo}
+%\caption{Diagrama completo}
+%\label{fig:diag_completo} 
+%\end{figure}
+%
+%El la siguiente imagen se muestra el conexionado interno del amplificador en si con los disipadores calculados [seccion~\ref{sec:disipadores}].
+%
+%\begin{figure}[H]
+%\centering
+%\includegraphics[width=1\textwidth]{img/integracion/diagrama_interno}
+%\caption{Diagrama interno}
+%\label{fig:circuito} 
+%\end{figure}
+
+
+
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\section{Observaciones y conclusiones}
+\resetallcounters
+%\input{conclusiones}
+\cleardoublepage
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+%Reinicio la cuenta y seteo el estilo de headers y footers.
+\pagestyle{bibliostyle}
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\section{Bibliografía}
+\resetallcounters
+\input{bibliografia}
+\cleardoublepage
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+%Seteo el stilo de headers y footers.
+\pagestyle{allpages}
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+\appendix
+
+
+\appendixpage
+\addappheadtotoc
+
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+\section{Hojas de datos}
+
+\input{datasheets}
+
+\clearpage
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+
+
+
+\end{document}

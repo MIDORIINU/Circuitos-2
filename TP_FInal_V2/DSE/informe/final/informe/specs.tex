@@ -1,0 +1,56 @@
+\subsection{Objetivo y requerimientos de usuario}
+
+Nuestro objetivo es armar un circuito amplificador que amplifique una señal de audio que será reproducida en un Bafle (asumimos respuesta resistiva pura en todo el ancho de banda).  Debe proveer al usuario con una buena calidad de sonido (algo subjetivo, no obstante acá solo se consideran medidas reales) con volumen alto, sin consumir mucha más energía de la necesaria, ni ser muy grande y pesado. Es decir, debe tener baja distorsión (THD), alta relación señal-ruido (SNR), eficiencia razonable y buena potencia máxima de salida.
+
+
+
+\subsection{Especificaciones}
+
+\bigskip
+
+\begin{itemize}
+	\item Máxima Potencia de Salida:  $>= 60\si[per-mode=symbol]{\watt} RMS @8\si[per-mode=symbol]{\ohm}$
+	\item Salida clase \textbf{G}
+	\item THD: $< 0.01 \si[per-mode=symbol]{\percent} @ 1\si[per-mode=symbol]{\kilo\hertz}$, $<0.02 \si[per-mode=symbol]{\percent} @ 10\si[per-mode=symbol]{\kilo\hertz}$ , a $60W RMS@8\si[per-mode=symbol]{\ohm}$ y $1\si[per-mode=symbol]{\watt} RMS @8 \si[per-mode=symbol]{\ohm}$
+	\item Slew-Rate: $>15\frac{V}{\mu S}$
+	\item Impedancia de entrada: $>30\si[per-mode=symbol]{\kilo\ohm}$
+	\item Sensibilidad: $1.1\si[per-mode=symbol]{\volt}$ \textit{pico} $@8\Omega$
+	\item Ancho de banda: $10\si[per-mode=symbol]{\hertz} \longrightarrow  30\si[per-mode=symbol]{\kilo\hertz}$
+	\item Factor de amortiguamiento: $>200$
+	\item Ancho de banda de potencia: $>30\si[per-mode=symbol]{\kilo\hertz}$
+	\item Alimentación: 
+	\begin{itemize}
+		\item Baja tensión: $ \pm 15\si[per-mode=symbol]{\volt}$ \textit{nominal (desde transformador de $ 12 \si[per-mode=symbol]{\volt} +12 \si[per-mode=symbol]{\volt}$), ripple máximo} $10 \si[per-mode=symbol]{\percent}$
+		\item Alta tensión: $ \pm 49\si[per-mode=symbol]{\volt}$ \textit{nominal (desde transformador de $ 36 \si[per-mode=symbol]{\volt} +36 \si[per-mode=symbol]{\volt}$), ripple máximo} $10 \si[per-mode=symbol]{\percent}$
+	\end{itemize}
+	
+	\item Máxima excursión: $31\si[per-mode=symbol]{\volt}$
+\end{itemize}
+
+
+
+\subsubsection{Acerca de la máxima potencia}
+ 
+\begin{sloppypar}
+ 
+Nuestro diseño es efectivamente el de un amplificador de ${100 \si[per-mode=symbol]{\watt}}$ \textit{RMS}, sin embargo no lo caracterizamos para esa potencia, ya que la fuente de alimentación diseñada no nos permite alcanzar esa potencia, sin embargo, sin modificar el circuito, con una fuente de alimentación adecuada, posiblemente switching (mejorando mucho la eficiencia global), se puede alcanzar esta potencia, seguramente sea necesario también agrandar el disipador de los transistores de potencia, el principal motivo de limitar la potencia es económico, ya que el precio de la fuente de alimentación termina dominando el precio total del diseño.
+
+\end{sloppypar}
+
+ 
+\subsubsection{Acerca de la máxima excursión}
+ 
+ \begin{sloppypar}
+ 
+Para una salida senoidal de $60\si[per-mode=symbol]{\watt}$ \textit{RMS}, su potencia pico es ${\frac{V_{max}^2}{R_L} = 120\si[per-mode=symbol]{\watt}}$ que, con carga ${R_L=8\si[per-mode=symbol]{\ohm}}$ da una tensión pico de ${V_{max} \cong 31 \si[per-mode=symbol]{\volt}}$. A esta tensión se llega cuando la entrada es la sensibilidad especificada, ${1.1\si[per-mode=symbol]{\volt} pico @8\si[per-mode=symbol]{\ohm}}$. Estos ${31 \si[per-mode=symbol]{\volt}}$ serán la máxima excursión, la tensión máxima en la que el amplificador garantiza que no haya recortes bajo cualquier condición de alimentación, ya que al no ser regulada la fuente de alimentación, se consideró el peor caso, con la tensión de línea a ${80\si[per-mode=symbol]{\percent}}$ de su valor nominal, esto se detalla en la sección sobre la fuente de alimentación.
+
+\end{sloppypar}
+
+
+\subsubsection{Acerca del slew-rate}
+
+\begin{sloppypar}
+
+El slew rate especificado ${\left(15\frac{V}{\mu s}\right)}$ mas que duplica el valor mínimo para cumplir las otras especificaciones: el mayor ritmo de crecimiento para señales de ancho de banda $30\si[per-mode=symbol]{\kilo\hertz}$ y máxima excursión $31\si[per-mode=symbol]{\volt}$ se da cuando la senoide cruza por cero, y su pendiente es ${2 \pi \times 30\si[per-mode=symbol]{\kilo\hertz}\times 31\si[per-mode=symbol]{\volt} \cong 5.8\frac{V}{\mu s}}$. 
+
+\end{sloppypar}

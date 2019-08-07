@@ -1,0 +1,793 @@
+%Este archivo no tiene contenido, mas allá de configuraciones y\o definiciones.
+%todo el contenido se encuentra en los archivos secundarios que son importados por este.
+
+\documentclass[twoside,letterpaper]{article}
+
+
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+%Packages en uso
+
+%Idiomas diccionario
+\usepackage[english, spanish]{babel}
+%\usepackage[english]{babel}
+
+\usepackage[utf8x]{inputenc}
+%\usepackage[latin1]{inputenc} 
+%\usepackage[ansinew]{inputenc}
+\usepackage{ucs}
+
+
+
+
+%\usepackage[margin=1cm, paperwidth=21.0cm, paperheight=29.6cm]{geometry}
+
+
+
+\usepackage[T1]{fontenc} 
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{longtable}
+%\usepackage{floatflt}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+%\usepackage{url}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{textcomp}
+%\usepackage[symbol]{footmisc}
+%\usepackage{pst-circ}
+%\usepackage{epsfig}
+%\usepackage{xkeyval}
+\usepackage{tabularx}
+\usepackage{booktabs}
+
+
+%\usepackage{color}
+\usepackage[usenames,dvipsnames]{color}
+
+
+%\usepackage{minted}
+\usepackage{latexsym}
+\usepackage{colortbl}
+%\usepackage{pdfpages}
+\usepackage{wrapfig}
+
+%\usepackage{listings}
+\usepackage{listingsutf8}
+%\usepackage{mips}
+\usepackage{appendix}
+\usepackage{needspace}
+\usepackage{ifplatform}
+\usepackage{ifthen}
+
+
+
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+% FOR GNUPLOT
+%\usepackage{tikz}
+
+%\usepackage[miktex]{gnuplottex}
+%\usepackage{gnuplot-lua-tikz}
+%\usepackage{mathpazo}
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+% FOR FIGURE CAPTION COLORS
+
+\usepackage{caption}
+\usepackage[svgnames]{xcolor}
+
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+% FOR FIGURE WRAPPING
+
+\usepackage{wrapfig}
+
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+% FOR EQUATION CAPTION FORMAT, COLORS AND OTHERS
+
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{bm}
+
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+% TABLES
+
+\usepackage{makecell, multirow, tabularx}
+    \newcolumntype{L}{>{\raggedright\arraybackslash}X}
+    \renewcommand\theadfont{\normalsize\bfseries\color{white}}
+\usepackage{hhline}
+\usepackage{setspace}
+
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+% UNITS
+
+\usepackage{siunitx}
+
+\sisetup{output-exponent-marker=\ensuremath{\mathrm{e}}}
+
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+% MATH
+
+\usepackage{mathrsfs}
+
+\usepackage{mathtools}
+
+\usepackage{amsmath,mleftright}
+
+\usepackage{xparse}
+
+\numberwithin{equation}{subsection}
+
+\NewDocumentCommand{\evalat}{sO{\big}mm}{%
+  \IfBooleanTF{#1}
+   {\mleft. #3 \mright|_{#4}}
+   {#3#2|_{#4}}%
+}
+
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+%!!!!!!!!!!!!!!!!!!!!!!!!! DETECCION DE PLATAFORMA !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+%Permite que sea compilado tanto en windows como en *IX sin cambio alguno.
+\newboolean{IsWindows}
+\ifwindows
+\setboolean{IsWindows}{true}
+\else
+\setboolean{IsWindows}{false}
+\fi
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+%!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+%Idiomas
+\hyphenrules{spanish}
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+%3D
+%\usepackage{media9}
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+%Comandos personalizados
+
+\newcommand{\titulo}{Trabajo práctico final}
+\newcommand{\titulolargo}{Diseño de un amplificador clase G - mediciones}
+\newcommand{\materia}{Circuitos electrónicos II - 66.10}
+\newcommand{\fiuba}{Facultad de Ingeniería - UBA}
+\newcommand{\cuatrimestre}{1\textsuperscript{er} c. 2019} %\sptext{do} $2^{do}$
+
+
+\newcommand{\autorA}{\textsc{Neumarkt Fernández} Leonardo}
+\newcommand{\padronA}{97471}
+\newcommand{\mailA}{\weblink{mailto:leoneu928@gmail.com}{leoneu928@gmail.com}}
+
+ 
+\newcommand{\autorB}{\textsc{Rizzo} Gonzalo Gabriel}
+\newcommand{\padronB}{96772}
+\newcommand{\mailB}{\weblink{mailto:gonzalorizzo95@gmail.com}{gonzalorizzo95@gmail.com}} 
+ 
+ 
+ 
+\newcommand{\autorC}{\textsc{Luna} Diego}
+\newcommand{\padronC}{75451}
+\newcommand{\mailC}{\weblink{mailto:diegorluna@gmail.com}{diegorluna@gmail.com}} 
+
+
+ 
+\newcommand{\docenteA}{Ing. \textsc{Bertuccio} José Alberto}
+\newcommand{\docenteB}{Ing. \textsc{Acquaticci} Fabián}
+\newcommand{\docenteC}{Ing. \textsc{Marchi} Edgardo }
+\newcommand{\docenteD}{Ing. \textsc{Bulacio} Matías}
+\newcommand{\docenteE}{Ing. \textsc{D’Angiolo} Federico}
+\newcommand{\docenteF}{Ing. \textsc{Gamez} Pablo}
+
+
+\newcommand{\thedate}{07 de Agosto de 2019}
+
+
+\newcommand{\HRule}{\rule{\linewidth}{0.3mm}}
+
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+%Título,  autor del documento y fecha
+\title{\titulo}
+\author{\autorC}
+\date{\thedate}
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\setcounter{secnumdepth}{5}
+\setcounter{tocdepth}{5}
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+%suppress widows and orphans
+\widowpenalty=9999
+\clubpenalty=9999
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+%equation numbers to subsection level
+%\numberwithin{equation}{subsection}
+%\numberwithin{equation}{section}
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+%equation numbers to subsection level
+%\numberwithin{table}{subsection}
+\numberwithin{table}{subsection}
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+%figure numbers to subsection level
+%\renewcommand{\thefigure}{\thesubsection.\arabic{figure}}
+\renewcommand{\thefigure}{\thesection.\arabic{figure}}
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+%\setlength{\arrayrulewidth}{0.6pt}
+
+
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\newcolumntype{z}[1]{%
+>{\centering\hspace{0pt}}p{#1}}%
+
+\newcolumntype{y}[1]{%
+>{\raggedleft\hspace{0pt}}p{#1}}% 
+
+\newcolumntype{x}[1]{%
+>{\raggedright\hspace{0pt}}p{#1}}% 
+
+\newcolumntype{w}[1]{%
+>{\centering\hspace{0pt}}m{#1}}%
+
+\newcolumntype{v}[1]{%
+>{\raggedleft\hspace{0pt}}m{#1}}% 
+
+\newcolumntype{u}[1]{%
+>{\raggedright\hspace{0pt}}m{#1}}% 
+
+
+\newcommand{\tn}{\tabularnewline}
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+
+
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+% Generales
+\newcommand{\quotemarks}[1]{``#1''}
+\newcommand{\simplequotemarks}[1]{`#1'}
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+% Símbolos de las unidades
+
+%\newcommand{\volt}[1]{\mbox{#1 V}}
+%\newcommand{\milivolt}[1]{\mbox{#1 mV}}
+%\newcommand{\hertz}[1]{\mbox{#1 Hz}}
+%\newcommand{\kilohertz}[1]{\mbox{#1 kHz}}
+%\newcommand{\megahertz}[1]{\mbox{#1 MHz}}
+%\newcommand{\farad}[1]{\mbox{#1 F}}
+%\newcommand{\nanofarad}[1]{\mbox{#1 nF}}
+%\newcommand{\microfarad}[1]{\mbox{#1 $\mu$F}}
+%\newcommand{\picofarad}[1]{\mbox{#1 pF}}
+%\newcommand{\fentofarad}[1]{\mbox{#1 fF}}
+%\newcommand{\ohm}[1]{\mbox{#1 $\Omega$}}
+%\newcommand{\miliohm}[1]{\mbox{#1 m$\Omega$}}
+%\newcommand{\kiloohm}[1]{\mbox{#1 k$\Omega$}}
+%\newcommand{\megaohm}[1]{\mbox{#1 M$\Omega$}}
+%\newcommand{\amper}[1]{\mbox{#1 A}}
+%\newcommand{\miliamper}[1]{\mbox{#1 mA}}
+%\newcommand{\microamper}[1]{\mbox{#1 $\mu$A}}
+%\newcommand{\picoamper}[1]{\mbox{#1 pA}}
+%\newcommand{\fentoamper}[1]{\mbox{#1 fA}}
+%\newcommand{\s}[1]{\mbox{#1 s}}
+%\newcommand{\milis}[1]{\mbox{#1 ms}}
+%\newcommand{\micros}[1]{\mbox{#1 $\mu$s}}
+%\newcommand{\nanos}[1]{\mbox{#1 ns}}
+%\newcommand{\miliamperporvolt}[1]{ \mbox{#1 $\frac{mA}{V}$}}
+%\newcommand{\miliamperporvoltcuad}[1]{ \mbox{#1 $\frac{mA}{V^2}$}}
+%\newcommand{\decibel}[1]{\mbox{#1 dB}}
+%\newcommand{\decibeli}[1]{\mbox{#1 dBi}}
+
+
+% Nombres de las unidades
+%\newcommand{\Metro}{\mbox{metro}}
+%\newcommand{\Volt}{\mbox{Volt}}
+%\newcommand{\Amper}{\mbox{Ampere}}
+%\newcommand{\Farad}{\mbox{Farad}}
+
+\newcommand{\spice}{\mbox{\textit{\textbf{SPICE}}}}
+\newcommand{\schematic}{\mbox{\textit{\textbf{SCHEMATIC}}}}
+
+\newcommand{\parallelresistors}{\mathbin{\!/\mkern-5mu/\!}}
+
+
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+% Dispositivos
+
+\newcommand{\mosfet}{\mbox{\textbf{MOSFET}}}
+\newcommand{\nmosfet}{\mbox{\textbf{NMOSFET}}}
+\newcommand{\bjtnpn}{\mbox{\textbf{BJT NPN}}}
+\newcommand{\bjtpnp}{\mbox{\textbf{BJT PNP}}}
+
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+% Plataformas
+
+\newcommand{\platformhost}{\textbf{x86(\_64)\textbackslash Linux}}
+\newcommand{\platformguest}{\textbf{pmax\textbackslash NetBSD}}
+
+\newcommand{\oshost}{\textbf{Linux}}
+\newcommand{\osguest}{\textbf{NetBSD}}
+
+\newcommand{\MIPS}{\textbf{MIPS32}}
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+% Programación
+
+\newcommand{\GNU}{\textbf{GNU}}
+
+\newcommand{\GCC}{\textbf{GCC}}
+
+\newcommand{\GDB}{\textbf{GDB}}
+
+\newcommand{\GXEMUL}{\textbf{GXemul}}
+
+\newcommand{\langc}{\textbf{\quotemarks{C}}}
+
+\newcommand{\langass}{\textbf{assembly}}
+
+\newcommand{\langmipsass}{\textbf{MIPS32 assembly}}
+
+\newcommand{\make}{\textbf{make}}
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+% Archivos
+
+\newcommand{\quotefile}[1]{\textit{\quotemarks{#1}}}
+
+\newcommand{\filebox}[2]{%
+
+\begin{tabular}{l}
+
+\multicolumn{1}{>{\columncolor{#2}}l}{#1} 
+	
+\end{tabular}
+
+}%
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+% Math
+\newcommand{\Reales}{\mathbb{R}}
+\newcommand{\Complejos}{\mathbb{C}}
+\newcommand{\numnorm}[1]{\left|#1\right|}
+\newcommand{\vectornorm}[1]{\left|\left|#1\right|\right|}
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+% Counters
+\newcommand{\resetallcounters}{%
+\setcounter{figure}{0}
+\setcounter{equation}{0}
+\setcounter{table}{0}
+}%
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+% Definiciones de colores.
+\definecolor{Deepblue}{rgb}{0.00,0.00,0.70}
+\definecolor{Deepgreen}{rgb}{0.09,0.45,0.20}
+\definecolor{Darkgreen}{RGB}{0, 128, 0}
+\definecolor{Purple}{rgb}{1,0,1}
+\definecolor{Deeppurple}{rgb}{0.2,0,1}
+\definecolor{Gray}{rgb}{0.3,0.3,0.3}
+\definecolor{Lightblue}{rgb}{0.60, 0.80, 1.00}
+\definecolor{Lightyellow}{rgb}{1.00,1.00,0.60}
+\definecolor{LightButter}{rgb}{0.98,0.91,0.31}
+\definecolor{LightOrange}{rgb}{0.98,0.68,0.24}
+\definecolor{LightChocolate}{rgb}{0.91,0.72,0.43}
+\definecolor{LightChameleon}{rgb}{0.54,0.88,0.20}
+\definecolor{LightSkyBlue}{rgb}{0.45,0.62,0.81}
+\definecolor{LightPlum}{rgb}{0.68,0.50,0.66}
+\definecolor{LightScarletRed}{rgb}{0.93,0.16,0.16}
+\definecolor{Butter}{rgb}{0.93,0.86,0.25}
+\definecolor{Orange}{rgb}{0.96,0.47,0.00}
+\definecolor{Chocolate}{rgb}{0.75,0.49,0.07}
+\definecolor{Chameleon}{rgb}{0.45,0.82,0.09}
+\definecolor{SkyBlue}{rgb}{0.20,0.39,0.64}
+\definecolor{Plum}{rgb}{0.46,0.31,0.48}
+\definecolor{ScarletRed}{rgb}{0.80,0.00,0.00}
+\definecolor{DarkButter}{rgb}{0.77,0.62,0.00}
+\definecolor{DarkOrange}{rgb}{0.80,0.36,0.00}
+\definecolor{DarkChocolate}{rgb}{0.56,0.35,0.01}
+\definecolor{DarkChameleon}{rgb}{0.30,0.60,0.02}
+\definecolor{DarkSkyBlue}{rgb}{0.12,0.29,0.53}
+\definecolor{DarkPlum}{rgb}{0.36,0.21,0.40}
+\definecolor{DarkScarletRed}{rgb}{0.64,0.00,0.00}
+\definecolor{Aluminium1}{rgb}{0.93,0.93,0.92}
+\definecolor{Aluminium2}{rgb}{0.82,0.84,0.81}
+\definecolor{Aluminium3}{rgb}{0.73,0.74,0.71}
+\definecolor{Aluminium4}{rgb}{0.53,0.54,0.52}
+\definecolor{Aluminium5}{rgb}{0.33,0.34,0.32}
+\definecolor{Aluminium6}{rgb}{0.18,0.20,0.21}
+
+\definecolor{EQColor}{rgb}{0.00,0.26,0.36} % {0.80,0.36,0.00}
+\definecolor{FIGColor}{cmyk}{1,0.00,0.00,0.00}
+\definecolor{TABLEColor}{RGB}{70,19,199}
+
+
+
+\definecolor{APENDLINKColor}{rgb}{0.96,0.47,0.00}
+\definecolor{SECTLINKColor}{rgb}{1.00,0.30,0.00}
+\definecolor{FILELINKColor}{rgb}{1.00,0.00,0.00}
+\definecolor{INTERNALLINKColor}{rgb}{1.00,0.00,0.00}
+\definecolor{WEBLINKColor}{rgb}{0.00,0.00,1.00}
+\definecolor{CITELINKColor}{RGB}{141,199,126}
+\definecolor{TABLELINKColor}{RGB}{199,199,0}
+
+
+%\definecolor{EQColor}{rgb}{0.00,0.36,0.80}
+%\definecolor{FIGColor}{cmyk}{1,0.00,0.00,0.00}
+%\definecolor{TABLEColor}{RGB}{0,199,25}
+
+
+
+%\definecolor{APENDLINKColor}{rgb}{0.10,0.47,0.00}
+%\definecolor{SECTLINKColor}{rgb}{0.00,0.00,1.00}
+%\definecolor{FILELINKColor}{rgb}{0.00,0.00,1.00}
+%\definecolor{INTERNALLINKColor}{rgb}{0.00,0.00,1.00}
+%\definecolor{WEBLINKColor}{rgb}{0.00,0.00,1.00}
+%\definecolor{CITELINKColor}{RGB}{141,199,126}
+%\definecolor{TABLELINKColor}{RGB}{199,199,0}
+
+
+\definecolor{HeadersColor}{RGB}{0,137,182}
+
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+% FOR FIGURE CAPTION COLORS
+
+\DeclareCaptionFont{FIGFont}{\color{FIGColor}}
+\captionsetup[figure]{labelfont={FIGFont,bf}}
+
+\newcommand{\figref}[1]{\textcolor{FIGColor}{[\ref{#1}]}}
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+% FOR TABLE CAPTION COLORS
+
+\DeclareCaptionFont{TABLEFont}{\color{TABLEColor}}
+\captionsetup[table]{labelfont={TABLEFont,bf}}
+
+\newcommand{\tableref}[1]{\textcolor{TABLEColor}{[\ref{#1}]}}
+
+
+%\captionsetup[table]{style=fortables}
+%\captionsetup[figure]{style=forfigures}
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+% FOR EQUATION CAPTION FORMAT, COLORS AND OTHERS
+
+\newtagform{brackets2}[\textcolor{EQColor}]{\textcolor{EQColor}(}{\textcolor{EQColor})}
+\usetagform{brackets2}
+
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+% FOR EQUATION CAPTION COLORS
+%\makeatletter %% Without ams
+%\def\@eqnnum{{\normalfont\normalcolor[\theequation]}}
+%\makeatother
+
+%But amsmath redefines the numbering of equations, so then you can do:
+
+%\makeatletter %% With ams
+%\def\tagform@#1{\maketag@@@{[\ignorespaces#1\unskip\@@italiccorr]}}
+%\makeatother 
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+% FOR APENDIX REFERENCE
+
+\newcommand{\apendref}[1]{\textcolor{APENDLINKColor}{[\ref{#1}]}}
+
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+% FOR SECTION REFERENCE
+
+\newcommand{\sectref}[1]{\textcolor{SECTLINKColor}{[\ref{#1}]}}
+
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+% WEB LINK
+
+\newcommand{\weblink}[2]{\href{#1}{\textcolor{WEBLINKColor}{#2}}}
+
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+% FILE LINK
+
+\newcommand{\filelink}[2]{\href{#1}{\textcolor{FILELINKColor}{#2}}}
+
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+% CITE LINK
+\newcommand{\citelink}[1]{\textcolor{LimeGreen}{\cite{#1}}}
+
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+\hypersetup{
+%	bookmarksnumbered,
+%	pdfpagemode={UseOutlines},
+%    bookmarks=true,         				% show bookmarks bar?
+    unicode=true,          					% non-Latin characters in Acrobat’s bookmarks
+    pdftoolbar=true,        				% show Acrobat’s toolbar?
+    pdfmenubar=true,        				% show Acrobat’s menu?
+%    pdffitwindow=false,    				% window fit to page when opened
+%    pdfstartview={FitH},   				% fits the width of the page to the window
+    pdftitle={\titulo},   					% title
+    pdfauthor={\autorA},    				% author
+    pdfsubject={\materia},   				% subject of the document
+%    pdfcreator={\LaTeX},   				% creator of the document
+%    pdfproducer={Producer},				% producer of the document
+    pdfkeywords={TL} {TP}, 					% list of keywords
+    pdfnewwindow=true,      				% links in new window
+    linktoc=all,							%
+    colorlinks=false,  						% false: boxed links; true: colored links	
+	linkcolor=INTERNALLINKColor,			% color of internal links
+    citecolor=CITELINKColor,    			% color of links to bibliography
+    filecolor=FILELINKColor,   	 			% color of file links
+    urlcolor=WEBLINKColor,       			% color of external links	
+	linkbordercolor=INTERNALLINKColor,		% color of internal links
+	citebordercolor=CITELINKColor,			% color of links to bibliography
+    filebordercolor=FILELINKColor,    		% color of file links
+    urlbordercolor=WEBLINKColor}	       	% color of external links	    
+   				
+	
+
+
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+%Comportamiento de los links a archivos externos.
+%\hypersetup{pdfnewwindow=true}
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+%Tamaños de la página y margenes
+
+\linespread{1.3}
+\oddsidemargin .1cm
+\evensidemargin .1cm
+\textwidth 16.5cm
+\topmargin 0in
+\voffset = 0pt
+\textheight 21.08cm %8.3in
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+
+%\pagestyle{fancy}
+
+
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+%Encabezado y pie de páginas para todas las páginas normales
+
+\fancypagestyle{allpages}{%
+
+\fancyhf{}  
+
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+%No convierte a mayúscula los nombres de capítulo y sección 
+%ni muestra el número.
+%\renewcommand{\chaptermark}[1]{}
+\renewcommand{\sectionmark}[1]{\markright{##1}{}}
+\renewcommand{\subsectionmark}[1]{}
+\renewcommand{\subsubsectionmark}[1]{}
+
+
+\setlength{\headheight}{12pt}
+
+   
+%\fancyhf[LOH,REH]{\fiuba}
+%\fancyhf[ROH,LEH]{\titulo}
+
+\fancyhf[LH]{\small{\fiuba}}
+\fancyhf[CH]{\small{\materia}}
+\fancyhf[RH]{\titulo} 
+
+\fancyhf[LOF,REF]{\small{\cuatrimestre}}
+\fancyhf[CF]{\small{\rightmark}}
+\fancyhf[LEF, ROF]{\textbf{\thepage}} 
+
+}
+
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+%Encabezado y pie de páginas para el índice
+\fancypagestyle{indexstyle}{%
+
+\fancyhf{} % clear all header and footer fields
+
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+\setlength{\headheight}{12pt}
+
+
+\fancyhf[LH]{\includegraphics[width=3cm]{./img/logo_encabezado_fiuba}}
+\fancyhf[CH]{\small{\materia}}
+\fancyhf[RH]{\titulo}
+
+\fancyhf[LOF,REF]{\small{\cuatrimestre}}
+\fancyhf[CF]{\small{Índice}}
+\fancyhf[LEF, ROF]{\textbf{\thepage}} 
+
+%\color{red}
+
+}
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+
+
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+%Encabezado y pie de páginas para el código
+\fancypagestyle{codestyle}{%
+
+\fancyhf{} % clear all header and footer fields
+
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+%No convierte a mayúscula los nombres de capítulo y sección 
+%ni muestra el número.
+%\renewcommand{\chaptermark}[1]{}
+\renewcommand{\sectionmark}[1]{}
+\renewcommand{\subsectionmark}[1]{}
+\renewcommand{\subsubsectionmark}[1]{\markright{##1}}
+
+\setlength{\headheight}{12pt}
+
+\fancyhf[LH]{\small{\fiuba}}
+\fancyhf[CH]{\small{\materia}}
+\fancyhf[RH]{\titulo}
+\fancyhf[LOF,REF]{\small{\cuatrimestre}}
+\fancyhf[CF]{\small{Archivo: \color{DarkBlue}\rightmark}}
+%\bfseries{\color{red} \filename
+\fancyhf[LEF, ROF]{\textbf{\thepage}} 
+
+
+\normalfont
+}
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+
+\newcommand{\themark}{}
+
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+%Encabezado y pie de páginas para el código
+\fancypagestyle{codeconsstyle}{%
+
+\fancyhf{} % clear all header and footer fields
+
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+
+\setlength{\headheight}{12pt}
+
+
+\fancyhf[LH]{\small{\fiuba}}
+\fancyhf[CH]{\small{\materia}}
+\fancyhf[RH]{\titulo}
+
+\fancyhf[LOF,REF]{\small{\cuatrimestre}}
+\fancyhf[CF]{\small{\themark}}
+\fancyhf[LEF, ROF]{\textbf{\thepage}} 
+
+}
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+
+
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+%Encabezado y pie de páginas para el índice
+\fancypagestyle{bibliostyle}{%
+
+\fancyhf{} % clear all header and footer fields
+
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+\setlength{\headheight}{12pt}
+
+
+\fancyhf[LH]{\small{\fiuba}}
+\fancyhf[CH]{\small{\materia}}
+\fancyhf[RH]{\titulo}
+
+\fancyhf[LOF,REF]{\small{\cuatrimestre}}
+\fancyhf[CF]{\small{Bibliografía}}
+\fancyhf[LEF, ROF]{\textbf{\thepage}} 
+
+}
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+%Renuevo los nombres de los apéndices.
+\renewcommand{\appendixpagename}{Apéndices}
+\renewcommand{\appendixtocname}{Apéndices}
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+%Renuevo el símbolo de los items.
+\renewcommand\labelitemi{$\bullet$}
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+
+
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
