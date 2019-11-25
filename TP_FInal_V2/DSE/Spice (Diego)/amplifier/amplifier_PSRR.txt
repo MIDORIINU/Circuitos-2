@@ -1,0 +1,117 @@
+Circuit: * C:\Users\bakaneko\Facultad\Materias\Circuitos Electrónicos II\TPS\REPO-TPS\REPO\TP_FInal_V2\DSE\Spice (Diego)\amplifier\amplifier_PSRR.asc
+
+Direct Newton iteration failed to find .op point.  (Use ".option noopiter" to skip.)
+Starting Gmin stepping
+Gmin = 10
+Gmin = 1.07374
+Gmin = 0.115292
+Gmin = 0.0123794
+Gmin = 0.00132923
+Gmin = 0.000142725
+Gmin = 1.5325e-005
+Gmin = 1.6455e-006
+vernier = 0.5
+vernier = 0.25
+vernier = 0.125
+vernier = 0.0625
+vernier = 0.03125
+vernier = 0.015625
+vernier = 0.0078125
+vernier = 0.00390625
+vernier = 0.00195313
+Gmin = 2.05588e-006
+vernier = 0.00260417
+Gmin = 2.04387e-006
+vernier = 0.00347222
+vernier = 0.00462963
+Gmin = 2.02387e-006
+vernier = 0.00617283
+vernier = 0.00823044
+Gmin = 1.99239e-006
+vernier = 0.0109739
+Gmin = 1.94386e-006
+vernier = 0.0146319
+vernier = 0.0195092
+Gmin = 1.86508e-006
+vernier = 0.0260122
+vernier = 0.034683
+Gmin = 1.74615e-006
+vernier = 0.0173415
+vernier = 0.00867074
+vernier = 0.00433537
+vernier = 0.00216769
+vernier = 0.00108384
+vernier = 0.000541921
+vernier = 0.000406441
+Gmin = 0
+Gmin stepping failed
+
+Starting source stepping with srcstepmethod=0
+Source Step = 3.0303%
+Source Step = 33.3333%
+Source Step = 63.6364%
+Source Step = 93.9394%
+Source stepping succeeded in finding the operating point.
+
+N-Period=4
+Fourier components of V(out)
+DC component:0.0029188
+
+Harmonic	Frequency	 Fourier 	Normalized	 Phase  	Normalized
+ Number 	  [Hz]   	Component	 Component	[degree]	Phase [deg]
+    1   	1.000e+02	7.569e-05	1.000e+00	 -163.60°	    0.00°
+    2   	2.000e+02	3.974e-05	5.250e-01	 -169.85°	   -6.25°
+    3   	3.000e+02	2.882e-05	3.807e-01	  162.05°	  325.65°
+    4   	4.000e+02	3.587e-05	4.739e-01	  178.08°	  341.69°
+    5   	5.000e+02	2.202e-05	2.909e-01	 -145.16°	   18.44°
+    6   	6.000e+02	6.622e-06	8.749e-02	  142.84°	  306.45°
+    7   	7.000e+02	2.247e-05	2.969e-01	  159.00°	  322.61°
+    8   	8.000e+02	1.973e-05	2.606e-01	 -151.35°	   12.25°
+    9   	9.000e+02	2.228e-06	2.943e-02	 -107.88°	   55.72°
+   10   	1.000e+03	1.448e-05	1.913e-01	  139.59°	  303.20°
+   11   	1.100e+03	1.739e-05	2.298e-01	 -165.04°	   -1.44°
+   12   	1.200e+03	6.138e-06	8.109e-02	 -104.05°	   59.55°
+   13   	1.300e+03	8.696e-06	1.149e-01	  119.29°	  282.89°
+   14   	1.400e+03	1.470e-05	1.943e-01	  179.19°	  342.79°
+   15   	1.500e+03	8.259e-06	1.091e-01	 -119.81°	   43.80°
+   16   	1.600e+03	4.284e-06	5.659e-02	   95.62°	  259.22°
+   17   	1.700e+03	1.181e-05	1.561e-01	  162.81°	  326.42°
+   18   	1.800e+03	9.099e-06	1.202e-01	 -136.92°	   26.68°
+   19   	1.900e+03	1.149e-06	1.517e-02	   42.15°	  205.75°
+   20   	2.000e+03	8.899e-06	1.176e-01	  146.43°	  310.04°
+   21   	2.100e+03	9.029e-06	1.193e-01	 -154.00°	    9.60°
+   22   	2.200e+03	1.939e-06	2.561e-02	  -82.48°	   81.12°
+   23   	2.300e+03	6.114e-06	8.078e-02	  130.48°	  294.09°
+   24   	2.400e+03	8.306e-06	1.097e-01	 -170.67°	   -7.07°
+   25   	2.500e+03	3.582e-06	4.732e-02	 -111.88°	   51.72°
+   26   	2.600e+03	3.583e-06	4.734e-02	  115.83°	  279.44°
+   27   	2.700e+03	7.137e-06	9.429e-02	  173.31°	  336.92°
+   28   	2.800e+03	4.591e-06	6.065e-02	 -131.93°	   31.67°
+   29   	2.900e+03	1.414e-06	1.869e-02	  107.17°	  270.78°
+   30   	3.000e+03	5.703e-06	7.535e-02	  158.33°	  321.94°
+Total Harmonic Distortion: 107.972323%(643.726418%)
+
+
+
+vrms: RMS(v(out))=0.00271559 FROM 0.001 TO 0.05
+pout: AVG(v(out)*i(rl))=9.218e-007 FROM 0.001 TO 0.05
+vout_max: MAX(v(out))=0.0034457 FROM 0 TO 0.05
+
+
+Date: Mon Nov 25 12:30:15 2019
+Total elapsed time: 156.291 seconds.
+
+tnom = 27
+temp = 27
+method = modified trap
+totiter = 1083122
+traniter = 1080178
+tranpoints = 540090
+accept = 540077
+rejected = 13
+matrix size = 103
+fillins = 182
+solver = Alternate
+Matrix Compiler1: off  [15.5]/21.9/17.8
+Matrix Compiler2: off  [6.0]/7.7/6.7
+
