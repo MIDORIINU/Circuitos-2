@@ -1,0 +1,59 @@
+Circuit: * C:\Users\bakaneko\Facultad\Materias\Circuitos Electrónicos II\TPS\REPO-TPS\REPO\TP_FInal_V2\DSE\Spice (Diego)\amplifier\amplifier_SR.asc
+
+Direct Newton iteration failed to find .op point.  (Use ".option noopiter" to skip.)
+Starting Gmin stepping
+Gmin = 10
+Gmin = 1.07374
+Gmin = 0.115292
+Gmin = 0.0123794
+Gmin = 0.00132923
+Gmin = 0.000142725
+Gmin = 1.5325e-005
+Gmin = 1.6455e-006
+vernier = 0.5
+vernier = 0.25
+vernier = 0.125
+vernier = 0.0625
+vernier = 0.03125
+vernier = 0.015625
+vernier = 0.0078125
+vernier = 0.00390625
+vernier = 0.00195313
+vernier = 0.000976563
+Gmin = 2.05688e-006
+vernier = 0.000488281
+Gmin = 0
+Gmin stepping failed
+
+Starting source stepping with srcstepmethod=0
+Source Step = 3.0303%
+Source Step = 33.3333%
+Source Step = 63.6364%
+Source Step = 93.9394%
+Source stepping succeeded in finding the operating point.
+
+
+vout_max: v(out)=24.8287 at 0.00185
+t1: time=0.00150132 at 0.00150132
+t2: time=0.00150262 at 0.00150262
+rt: t2-t1=1.29992e-006
+sr: (vout_max/(3*rt))*1e-6=6.36673
+
+
+Date: Sun Nov 24 21:10:48 2019
+Total elapsed time: 7.320 seconds.
+
+tnom = 27
+temp = 27
+method = modified trap
+totiter = 53266
+traniter = 51158
+tranpoints = 25399
+accept = 25316
+rejected = 83
+matrix size = 103
+fillins = 180
+solver = Alternate
+Matrix Compiler1: 23.94 KB object code size  14.2/17.0/[9.6]
+Matrix Compiler2: off  [6.3]/6.8/8.7
+
